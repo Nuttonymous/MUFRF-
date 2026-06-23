@@ -1,0 +1,3192 @@
+﻿[
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Automated western blot",
+        "code":  "BS01-1A",
+        "mode":  "Automated western blot - chemiluminescence \n(Instrument use)",
+        "unit":  "run",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Automated western blot",
+        "code":  "BS01-2A",
+        "mode":  "Automated western blot - fluorescence (Instrument use)",
+        "unit":  "run",
+        "Mahidol":  "650",
+        "Government":  "850",
+        "Private":  "1,300"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Biomolecular imager",
+        "code":  "BS02-1A",
+        "mode":  "Biomolecular imager (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Biomolecular imager",
+        "code":  "BS02-1B",
+        "mode":  "Biomolecular imager (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Bioreactor",
+        "code":  "BS03-1A",
+        "mode":  "Bioreactor (Instrument use)",
+        "unit":  "day",
+        "Mahidol":  "2,000",
+        "Government":  "2,500",
+        "Private":  "4,000"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "ELISpot",
+        "code":  "BS04-1A",
+        "mode":  "ELISpot (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "ELISpot",
+        "code":  "BS04-1B",
+        "mode":  "ELISpot (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Flow cytometer",
+        "code":  "BS05-1A",
+        "mode":  "Flow cytometer - analyzer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Flow cytometer",
+        "code":  "BS05-2A",
+        "mode":  "Flow cytometer - cell sorter (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Flow cytometer",
+        "code":  "BS05-1B",
+        "mode":  "Flow cytometer - analyzer (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Fragment analyzer",
+        "code":  "BS06-1A",
+        "mode":  "Fragment analyzer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Gel documentation",
+        "code":  "BS07-1A",
+        "mode":  "Gel documentation (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Image analyzer",
+        "code":  "BS08-1A",
+        "mode":  "Image analyzer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Incubator",
+        "code":  "BS09-1A",
+        "mode":  "CO2 incubator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Incubator",
+        "code":  "BS09-2A",
+        "mode":  "Cooling incubator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Incubator",
+        "code":  "BS09-3A",
+        "mode":  "Heating incubator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Incubator",
+        "code":  "BS09-4A",
+        "mode":  "Shaking incubator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Microplate reader",
+        "code":  "BS10-1A",
+        "mode":  "Microplate reader - absorbance (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Microplate reader",
+        "code":  "BS10-2A",
+        "mode":  "Microplate reader - alpha screen (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Microplate reader",
+        "code":  "BS10-3A",
+        "mode":  "Microplate reader - chemiluminescence (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Microplate reader",
+        "code":  "BS10-4A",
+        "mode":  "Microplate reader - fluorescence (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Microplate reader",
+        "code":  "BS10-5A",
+        "mode":  "Microplate reader - fluorescence polarization \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Microplate reader",
+        "code":  "BS10-6A",
+        "mode":  "Microplate reader - time resolved fluorescence \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Microplate reader",
+        "code":  "BS10-7A",
+        "mode":  "Microplate reader - time resolved FRET \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-1A",
+        "mode":  "MALDI-TOF MS (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,250",
+        "Government":  "1,600",
+        "Private":  "2,500"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-2A",
+        "mode":  "MALDI-TOF MS - genotyping analysis (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "900",
+        "Government":  "1,150",
+        "Private":  "1,800"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-3A",
+        "mode":  "MALDI-TOF MS - MALDI-imaging (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "2,200",
+        "Government":  "2,750",
+        "Private":  "4,400"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-1B",
+        "mode":  "MALDI-TOF MS (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-2B",
+        "mode":  "MALDI-TOF MS - genotyping analysis (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-1D",
+        "mode":  "MALDI-TOF MS - biotyper (Test)",
+        "unit":  "sample",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-2D",
+        "mode":  "MALDI-TOF MS - protein molecular weight measurement (Test)",
+        "unit":  "sample",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "MALDI-TOF MS",
+        "code":  "BS11-3D",
+        "mode":  "MALDI-TOF MS - polymer (Test)",
+        "unit":  "sample",
+        "Mahidol":  "1,300",
+        "Government":  "1,650",
+        "Private":  "2,600"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "PCR machine",
+        "code":  "BS12-1A",
+        "mode":  "PCR machine (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "PCR machine",
+        "code":  "BS12-2A",
+        "mode":  "Real-time PCR machine (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-1A",
+        "mode":  "Benchtop sequencer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-2A",
+        "mode":  "Production-scale sequencer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-1C",
+        "mode":  "Benchtop sequencer (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-2C",
+        "mode":  "Production-scale sequencer (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-3C",
+        "mode":  "Bioinformatics service (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-1D",
+        "mode":  "Benchtop sequencer - DNA library preparation \n(Test, 8-24 Samples)",
+        "unit":  "sample",
+        "Mahidol":  "1,600",
+        "Government":  "2,000",
+        "Private":  "3,200"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-2D",
+        "mode":  "Benchtop sequencer - PCR amplicon preparation \n(Test, 8-96 Samples)",
+        "unit":  "sample",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-3D",
+        "mode":  "Production-scale sequencer - RNA library preparation\n(Test, 8-16 Samples)",
+        "unit":  "sample",
+        "Mahidol":  "1,600",
+        "Government":  "2,000",
+        "Private":  "3,200"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Sequencer",
+        "code":  "BS13-4D",
+        "mode":  "Production-scale sequencer - whole genome library preparation (Test, 8-24 Samples)",
+        "unit":  "sample",
+        "Mahidol":  "1,600",
+        "Government":  "2,000",
+        "Private":  "3,200"
+    },
+    {
+        "Instrument group":  "Bioscience instrument",
+        "Instrument":  "Surface plasmon resonance",
+        "code":  "BS14-1A",
+        "mode":  "Surface plasmon resonance (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "DART-MS",
+        "code":  "CG01-1A",
+        "mode":  "DART-MS (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "700",
+        "Government":  "900",
+        "Private":  "1,400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "DART-MS",
+        "code":  "CG01-1D",
+        "mode":  "DART-MS (Test)",
+        "unit":  "sample",
+        "Mahidol":  "800",
+        "Government":  "1,000",
+        "Private":  "1,600"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "FPLC",
+        "code":  "CG02-1A",
+        "mode":  "FPLC (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "120",
+        "Government":  "150",
+        "Private":  "250"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "FPLC",
+        "code":  "CG02-2A",
+        "mode":  "FPLC - preparative (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "Flash chromatograph",
+        "code":  "CG03-1A",
+        "mode":  "Flash chromatograph (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "Flash chromatograph",
+        "code":  "CG03-2A",
+        "mode":  "Flash chromatograph (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC",
+        "code":  "CG04-1A",
+        "mode":  "GC (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC",
+        "code":  "CG04-2A",
+        "mode":  "GC (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "225",
+        "Government":  "300",
+        "Private":  "450"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC",
+        "code":  "CG04-1B",
+        "mode":  "GC (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC",
+        "code":  "CG04-1C",
+        "mode":  "GC (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC",
+        "code":  "CG04-2C",
+        "mode":  "GC (Test and analysis with user column)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "550",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-1A",
+        "mode":  "GC-MS (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "350",
+        "Government":  "500",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-2A",
+        "mode":  "GC-MS (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-1B",
+        "mode":  "GC-MS (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-1C",
+        "mode":  "GC-MS - quantitative (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "750",
+        "Government":  "950",
+        "Private":  "1,500"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-2C",
+        "mode":  "GC-MS - quantitative\n(Test and analysis with user column)",
+        "unit":  "sample",
+        "Mahidol":  "700",
+        "Government":  "850",
+        "Private":  "1,350"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-3C",
+        "mode":  "GC-MS - quantitative head space/SPME (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-4C",
+        "mode":  "GC-MS - quantitative head space/SPME \n(Test and analysis with user column)",
+        "unit":  "sample",
+        "Mahidol":  "1,100",
+        "Government":  "1,350",
+        "Private":  "2,200"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-1D",
+        "mode":  "GC-MS - head space/SPME profile (Test)",
+        "unit":  "sample",
+        "Mahidol":  "800",
+        "Government":  "1,000",
+        "Private":  "1,600"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-2D",
+        "mode":  "GC-MS - head space/SPME profile (Test with user column)",
+        "unit":  "sample",
+        "Mahidol":  "700",
+        "Government":  "900",
+        "Private":  "1,400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-3D",
+        "mode":  "GC-MS - profile (Test)",
+        "unit":  "sample",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-MS",
+        "code":  "CG05-4D",
+        "mode":  "GC-MS - profile (Test with user column)",
+        "unit":  "sample",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-TQ",
+        "code":  "CG06-1A",
+        "mode":  "GC-TQ (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-TQ",
+        "code":  "CG06-2A",
+        "mode":  "GC-TQ (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-TQ",
+        "code":  "CG06-1B",
+        "mode":  "GC-TQ (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-TQ",
+        "code":  "CG06-1C",
+        "mode":  "GC-TQ - quantitative (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "1,250",
+        "Government":  "1,600",
+        "Private":  "2,500"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-TQ",
+        "code":  "CG06-2C",
+        "mode":  "GC-TQ - quantitative \n(Test and analysis with user column)",
+        "unit":  "sample",
+        "Mahidol":  "1,100",
+        "Government":  "1,400",
+        "Private":  "2,200"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-TQ",
+        "code":  "CG06-3C",
+        "mode":  "GC-TQ - quantitative head space/SPME (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "1,650",
+        "Government":  "2,100",
+        "Private":  "3,300"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "GC-TQ",
+        "code":  "CG06-4C",
+        "mode":  "GC-TQ - quantitative head space/SPME \n(Test and analysis with user column)",
+        "unit":  "sample",
+        "Mahidol":  "1,500",
+        "Government":  "1,900",
+        "Private":  "3,000"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-1A",
+        "mode":  "HPLC - 2 channels UV detector (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-2A",
+        "mode":  "HPLC - 2 channels UV detector (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "180",
+        "Government":  "225",
+        "Private":  "350"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-3A",
+        "mode":  "HPLC - 4 channels UV detector (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-4A",
+        "mode":  "HPLC - 4 channels UV detector (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "225",
+        "Government":  "320",
+        "Private":  "450"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-5A",
+        "mode":  "HPLC - ELS detector (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-6A",
+        "mode":  "HPLC - ELS detector\n(Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "270",
+        "Government":  "350",
+        "Private":  "550"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-7A",
+        "mode":  "HPLC - fluorescence detector (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-8A",
+        "mode":  "HPLC - fluorescence detector\n(Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "180",
+        "Government":  "225",
+        "Private":  "350"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-9A",
+        "mode":  "HPLC - RI detector (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "HPLC",
+        "code":  "CG07-10A",
+        "mode":  "HPLC - RI detector (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "180",
+        "Government":  "225",
+        "Private":  "350"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-QTOF",
+        "code":  "CG08-1D",
+        "mode":  "LC-MS-QTOF - HRMS (Test)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-QTOF",
+        "code":  "CG08-2D",
+        "mode":  "LC-MS-QTOF - metabolite profiling (Test)",
+        "unit":  "sample",
+        "Mahidol":  "3,200",
+        "Government":  "4,000",
+        "Private":  "6,400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-QTOF",
+        "code":  "CG08-3D",
+        "mode":  "LC-MS-QTOF - method development (Test)",
+        "unit":  "hour",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-QTOF",
+        "code":  "CG08-4D",
+        "mode":  "LC-MS-QTOF - protein identification (Test)",
+        "unit":  "sample",
+        "Mahidol":  "1,400",
+        "Government":  "1,750",
+        "Private":  "2,800"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-QTOF",
+        "code":  "CG08-5D",
+        "mode":  "LC-MS-QTOF - tryptic digestion (Test)",
+        "unit":  "sample",
+        "Mahidol":  "600",
+        "Government":  "750",
+        "Private":  "1,200"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-TQ",
+        "code":  "CG09-1D",
+        "mode":  "LC-MS-TQ - method development (Test)",
+        "unit":  "hour",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-TQ",
+        "code":  "CG09-2D",
+        "mode":  "LC-MS-TQ - small molecules quantitation \n(Test, 1-10 compounds)",
+        "unit":  "sample",
+        "Mahidol":  "1,600",
+        "Government":  "2,000",
+        "Private":  "3,200"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "LC-MS-TQ",
+        "code":  "CG09-3D",
+        "mode":  "LC-MS-TQ - small molecules quantitation \n(Test, 11-20 compounds)",
+        "unit":  "sample",
+        "Mahidol":  "3,200",
+        "Government":  "4,000",
+        "Private":  "6,400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "UHPLC",
+        "code":  "CG10-1A",
+        "mode":  "UHPLC - ELS detector (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "UHPLC",
+        "code":  "CG10-2A",
+        "mode":  "UHPLC - ELS detector \n(Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "270",
+        "Government":  "350",
+        "Private":  "550"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "UHPLC",
+        "code":  "CG10-3A",
+        "mode":  "UHPLC - fraction manager (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "UHPLC",
+        "code":  "CG10-4A",
+        "mode":  "UHPLC - PDA detector (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "UHPLC",
+        "code":  "CG10-5A",
+        "mode":  "UHPLC - PDA detector \n(Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "225",
+        "Government":  "300",
+        "Private":  "450"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "UPLC",
+        "code":  "CG11-1A",
+        "mode":  "UPLC (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Chromatograph",
+        "Instrument":  "UPLC",
+        "code":  "CG11-2A",
+        "mode":  "UPLC (Instrument use with user column)",
+        "unit":  "hour",
+        "Mahidol":  "225",
+        "Government":  "300",
+        "Private":  "450"
+    },
+    {
+        "Instrument group":  "Freezer",
+        "Instrument":  "Freezer",
+        "code":  "FZ01-1A",
+        "mode":  "Freezer -20 ?C (Shelf/day)",
+        "unit":  "day",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Freezer",
+        "Instrument":  "Freezer",
+        "code":  "FZ01-2A",
+        "mode":  "Freezer -20 ?C (Shelf/month)",
+        "unit":  "month",
+        "Mahidol":  "120",
+        "Government":  "150",
+        "Private":  "250"
+    },
+    {
+        "Instrument group":  "Freezer",
+        "Instrument":  "Freezer",
+        "code":  "FZ01-3A",
+        "mode":  "Freezer -40 ?C (Rack/day)",
+        "unit":  "day",
+        "Mahidol":  "120",
+        "Government":  "150",
+        "Private":  "250"
+    },
+    {
+        "Instrument group":  "Freezer",
+        "Instrument":  "Freezer",
+        "code":  "FZ01-4A",
+        "mode":  "Freezer -40 ?C (Rack/month)",
+        "unit":  "month",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Freezer",
+        "Instrument":  "Freezer",
+        "code":  "FZ01-5A",
+        "mode":  "Freezer -80 ?C (Rack/day)",
+        "unit":  "day",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Freezer",
+        "Instrument":  "Freezer",
+        "code":  "FZ01-6A",
+        "mode":  "Freezer -80 ?C (Rack/month)",
+        "unit":  "month",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Atomic force microscope : AFM",
+        "code":  "MC01-1A",
+        "mode":  "AFM (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1000"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Atomic force microscope : AFM",
+        "code":  "MC01-2A",
+        "mode":  "AFM-RAMAN (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "600",
+        "Government":  "750",
+        "Private":  "1200"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Atomic force microscope : AFM",
+        "code":  "MC01-1B",
+        "mode":  "AFM (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Atomic force microscope : AFM",
+        "code":  "MC01-2B",
+        "mode":  "AFM-RAMAN (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Cryo-TEM",
+        "code":  "MC02-1A",
+        "mode":  "Cryo-TEM - ambient operation (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,800",
+        "Government":  "2,250",
+        "Private":  "3,600"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Cryo-TEM",
+        "code":  "MC02-2A",
+        "mode":  "Cryo-TEM - cryogenic operation (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "2,000",
+        "Government":  "2,500",
+        "Private":  "4,000"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Cryo-TEM",
+        "code":  "MC02-1B",
+        "mode":  "Cryo-TEM (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Cryo-TEM",
+        "code":  "MC02-1C",
+        "mode":  "Cryo-TEM - 3D reconstruction (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "DeltaVision microscope",
+        "code":  "MC03-1A",
+        "mode":  "DeltaVision microscope (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Inverted microscope",
+        "code":  "MC04-1A",
+        "mode":  "Inverted microscope - bright field (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Inverted microscope",
+        "code":  "MC04-2A",
+        "mode":  "Inverted microscope - fluorescence (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Inverted microscope",
+        "code":  "MC04-3A",
+        "mode":  "High-resolution inverted microscope - bright field \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Inverted microscope",
+        "code":  "MC04-4A",
+        "mode":  "High-resolution inverted microscope - fluorescence \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Laser microdissection microscope : LMD",
+        "code":  "MC05-1A",
+        "mode":  "LMD - bright field (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Laser microdissection microscope : LMD",
+        "code":  "MC05-2A",
+        "mode":  "LMD - fluorescence (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Laser microdissection microscope : LMD",
+        "code":  "MC05-3A",
+        "mode":  "LMD - laser microdissection (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Optical microscope",
+        "code":  "MC06-1A",
+        "mode":  "Optical microscope (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "10",
+        "Government":  "15",
+        "Private":  "20"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Optical sectioning microscope",
+        "code":  "MC07-1A",
+        "mode":  "Optical sectioning microscope (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Stereo microscope",
+        "code":  "MC08-1A",
+        "mode":  "Stereo microscope - bright field (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Stereo microscope",
+        "code":  "MC08-2A",
+        "mode":  "Stereo microscope - fluorescence (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-1A",
+        "mode":  "FESEM - EDS (Instrument use)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-2A",
+        "mode":  "FESEM - imaging (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-3A",
+        "mode":  "SEM - EDS (Instrument use)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-4A",
+        "mode":  "SEM - imaging (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-1D",
+        "mode":  "FESEM - EDS (Test)",
+        "unit":  "sample",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-2D",
+        "mode":  "FESEM - imaging (Test)",
+        "unit":  "hour",
+        "Mahidol":  "2,200",
+        "Government":  "2,750",
+        "Private":  "4,400"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-3D",
+        "mode":  "SEM - EDS (Test)",
+        "unit":  "sample",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Microscope",
+        "Instrument":  "Scanning electron microscope : SEM",
+        "code":  "MC09-4D",
+        "mode":  "SEM - imaging (Test)",
+        "unit":  "hour",
+        "Mahidol":  "1,600",
+        "Government":  "2,000",
+        "Private":  "3,200"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Analytical balance",
+        "code":  "SP01-1A",
+        "mode":  "Analytical balance 2 digits (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Analytical balance",
+        "code":  "SP01-2A",
+        "mode":  "Analytical balance 4 digits (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Analytical balance",
+        "code":  "SP01-3A",
+        "mode":  "Analytical balance 6 digits (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Auto fine coater",
+        "code":  "SP02-1A",
+        "mode":  "Auto fine coater (Instrument use)",
+        "unit":  "run",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Autoclave",
+        "code":  "SP03-1A",
+        "mode":  "Autoclave - 50 litre (Instrument use)",
+        "unit":  "run",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Autoclave",
+        "code":  "SP03-2A",
+        "mode":  "Autoclave - 110 litre (Instrument use)",
+        "unit":  "run",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Automated liquid handling",
+        "code":  "SP04-1A",
+        "mode":  "Automated liquid handling (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Automated liquid handling",
+        "code":  "SP05-1A",
+        "mode":  "Automated vitrification machine (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Blender",
+        "code":  "SP06-1A",
+        "mode":  "Blender (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Centifuge",
+        "code":  "SP07-1A",
+        "mode":  "Benchtop centrifuge (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Centifuge",
+        "code":  "SP07-2A",
+        "mode":  "High speed centrifuge (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "120",
+        "Government":  "150",
+        "Private":  "250"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Centifuge",
+        "code":  "SP07-3A",
+        "mode":  "Super speed centrifuge (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "140",
+        "Government":  "175",
+        "Private":  "280"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Centifuge",
+        "code":  "SP07-4A",
+        "mode":  "Ultra speed centrifuge (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Concentrator",
+        "code":  "SP08-1A",
+        "mode":  "Cooling concentrator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Concentrator",
+        "code":  "SP08-2A",
+        "mode":  "Nitrogen concentrator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Concentrator",
+        "code":  "SP08-3A",
+        "mode":  "Speed vacuum concentrator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Concentrator",
+        "code":  "SP08-4A",
+        "mode":  "Cross-flow concentrator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Critical point drier",
+        "code":  "SP09-1A",
+        "mode":  "Critical point drier (Instrument use)",
+        "unit":  "run",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Cryostat",
+        "code":  "SP10-1A",
+        "mode":  "Cryostat (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Ductless fume hood",
+        "code":  "SP11-1A",
+        "mode":  "Ductless fume hood (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Freeze dryer",
+        "code":  "SP12-1D",
+        "mode":  "Benchtop shell freezer (Test)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Freeze dryer",
+        "code":  "SP12-2D",
+        "mode":  "Freeze dryer (Test)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Glow discharge machine",
+        "code":  "SP13-1A",
+        "mode":  "Glow discharge machine",
+        "unit":  "run",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Grinder",
+        "code":  "SP14-1A",
+        "mode":  "Cryogenic grinder (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Grinder",
+        "code":  "SP14-2A",
+        "mode":  "Grinding machine (Instrument use)",
+        "unit":  "sample",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Heat block",
+        "code":  "SP15-1A",
+        "mode":  "Heat block (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Sonicator",
+        "code":  "SP16-1A",
+        "mode":  "Sonicator bath (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Sonicator",
+        "code":  "SP16-2A",
+        "mode":  "Ultrasonicator probe (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Homoginizer",
+        "code":  "SP17-1A",
+        "mode":  "Homoginizer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Hot air oven",
+        "code":  "SP18-1A",
+        "mode":  "Hot air oven (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Hot plate stirrer",
+        "code":  "SP19-1A",
+        "mode":  "Hot plate stirrer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Matrix sprayer",
+        "code":  "SP20-1A",
+        "mode":  "Matrix sprayer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Mini see-saw rocker",
+        "code":  "SP21-1A",
+        "mode":  "Mini see-saw rocker (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Mixer",
+        "code":  "SP22-1A",
+        "mode":  "QuEChERS vortex mixer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Mixer",
+        "code":  "SP22-2A",
+        "mode":  "Thermomixer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Mixer",
+        "code":  "SP22-3A",
+        "mode":  "Vortex mixer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Muffle furnace",
+        "code":  "SP23-1A",
+        "mode":  "Muffle furnace (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Pellet press machine",
+        "code":  "SP24-1A",
+        "mode":  "Hydraulic pellet press machine (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "10",
+        "Government":  "15",
+        "Private":  "20"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Pellet press machine",
+        "code":  "SP24-2A",
+        "mode":  "Pellet press machine (Instrument use)",
+        "unit":  "sample",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "pH Meter",
+        "code":  "SP25-1A",
+        "mode":  "pH Meter (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "20",
+        "Government":  "30",
+        "Private":  "40"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Positive pressure manifold",
+        "code":  "SP26-1A",
+        "mode":  "Positive pressure manifold (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Rotary evaporator",
+        "code":  "SP27-1A",
+        "mode":  "Rotary evaporator (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Sample preparation",
+        "Instrument":  "Water bath",
+        "code":  "SP28-1A",
+        "mode":  "Water bath (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Circular dichroism spectrometer : CD",
+        "code":  "SM01-1A",
+        "mode":  "CD (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Circular dichroism spectrometer : CD",
+        "code":  "SM01-1B",
+        "mode":  "CD (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Circular dichroism spectrometer : CD",
+        "code":  "SM01-1D",
+        "mode":  "CD - spectra measurement (Test)",
+        "unit":  "sample",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Circular dichroism spectrometer : CD",
+        "code":  "SM01-2D",
+        "mode":  "CD - variable temperature and interval measurement (Test)",
+        "unit":  "hour",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fluorometer",
+        "code":  "SM02-1A",
+        "mode":  "Fluorometer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-1A",
+        "mode":  "FTIR microscope (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-2A",
+        "mode":  "FTIR spectrometer - ATR (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-3A",
+        "mode":  "FTIR spectrometer - DRIFTS (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-4A",
+        "mode":  "FTIR spectrometer - DRIFTS \n(Instrument use with user IR transparent material)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-5A",
+        "mode":  "FTIR spectrometer - transmission (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-6A",
+        "mode":  "FTIR spectrometer - transmission\n(Instrument use with user IR transparent material)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "250",
+        "Private":  "450"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-1B",
+        "mode":  "FTIR microscope (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-2B",
+        "mode":  "FTIR spectrometer (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-1C",
+        "mode":  "FTIR microscope (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "825",
+        "Government":  "1,050",
+        "Private":  "1,650"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-2C",
+        "mode":  "FTIR spectrometer (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-1D",
+        "mode":  "FTIR microscope (Test)",
+        "unit":  "sample",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Fourier-transform infrared : FTIR",
+        "code":  "SM03-2D",
+        "mode":  "FTIR spectrometer (Test)",
+        "unit":  "sample",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-1A",
+        "mode":  "FAAS - C2H2/Air (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-2A",
+        "mode":  "FAAS - C2H2/N2O (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-1D",
+        "mode":  "FAAS - calibration curve under C2H2/Air (Test)",
+        "unit":  "element/\nrun",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-2D",
+        "mode":  "FAAS - calibration curve under C2H2/N2O (Test)",
+        "unit":  "element/\nrun",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-3D",
+        "mode":  "FAAS - Al (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-4D",
+        "mode":  "FAAS - Ag (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-5D",
+        "mode":  "FAAS - Au (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-6D",
+        "mode":  "FAAS - Ca (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-7D",
+        "mode":  "FAAS - Cd (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-8D",
+        "mode":  "FAAS - Cr (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-9D",
+        "mode":  "FAAS - Cu (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-10D",
+        "mode":  "FAAS - Fe (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-11D",
+        "mode":  "FAAS - K (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-12D",
+        "mode":  "FAAS - Mg (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-13D",
+        "mode":  "FAAS - Mn (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-14D",
+        "mode":  "FAAS - Na (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-15D",
+        "mode":  "FAAS - Ni (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-16D",
+        "mode":  "FAAS - Pb (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-17D",
+        "mode":  "FAAS - Si (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-18D",
+        "mode":  "FAAS - Ti (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Flame atomic absorption spectrometer : FAAS",
+        "code":  "SM04-19D",
+        "mode":  "FAAS - Zn (Test)",
+        "unit":  "sample",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-1A",
+        "mode":  "GFAAS (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-1D",
+        "mode":  "GFAAS - calibration curve (Test)",
+        "unit":  "element/\nrun",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-2D",
+        "mode":  "GFAAS - Ag (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-3D",
+        "mode":  "GFAAS - Al (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-4D",
+        "mode":  "GFAAS - As (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-5D",
+        "mode":  "GFAAS - Au (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-6D",
+        "mode":  "GFAAS - Ca (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-7D",
+        "mode":  "GFAAS - Cd (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-8D",
+        "mode":  "GFAAS - Cr (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-9D",
+        "mode":  "GFAAS - Cu (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-10D",
+        "mode":  "GFAAS - Fe (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-11D",
+        "mode":  "GFAAS - K (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-12D",
+        "mode":  "GFAAS - Mg (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-13D",
+        "mode":  "GFAAS - Mn (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-14D",
+        "mode":  "GFAAS - Na (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-15D",
+        "mode":  "GFAAS - Ni (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-16D",
+        "mode":  "GFAAS - Pb (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-17D",
+        "mode":  "GFAAS - Si (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-18D",
+        "mode":  "GFAAS - Ti (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Graphite furnace atomic absorption spectrometer : GFAAS",
+        "code":  "SM05-19D",
+        "mode":  "GFAAS - Zn (Test)",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-1A",
+        "mode":  "ICP-MS - particle size, isotope (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "700",
+        "Government":  "900",
+        "Private":  "1,400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-2A",
+        "mode":  "ICP-MS - quantitative analysis, qualitative analysis \n(Instrument use, 1-10 elements)",
+        "unit":  "hour",
+        "Mahidol":  "750",
+        "Government":  "950",
+        "Private":  "1,500"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-3A",
+        "mode":  "ICP-MS - quantitative analysis, qualitative analysis \n(Instrument use, 11-20 elements)",
+        "unit":  "hour",
+        "Mahidol":  "950",
+        "Government":  "1,200",
+        "Private":  "1,900"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-4A",
+        "mode":  "ICP-MS - quantitative analysis, qualitative analysis\n(Instrument use, 21-30 elements)",
+        "unit":  "hour",
+        "Mahidol":  "1,150",
+        "Government":  "1,450",
+        "Private":  "2,300"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-1D",
+        "mode":  "ICP-MS - calibration curve (Test)",
+        "unit":  "run",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-2D",
+        "mode":  "ICP-MS - microwave digestion (Test)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-3D",
+        "mode":  "ICP-MS - quantitative analysis, qualitative analysis\n(Test, 1-10 elements)",
+        "unit":  "sample",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-4D",
+        "mode":  "ICP-MS - quantitative analysis, qualitative analysis \n(Test, 11-20 elements)",
+        "unit":  "sample",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Inductively couple plasma�mass spectrometer : ICP-MS",
+        "code":  "SM06-5D",
+        "mode":  "ICP-MS - quantitative analysis, qualitative analysis\n(Test, 21-30 elements)",
+        "unit":  "sample",
+        "Mahidol":  "1,400",
+        "Government":  "1,750",
+        "Private":  "2,800"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-1A",
+        "mode":  "Micro-Sizer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-2A",
+        "mode":  "Nano-Sizer - particle size measurement (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-3A",
+        "mode":  "Nano-Sizer - zeta potential measurement (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-1B",
+        "mode":  "Micro-Sizer (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-2B",
+        "mode":  "Nano-Sizer - particle size measurement \n(Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-3B",
+        "mode":  "Nano-Sizer - zeta potential measurement (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-1D",
+        "mode":  "Micro-Sizer (Test)",
+        "unit":  "sample",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-2D",
+        "mode":  "Nano-Sizer - particle size measurement (Test)",
+        "unit":  "sample",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Particle analyzer",
+        "code":  "SM07-3D",
+        "mode":  "Nano-Sizer - zeta potential measurement (Test)",
+        "unit":  "sample",
+        "Mahidol":  "650",
+        "Government":  "850",
+        "Private":  "1,300"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nanodrop",
+        "code":  "SM08-1A",
+        "mode":  "Nanodrop (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-1A",
+        "mode":  "NMR (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-1B",
+        "mode":  "NMR (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-1D",
+        "mode":  "NMR - 2D (Test)",
+        "unit":  "sample",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-2D",
+        "mode":  "NMR - 1H (Test)",
+        "unit":  "sample",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-3D",
+        "mode":  "NMR - 13C, DEPT45, DEPT90, DEPT135 (Test)",
+        "unit":  "sample",
+        "Mahidol":  "900",
+        "Government":  "1,150",
+        "Private":  "1,800"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-4D",
+        "mode":  "NMR - Acetone-d6 preparation (Test)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-5D",
+        "mode":  "NMR - CDCl3 preparation (Test)",
+        "unit":  "sample",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-6D",
+        "mode":  "NMR - CD3OD-d4 preparation (Test)",
+        "unit":  "sample",
+        "Mahidol":  "700",
+        "Government":  "900",
+        "Private":  "1,400"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-7D",
+        "mode":  "NMR - DMSO-d6 preparation (Test)",
+        "unit":  "sample",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Nuclear magnetic resonance spectrometer : NMR",
+        "code":  "SM09-8D",
+        "mode":  "NMR - D2O preparation (Test)",
+        "unit":  "sample",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Raman microscope",
+        "code":  "SM10-1A",
+        "mode":  "Raman microscope - single spectrum, mapping \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Raman microscope",
+        "code":  "SM10-2A",
+        "mode":  "Raman microscope - temperature control (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "550",
+        "Government":  "700",
+        "Private":  "1,100"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Raman microscope",
+        "code":  "SM10-1D",
+        "mode":  "Raman microscope - single spectrum, mapping (Test)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Raman microscope",
+        "code":  "SM10-2D",
+        "mode":  "Raman microscope - temperature control (Test)",
+        "unit":  "hour",
+        "Mahidol":  "850",
+        "Government":  "1,100",
+        "Private":  "1,700"
+    },
+    {
+        "Instrument group":  "Spectrometer",
+        "Instrument":  "Spectrofluorometer",
+        "code":  "SM11-1A",
+        "mode":  "Spectrofluorometer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "75",
+        "Government":  "100",
+        "Private":  "150"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Optical contact angle : OCA",
+        "code":  "SF01-1A",
+        "mode":  "OCA (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Optical contact angle : OCA",
+        "code":  "SF01-1B",
+        "mode":  "OCA (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Optical contact angle : OCA",
+        "code":  "SF01-1C",
+        "mode":  "OCA (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Optical contact angle : OCA",
+        "code":  "SF01-1D",
+        "mode":  "OCA (Test)",
+        "unit":  "sample",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Tensiometer",
+        "code":  "SF02-1A",
+        "mode":  "Tensiometer (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Tensiometer",
+        "code":  "SF02-1B",
+        "mode":  "Tensiometer (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "50",
+        "Government":  "75",
+        "Private":  "100"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Tensiometer",
+        "code":  "SF02-1C",
+        "mode":  "Tensiometer (Test and analysis)",
+        "unit":  "sample",
+        "Mahidol":  "400",
+        "Government":  "500",
+        "Private":  "800"
+    },
+    {
+        "Instrument group":  "Surface analysis instrument",
+        "Instrument":  "Tensiometer",
+        "code":  "SF02-1D",
+        "mode":  "Tensiometer (Test)",
+        "unit":  "sample",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Simultaneous thermal analyzer : STA",
+        "code":  "TM01-1A",
+        "mode":  "Automated-STA (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "350",
+        "Government":  "450",
+        "Private":  "700"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Simultaneous thermal analyzer : STA",
+        "code":  "TM01-2A",
+        "mode":  "STA (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Simultaneous thermal analyzer : STA",
+        "code":  "TM01-1B",
+        "mode":  "Automated-STA (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Simultaneous thermal analyzer : STA",
+        "code":  "TM01-2B",
+        "mode":  "STA (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Simultaneous thermal analyzer : STA",
+        "code":  "TM01-1C",
+        "mode":  "Automated-STA (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Simultaneous thermal analyzer : STA",
+        "code":  "TM01-2C",
+        "mode":  "STA (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-1A",
+        "mode":  "DSC - medium pressure sample (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,250",
+        "Government":  "1,350",
+        "Private":  "1,500"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-2A",
+        "mode":  "DSC - medium pressure sample\n(Instrument use with user crucible)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-3A",
+        "mode":  "DSC - standard sample (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-4A",
+        "mode":  "DSC - standard sample (Instrument use with user crucible)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "350",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-1B",
+        "mode":  "DSC (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-1C",
+        "mode":  "DSC - high pressure sample (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "1,400",
+        "Government":  "1,750",
+        "Private":  "2,800"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-2C",
+        "mode":  "DSC - high pressure sample \n(Test and analysis with user crucible)",
+        "unit":  "hour",
+        "Mahidol":  "400",
+        "Government":  "600",
+        "Private":  "1,050"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-3C",
+        "mode":  "DSC - standard sample (Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "650",
+        "Government":  "850",
+        "Private":  "1,300"
+    },
+    {
+        "Instrument group":  "Thermal analysis instrument",
+        "Instrument":  "Differential scanning calorimeter : DSC",
+        "code":  "TM02-4C",
+        "mode":  "DSC - standard sample (Test and analysis with user crucible)",
+        "unit":  "hour",
+        "Mahidol":  "400",
+        "Government":  "600",
+        "Private":  "1,050"
+    },
+    {
+        "Instrument group":  "Water purification system",
+        "Instrument":  "Type l (LC-MS grade, resistivity 18.2 M??cm)",
+        "code":  "WP01-1D",
+        "mode":  "Type l (LC-MS grade, resistivity 18.2 M??cm)",
+        "unit":  "litre",
+        "Mahidol":  "150",
+        "Government":  "200",
+        "Private":  "300"
+    },
+    {
+        "Instrument group":  "Water purification system",
+        "Instrument":  "Type l (Resistivity 18.2 M??cm)",
+        "code":  "WP01-2D",
+        "mode":  "Type l (Resistivity 18.2 M??cm)",
+        "unit":  "litre",
+        "Mahidol":  "60",
+        "Government":  "80",
+        "Private":  "120"
+    },
+    {
+        "Instrument group":  "Water purification system",
+        "Instrument":  "Type ll (Resistivity \u003e 5 M??cm)",
+        "code":  "WP01-3D",
+        "mode":  "Type ll (Resistivity \u003e 5 M??cm)",
+        "unit":  "litre",
+        "Mahidol":  "30",
+        "Government":  "40",
+        "Private":  "60"
+    },
+    {
+        "Instrument group":  "Water purification system",
+        "Instrument":  "Type III (RO water)",
+        "code":  "WP01-4D",
+        "mode":  "Type III (RO water)",
+        "unit":  "litre",
+        "Mahidol":  "5",
+        "Government":  "10",
+        "Private":  "15"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "Nanoscale X-ray computed tomograph : Nano-CT",
+        "code":  "XR01-1A",
+        "mode":  "Nano-CT (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "2,350",
+        "Government":  "2,900",
+        "Private":  "4,700"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "Nanoscale X-ray computed tomograph : Nano-CT",
+        "code":  "XR01-1B",
+        "mode":  "Nano-CT (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "600",
+        "Government":  "750",
+        "Private":  "1,200"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-1A",
+        "mode":  "Benchtop-XRD - phase identification, phase analysis \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-2A",
+        "mode":  "XRD - phase identification, phase analysis (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "600",
+        "Government":  "750",
+        "Private":  "1,200"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-3A",
+        "mode":  "XRD - temperature control, X-ray reflectivity, \ngrazing incidence diffraction, texture and pole figures \n(Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "1,200",
+        "Government":  "1,500",
+        "Private":  "2,400"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-1B",
+        "mode":  "Benchtop-XRD (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-1C",
+        "mode":  "Benchtop-XRD - phase identification, phase analysis \n(Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-2C",
+        "mode":  "XRD - phase identification, phase analysis \n(Test and analysis)",
+        "unit":  "hour",
+        "Mahidol":  "1,350",
+        "Government":  "1,750",
+        "Private":  "2,700"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-1D",
+        "mode":  "Benchtop-XRD - phase identification, phase analysis (Test)",
+        "unit":  "hour",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-2D",
+        "mode":  "XRD - phase identification, phase analysis (Test)",
+        "unit":  "hour",
+        "Mahidol":  "900",
+        "Government":  "1,150",
+        "Private":  "1,800"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray diffractometer : XRD",
+        "code":  "XR02-3D",
+        "mode":  "XRD - temperature control, X-ray reflectivity, \ngrazing incidence diffraction, texture and pole figures (Test)",
+        "unit":  "hour",
+        "Mahidol":  "1,800",
+        "Government":  "2,250",
+        "Private":  "3,600"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray fluorescence : XRF",
+        "code":  "XR04-1A",
+        "mode":  "Micro-XRF - point measurement, mapping (Instrument use)",
+        "unit":  "hour",
+        "Mahidol":  "450",
+        "Government":  "600",
+        "Private":  "900"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray fluorescence : XRF",
+        "code":  "XR04-2A",
+        "mode":  "WDXRF (Instrument use)",
+        "unit":  "sample",
+        "Mahidol":  "300",
+        "Government":  "400",
+        "Private":  "600"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray fluorescence : XRF",
+        "code":  "XR04-1B",
+        "mode":  "Micro-XRF (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "250",
+        "Government":  "300",
+        "Private":  "500"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray fluorescence : XRF",
+        "code":  "XR04-2B",
+        "mode":  "WDXRF (Program analysis)",
+        "unit":  "hour",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray fluorescence : XRF",
+        "code":  "XR04-1D",
+        "mode":  "Micro-XRF - point measurement, mapping (Test)",
+        "unit":  "hour",
+        "Mahidol":  "700",
+        "Government":  "900",
+        "Private":  "1,400"
+    },
+    {
+        "Instrument group":  "X-ray-based instrument",
+        "Instrument":  "X-ray fluorescence : XRF",
+        "code":  "XR04-2D",
+        "mode":  "WDXRF (Test)",
+        "unit":  "sample",
+        "Mahidol":  "600",
+        "Government":  "750",
+        "Private":  "1,200"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 1",
+        "code":  "ST01-D",
+        "mode":  "Special test 1",
+        "unit":  "sample",
+        "Mahidol":  "100",
+        "Government":  "150",
+        "Private":  "200"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 2",
+        "code":  "ST02-D",
+        "mode":  "Special test 2",
+        "unit":  "sample",
+        "Mahidol":  "200",
+        "Government":  "250",
+        "Private":  "400"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 3",
+        "code":  "ST03-D",
+        "mode":  "Special test 3",
+        "unit":  "sample",
+        "Mahidol":  "500",
+        "Government":  "650",
+        "Private":  "1,000"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 4",
+        "code":  "ST04-D",
+        "mode":  "Special test 4",
+        "unit":  "sample",
+        "Mahidol":  "1,000",
+        "Government":  "1,250",
+        "Private":  "2,000"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 5",
+        "code":  "ST05-D",
+        "mode":  "Special test 5",
+        "unit":  "sample",
+        "Mahidol":  "2,000",
+        "Government":  "2,500",
+        "Private":  "4,000"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 6",
+        "code":  "ST06-D",
+        "mode":  "Special test 6",
+        "unit":  "sample",
+        "Mahidol":  "3,000",
+        "Government":  "4,000",
+        "Private":  "6,000"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 7",
+        "code":  "ST07-D",
+        "mode":  "Special test 7",
+        "unit":  "sample",
+        "Mahidol":  "5,000",
+        "Government":  "7,000",
+        "Private":  "10,000"
+    },
+    {
+        "Instrument group":  "Special tests",
+        "Instrument":  "Special test 8",
+        "code":  "ST08-D",
+        "mode":  "Special test 8",
+        "unit":  "sample",
+        "Mahidol":  "10,000",
+        "Government":  "12,500",
+        "Private":  "20,000"
+    }
+]

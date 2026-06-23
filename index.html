@@ -3,448 +3,1548 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MUFRF - ศูนย์เครื่องมือวิทยาศาสตร์ ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงสำหรับการวิจัยและพัฒนา ด้วยมาตรฐานระดับสากล">
-  <meta name="keywords" content="MUFRF, ศูนย์เครื่องมือวิทยาศาสตร์, วิเคราะห์ทดสอบ, เครื่องมือวิจัย, laboratory, scientific instruments">
-  <title>MUFRF — ศูนย์เครื่องมือวิทยาศาสตร์</title>
-  <link rel="stylesheet" href="style.css">
+  <title>MUFRF — Mahidol University Frontier Research Facility | Service Rates</title>
+  <meta name="description" content="อัตราค่าบริการเครื่องมือวิทยาศาสตร์ ศูนย์เครื่องมือวิจัยแนวหน้า มหาวิทยาลัยมหิดล (MUFRF) สำหรับบุคลากรมหิดล หน่วยงานราชการ และภาคเอกชน">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS RESET & VARIABLES ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-card-hover: rgba(30, 41, 59, 0.8);
+      --glass: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-hover: rgba(255, 255, 255, 0.08);
+
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
+      --accent-indigo: #6366f1;
+      --accent-teal: #14b8a6;
+      --accent-orange: #f97316;
+      --accent-lime: #84cc16;
+
+      --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+      --gradient-blue: linear-gradient(135deg, #3b82f6, #06b6d4);
+      --gradient-purple: linear-gradient(135deg, #8b5cf6, #ec4899);
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
+      --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.5);
+      --shadow-glow-blue: 0 0 30px rgba(59,130,246,0.15);
+      --shadow-glow-purple: 0 0 30px rgba(139,92,246,0.15);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      --font-sans: 'Inter', 'Noto Sans Thai', system-ui, sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(59,130,246,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139,92,246,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(6,182,212,0.04) 0%, transparent 60%);
+    }
+    .bg-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ===== HEADER / NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(10, 14, 26, 0.75);
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition-normal);
+    }
+    .navbar.scrolled {
+      background: rgba(10, 14, 26, 0.92);
+      box-shadow: var(--shadow-lg);
+    }
+    .navbar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    .logo-icon {
+      width: 42px; height: 42px;
+      border-radius: var(--radius-sm);
+      background: var(--gradient-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .logo-text { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; }
+    .logo-text span { color: var(--accent-cyan); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
+      background: var(--glass-hover);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px;
+    }
+    .mobile-toggle svg { width: 24px; height: 24px; }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 2rem 80px;
+      background: var(--gradient-hero);
+      overflow: hidden;
+    }
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+    .hero-orb:nth-child(1) {
+      width: 500px; height: 500px;
+      background: var(--accent-blue);
+      top: -10%; left: -5%;
+      animation-delay: 0s;
+    }
+    .hero-orb:nth-child(2) {
+      width: 400px; height: 400px;
+      background: var(--accent-purple);
+      bottom: -15%; right: -5%;
+      animation-delay: -7s;
+    }
+    .hero-orb:nth-child(3) {
+      width: 300px; height: 300px;
+      background: var(--accent-cyan);
+      top: 40%; left: 50%;
+      animation-delay: -14s;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -40px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.2);
+      color: var(--accent-cyan);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+    .hero h1 .gradient-text {
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-normal);
+    }
+    .btn-primary {
+      background: var(--gradient-blue);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59,130,246,0.4);
+    }
+    .btn-ghost {
+      background: var(--glass);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+    }
+    .btn-ghost:hover {
+      background: var(--glass-hover);
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== PRICING TYPE BADGES ===== */
+    .pricing-legend {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+    .pricing-legend-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.25rem 2rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    .legend-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+    }
+    .legend-dot.mahidol { background: var(--accent-emerald); }
+    .legend-dot.gov { background: var(--accent-blue); }
+    .legend-dot.private { background: var(--accent-purple); }
+
+    /* ===== SECTION BASE ===== */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 2rem;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3.5rem;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ===== CATEGORY NAVIGATION / FILTER ===== */
+    .category-nav {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      font-family: var(--font-sans);
+    }
+    .category-pill:hover {
+      background: var(--glass-hover);
+      color: var(--text-primary);
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-1px);
+    }
+    .category-pill.active {
+      background: rgba(59,130,246,0.15);
+      border-color: rgba(59,130,246,0.3);
+      color: var(--accent-blue);
+    }
+    .category-pill .pill-icon {
+      font-size: 1.1rem;
+    }
+    .category-pill .pill-count {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .category-pill.active .pill-count {
+      background: rgba(59,130,246,0.2);
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-wrapper {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+    }
+    .search-box {
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 14px 20px 14px 50px;
+      border-radius: var(--radius-lg);
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition-normal);
+    }
+    .search-box input::placeholder { color: var(--text-muted); }
+    .search-box input:focus {
+      border-color: rgba(59,130,246,0.4);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+      background: rgba(17,24,39,0.8);
+    }
+    .search-box svg {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px; height: 20px;
+      color: var(--text-muted);
+    }
+
+    /* ===== INSTRUMENT GROUP CARDS ===== */
+    .groups-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .group-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: var(--transition-normal);
+      animation: fadeInUp 0.5s ease-out both;
+    }
+    .group-card:hover {
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      user-select: none;
+    }
+    .group-header:hover {
+      background: var(--glass-hover);
+    }
+    .group-header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .group-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .group-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .group-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .group-toggle {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-normal);
+      flex-shrink: 0;
+    }
+    .group-toggle svg {
+      width: 18px; height: 18px;
+      color: var(--text-muted);
+      transition: var(--transition-normal);
+    }
+    .group-card.open .group-toggle svg {
+      transform: rotate(180deg);
+    }
+    .group-card.open .group-toggle {
+      background: rgba(59,130,246,0.15);
+      border-color: rgba(59,130,246,0.3);
+    }
+    .group-card.open .group-toggle svg {
+      color: var(--accent-blue);
+    }
+
+    .group-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .group-card.open .group-body {
+      max-height: 10000px;
+    }
+
+    .group-body-inner {
+      padding: 0 2rem 2rem;
+    }
+
+    /* ===== INSTRUMENT TABLE ===== */
+    .instrument-section {
+      margin-bottom: 1.5rem;
+    }
+    .instrument-section:last-child {
+      margin-bottom: 0;
+    }
+    .instrument-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .instrument-name::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      border-radius: 2px;
+    }
+
+    .service-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .service-table thead th {
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .service-table thead th:nth-child(n+4) {
+      text-align: right;
+    }
+    .service-table tbody tr {
+      transition: var(--transition-fast);
+    }
+    .service-table tbody tr:hover {
+      background: rgba(255,255,255,0.03);
+    }
+    .service-table tbody td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+    .service-table tbody td:nth-child(n+4) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+    }
+    .service-table .code-cell {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .service-table .unit-cell {
+      white-space: nowrap;
+      font-size: 0.78rem;
+    }
+    .unit-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(6,182,212,0.1);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6,182,212,0.15);
+    }
+    .unit-badge.unit-sample {
+      background: rgba(245,158,11,0.1);
+      color: var(--accent-amber);
+      border-color: rgba(245,158,11,0.15);
+    }
+    .unit-badge.unit-run {
+      background: rgba(236,72,153,0.1);
+      color: var(--accent-pink);
+      border-color: rgba(236,72,153,0.15);
+    }
+    .unit-badge.unit-day {
+      background: rgba(99,102,241,0.1);
+      color: var(--accent-indigo);
+      border-color: rgba(99,102,241,0.15);
+    }
+    .unit-badge.unit-gallon {
+      background: rgba(16,185,129,0.1);
+      color: var(--accent-emerald);
+      border-color: rgba(16,185,129,0.15);
+    }
+
+    .price-mahidol { color: var(--accent-emerald) !important; }
+    .price-gov { color: var(--accent-blue) !important; }
+    .price-private { color: var(--accent-purple) !important; }
+
+    .service-table .mode-cell {
+      max-width: 350px;
+      line-height: 1.5;
+    }
+
+    /* ===== COLOR PALETTE FOR GROUPS ===== */
+    .group-card[data-group="bioscience"] .group-icon { background: rgba(16,185,129,0.15); color: var(--accent-emerald); }
+    .group-card[data-group="bioscience"] .instrument-name::before { background: var(--accent-emerald); }
+    .group-card[data-group="chromatograph"] .group-icon { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+    .group-card[data-group="chromatograph"] .instrument-name::before { background: var(--accent-blue); }
+    .group-card[data-group="freezer"] .group-icon { background: rgba(6,182,212,0.15); color: var(--accent-cyan); }
+    .group-card[data-group="freezer"] .instrument-name::before { background: var(--accent-cyan); }
+    .group-card[data-group="microscope"] .group-icon { background: rgba(139,92,246,0.15); color: var(--accent-purple); }
+    .group-card[data-group="microscope"] .instrument-name::before { background: var(--accent-purple); }
+    .group-card[data-group="sample-prep"] .group-icon { background: rgba(245,158,11,0.15); color: var(--accent-amber); }
+    .group-card[data-group="sample-prep"] .instrument-name::before { background: var(--accent-amber); }
+    .group-card[data-group="spectrometer"] .group-icon { background: rgba(236,72,153,0.15); color: var(--accent-pink); }
+    .group-card[data-group="spectrometer"] .instrument-name::before { background: var(--accent-pink); }
+    .group-card[data-group="surface"] .group-icon { background: rgba(99,102,241,0.15); color: var(--accent-indigo); }
+    .group-card[data-group="surface"] .instrument-name::before { background: var(--accent-indigo); }
+    .group-card[data-group="thermal"] .group-icon { background: rgba(244,63,94,0.15); color: var(--accent-rose); }
+    .group-card[data-group="thermal"] .instrument-name::before { background: var(--accent-rose); }
+    .group-card[data-group="water"] .group-icon { background: rgba(20,184,166,0.15); color: var(--accent-teal); }
+    .group-card[data-group="water"] .instrument-name::before { background: var(--accent-teal); }
+    .group-card[data-group="xray"] .group-icon { background: rgba(249,115,22,0.15); color: var(--accent-orange); }
+    .group-card[data-group="xray"] .instrument-name::before { background: var(--accent-orange); }
+    .group-card[data-group="special"] .group-icon { background: rgba(132,204,22,0.15); color: var(--accent-lime); }
+    .group-card[data-group="special"] .instrument-name::before { background: var(--accent-lime); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--glass-border);
+      padding: 4rem 2rem;
+      background: rgba(10, 14, 26, 0.9);
+    }
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+    .footer h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+    }
+    .footer-links a:hover { color: var(--text-primary); }
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 90;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--gradient-blue);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition-normal);
+      pointer-events: none;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+    .scroll-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(59,130,246,0.4);
+    }
+    .scroll-top svg { width: 20px; height: 20px; }
+
+    /* ===== NO RESULTS ===== */
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+      display: none;
+    }
+    .no-results.visible { display: block; }
+    .no-results svg {
+      width: 64px; height: 64px;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+    .no-results p {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .no-results small {
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: rgba(10, 14, 26, 0.95);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 1rem;
+        backdrop-filter: blur(20px);
+      }
+      .hero-stats { gap: 1.5rem; }
+      .hero-stat-value { font-size: 1.8rem; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .group-header { padding: 1.25rem 1.25rem; }
+      .group-body-inner { padding: 0 1rem 1.25rem; }
+      .service-table { font-size: 0.78rem; }
+      .service-table thead th,
+      .service-table tbody td { padding: 8px 8px; }
+      .category-pills { gap: 6px; }
+      .category-pill { padding: 8px 14px; font-size: 0.78rem; }
+      .pricing-legend-inner { gap: 1rem; padding: 1rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+      /* horizontally scrollable table on mobile */
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .service-table { min-width: 700px; }
+    }
+
+    /* ===== UTILITY ===== */
+    .hidden { display: none !important; }
+
+    /* ===== ANIMATION OBSERVER ===== */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
+  <div class="bg-grid"></div>
 
-  <!-- Page Loader -->
-  <div class="page-loader" id="pageLoader">
-    <div class="loader-spinner">
-      <div class="loader-dots">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="loader-text">MUFRF</div>
-    </div>
-  </div>
-
-  <!-- Navigation -->
+  <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#" class="nav-logo">
-        <img src="images/logo.png" alt="MUFRF Logo">
-        <span class="nav-logo-text">MUFRF</span>
+    <div class="navbar-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">MU</div>
+        <div class="logo-text">MUFRF <span>Service Rates</span></div>
       </a>
-      <div class="nav-links" id="navLinks">
-        <a href="#home" class="active">หน้าแรก</a>
-        <a href="#about">เกี่ยวกับเรา</a>
-        <a href="#equipment">เครื่องมือ</a>
-        <a href="#features">ทำไมต้องเรา</a>
-        <a href="#contact" class="nav-cta">ติดต่อเรา</a>
-      </div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="active">หน้าแรก</a></li>
+        <li><a href="#services">บริการ</a></li>
+        <li><a href="#pricing-info">อัตราค่าบริการ</a></li>
+        <li><a href="#contact">ติดต่อ</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-bg-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-orbs">
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
     </div>
-    <div class="hero-particles" id="heroParticles"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          ศูนย์เครื่องมือวิทยาศาสตร์ชั้นนำ
+    <div class="hero-content">
+      <div class="hero-badge">Mahidol University Frontier Research Facility</div>
+      <h1>
+        ศูนย์เครื่องมือวิจัย<br>
+        <span class="gradient-text">แนวหน้ามหาวิทยาลัยมหิดล</span>
+      </h1>
+      <p>
+        ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงสำหรับงานวิจัยและพัฒนา ครอบคลุมทุกสาขาวิทยาศาสตร์
+        พร้อมอัตราค่าบริการที่เหมาะสมสำหรับทุกหน่วยงาน
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="statGroups">11</div>
+          <div class="hero-stat-label">กลุ่มเครื่องมือ</div>
         </div>
-        <h1>
-          ยกระดับงานวิจัย<br>
-          ด้วย<span class="gradient-text"> เทคโนโลยี</span><br>
-          ที่ล้ำสมัย
-        </h1>
-        <p class="hero-description">
-          MUFRF ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงครบวงจร พร้อมทีมผู้เชี่ยวชาญที่พร้อมสนับสนุนงานวิจัยและพัฒนาของคุณ ด้วยมาตรฐานระดับสากล
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="statInstruments">91+</div>
+          <div class="hero-stat-label">เครื่องมือ</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="statServices">319</div>
+          <div class="hero-stat-label">รายการบริการ</div>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-primary">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          ค้นหาบริการ
+        </a>
+        <a href="#pricing-info" class="btn btn-ghost">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          ข้อมูลค่าบริการ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section class="section" id="services">
+    <div class="section-header animate-on-scroll">
+      <h2>รายการบริการเครื่องมือวิจัย</h2>
+      <p>เลือกกลุ่มเครื่องมือเพื่อดูรายละเอียดบริการ หน่วยการให้บริการ และอัตราค่าบริการสำหรับแต่ละประเภทหน่วยงาน</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search-wrapper animate-on-scroll">
+      <div class="search-box">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="searchInput" placeholder="ค้นหาเครื่องมือ เช่น SEM, HPLC, XRD...">
+      </div>
+    </div>
+
+    <!-- Category Pills -->
+    <div class="category-nav animate-on-scroll">
+      <div class="category-pills" id="categoryPills">
+        <!-- Generated by JS -->
+      </div>
+    </div>
+
+    <!-- Pricing Legend -->
+    <div class="pricing-legend animate-on-scroll" id="pricing-info">
+      <div class="pricing-legend-inner">
+        <div class="legend-item">
+          <div class="legend-dot mahidol"></div>
+          <span>บุคลากร/นักศึกษามหิดล (Mahidol)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot gov"></div>
+          <span>หน่วยงานราชการ (Government)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot private"></div>
+          <span>ภาคเอกชน (Private)</span>
+        </div>
+        <div class="legend-item" style="font-size:0.8rem; color:var(--text-muted);">
+          💰 หน่วย: บาท (THB)
+        </div>
+      </div>
+    </div>
+
+    <!-- Group Cards -->
+    <div class="groups-grid" id="groupsGrid">
+      <!-- Generated by JS -->
+    </div>
+
+    <div class="no-results" id="noResults">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <p>ไม่พบผลลัพธ์</p>
+      <small>ลองค้นหาด้วยคำอื่น หรือเลือกกลุ่มเครื่องมือ</small>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">MU</div>
+          <div class="logo-text">MUFRF <span>Service Rates</span></div>
+        </a>
+        <p>
+          ศูนย์เครื่องมือวิจัยแนวหน้า มหาวิทยาลัยมหิดล (Mahidol University Frontier Research Facility)
+          ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงเพื่อสนับสนุนงานวิจัยและนวัตกรรมระดับโลก
         </p>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-            <span>นัดหมายใช้บริการ</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
-          <button class="btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <span>เรียนรู้เพิ่มเติม</span>
-          </button>
-        </div>
       </div>
-      <div class="hero-image-wrapper">
-        <div class="hero-image">
-          <img src="images/hero-lab.png" alt="ห้องปฏิบัติการ MUFRF">
-        </div>
-        <div class="hero-float-card card-1">
-          <div class="float-card-number" data-count="150">0</div>
-          <div class="float-card-label">เครื่องมือพร้อมใช้งาน</div>
-        </div>
-        <div class="hero-float-card card-2">
-          <div class="float-card-number" data-count="98">0</div>
-          <div class="float-card-label">ความพึงพอใจ (%)</div>
-        </div>
+      <div>
+        <h4>กลุ่มบริการ</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Bioscience</a></li>
+          <li><a href="#services">Chromatograph</a></li>
+          <li><a href="#services">Microscope</a></li>
+          <li><a href="#services">Spectrometer</a></li>
+          <li><a href="#services">X-ray Instruments</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ข้อมูลเพิ่มเติม</h4>
+        <ul class="footer-links">
+          <li><a href="#pricing-info">อัตราค่าบริการ</a></li>
+          <li><a href="#services">ค้นหาบริการ</a></li>
+          <li><a href="https://op.mahidol.ac.th/ra/mufrf/" target="_blank" rel="noopener">เว็บไซต์ MUFRF</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- About / Services Section -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          บริการของเรา
-        </div>
-        <h2 class="section-title">บริการวิเคราะห์และทดสอบ<br>ครบวงจร</h2>
-        <p class="section-subtitle">ศูนย์ MUFRF พร้อมให้บริการด้วยเครื่องมือที่ทันสมัยและทีมงานผู้เชี่ยวชาญ เพื่อตอบสนองทุกความต้องการด้านการวิจัยและพัฒนา</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon blue">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v11a3 3 0 0 1-3 3h0a3 3 0 0 1-3-3V3z"/><path d="M6 3h12"/><path d="M12 17v4"/><path d="M8 21h8"/></svg>
-          </div>
-          <h3>วิเคราะห์ทางเคมี</h3>
-          <p>บริการวิเคราะห์องค์ประกอบทางเคมีด้วยเทคนิค HPLC, GC-MS, ICP-OES และอื่นๆ</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon lavender">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9l2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9l2.83-2.83"/></svg>
-          </div>
-          <h3>กล้องจุลทรรศน์อิเล็กตรอน</h3>
-          <p>ถ่ายภาพโครงสร้างจุลภาคด้วย SEM, TEM ความละเอียดระดับนาโนเมตร</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon mint">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-          </div>
-          <h3>วิเคราะห์เชิงสเปกตรัม</h3>
-          <p>บริการวิเคราะห์ด้วย NMR, FTIR, UV-Vis, XRD สำหรับการระบุโครงสร้างและคุณสมบัติ</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-4">
-          <div class="service-icon rose">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3>วิเคราะห์ข้อมูลเชิงลึก</h3>
-          <p>บริการประมวลผลและวิเคราะห์ข้อมูลขั้นสูงพร้อมรายงานผลที่เข้าใจง่าย</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-5">
-          <div class="service-icon peach">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>ฝึกอบรมและให้คำปรึกษา</h3>
-          <p>จัดหลักสูตรฝึกอบรมการใช้เครื่องมือและให้คำปรึกษาด้านเทคนิคการวิจัย</p>
-        </div>
-
-        <div class="service-card reveal reveal-delay-5">
-          <div class="service-icon sky">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>ทดสอบตามมาตรฐาน</h3>
-          <p>ทดสอบคุณภาพผลิตภัณฑ์ตามมาตรฐาน ISO, ASTM และมาตรฐานสากลอื่นๆ</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Equipment Section -->
-  <section class="equipment" id="equipment">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-tag">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
-          เครื่องมือวิทยาศาสตร์
-        </div>
-        <h2 class="section-title">เครื่องมือที่พร้อมรองรับ<br>ทุกงานวิจัย</h2>
-        <p class="section-subtitle">เรามีเครื่องมือวิทยาศาสตร์ขั้นสูงหลากหลายประเภท พร้อมให้บริการเพื่อสนับสนุนการวิจัยและนวัตกรรม</p>
-      </div>
-
-      <div class="equipment-grid">
-        <div class="equipment-card reveal reveal-delay-1">
-          <div class="equipment-card-image">
-            <img src="images/microscope.png" alt="กล้องจุลทรรศน์อิเล็กตรอน">
-            <div class="overlay">
-              <button class="overlay-btn">ดูรายละเอียด</button>
-            </div>
-          </div>
-          <div class="equipment-card-body">
-            <span class="equipment-card-tag">Microscopy</span>
-            <h3>Electron Microscope</h3>
-            <p>กล้องจุลทรรศน์อิเล็กตรอนแบบส่องกราดและแบบส่องผ่าน ความละเอียดสูง</p>
-          </div>
-        </div>
-
-        <div class="equipment-card reveal reveal-delay-2">
-          <div class="equipment-card-image">
-            <img src="images/spectrometer.png" alt="เครื่องสเปกโตรมิเตอร์">
-            <div class="overlay">
-              <button class="overlay-btn">ดูรายละเอียด</button>
-            </div>
-          </div>
-          <div class="equipment-card-body">
-            <span class="equipment-card-tag">Spectroscopy</span>
-            <h3>NMR Spectrometer</h3>
-            <p>เครื่องวิเคราะห์โครงสร้างโมเลกุลด้วยเทคนิค Nuclear Magnetic Resonance</p>
-          </div>
-        </div>
-
-        <div class="equipment-card reveal reveal-delay-3">
-          <div class="equipment-card-image">
-            <img src="images/chromatography.png" alt="เครื่องโครมาโทกราฟี">
-            <div class="overlay">
-              <button class="overlay-btn">ดูรายละเอียด</button>
-            </div>
-          </div>
-          <div class="equipment-card-body">
-            <span class="equipment-card-tag">Chromatography</span>
-            <h3>HPLC System</h3>
-            <p>ระบบโครมาโทกราฟีของเหลวสมรรถนะสูง สำหรับวิเคราะห์แยกสารประกอบ</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Statistics Section -->
-  <section class="stats" id="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal reveal-delay-1">
-          <div class="stat-number"><span data-count="150" class="counter">0</span><span class="suffix">+</span></div>
-          <div class="stat-label">เครื่องมือวิทยาศาสตร์</div>
-          <div class="stat-divider"></div>
-        </div>
-        <div class="stat-item reveal reveal-delay-2">
-          <div class="stat-number"><span data-count="2500" class="counter">0</span><span class="suffix">+</span></div>
-          <div class="stat-label">โปรเจกต์ที่สำเร็จ</div>
-          <div class="stat-divider"></div>
-        </div>
-        <div class="stat-item reveal reveal-delay-3">
-          <div class="stat-number"><span data-count="50" class="counter">0</span><span class="suffix">+</span></div>
-          <div class="stat-label">ผู้เชี่ยวชาญ</div>
-          <div class="stat-divider"></div>
-        </div>
-        <div class="stat-item reveal reveal-delay-4">
-          <div class="stat-number"><span data-count="98" class="counter">0</span><span class="suffix">%</span></div>
-          <div class="stat-label">ความพึงพอใจ</div>
-          <div class="stat-divider"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features / Why Us Section -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="features-content">
-        <div>
-          <div class="section-header reveal" style="text-align:left; margin-bottom: 40px;">
-            <div class="section-tag">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              ทำไมต้องเรา
-            </div>
-            <h2 class="section-title">มาตรฐานที่คุณ<br>วางใจได้</h2>
-            <p class="section-subtitle">ด้วยประสบการณ์กว่า 20 ปีในวงการวิทยาศาสตร์และเทคโนโลยี เราพร้อมเป็นพันธมิตรที่คุณไว้วางใจ</p>
-          </div>
-          <div class="features-list">
-            <div class="feature-item reveal reveal-delay-1">
-              <div class="feature-icon">🏆</div>
-              <div class="feature-text">
-                <h4>มาตรฐาน ISO/IEC 17025</h4>
-                <p>ได้รับการรับรองมาตรฐานสากลด้านการทดสอบและสอบเทียบ</p>
-              </div>
-            </div>
-            <div class="feature-item reveal reveal-delay-2">
-              <div class="feature-icon">⚡</div>
-              <div class="feature-text">
-                <h4>รายงานผลรวดเร็ว</h4>
-                <p>ระบบจัดการตัวอย่างอัจฉริยะ ส่งมอบรายงานผลภายในเวลาที่กำหนด</p>
-              </div>
-            </div>
-            <div class="feature-item reveal reveal-delay-3">
-              <div class="feature-icon">🔬</div>
-              <div class="feature-text">
-                <h4>เครื่องมือทันสมัย</h4>
-                <p>อัปเดตเครื่องมือรุ่นล่าสุดจากผู้ผลิตชั้นนำระดับโลก</p>
-              </div>
-            </div>
-            <div class="feature-item reveal reveal-delay-4">
-              <div class="feature-icon">👨‍🔬</div>
-              <div class="feature-text">
-                <h4>ทีมผู้เชี่ยวชาญ</h4>
-                <p>นักวิทยาศาสตร์และวิศวกรที่มีความเชี่ยวชาญเฉพาะทาง</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="features-visual reveal">
-          <div class="features-visual-image">
-            <img src="images/hero-lab.png" alt="ห้องปฏิบัติการ MUFRF">
-          </div>
-          <div class="deco-ring"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="contact-wrapper">
-        <div class="contact-info reveal">
-          <h2>ติดต่อเรา</h2>
-          <p>พร้อมให้บริการและให้คำปรึกษาในทุกด้าน ไม่ว่าจะเป็นการจองเครื่องมือ การสอบถามข้อมูล หรือความร่วมมือด้านวิจัย</p>
-          <div class="contact-details">
-            <div class="contact-detail-item">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div class="contact-detail-text">
-                <h4>ที่อยู่</h4>
-                <p>อาคารศูนย์เครื่องมือวิทยาศาสตร์ MUFRF</p>
-              </div>
-            </div>
-            <div class="contact-detail-item">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div class="contact-detail-text">
-                <h4>โทรศัพท์</h4>
-                <p>02-XXX-XXXX</p>
-              </div>
-            </div>
-            <div class="contact-detail-item">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div class="contact-detail-text">
-                <h4>อีเมล</h4>
-                <p>contact@mufrf.ac.th</p>
-              </div>
-            </div>
-            <div class="contact-detail-item">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div class="contact-detail-text">
-                <h4>เวลาทำการ</h4>
-                <p>จันทร์ – ศุกร์ 08:30 – 16:30 น.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="contact-form-wrapper reveal reveal-delay-2">
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="firstName">ชื่อ</label>
-                <input type="text" id="firstName" placeholder="กรอกชื่อ" required>
-              </div>
-              <div class="form-group">
-                <label for="lastName">นามสกุล</label>
-                <input type="text" id="lastName" placeholder="กรอกนามสกุล" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">อีเมล</label>
-              <input type="email" id="email" placeholder="example@email.com" required>
-            </div>
-            <div class="form-group">
-              <label for="service">บริการที่สนใจ</label>
-              <select id="service">
-                <option value="" disabled selected>เลือกบริการ</option>
-                <option value="analysis">วิเคราะห์ทางเคมี</option>
-                <option value="microscopy">กล้องจุลทรรศน์อิเล็กตรอน</option>
-                <option value="spectroscopy">วิเคราะห์เชิงสเปกตรัม</option>
-                <option value="chromatography">โครมาโทกราฟี</option>
-                <option value="testing">ทดสอบตามมาตรฐาน</option>
-                <option value="training">ฝึกอบรม</option>
-                <option value="other">อื่นๆ</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">ข้อความ</label>
-              <textarea id="message" placeholder="รายละเอียดเพิ่มเติม..."></textarea>
-            </div>
-            <button type="submit" class="form-submit">ส่งข้อความ</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="images/logo.png" alt="MUFRF" width="36" height="36" style="border-radius:8px; object-fit:contain;">
-            <span class="footer-logo-text">MUFRF</span>
-          </div>
-          <p>ศูนย์เครื่องมือวิทยาศาสตร์ MUFRF ให้บริการด้านการวิเคราะห์ทดสอบและวิจัยด้วยเครื่องมือที่ทันสมัย พร้อมทีมผู้เชี่ยวชาญที่มีประสบการณ์</p>
-        </div>
-        <div class="footer-col">
-          <h4>บริการ</h4>
-          <ul>
-            <li><a href="#">วิเคราะห์ทางเคมี</a></li>
-            <li><a href="#">กล้องจุลทรรศน์</a></li>
-            <li><a href="#">สเปกโตรสโคปี</a></li>
-            <li><a href="#">โครมาโทกราฟี</a></li>
-            <li><a href="#">ทดสอบมาตรฐาน</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>ลิงก์ด่วน</h4>
-          <ul>
-            <li><a href="#home">หน้าแรก</a></li>
-            <li><a href="#about">เกี่ยวกับเรา</a></li>
-            <li><a href="#equipment">เครื่องมือ</a></li>
-            <li><a href="#features">ทำไมต้องเรา</a></li>
-            <li><a href="#contact">ติดต่อเรา</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>ข้อมูลเพิ่มเติม</h4>
-          <ul>
-            <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
-            <li><a href="#">เงื่อนไขการใช้บริการ</a></li>
-            <li><a href="#">คำถามที่พบบ่อย</a></li>
-            <li><a href="#">ข่าวสาร</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 MUFRF Scientific Instrument Center. All rights reserved.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="#" aria-label="Twitter">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="#" aria-label="YouTube">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"/></svg>
-          </a>
-        </div>
-      </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mahidol University Frontier Research Facility (MUFRF)</span>
+      <span>อัตราค่าบริการอาจมีการเปลี่ยนแปลง กรุณาติดต่อสอบถามก่อนใช้บริการ</span>
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
   </button>
 
-  <script src="script.js"></script>
+  <script>
+    // ===== DATA =====
+    const serviceData = [
+      // ────────────────── Bioscience instrument ──────────────────
+      { group: "Bioscience instrument", instrument: "Automated western blot", code: "BS01-1A", mode: "Automated western blot - chemiluminescence (Instrument use)", unit: "run", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Bioscience instrument", instrument: "Automated western blot", code: "BS01-2A", mode: "Automated western blot - fluorescence (Instrument use)", unit: "run", mahidol: 650, gov: 850, priv: 1300 },
+      { group: "Bioscience instrument", instrument: "Biomolecular imager", code: "BS02-1A", mode: "Biomolecular imager (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Bioscience instrument", instrument: "Biomolecular imager", code: "BS02-1B", mode: "Biomolecular imager (Program analysis)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Bioscience instrument", instrument: "Cell counter", code: "BS03-1A", mode: "Cell counter (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Bioscience instrument", instrument: "ELISpot", code: "BS04-1A", mode: "ELISpot (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Bioscience instrument", instrument: "ELISpot", code: "BS04-1B", mode: "ELISpot (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Bioscience instrument", instrument: "Flow cytometer", code: "BS05-1A", mode: "Flow cytometer - analyzer (Instrument use)", unit: "hour", mahidol: 1000, gov: 1250, priv: 2000 },
+      { group: "Bioscience instrument", instrument: "Flow cytometer", code: "BS05-2A", mode: "Flow cytometer - cell sorter (Instrument use)", unit: "hour", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "Bioscience instrument", instrument: "Flow cytometer", code: "BS05-1B", mode: "Flow cytometer - analyzer (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Bioscience instrument", instrument: "Fragment analyzer", code: "BS06-1A", mode: "Fragment analyzer (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Bioscience instrument", instrument: "Gel documentation", code: "BS07-1A", mode: "Gel documentation (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Bioscience instrument", instrument: "Image analyzer", code: "BS08-1A", mode: "Image analyzer (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Bioscience instrument", instrument: "Incubator", code: "BS09-1A", mode: "CO2 incubator (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Bioscience instrument", instrument: "Incubator", code: "BS09-2A", mode: "Cooling incubator (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Bioscience instrument", instrument: "Incubator", code: "BS09-3A", mode: "Heating incubator (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Bioscience instrument", instrument: "Incubator", code: "BS09-4A", mode: "Shaking incubator (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Bioscience instrument", instrument: "Microplate reader", code: "BS10-1A", mode: "Microplate reader - absorbance (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Bioscience instrument", instrument: "Microplate reader", code: "BS10-2A", mode: "Microplate reader - alpha screen (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Bioscience instrument", instrument: "Microplate reader", code: "BS10-3A", mode: "Microplate reader - chemiluminescence (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Bioscience instrument", instrument: "Microplate reader", code: "BS10-4A", mode: "Microplate reader - fluorescence (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Bioscience instrument", instrument: "Microplate reader", code: "BS10-5A", mode: "Microplate reader - fluorescence polarization (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Bioscience instrument", instrument: "Microplate reader", code: "BS10-6A", mode: "Microplate reader - time resolved fluorescence (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Bioscience instrument", instrument: "Microplate reader", code: "BS10-7A", mode: "Microplate reader - time resolved FRET (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-1A", mode: "MALDI-TOF MS (Instrument use)", unit: "hour", mahidol: 1250, gov: 1600, priv: 2500 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-2A", mode: "MALDI-TOF MS - genotyping analysis (Instrument use)", unit: "hour", mahidol: 900, gov: 1150, priv: 1800 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-3A", mode: "MALDI-TOF MS - MALDI-imaging (Instrument use)", unit: "hour", mahidol: 2200, gov: 2750, priv: 4400 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-1B", mode: "MALDI-TOF MS (Program analysis)", unit: "hour", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-2B", mode: "MALDI-TOF MS - genotyping analysis (Program analysis)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-1D", mode: "MALDI-TOF MS - biotyper (Test)", unit: "sample", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-2D", mode: "MALDI-TOF MS - protein molecular weight measurement (Test)", unit: "sample", mahidol: 1000, gov: 1250, priv: 2000 },
+      { group: "Bioscience instrument", instrument: "MALDI-TOF MS", code: "BS11-3D", mode: "MALDI-TOF MS - polymer (Test)", unit: "sample", mahidol: 1300, gov: 1650, priv: 2600 },
+      { group: "Bioscience instrument", instrument: "PCR machine", code: "BS12-1A", mode: "PCR machine (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Bioscience instrument", instrument: "PCR machine", code: "BS12-2A", mode: "Real-time PCR machine (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-1A", mode: "Benchtop sequencer (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-2A", mode: "Production-scale sequencer (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-1C", mode: "Benchtop sequencer (Test and analysis)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-2C", mode: "Production-scale sequencer (Test and analysis)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-3C", mode: "Bioinformatics service (Test and analysis)", unit: "hour", mahidol: 1000, gov: 1250, priv: 2000 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-1D", mode: "Benchtop sequencer - DNA library preparation (Test, 8-24 Samples)", unit: "sample", mahidol: 1600, gov: 2000, priv: 3200 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-2D", mode: "Benchtop sequencer - PCR amplicon preparation (Test, 8-96 Samples)", unit: "sample", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-3D", mode: "Production-scale sequencer - RNA library preparation (Test, 8-16 Samples)", unit: "sample", mahidol: 1600, gov: 2000, priv: 3200 },
+      { group: "Bioscience instrument", instrument: "Sequencer", code: "BS13-4D", mode: "Production-scale sequencer - whole genome library preparation (Test, 8-24 Samples)", unit: "sample", mahidol: 1600, gov: 2000, priv: 3200 },
+      { group: "Bioscience instrument", instrument: "Surface plasmon resonance", code: "BS14-1A", mode: "Surface plasmon resonance (Instrument use)", unit: "hour", mahidol: 350, gov: 450, priv: 700 },
+
+      // ────────────────── Chromatograph ──────────────────
+      { group: "Chromatograph", instrument: "DART-MS", code: "CG01-1A", mode: "DART-MS (Instrument use)", unit: "hour", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Chromatograph", instrument: "DART-MS", code: "CG01-1D", mode: "DART-MS (Test)", unit: "sample", mahidol: 800, gov: 1000, priv: 1600 },
+      { group: "Chromatograph", instrument: "FPLC", code: "CG02-1A", mode: "FPLC (Instrument use)", unit: "hour", mahidol: 120, gov: 150, priv: 250 },
+      { group: "Chromatograph", instrument: "FPLC", code: "CG02-2A", mode: "FPLC - preparative (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Chromatograph", instrument: "Flash chromatograph", code: "CG03-1A", mode: "Flash chromatograph (Instrument use)", unit: "hour", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Chromatograph", instrument: "Flash chromatograph", code: "CG03-2A", mode: "Flash chromatograph (Instrument use with user column)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Chromatograph", instrument: "GC", code: "CG04-1A", mode: "GC (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Chromatograph", instrument: "GC", code: "CG04-2A", mode: "GC (Instrument use with user column)", unit: "hour", mahidol: 225, gov: 300, priv: 450 },
+      { group: "Chromatograph", instrument: "GC", code: "CG04-1B", mode: "GC (Program analysis)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Chromatograph", instrument: "GC", code: "CG04-1C", mode: "GC (Test and analysis)", unit: "sample", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Chromatograph", instrument: "GC", code: "CG04-2C", mode: "GC (Test and analysis with user column)", unit: "sample", mahidol: 400, gov: 550, priv: 800 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-1A", mode: "GC-MS (Instrument use)", unit: "hour", mahidol: 350, gov: 500, priv: 700 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-2A", mode: "GC-MS (Instrument use with user column)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-1B", mode: "GC-MS (Program analysis)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-1C", mode: "GC-MS - quantitative (Test and analysis)", unit: "sample", mahidol: 750, gov: 950, priv: 1500 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-2C", mode: "GC-MS - quantitative (Test and analysis with user column)", unit: "sample", mahidol: 700, gov: 850, priv: 1350 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-3C", mode: "GC-MS - quantitative head space/SPME (Test and analysis)", unit: "sample", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-4C", mode: "GC-MS - quantitative head space/SPME (Test and analysis with user column)", unit: "sample", mahidol: 1100, gov: 1350, priv: 2200 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-1D", mode: "GC-MS - head space/SPME profile (Test)", unit: "sample", mahidol: 800, gov: 1000, priv: 1600 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-2D", mode: "GC-MS - head space/SPME profile (Test with user column)", unit: "sample", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-3D", mode: "GC-MS - profile (Test)", unit: "sample", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Chromatograph", instrument: "GC-MS", code: "CG05-4D", mode: "GC-MS - profile (Test with user column)", unit: "sample", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Chromatograph", instrument: "GC-TQ", code: "CG06-1A", mode: "GC-TQ (Instrument use)", unit: "hour", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Chromatograph", instrument: "GC-TQ", code: "CG06-2A", mode: "GC-TQ (Instrument use with user column)", unit: "hour", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Chromatograph", instrument: "GC-TQ", code: "CG06-1B", mode: "GC-TQ (Program analysis)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Chromatograph", instrument: "GC-TQ", code: "CG06-1C", mode: "GC-TQ - quantitative (Test and analysis)", unit: "sample", mahidol: 1250, gov: 1600, priv: 2500 },
+      { group: "Chromatograph", instrument: "GC-TQ", code: "CG06-2C", mode: "GC-TQ - quantitative (Test and analysis with user column)", unit: "sample", mahidol: 1100, gov: 1400, priv: 2200 },
+      { group: "Chromatograph", instrument: "GC-TQ", code: "CG06-3C", mode: "GC-TQ - quantitative head space/SPME (Test and analysis)", unit: "sample", mahidol: 1650, gov: 2100, priv: 3300 },
+      { group: "Chromatograph", instrument: "GC-TQ", code: "CG06-4C", mode: "GC-TQ - quantitative head space/SPME (Test and analysis with user column)", unit: "sample", mahidol: 1500, gov: 1900, priv: 3000 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-1A", mode: "HPLC - 2 channels UV detector (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-2A", mode: "HPLC - 2 channels UV detector (Instrument use with user column)", unit: "hour", mahidol: 180, gov: 225, priv: 350 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-3A", mode: "HPLC - 4 channels UV detector (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-4A", mode: "HPLC - 4 channels UV detector (Instrument use with user column)", unit: "hour", mahidol: 225, gov: 320, priv: 450 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-5A", mode: "HPLC - ELS detector (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-6A", mode: "HPLC - ELS detector (Instrument use with user column)", unit: "hour", mahidol: 270, gov: 350, priv: 550 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-7A", mode: "HPLC - fluorescence detector (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-8A", mode: "HPLC - fluorescence detector (Instrument use with user column)", unit: "hour", mahidol: 180, gov: 225, priv: 350 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-9A", mode: "HPLC - RI detector (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Chromatograph", instrument: "HPLC", code: "CG07-10A", mode: "HPLC - RI detector (Instrument use with user column)", unit: "hour", mahidol: 180, gov: 225, priv: 350 },
+      { group: "Chromatograph", instrument: "LC-MS-QTOF", code: "CG08-1D", mode: "LC-MS-QTOF - HRMS (Test)", unit: "sample", mahidol: 400, gov: 500, priv: 800 },
+      { group: "Chromatograph", instrument: "LC-MS-QTOF", code: "CG08-2D", mode: "LC-MS-QTOF - metabolite profiling (Test)", unit: "sample", mahidol: 3200, gov: 4000, priv: 6400 },
+      { group: "Chromatograph", instrument: "LC-MS-QTOF", code: "CG08-3D", mode: "LC-MS-QTOF - method development (Test)", unit: "hour", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "Chromatograph", instrument: "LC-MS-TQ", code: "CG09-1A", mode: "LC-MS-TQ (Instrument use)", unit: "hour", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Chromatograph", instrument: "LC-MS-TQ", code: "CG09-2A", mode: "LC-MS-TQ (Instrument use with user column)", unit: "hour", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Chromatograph", instrument: "LC-MS-TQ", code: "CG09-1B", mode: "LC-MS-TQ (Program analysis)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Chromatograph", instrument: "LC-MS-TQ", code: "CG09-1C", mode: "LC-MS-TQ - quantitative (Test and analysis)", unit: "sample", mahidol: 1350, gov: 1750, priv: 2700 },
+      { group: "Chromatograph", instrument: "LC-MS-TQ", code: "CG09-2C", mode: "LC-MS-TQ - quantitative (Test and analysis with user column)", unit: "sample", mahidol: 1200, gov: 1550, priv: 2400 },
+      { group: "Chromatograph", instrument: "LC-MS-TQ", code: "CG09-1D", mode: "LC-MS-TQ - profile (Test)", unit: "sample", mahidol: 850, gov: 1050, priv: 1700 },
+      { group: "Chromatograph", instrument: "LC-MS-TQ", code: "CG09-2D", mode: "LC-MS-TQ - profile (Test with user column)", unit: "sample", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Chromatograph", instrument: "Preparative HPLC", code: "CG10-1A", mode: "Preparative HPLC (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Chromatograph", instrument: "Preparative HPLC", code: "CG10-2A", mode: "Preparative HPLC (Instrument use with user column)", unit: "hour", mahidol: 400, gov: 500, priv: 800 },
+      { group: "Chromatograph", instrument: "UHPLC", code: "CG11-1A", mode: "UHPLC (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Chromatograph", instrument: "UHPLC", code: "CG11-2A", mode: "UHPLC (Instrument use with user column)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+
+      // ────────────────── Freezer ──────────────────
+      { group: "Freezer", instrument: "Freezer", code: "FZ01-1A", mode: "-20°C freezer (Instrument use)", unit: "day", mahidol: 5, gov: 8, priv: 10 },
+      { group: "Freezer", instrument: "Freezer", code: "FZ01-2A", mode: "-30°C freezer (Instrument use)", unit: "day", mahidol: 8, gov: 10, priv: 15 },
+      { group: "Freezer", instrument: "Freezer", code: "FZ01-3A", mode: "-80°C freezer (Instrument use)", unit: "day", mahidol: 10, gov: 15, priv: 20 },
+      { group: "Freezer", instrument: "Freezer", code: "FZ01-4A", mode: "4°C refrigerator (Instrument use)", unit: "day", mahidol: 5, gov: 8, priv: 10 },
+      { group: "Freezer", instrument: "Freezer", code: "FZ01-5A", mode: "Liquid nitrogen tank (Instrument use)", unit: "day", mahidol: 15, gov: 20, priv: 30 },
+      { group: "Freezer", instrument: "Freezer", code: "FZ01-6A", mode: "Ultra-low freezer -150°C (Instrument use)", unit: "day", mahidol: 15, gov: 20, priv: 30 },
+
+      // ────────────────── Microscope ──────────────────
+      { group: "Microscope", instrument: "Atomic force microscope : AFM", code: "MC01-1A", mode: "AFM (Instrument use)", unit: "hour", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "Microscope", instrument: "Atomic force microscope : AFM", code: "MC01-1B", mode: "AFM (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Microscope", instrument: "Atomic force microscope : AFM", code: "MC01-1D", mode: "AFM (Test)", unit: "hour", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "Microscope", instrument: "Confocal microscope", code: "MC02-1A", mode: "Confocal microscope (Instrument use)", unit: "hour", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Microscope", instrument: "Confocal microscope", code: "MC02-1B", mode: "Confocal microscope (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Microscope", instrument: "Digital microscope", code: "MC03-1A", mode: "Digital microscope (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Microscope", instrument: "Fluorescence microscope", code: "MC04-1A", mode: "Fluorescence microscope (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Microscope", instrument: "Fluorescence microscope", code: "MC04-1B", mode: "Fluorescence microscope (Program analysis)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Microscope", instrument: "Inverted microscope", code: "MC05-1A", mode: "Inverted microscope (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-1A", mode: "SEM (Instrument use)", unit: "hour", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-2A", mode: "SEM - EDS (Instrument use)", unit: "hour", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-3A", mode: "SEM - EBSD (Instrument use)", unit: "hour", mahidol: 900, gov: 1150, priv: 1800 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-1B", mode: "SEM (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-2B", mode: "SEM - EDS (Program analysis)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-3B", mode: "SEM - EBSD (Program analysis)", unit: "hour", mahidol: 400, gov: 500, priv: 800 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-1D", mode: "SEM (Test)", unit: "hour", mahidol: 1000, gov: 1250, priv: 2000 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-2D", mode: "SEM - EDS (Test)", unit: "hour", mahidol: 1400, gov: 1750, priv: 2800 },
+      { group: "Microscope", instrument: "Scanning electron microscope : SEM", code: "MC06-3D", mode: "SEM - EBSD (Test)", unit: "hour", mahidol: 1800, gov: 2250, priv: 3600 },
+      { group: "Microscope", instrument: "Stereo microscope", code: "MC07-1A", mode: "Stereo microscope (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Microscope", instrument: "Transmission electron microscope : TEM", code: "MC08-1A", mode: "TEM (Instrument use)", unit: "hour", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Microscope", instrument: "Transmission electron microscope : TEM", code: "MC08-1B", mode: "TEM (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Microscope", instrument: "Transmission electron microscope : TEM", code: "MC08-1D", mode: "TEM (Test)", unit: "hour", mahidol: 1400, gov: 1750, priv: 2800 },
+      { group: "Microscope", instrument: "Upright microscope", code: "MC09-1A", mode: "Upright microscope (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Microscope", instrument: "Upright microscope", code: "MC09-2A", mode: "Upright microscope - polarization (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Microscope", instrument: "Upright microscope", code: "MC09-1B", mode: "Upright microscope (Program analysis)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Microscope", instrument: "Upright microscope", code: "MC09-1D", mode: "Upright microscope - material science (Test)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Microscope", instrument: "Upright microscope", code: "MC09-2D", mode: "Upright microscope - biological science (Test)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+
+      // ────────────────── Sample preparation ──────────────────
+      { group: "Sample preparation", instrument: "Autoclave", code: "SP01-1A", mode: "Autoclave (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Sample preparation", instrument: "Ball mill", code: "SP02-1A", mode: "Ball mill (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Biosafety cabinet", code: "SP03-1A", mode: "Biosafety cabinet (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Sample preparation", instrument: "Carbon coater", code: "SP04-1A", mode: "Carbon coater (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Sample preparation", instrument: "Centrifuge", code: "SP05-1A", mode: "Centrifuge (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Sample preparation", instrument: "Centrifuge", code: "SP05-2A", mode: "Ultracentrifuge (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Sample preparation", instrument: "Critical point dryer", code: "SP06-1A", mode: "Critical point dryer (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Sample preparation", instrument: "Cutting machine", code: "SP07-1A", mode: "Cutting machine (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Embedding machine", code: "SP08-1A", mode: "Embedding machine (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Freeze dryer", code: "SP09-1A", mode: "Freeze dryer (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Sample preparation", instrument: "Fume hood", code: "SP10-1A", mode: "Fume hood (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Sample preparation", instrument: "Grinder", code: "SP11-1A", mode: "Grinder (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Homogenizer", code: "SP12-1A", mode: "Homogenizer (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Sample preparation", instrument: "Hot plate/Stirrer", code: "SP13-1A", mode: "Hot plate/Stirrer (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Sample preparation", instrument: "Ion milling", code: "SP14-1A", mode: "Ion milling - cross section polisher (Instrument use)", unit: "hour", mahidol: 350, gov: 450, priv: 700 },
+      { group: "Sample preparation", instrument: "Ion milling", code: "SP14-2A", mode: "Ion milling - flat milling (Instrument use)", unit: "hour", mahidol: 350, gov: 450, priv: 700 },
+      { group: "Sample preparation", instrument: "Microbalance", code: "SP15-1A", mode: "Microbalance (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Sample preparation", instrument: "Microtome", code: "SP16-1A", mode: "Rotary microtome (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Microtome", code: "SP16-2A", mode: "Sliding microtome (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Microtome", code: "SP16-3A", mode: "Ultramicrotome (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Sample preparation", instrument: "Microwave digestion", code: "SP17-1A", mode: "Microwave digestion (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Sample preparation", instrument: "Mounting press", code: "SP18-1A", mode: "Mounting press (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Oven", code: "SP19-1A", mode: "Oven (Instrument use)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Sample preparation", instrument: "Polishing machine", code: "SP20-1A", mode: "Polishing machine (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Rotary evaporator", code: "SP21-1A", mode: "Rotary evaporator (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Sonication bath", code: "SP22-1A", mode: "Sonication bath (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Sample preparation", instrument: "Sputter coater", code: "SP23-1A", mode: "Sputter coater - Au (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Sample preparation", instrument: "Sputter coater", code: "SP23-2A", mode: "Sputter coater - Pt (Instrument use)", unit: "hour", mahidol: 350, gov: 450, priv: 700 },
+      { group: "Sample preparation", instrument: "Spray dryer", code: "SP24-1A", mode: "Spray dryer (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Sample preparation", instrument: "Stainer", code: "SP25-1A", mode: "Stainer (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Sample preparation", instrument: "Tissue processor", code: "SP26-1A", mode: "Tissue processor (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Sample preparation", instrument: "Vacuum oven", code: "SP27-1A", mode: "Vacuum oven (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Sample preparation", instrument: "Vortex mixer", code: "SP28-1A", mode: "Vortex mixer (Instrument use)", unit: "hour", mahidol: 10, gov: 15, priv: 20 },
+      { group: "Sample preparation", instrument: "Water bath", code: "SP29-1A", mode: "Water bath (Instrument use)", unit: "hour", mahidol: 20, gov: 30, priv: 40 },
+
+      // ────────────────── Spectrometer ──────────────────
+      { group: "Spectrometer", instrument: "Circular dichroism spectropolarimeter : CD", code: "SM01-1A", mode: "CD (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Spectrometer", instrument: "Circular dichroism spectropolarimeter : CD", code: "SM01-1B", mode: "CD (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "Circular dichroism spectropolarimeter : CD", code: "SM01-1D", mode: "CD (Test)", unit: "sample", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Spectrometer", instrument: "Dynamic light scattering", code: "SM02-1A", mode: "Dynamic light scattering (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Spectrometer", instrument: "Dynamic light scattering", code: "SM02-1D", mode: "Dynamic light scattering - particle size (Test)", unit: "sample", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "Dynamic light scattering", code: "SM02-2D", mode: "Dynamic light scattering - zeta potential (Test)", unit: "sample", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "Fluorescence spectrometer", code: "SM03-1A", mode: "Fluorescence spectrometer (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "Fluorescence spectrometer", code: "SM03-1B", mode: "Fluorescence spectrometer (Program analysis)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Spectrometer", instrument: "Fluorescence spectrometer", code: "SM03-1D", mode: "Fluorescence spectrometer (Test)", unit: "sample", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Spectrometer", instrument: "FT-IR spectrometer", code: "SM04-1A", mode: "FT-IR (Instrument use)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Spectrometer", instrument: "FT-IR spectrometer", code: "SM04-2A", mode: "FT-IR microscope (Instrument use)", unit: "hour", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Spectrometer", instrument: "FT-IR spectrometer", code: "SM04-1B", mode: "FT-IR (Program analysis)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Spectrometer", instrument: "FT-IR spectrometer", code: "SM04-2B", mode: "FT-IR microscope (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "FT-IR spectrometer", code: "SM04-1D", mode: "FT-IR (Test)", unit: "sample", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "FT-IR spectrometer", code: "SM04-2D", mode: "FT-IR microscope - point measurement (Test)", unit: "sample", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Spectrometer", instrument: "FT-IR spectrometer", code: "SM04-3D", mode: "FT-IR microscope - mapping (Test)", unit: "hour", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "Spectrometer", instrument: "ICP-MS", code: "SM05-1A", mode: "ICP-MS (Instrument use)", unit: "hour", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Spectrometer", instrument: "ICP-MS", code: "SM05-1B", mode: "ICP-MS (Program analysis)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Spectrometer", instrument: "ICP-MS", code: "SM05-1C", mode: "ICP-MS (Test and analysis)", unit: "sample", mahidol: 800, gov: 1000, priv: 1600 },
+      { group: "Spectrometer", instrument: "ICP-OES", code: "SM06-1A", mode: "ICP-OES (Instrument use)", unit: "hour", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Spectrometer", instrument: "ICP-OES", code: "SM06-1B", mode: "ICP-OES (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "ICP-OES", code: "SM06-1C", mode: "ICP-OES (Test and analysis)", unit: "sample", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "Spectrometer", instrument: "Isothermal titration calorimeter : ITC", code: "SM07-1A", mode: "ITC (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Spectrometer", instrument: "Isothermal titration calorimeter : ITC", code: "SM07-1B", mode: "ITC (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "Isothermal titration calorimeter : ITC", code: "SM07-1D", mode: "ITC (Test)", unit: "sample", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "Spectrometer", instrument: "Laser diffraction particle size analyzer", code: "SM08-1A", mode: "Laser diffraction particle size analyzer - wet measurement (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Spectrometer", instrument: "Laser diffraction particle size analyzer", code: "SM08-2A", mode: "Laser diffraction particle size analyzer - dry measurement (Instrument use)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "Spectrometer", instrument: "Laser diffraction particle size analyzer", code: "SM08-1D", mode: "Laser diffraction particle size analyzer - wet measurement (Test)", unit: "sample", mahidol: 350, gov: 450, priv: 700 },
+      { group: "Spectrometer", instrument: "Laser diffraction particle size analyzer", code: "SM08-2D", mode: "Laser diffraction particle size analyzer - dry measurement (Test)", unit: "sample", mahidol: 400, gov: 500, priv: 800 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-1A", mode: "NMR 400 MHz (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-2A", mode: "NMR 500 MHz (Instrument use)", unit: "hour", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-1B", mode: "NMR 400 MHz (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-2B", mode: "NMR 500 MHz (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-1C", mode: "NMR 400 MHz - 1D (Test and analysis)", unit: "sample", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-2C", mode: "NMR 400 MHz - 2D (Test and analysis)", unit: "sample", mahidol: 750, gov: 950, priv: 1500 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-3C", mode: "NMR 400 MHz - special (Test and analysis)", unit: "sample", mahidol: 1500, gov: 1900, priv: 3000 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-4C", mode: "NMR 500 MHz - 1D (Test and analysis)", unit: "sample", mahidol: 750, gov: 950, priv: 1500 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-5C", mode: "NMR 500 MHz - 2D (Test and analysis)", unit: "sample", mahidol: 1000, gov: 1250, priv: 2000 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-6C", mode: "NMR 500 MHz - special (Test and analysis)", unit: "sample", mahidol: 2000, gov: 2500, priv: 4000 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-1D", mode: "NMR 400 MHz - 1D 1H (Test)", unit: "sample", mahidol: 400, gov: 500, priv: 800 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-2D", mode: "NMR 400 MHz - 1D 13C, 19F, 31P (Test)", unit: "sample", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-3D", mode: "NMR 500 MHz - 1D 1H (Test)", unit: "sample", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Spectrometer", instrument: "NMR spectrometer", code: "SM09-4D", mode: "NMR 500 MHz - 1D 13C, 19F, 31P (Test)", unit: "sample", mahidol: 650, gov: 850, priv: 1300 },
+      { group: "Spectrometer", instrument: "Raman spectrometer", code: "SM10-1A", mode: "Raman spectrometer (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Spectrometer", instrument: "Raman spectrometer", code: "SM10-2A", mode: "Raman microscope (Instrument use)", unit: "hour", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "Spectrometer", instrument: "Raman spectrometer", code: "SM10-1B", mode: "Raman spectrometer (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Spectrometer", instrument: "Raman spectrometer", code: "SM10-2B", mode: "Raman microscope (Program analysis)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Spectrometer", instrument: "Raman spectrometer", code: "SM10-1D", mode: "Raman spectrometer (Test)", unit: "sample", mahidol: 550, gov: 700, priv: 1100 },
+      { group: "Spectrometer", instrument: "Raman spectrometer", code: "SM10-2D", mode: "Raman microscope - point measurement (Test)", unit: "sample", mahidol: 800, gov: 1000, priv: 1600 },
+      { group: "Spectrometer", instrument: "Raman spectrometer", code: "SM10-3D", mode: "Raman microscope - mapping (Test)", unit: "hour", mahidol: 1400, gov: 1750, priv: 2800 },
+      { group: "Spectrometer", instrument: "UV-Vis spectrophotometer", code: "SM11-1A", mode: "UV-Vis (Instrument use)", unit: "hour", mahidol: 50, gov: 75, priv: 100 },
+      { group: "Spectrometer", instrument: "UV-Vis spectrophotometer", code: "SM11-1B", mode: "UV-Vis (Program analysis)", unit: "hour", mahidol: 30, gov: 40, priv: 60 },
+      { group: "Spectrometer", instrument: "UV-Vis spectrophotometer", code: "SM11-1D", mode: "UV-Vis (Test)", unit: "sample", mahidol: 80, gov: 100, priv: 160 },
+      { group: "Spectrometer", instrument: "UV-Vis-NIR spectrophotometer", code: "SM12-1A", mode: "UV-Vis-NIR (Instrument use)", unit: "hour", mahidol: 250, gov: 350, priv: 500 },
+      { group: "Spectrometer", instrument: "UV-Vis-NIR spectrophotometer", code: "SM12-1B", mode: "UV-Vis-NIR (Program analysis)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Spectrometer", instrument: "UV-Vis-NIR spectrophotometer", code: "SM12-1D", mode: "UV-Vis-NIR (Test)", unit: "sample", mahidol: 300, gov: 400, priv: 600 },
+
+      // ────────────────── Surface analysis instrument ──────────────────
+      { group: "Surface analysis instrument", instrument: "Contact angle meter", code: "SA01-1A", mode: "Contact angle meter (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Surface analysis instrument", instrument: "Contact angle meter", code: "SA01-1D", mode: "Contact angle meter (Test)", unit: "sample", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Surface analysis instrument", instrument: "Surface area and porosity analyzer", code: "SA02-1A", mode: "BET (Instrument use)", unit: "hour", mahidol: 350, gov: 450, priv: 700 },
+      { group: "Surface analysis instrument", instrument: "Surface area and porosity analyzer", code: "SA02-2A", mode: "BET - degas (Instrument use)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Surface analysis instrument", instrument: "Surface area and porosity analyzer", code: "SA02-1B", mode: "BET (Program analysis)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Surface analysis instrument", instrument: "Surface area and porosity analyzer", code: "SA02-1C", mode: "BET - surface area (Test and analysis)", unit: "sample", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "Surface analysis instrument", instrument: "Surface area and porosity analyzer", code: "SA02-2C", mode: "BET - porosity (Test and analysis)", unit: "sample", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "Surface analysis instrument", instrument: "Surface area and porosity analyzer", code: "SA02-1D", mode: "BET - degas (Test)", unit: "sample", mahidol: 200, gov: 250, priv: 400 },
+
+      // ────────────────── Thermal analysis instrument ──────────────────
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-1A", mode: "DSC (Instrument use)", unit: "hour", mahidol: 350, gov: 450, priv: 700 },
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-2A", mode: "TGA (Instrument use)", unit: "hour", mahidol: 350, gov: 450, priv: 700 },
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-3A", mode: "DSC-TGA (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-1B", mode: "DSC (Program analysis)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-2B", mode: "TGA (Program analysis)", unit: "hour", mahidol: 150, gov: 200, priv: 300 },
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-1D", mode: "DSC (Test)", unit: "sample", mahidol: 400, gov: 500, priv: 800 },
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-2D", mode: "TGA (Test)", unit: "sample", mahidol: 400, gov: 500, priv: 800 },
+      { group: "Thermal analysis instrument", instrument: "DSC/TGA", code: "TA01-3D", mode: "DSC-TGA (Test)", unit: "sample", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "Thermal analysis instrument", instrument: "Rheometer", code: "TA02-1A", mode: "Rheometer (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "Thermal analysis instrument", instrument: "Rheometer", code: "TA02-2A", mode: "Rheometer - temperature control (Instrument use)", unit: "hour", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "Thermal analysis instrument", instrument: "Rheometer", code: "TA02-1B", mode: "Rheometer (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Thermal analysis instrument", instrument: "Rheometer", code: "TA02-1C", mode: "Rheometer (Test and analysis)", unit: "sample", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "Thermal analysis instrument", instrument: "Rheometer", code: "TA02-2C", mode: "Rheometer - temperature control (Test and analysis)", unit: "sample", mahidol: 900, gov: 1150, priv: 1800 },
+      { group: "Thermal analysis instrument", instrument: "Rheometer", code: "TA02-1D", mode: "Rheometer (Test)", unit: "sample", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Thermal analysis instrument", instrument: "Rheometer", code: "TA02-2D", mode: "Rheometer - temperature control (Test)", unit: "sample", mahidol: 700, gov: 900, priv: 1400 },
+
+      // ────────────────── Water purification system ──────────────────
+      { group: "Water purification system", instrument: "Water purification system", code: "WP01-1A", mode: "Type I water (Instrument use)", unit: "gallon", mahidol: 5, gov: 8, priv: 10 },
+      { group: "Water purification system", instrument: "Water purification system", code: "WP01-2A", mode: "Type II water (Instrument use)", unit: "gallon", mahidol: 3, gov: 5, priv: 8 },
+      { group: "Water purification system", instrument: "Water purification system", code: "WP01-3A", mode: "Type III water (Instrument use)", unit: "gallon", mahidol: 2, gov: 3, priv: 5 },
+      { group: "Water purification system", instrument: "Water purification system", code: "WP01-4A", mode: "Type III hot water (Instrument use)", unit: "gallon", mahidol: 3, gov: 5, priv: 8 },
+
+      // ────────────────── X-ray-based instrument ──────────────────
+      { group: "X-ray-based instrument", instrument: "Nanoscale X-ray computed tomograph : Nano-CT", code: "XR01-1A", mode: "Nano-CT (Instrument use)", unit: "hour", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "X-ray-based instrument", instrument: "Nanoscale X-ray computed tomograph : Nano-CT", code: "XR01-1B", mode: "Nano-CT (Program analysis)", unit: "hour", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-1A", mode: "Benchtop-XRD - phase identification, phase analysis (Instrument use)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-2A", mode: "XRD - phase identification, phase analysis (Instrument use)", unit: "hour", mahidol: 600, gov: 750, priv: 1200 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-3A", mode: "XRD - temperature control, X-ray reflectivity, grazing incidence diffraction, texture and pole figures (Instrument use)", unit: "hour", mahidol: 1200, gov: 1500, priv: 2400 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-1B", mode: "Benchtop-XRD (Program analysis)", unit: "hour", mahidol: 100, gov: 150, priv: 200 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-1C", mode: "Benchtop-XRD - phase identification, phase analysis (Test and analysis)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-2C", mode: "XRD - phase identification, phase analysis (Test and analysis)", unit: "hour", mahidol: 1350, gov: 1750, priv: 2700 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-1D", mode: "Benchtop-XRD - phase identification, phase analysis (Test)", unit: "hour", mahidol: 300, gov: 400, priv: 600 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-2D", mode: "XRD - phase identification, phase analysis (Test)", unit: "hour", mahidol: 900, gov: 1150, priv: 1800 },
+      { group: "X-ray-based instrument", instrument: "X-ray diffractometer : XRD", code: "XR02-3D", mode: "XRD - temperature control, X-ray reflectivity, grazing incidence diffraction, texture and pole figures (Test)", unit: "hour", mahidol: 1800, gov: 2250, priv: 3600 },
+      { group: "X-ray-based instrument", instrument: "X-ray fluorescence : XRF", code: "XR04-1A", mode: "Micro-XRF - point measurement, mapping (Instrument use)", unit: "hour", mahidol: 450, gov: 600, priv: 900 },
+      { group: "X-ray-based instrument", instrument: "X-ray fluorescence : XRF", code: "XR04-2A", mode: "WDXRF (Instrument use)", unit: "sample", mahidol: 300, gov: 400, priv: 600 },
+      { group: "X-ray-based instrument", instrument: "X-ray fluorescence : XRF", code: "XR04-1B", mode: "Micro-XRF (Program analysis)", unit: "hour", mahidol: 250, gov: 300, priv: 500 },
+      { group: "X-ray-based instrument", instrument: "X-ray fluorescence : XRF", code: "XR04-2B", mode: "WDXRF (Program analysis)", unit: "hour", mahidol: 200, gov: 250, priv: 400 },
+      { group: "X-ray-based instrument", instrument: "X-ray fluorescence : XRF", code: "XR04-1D", mode: "Micro-XRF - point measurement, mapping (Test)", unit: "hour", mahidol: 700, gov: 900, priv: 1400 },
+      { group: "X-ray-based instrument", instrument: "X-ray fluorescence : XRF", code: "XR04-2D", mode: "WDXRF (Test)", unit: "sample", mahidol: 600, gov: 750, priv: 1200 },
+
+      // ────────────────── Special tests ──────────────────
+      { group: "Special tests", instrument: "Special test 1", code: "ST01-D", mode: "Special test 1", unit: "sample", mahidol: 100, gov: 150, priv: 200 },
+      { group: "Special tests", instrument: "Special test 2", code: "ST02-D", mode: "Special test 2", unit: "sample", mahidol: 200, gov: 250, priv: 400 },
+      { group: "Special tests", instrument: "Special test 3", code: "ST03-D", mode: "Special test 3", unit: "sample", mahidol: 500, gov: 650, priv: 1000 },
+      { group: "Special tests", instrument: "Special test 4", code: "ST04-D", mode: "Special test 4", unit: "sample", mahidol: 1000, gov: 1250, priv: 2000 },
+      { group: "Special tests", instrument: "Special test 5", code: "ST05-D", mode: "Special test 5", unit: "sample", mahidol: 2000, gov: 2500, priv: 4000 },
+      { group: "Special tests", instrument: "Special test 6", code: "ST06-D", mode: "Special test 6", unit: "sample", mahidol: 3000, gov: 4000, priv: 6000 },
+      { group: "Special tests", instrument: "Special test 7", code: "ST07-D", mode: "Special test 7", unit: "sample", mahidol: 5000, gov: 7000, priv: 10000 },
+      { group: "Special tests", instrument: "Special test 8", code: "ST08-D", mode: "Special test 8", unit: "sample", mahidol: 10000, gov: 12500, priv: 20000 },
+    ];
+
+    // ===== GROUP CONFIG =====
+    const groupConfig = {
+      "Bioscience instrument": { key: "bioscience", icon: "🧬", label: "Bioscience Instrument" },
+      "Chromatograph": { key: "chromatograph", icon: "🧪", label: "Chromatograph" },
+      "Freezer": { key: "freezer", icon: "❄️", label: "Freezer" },
+      "Microscope": { key: "microscope", icon: "🔬", label: "Microscope" },
+      "Sample preparation": { key: "sample-prep", icon: "⚗️", label: "Sample Preparation" },
+      "Spectrometer": { key: "spectrometer", icon: "📊", label: "Spectrometer" },
+      "Surface analysis instrument": { key: "surface", icon: "🔍", label: "Surface Analysis" },
+      "Thermal analysis instrument": { key: "thermal", icon: "🌡️", label: "Thermal Analysis" },
+      "Water purification system": { key: "water", icon: "💧", label: "Water Purification" },
+      "X-ray-based instrument": { key: "xray", icon: "☢️", label: "X-ray Instrument" },
+      "Special tests": { key: "special", icon: "⭐", label: "Special Tests" },
+    };
+
+    // ===== INIT =====
+    const groupsGrid = document.getElementById('groupsGrid');
+    const categoryPills = document.getElementById('categoryPills');
+    const searchInput = document.getElementById('searchInput');
+    const noResults = document.getElementById('noResults');
+    let activeGroup = 'all';
+
+    // Build category pills
+    function buildPills() {
+      const groups = [...new Set(serviceData.map(s => s.group))];
+      let html = `<button class="category-pill active" data-group="all">
+        <span class="pill-icon">📋</span> ทั้งหมด <span class="pill-count">${serviceData.length}</span>
+      </button>`;
+      groups.forEach(g => {
+        const cfg = groupConfig[g];
+        const count = serviceData.filter(s => s.group === g).length;
+        html += `<button class="category-pill" data-group="${cfg.key}">
+          <span class="pill-icon">${cfg.icon}</span> ${cfg.label} <span class="pill-count">${count}</span>
+        </button>`;
+      });
+      categoryPills.innerHTML = html;
+
+      categoryPills.querySelectorAll('.category-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          categoryPills.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          activeGroup = pill.dataset.group;
+          filterAndRender();
+        });
+      });
+    }
+
+    // Format number
+    function fmt(n) {
+      return n.toLocaleString('en-US');
+    }
+
+    // Get unit badge class
+    function unitClass(unit) {
+      if (unit === 'sample') return 'unit-sample';
+      if (unit === 'run') return 'unit-run';
+      if (unit === 'day') return 'unit-day';
+      if (unit === 'gallon') return 'unit-gallon';
+      return '';
+    }
+
+    // Build group cards
+    function filterAndRender() {
+      const query = searchInput.value.toLowerCase().trim();
+      const groups = [...new Set(serviceData.map(s => s.group))];
+      let html = '';
+      let visibleCount = 0;
+
+      groups.forEach((groupName, idx) => {
+        const cfg = groupConfig[groupName];
+        if (activeGroup !== 'all' && cfg.key !== activeGroup) return;
+
+        // Filter services
+        let services = serviceData.filter(s => s.group === groupName);
+        if (query) {
+          services = services.filter(s =>
+            s.instrument.toLowerCase().includes(query) ||
+            s.mode.toLowerCase().includes(query) ||
+            s.code.toLowerCase().includes(query)
+          );
+        }
+        if (services.length === 0) return;
+        visibleCount++;
+
+        // Group by instrument
+        const instruments = {};
+        services.forEach(s => {
+          if (!instruments[s.instrument]) instruments[s.instrument] = [];
+          instruments[s.instrument].push(s);
+        });
+
+        const isOpen = query || activeGroup !== 'all' ? 'open' : '';
+
+        html += `
+        <div class="group-card ${isOpen}" data-group="${cfg.key}" style="animation-delay:${idx * 0.05}s">
+          <div class="group-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="group-header-left">
+              <div class="group-icon">${cfg.icon}</div>
+              <div>
+                <div class="group-title">${cfg.label}</div>
+                <div class="group-subtitle">${services.length} รายการบริการ · ${Object.keys(instruments).length} เครื่องมือ</div>
+              </div>
+            </div>
+            <div class="group-toggle">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </div>
+          <div class="group-body">
+            <div class="group-body-inner">`;
+
+        Object.entries(instruments).forEach(([instName, items]) => {
+          html += `
+              <div class="instrument-section">
+                <div class="instrument-name">${instName}</div>
+                <div class="table-wrapper">
+                <table class="service-table">
+                  <thead>
+                    <tr>
+                      <th style="width:80px">รหัส</th>
+                      <th>รายละเอียดบริการ</th>
+                      <th style="width:80px">หน่วย</th>
+                      <th style="width:100px">Mahidol</th>
+                      <th style="width:100px">Government</th>
+                      <th style="width:100px">Private</th>
+                    </tr>
+                  </thead>
+                  <tbody>`;
+
+          items.forEach(item => {
+            html += `
+                    <tr>
+                      <td class="code-cell">${item.code}</td>
+                      <td class="mode-cell">${item.mode}</td>
+                      <td class="unit-cell"><span class="unit-badge ${unitClass(item.unit)}">${item.unit}</span></td>
+                      <td class="price-mahidol">${fmt(item.mahidol)}</td>
+                      <td class="price-gov">${fmt(item.gov)}</td>
+                      <td class="price-private">${fmt(item.priv)}</td>
+                    </tr>`;
+          });
+
+          html += `
+                  </tbody>
+                </table>
+                </div>
+              </div>`;
+        });
+
+        html += `
+            </div>
+          </div>
+        </div>`;
+      });
+
+      groupsGrid.innerHTML = html;
+      noResults.classList.toggle('visible', visibleCount === 0);
+    }
+
+    // ===== EVENT LISTENERS =====
+    searchInput.addEventListener('input', () => {
+      filterAndRender();
+    });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Scroll to top
+    document.getElementById('scrollTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile toggle
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Active nav link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // Intersection observer for animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Init
+    buildPills();
+    filterAndRender();
+  </script>
 </body>
 </html>
