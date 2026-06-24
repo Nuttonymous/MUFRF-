@@ -1544,6 +1544,16 @@
         font-size: 2rem;
       }
     }
+
+    .instrument-img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+      border: 1px solid var(--glass-border);
+      display: block;
+    }
   </style>
 </head>
 
@@ -1555,7 +1565,7 @@
     <div class="navbar-inner">
       <a href="#" class="logo">
         <div class="logo-icon">MU</div>
-        <div class="logo-text">MUFRF <span>Service Rates</span></div>
+        <div class="logo-text">MUFRF <span>Mahidol University Frontier Research Facility</span></div>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#hero" class="active">หน้าแรก</a></li>
@@ -1939,6 +1949,12 @@
 
   <script>
     // ===== DATA =====
+    const instrumentImages = {
+      // สามารถเปลี่ยนชื่อไฟล์ให้ตรงกับรูปภาพจริงได้เลย (ตัวอย่าง)
+      "Automated western blot": "assets/img/western-blot.jpg",
+      "Biomolecular imager": "assets/img/imager.jpg"
+      // เพิ่มรูปอื่นๆ ตามชื่อเครื่องมือได้เลย
+    };
     const serviceData = [
       // ────────────────── Bioscience instrument ──────────────────
       { group: "Bioscience instrument", instrument: "Automated western blot", code: "BS01-1A", mode: "Automated western blot - chemiluminescence (Instrument use)", unit: "run", mahidol: 500, gov: 650, priv: 1000 },
@@ -2346,6 +2362,10 @@
             <div class="group-body-inner">`;
 
         Object.entries(instruments).forEach(([instName, items]) => {
+          const imgSrc = instrumentImages[instName]
+            ? `<img src="${instrumentImages[instName]}" alt="${instName}" class="instrument-img">`
+            : '';
+
           html += `
               <div class="instrument-section">
                 <div class="instrument-name">${instName}</div>
