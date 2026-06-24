@@ -721,10 +721,13 @@
 
     /* ===== INSTRUMENT TABLE ===== */
     .instrument-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .instrument-content {
       display: flex;
       align-items: flex-start;
       gap: 1.5rem;
-      margin-bottom: 1.5rem;
     }
 
     .instrument-section:last-child {
@@ -1557,6 +1560,12 @@
       border: 1px solid var(--glass-border);
     }
 
+    .instrument-img-placeholder {
+      width: 200px;
+      height: 150px;
+      flex-shrink: 0;
+    }
+
     .table-wrapper {
       flex: 1;
       min-width: 0;
@@ -2372,27 +2381,26 @@
         Object.entries(instruments).forEach(([instName, items]) => {
           const imgSrc = instrumentImages[instName]
             ? `<img src="${instrumentImages[instName]}" alt="${instName}" class="instrument-img">`
-            : '';
+            : `<div class="instrument-img-placeholder"></div>`;
 
           html += `
               <div class="instrument-section">
-                 ${imgSrc}
                 <div class="instrument-name">${instName}</div>
                 <div class="instrument-content">
-                    ${imgSrc}
-                <div class="table-wrapper">
-                <table class="service-table">
-                  <thead>
-                    <tr>
-                      <th style="width:80px">รหัส</th>
-                      <th>รายละเอียดบริการ</th>
-                      <th style="width:80px">หน่วย</th>
-                      <th style="width:100px">Mahidol</th>
-                      <th style="width:100px">Government</th>
-                      <th style="width:100px">Private</th>
-                    </tr>
-                  </thead>
-                  <tbody>`;
+                  ${imgSrc}
+                  <div class="table-wrapper">
+                  <table class="service-table">
+                    <thead>
+                      <tr>
+                        <th style="width:80px">รหัส</th>
+                        <th>รายละเอียดบริการ</th>
+                        <th style="width:80px">หน่วย</th>
+                        <th style="width:100px">Mahidol</th>
+                        <th style="width:100px">Government</th>
+                        <th style="width:100px">Private</th>
+                      </tr>
+                    </thead>
+                    <tbody>`;
 
           items.forEach(item => {
             html += `
@@ -2407,11 +2415,11 @@
           });
 
           html += `
-                  </tbody>
-                </table>
+                    </tbody>
+                  </table>
+                  </div>
                 </div>
-            </div>
-          </div>`;
+              </div>`;
         });
 
         html += `
