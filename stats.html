@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MUFRF — สถิติการให้บริการ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     /* ===== CSS RESET & VARIABLES ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     :root {
       --bg-primary: #f8fafc;
       --bg-secondary: #f1f5f9;
@@ -23,8 +33,8 @@
       --accent-blue: #2563eb;
       --accent-cyan: #0891b2;
       --gradient-blue: linear-gradient(135deg, #2563eb, #0891b2);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-xl: 24px;
@@ -37,13 +47,15 @@
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      background-image: radial-gradient(circle at 20% 30%, rgba(37,99,235,0.04) 0%, transparent 50%);
+      background-image: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
     }
 
     /* ===== NAVBAR ===== */
     .navbar {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       padding: 0 2rem;
       backdrop-filter: blur(20px) saturate(180%);
@@ -51,6 +63,7 @@
       border-bottom: 1px solid var(--glass-border);
       box-shadow: var(--shadow-md);
     }
+
     .navbar-inner {
       max-width: 1400px;
       margin: 0 auto;
@@ -59,6 +72,7 @@
       justify-content: space-between;
       height: 72px;
     }
+
     .logo {
       display: flex;
       align-items: center;
@@ -66,8 +80,10 @@
       text-decoration: none;
       color: var(--text-primary);
     }
+
     .logo-icon {
-      width: 42px; height: 42px;
+      width: 42px;
+      height: 42px;
       border-radius: var(--radius-sm);
       background: var(--gradient-blue);
       display: flex;
@@ -77,15 +93,23 @@
       font-size: 1.1rem;
       color: #fff;
     }
-    .logo-text { font-weight: 700; font-size: 1.15rem; }
-    .logo-text span { color: var(--accent-cyan); }
-    
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .logo-text span {
+      color: var(--accent-cyan);
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
       gap: 8px;
       list-style: none;
     }
+
     .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
@@ -95,7 +119,9 @@
       border-radius: var(--radius-sm);
       transition: var(--transition-fast);
     }
-    .nav-links a:hover, .nav-links a.active {
+
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--text-primary);
       background: var(--glass-hover);
     }
@@ -107,11 +133,13 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
     .stats-header h1 {
       font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
+
     .stats-header p {
       color: var(--text-secondary);
       font-size: 1.1rem;
@@ -125,6 +153,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
+
     .chart-card {
       background: var(--bg-card);
       border: 1px solid var(--glass-border);
@@ -132,18 +161,20 @@
       padding: 2rem;
       box-shadow: var(--shadow-lg);
     }
+
     .chart-card h3 {
       font-size: 1.25rem;
       margin-bottom: 1.5rem;
       color: var(--text-primary);
       text-align: center;
     }
+
     .chart-container {
       position: relative;
       height: 300px;
       width: 100%;
     }
-    
+
     /* ===== DATA ALERT ===== */
     .data-alert {
       max-width: 1200px;
@@ -158,24 +189,31 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .data-alert a {
       color: var(--accent-blue);
       text-decoration: underline;
     }
 
     @media (max-width: 768px) {
-      .dashboard { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="logo">
         <div class="logo-icon">MU</div>
-        <div class="logo-text">MUFRF <span>Service Rates</span></div>
+        <div class="logo-text">MUFRF <span>Mahidol University Frontier Research Facility </span></div>
       </a>
       <ul class="nav-links">
         <li><a href="index.html">หน้าแรก</a></li>
@@ -193,7 +231,8 @@
 
   <div class="data-alert" id="dataAlert">
     <span>💡 กำลังแสดงข้อมูลจำลอง (Placeholder Data) เนื่องจากยังไม่มีลิงก์ Google Sheets ของจริง</span>
-    <a href="#" onclick="alert('วิธีเชื่อมต่อ: Publish Google Sheet เป็น CSV แล้วนำลิงก์มาใส่ในตัวแปร GOOGLE_SHEET_CSV_URL ในไฟล์ stats.html'); return false;">ดูวิธีตั้งค่า</a>
+    <a href="#"
+      onclick="alert('วิธีเชื่อมต่อ: Publish Google Sheet เป็น CSV แล้วนำลิงก์มาใส่ในตัวแปร GOOGLE_SHEET_CSV_URL ในไฟล์ stats.html'); return false;">ดูวิธีตั้งค่า</a>
   </div>
 
   <section class="dashboard">
@@ -203,7 +242,7 @@
         <canvas id="userTypeChart"></canvas>
       </div>
     </div>
-    
+
     <div class="chart-card">
       <h3>จำนวนการใช้บริการแยกตามกลุ่มเครื่องมือ</h3>
       <div class="chart-container">
@@ -219,7 +258,7 @@
     // 1. ไปที่ Google Sheet ของคุณ -> เลือก เมนู File -> Share -> Publish to web
     // 2. เลือกแผ่นงานที่ต้องการ และเลือกรูปแบบเป็น "Comma-separated values (.csv)"
     // 3. นำลิงก์ที่ได้มาใส่ในตัวแปรด้านล่างนี้
-    
+
     const GOOGLE_SHEET_CSV_URL = ''; // <-- ใส่ลิงก์ CSV ที่นี่ เช่น 'https://docs.google.com/spreadsheets/d/e/.../pub?output=csv'
 
     // ==========================================
@@ -250,7 +289,7 @@
       // Government, 20
       // Private, 35
       // ... ขึ้นอยู่กับโครงสร้างจริงของ Sheet
-      
+
       // ตอนนี้เพื่อให้โปรแกรมทำงานได้โดยไม่พัง จะคืนค่าข้อมูลจำลอง
       // คุณสามารถแก้ฟังก์ชันนี้ให้อ่านข้อมูลจริงตาม format CSV ของคุณได้
       return getPlaceholderData();
@@ -333,4 +372,5 @@
     });
   </script>
 </body>
+
 </html>
