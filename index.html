@@ -320,7 +320,6 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -1.5px;
@@ -328,7 +327,15 @@
       animation: fadeInUp 0.6s ease-out 0.1s both;
     }
 
+    .hero h1 .hero-title-line {
+      display: block;
+      white-space: nowrap;
+      font-size: clamp(1.6rem, 5.2vw, 3.6rem);
+    }
+
     .hero h1 .gradient-text {
+      display: block;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       background: var(--gradient-blue);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -1611,8 +1618,8 @@
     <div class="hero-content">
       <div class="hero-badge">Mahidol University Frontier Research Facility</div>
       <h1>
-        ศูนย์เครื่องมือวิจัย<br>
-        <span class="gradient-text">แนวหน้ามหาวิทยาลัยมหิดล</span>
+        <span class="hero-title-line">ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ</span>
+        <span class="gradient-text">มหาวิทยาลัยมหิดล</span>
       </h1>
       <p>
         ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงสำหรับงานวิจัยและพัฒนา ครอบคลุมทุกสาขาวิทยาศาสตร์
