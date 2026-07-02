@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUFRF — Mahidol University Frontier Research Facility | Service Rates</title>
+  <meta name="description"
+    content="อัตราค่าบริการเครื่องมือวิทยาศาสตร์ ศูนย์เครื่องมือวิจัยแนวหน้า มหาวิทยาลัยมหิดล (MUFRF) สำหรับบุคลากรมหิดล หน่วยงานราชการ และภาคเอกชน">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ===== CSS RESET & VARIABLES ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 1);
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.05);
+      --glass-hover: rgba(255, 255, 255, 0.9);
+
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+
+      --accent-blue: #2563eb;
+      --accent-cyan: #0891b2;
+      --accent-purple: #7c3aed;
+      --accent-pink: #db2777;
+      --accent-amber: #d97706;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --accent-indigo: #4f46e5;
+      --accent-teal: #0d9488;
+      --accent-orange: #ea580c;
+      --accent-lime: #65a30d;
+
+      --gradient-hero: linear-gradient(135deg, #f0fdfa 0%, #e0e7ff 50%, #f8fafc 100%);
+      --gradient-blue: linear-gradient(135deg, #2563eb, #0891b2);
+      --gradient-purple: linear-gradient(135deg, #7c3aed, #db2777);
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --shadow-glow-blue: 0 0 30px rgba(37, 99, 235, 0.15);
+      --shadow-glow-purple: 0 0 30px rgba(124, 58, 237, 0.15);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      --font-sans: 'Inter', 'Noto Sans Thai', system-ui, sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
+    }
+
+    .bg-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ===== HEADER / NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255, 255, 255, 0.75);
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition-normal);
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .navbar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background: var(--gradient-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.3px;
+    }
+
+    .logo-text span {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
+      background: var(--glass-hover);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 2rem 80px;
+      background: var(--gradient-hero);
+      overflow: hidden;
+    }
+
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+
+    .hero-orb:nth-child(1) {
+      width: 500px;
+      height: 500px;
+      background: var(--accent-blue);
+      top: -10%;
+      left: -5%;
+      animation-delay: 0s;
+    }
+
+    .hero-orb:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      background: var(--accent-purple);
+      bottom: -15%;
+      right: -5%;
+      animation-delay: -7s;
+    }
+
+    .hero-orb:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      background: var(--accent-cyan);
+      top: 40%;
+      left: 50%;
+      animation-delay: -14s;
+    }
+
+    @keyframes orbFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(30px, -40px) scale(1.05);
+      }
+
+      66% {
+        transform: translate(-20px, 20px) scale(0.95);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      color: var(--accent-cyan);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+      }
+    }
+
+    .hero h1 {
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+
+    .hero h1 .hero-title-line {
+      display: block;
+      white-space: nowrap;
+      font-size: clamp(1.6rem, 5.2vw, 3.6rem);
+    }
+
+    .hero h1 .gradient-text {
+      display: block;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      animation: fadeInUp 0.6s ease-out 0.3s both;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2.5rem;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-normal);
+    }
+
+    .btn-primary {
+      background: var(--gradient-blue);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-ghost {
+      background: var(--glass);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--glass-hover);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== PRICING TYPE BADGES ===== */
+    .pricing-legend {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .pricing-legend-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.25rem 2rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .legend-dot.mahidol {
+      background: var(--accent-emerald);
+    }
+
+    .legend-dot.gov {
+      background: var(--accent-blue);
+    }
+
+    .legend-dot.private {
+      background: var(--accent-purple);
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ===== CATEGORY NAVIGATION / FILTER ===== */
+    .category-nav {
+      max-width: 1400px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .category-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .category-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      font-family: var(--font-sans);
+    }
+
+    .category-pill:hover {
+      background: var(--glass-hover);
+      color: var(--text-primary);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .category-pill.active {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.3);
+      color: var(--accent-blue);
+    }
+
+    .category-pill .pill-icon {
+      font-size: 1.1rem;
+    }
+
+    .category-pill .pill-count {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .category-pill.active .pill-count {
+      background: rgba(59, 130, 246, 0.2);
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-wrapper {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+    }
+
+    .search-box {
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 20px 14px 50px;
+      border-radius: var(--radius-lg);
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition-normal);
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-box input:focus {
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      background: rgba(17, 24, 39, 0.8);
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var(--text-muted);
+    }
+
+    /* ===== INSTRUMENT GROUP CARDS ===== */
+    .groups-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    .group-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transition: var(--transition-normal);
+      animation: fadeInUp 0.5s ease-out both;
+    }
+
+    .group-card:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      user-select: none;
+    }
+
+    .group-header:hover {
+      background: var(--glass-hover);
+    }
+
+    .group-header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .group-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .group-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .group-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .group-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-normal);
+      flex-shrink: 0;
+    }
+
+    .group-toggle svg {
+      width: 18px;
+      height: 18px;
+      color: var(--text-muted);
+      transition: var(--transition-normal);
+    }
+
+    .group-card.open .group-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    .group-card.open .group-toggle {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .group-card.open .group-toggle svg {
+      color: var(--accent-blue);
+    }
+
+    .group-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .group-card.open .group-body {
+      max-height: 10000px;
+    }
+
+    .group-body-inner {
+      padding: 0 2rem 2rem;
+    }
+
+    /* ===== INSTRUMENT TABLE ===== */
+    .instrument-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .instrument-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .instrument-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .instrument-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .instrument-name::before {
+      content: '';
+      width: 4px;
+      height: 18px;
+      border-radius: 2px;
+    }
+
+    .service-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .service-table thead th {
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .service-table thead th:nth-child(n+4) {
+      text-align: right;
+    }
+
+    .service-table tbody tr {
+      transition: var(--transition-fast);
+    }
+
+    .service-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .service-table tbody td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .service-table tbody td:nth-child(n+4) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+    }
+
+    .service-table .code-cell {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .service-table .unit-cell {
+      white-space: nowrap;
+      font-size: 0.78rem;
+    }
+
+    .unit-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(6, 182, 212, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+    }
+
+    .unit-badge.unit-sample {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-amber);
+      border-color: rgba(245, 158, 11, 0.15);
+    }
+
+    .unit-badge.unit-run {
+      background: rgba(236, 72, 153, 0.1);
+      color: var(--accent-pink);
+      border-color: rgba(236, 72, 153, 0.15);
+    }
+
+    .unit-badge.unit-day {
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent-indigo);
+      border-color: rgba(99, 102, 241, 0.15);
+    }
+
+    .unit-badge.unit-gallon {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-emerald);
+      border-color: rgba(16, 185, 129, 0.15);
+    }
+
+    .price-mahidol {
+      color: var(--accent-emerald) !important;
+    }
+
+    .price-gov {
+      color: var(--accent-blue) !important;
+    }
+
+    .price-private {
+      color: var(--accent-purple) !important;
+    }
+
+    .service-table .mode-cell {
+      max-width: 350px;
+      line-height: 1.5;
+    }
+
+    /* ===== COLOR PALETTE FOR GROUPS ===== */
+    .group-card[data-group="bioscience"] .group-icon {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+    }
+
+    .group-card[data-group="bioscience"] .instrument-name::before {
+      background: var(--accent-emerald);
+    }
+
+    .group-card[data-group="chromatograph"] .group-icon {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-blue);
+    }
+
+    .group-card[data-group="chromatograph"] .instrument-name::before {
+      background: var(--accent-blue);
+    }
+
+    .group-card[data-group="freezer"] .group-icon {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent-cyan);
+    }
+
+    .group-card[data-group="freezer"] .instrument-name::before {
+      background: var(--accent-cyan);
+    }
+
+    .group-card[data-group="microscope"] .group-icon {
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--accent-purple);
+    }
+
+    .group-card[data-group="microscope"] .instrument-name::before {
+      background: var(--accent-purple);
+    }
+
+    .group-card[data-group="sample-prep"] .group-icon {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-amber);
+    }
+
+    .group-card[data-group="sample-prep"] .instrument-name::before {
+      background: var(--accent-amber);
+    }
+
+    .group-card[data-group="spectrometer"] .group-icon {
+      background: rgba(236, 72, 153, 0.15);
+      color: var(--accent-pink);
+    }
+
+    .group-card[data-group="spectrometer"] .instrument-name::before {
+      background: var(--accent-pink);
+    }
+
+    .group-card[data-group="surface"] .group-icon {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--accent-indigo);
+    }
+
+    .group-card[data-group="surface"] .instrument-name::before {
+      background: var(--accent-indigo);
+    }
+
+    .group-card[data-group="thermal"] .group-icon {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--accent-rose);
+    }
+
+    .group-card[data-group="thermal"] .instrument-name::before {
+      background: var(--accent-rose);
+    }
+
+    .group-card[data-group="water"] .group-icon {
+      background: rgba(20, 184, 166, 0.15);
+      color: var(--accent-teal);
+    }
+
+    .group-card[data-group="water"] .instrument-name::before {
+      background: var(--accent-teal);
+    }
+
+    .group-card[data-group="xray"] .group-icon {
+      background: rgba(249, 115, 22, 0.15);
+      color: var(--accent-orange);
+    }
+
+    .group-card[data-group="xray"] .instrument-name::before {
+      background: var(--accent-orange);
+    }
+
+    .group-card[data-group="special"] .group-icon {
+      background: rgba(132, 204, 22, 0.15);
+      color: var(--accent-lime);
+    }
+
+    .group-card[data-group="special"] .instrument-name::before {
+      background: var(--accent-lime);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--glass-border);
+      padding: 4rem 2rem;
+      background: rgba(248, 250, 252, 0.9);
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+
+    .footer h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 90;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gradient-blue);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition-normal);
+      pointer-events: none;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    .scroll-top svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* ===== NO RESULTS ===== */
+    .no-results {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .no-results.visible {
+      display: block;
+    }
+
+    .no-results svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    .no-results p {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results small {
+      font-size: 0.85rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 1rem;
+        backdrop-filter: blur(20px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .hero-stats {
+        gap: 1.5rem;
+      }
+
+      .hero-stat-value {
+        font-size: 1.8rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .group-header {
+        padding: 1.25rem 1.25rem;
+      }
+
+      .group-body-inner {
+        padding: 0 1rem 1.25rem;
+      }
+
+      .service-table {
+        font-size: 0.78rem;
+      }
+
+      .service-table thead th,
+      .service-table tbody td {
+        padding: 8px 8px;
+      }
+
+      .category-pills {
+        gap: 6px;
+      }
+
+      .category-pill {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+      }
+
+      .pricing-legend-inner {
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      /* horizontally scrollable table on mobile */
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .service-table {
+        min-width: 700px;
+      }
+    }
+
+    /* ===== UTILITY ===== */
+    .hidden {
+      display: none !important;
+    }
+
+    /* ===== ANIMATION OBSERVER ===== */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== BOOKING SECTION ===== */
+    .booking-section {
+      padding: 6rem 2rem;
+      background: var(--bg-secondary);
+      text-align: center;
+    }
+
+    .booking-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      padding: 4rem 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .booking-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: var(--gradient-purple);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .booking-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .booking-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient-purple);
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition-normal);
+      box-shadow: var(--shadow-glow-purple);
+    }
+
+    .booking-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      padding: 6rem 2rem;
+      background: var(--bg-primary);
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-info h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contact-item-text h4 {
+      margin-bottom: 4px;
+      font-size: 1.1rem;
+    }
+
+    .contact-item-text p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      padding: 2.5rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition-fast);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gradient-blue);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      box-shadow: var(--shadow-glow-blue);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    /* ===== PERSONNEL SECTION ===== */
+    .personnel-section {
+      padding: 6rem 2rem;
+      background: var(--bg-secondary);
+      text-align: center;
+    }
+
+    .personnel-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .person-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-normal);
+    }
+
+    .person-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .person-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--gradient-blue);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .person-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .person-role {
+      color: var(--accent-blue);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .person-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* ===== ACTIVITIES SECTION ===== */
+    .activities-section {
+      padding: 6rem 2rem;
+      background: var(--bg-primary);
+    }
+
+    .activities-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .activities-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .activity-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .activity-image {
+      width: 100%;
+      height: 200px;
+      background: var(--gradient-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .activity-image svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .activity-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .activity-date {
+      color: var(--accent-purple);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .activity-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .activity-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .activity-link {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .activity-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .booking-title,
+      .contact-info h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .instrument-img {
+      width: 200px;
+      height: 150px;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--glass-border);
+    }
+
+    .instrument-img-placeholder {
+      width: 200px;
+      height: 150px;
+      flex-shrink: 0;
+    }
+
+    .table-wrapper {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .activity-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-grid"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">MU</div>
+        <div class="logo-text">MUFRF <span>Mahidol University Frontier Research Facility</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="index.html#services">บริการ</a></li>
+        <li><a href="index.html#pricing-info">อัตราค่าบริการ</a></li>
+        <li><a href="index.html#booking">การจอง</a></li>
+        <li><a href="personnel.html">บุคลากร</a></li>
+        <li><a href="activities.html" class="active">กิจกรรม</a></li>
+        <li><a href="stats.html">สถิติ</a></li>
+        <li><a href="index.html#contact">ติดต่อ</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== ACTIVITIES SECTION ===== -->
+  <section class="activities-section" id="activities" style="padding-top: 120px;">
+    <div class="activities-header animate-on-scroll">
+      <h2 style="font-size:2.2rem; font-weight:800; color: var(--text-primary); margin-bottom:0.75rem;">กิจกรรมของศูนย์
+      </h2>
+      <p style="color: var(--text-secondary); font-size:1.1rem;">ข่าวสาร การฝึกอบรม
+        และกิจกรรมน่าสนใจจากทางศูนย์เครื่องมือ</p>
+    </div>
+    <!-- การ์ดกิจกรรมทั้งหมดถูกสร้างขึ้นอัตโนมัติด้วย JavaScript (ดูฟังก์ชัน renderActivities
+         และตัวแปร activitiesData / activitiesImages ในส่วนสคริปต์ท้ายไฟล์) -->
+    <div class="activities-grid animate-on-scroll" id="activitiesGrid"></div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">MU</div>
+          <div class="logo-text">MUFRF <span>Service Rates</span></div>
+        </a>
+        <p>
+          ศูนย์เครื่องมือวิจัยแนวหน้า มหาวิทยาลัยมหิดล (Mahidol University Frontier Research Facility)
+          ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงเพื่อสนับสนุนงานวิจัยและนวัตกรรมระดับโลก
+        </p>
+      </div>
+      <div>
+        <h4>กลุ่มบริการ</h4>
+        <ul class="footer-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem;">
+          <li><a href="#services">Bioscience</a></li>
+          <li><a href="#services">Chromatograph</a></li>
+          <li><a href="#services">Freezer</a></li>
+          <li><a href="#services">Microscope</a></li>
+          <li><a href="#services">Sample Prep</a></li>
+          <li><a href="#services">Spectrometer</a></li>
+          <li><a href="#services">Surface Analysis</a></li>
+          <li><a href="#services">Thermal Analysis</a></li>
+          <li><a href="#services">Water System</a></li>
+          <li><a href="#services">X-ray</a></li>
+          <li><a href="#services">Special Tests</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ข้อมูลเพิ่มเติม</h4>
+        <ul class="footer-links">
+          <li><a href="#pricing-info">อัตราค่าบริการ</a></li>
+          <li><a href="#services">ค้นหาบริการ</a></li>
+          <li><a href="#personnel">บุคลากร</a></li>
+          <li><a href="#activities">กิจกรรม</a></li>
+          <li><a href="#booking">การจองเครื่องมือ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mahidol University Frontier Research Facility (MUFRF)</span>
+      <span>อัตราค่าบริการอาจมีการเปลี่ยนแปลง กรุณาติดต่อสอบถามก่อนใช้บริการ</span>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script>
+    // =====================================================================
+    // ===== รูปภาพกิจกรรม (ACTIVITIES IMAGES) =====
+    // =====================================================================
+    // วิธีใส่รูปกิจกรรมใหม่ (ทำได้ 3 ขั้นตอนง่ายๆ เหมือนหน้าบุคลากร / หน้าอุปกรณ์ใน index.html):
+    //   1) เตรียมไฟล์รูปภาพ (นามสกุล .jpg .jpeg .png หรือ .webp ก็ได้)
+    //      แนะนำอัตราส่วนแนวนอนประมาณ 4:2.5 (เช่น 800x500px) จะได้พอดีกับกรอบรูป
+    //   2) นำไฟล์รูปไปวางไว้ในโฟลเดอร์ "images/activities/"
+    //      (ถ้ายังไม่มีโฟลเดอร์นี้ ให้สร้างโฟลเดอร์ "activities" ไว้ข้างใน
+    //       โฟลเดอร์ "images" ที่อยู่ระดับเดียวกับไฟล์ activities.html นี้)
+    //   3) มาเพิ่ม/แก้ไข "บรรทัด" ในตัวแปร activitiesImages ด้านล่างนี้
+    //      โดยฝั่งซ้าย (key) ต้องตรงกับค่า "id" ของกิจกรรมนั้นๆ ที่อยู่ใน activitiesData
+    //      ฝั่งขวา (value) คือ path ไปยังไฟล์รูปที่วางไว้ในขั้นตอนที่ 2
+    //
+    //   ตัวอย่าง: ถ้าเพิ่มกิจกรรมใหม่ id: "workshop-nmr" และมีไฟล์รูปชื่อ workshop-nmr.jpg
+    //   ก็ให้เพิ่มบรรทัด:   "workshop-nmr": "images/activities/workshop-nmr.jpg",
+    //
+    //   หมายเหตุ: ถ้ากิจกรรมไหนยังไม่มีรูป (ไม่ได้ใส่ไว้ใน map นี้) ระบบจะแสดง
+    //   ไอคอนรูปภาพสำรองแทนโดยอัตโนมัติ ไม่ต้องกังวลว่าเว็บจะพัง
+    // =====================================================================
+    const activitiesImages = {
+      "sem-training": "images/activities/sem-training.jpg",
+      "rmutr30062026": "images/activities/rmutr30062026.jpg",
+      // เพิ่มกิจกรรมใหม่ -> เพิ่มบรรทัดรูปแบบ "id": "images/activities/ชื่อไฟล์.jpg" ต่อจากนี้ได้เลย
+    };
+
+    // ===== ข้อมูลกิจกรรม (ACTIVITIES DATA) =====
+    // เพิ่มกิจกรรมใหม่: copy { ... } ด้านล่าง 1 ก้อน มาวางต่อท้าย (หรือวางไว้บนสุดถ้าอยากให้ขึ้นก่อน)
+    // แล้วแก้ id / date / title / desc / link
+    // ⚠️ ค่า "id" ต้องไม่ซ้ำกัน และต้องตรงกับ key ที่ตั้งไว้ใน activitiesImages ด้านบน (ถ้ามีรูป)
+    const activitiesData = [
+      {
+        id: "rmutr30062026",
+        date: "วันที่ 30 มิถุนายน 2569",
+        title: "สถาบันวิจัยและพัฒนา มหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ เข้าเยี่ยมชม ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล",
+        desc: "วันที่ 30 มิถุนายน 2569 ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล ได้ต้อนรับผู้เข้าเยี่ยมชมจากสถาบันวิจัยและพัฒนา มหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ โดยได้เยี่ยมชมเครื่องมือวิเคราะห์ของทางศูนย์ฯ เพื่อเข้าเยี่ยมชมห้องปฏิบัติการและเครื่องมือภายในศูนย์เครื่องมือฯ และส่งเสริมการสร้างความร่วมมือด้านวิจัยและการบริการวิชาการในอนาคต ซึ่งนำไปสู่การพัฒนาการบริหารงานวิจัยและนวัตกรรมให้สามารถนำไปใช้ประโยชน์เชิงพาณิชย์ได้อย่างมีประสิทธิภาพ",
+        link: "#"
+      },
+      {
+        id: "research-seminar-1",
+        date: "2 สิงหาคม 2026",
+        title: "Research Seminar: Cryo-electron Microscopy",
+        desc: "เสวนาพิเศษจากนักวิจัยผู้เชี่ยวชาญด้าน Cryo-EM: การวิเคราะห์โครงสร้างโมเลกุลชีวภาพที่อุณหภูมิต่ำ",
+        link: "#"
+      },
+      {
+        id: "example-2",
+        date: "20 พฤศจิกายน 2026",
+        title: "หัวข้อกิจกรรม (ตัวอย่างที่ 2)",
+        desc: "รายละเอียดกิจกรรมตัวอย่าง แก้ไขหัวข้อและรายละเอียดได้ที่นี่ ส่วนรูปให้ไปเพิ่มใน activitiesImages",
+        link: "#"
+      },
+      {
+        id: "example-3",
+        date: "1 ธันวาคม 2026",
+        title: "หัวข้อกิจกรรม (ตัวอย่างที่ 3)",
+        desc: "รายละเอียดกิจกรรมตัวอย่าง แก้ไขหัวข้อและรายละเอียดได้ที่นี่ ส่วนรูปให้ไปเพิ่มใน activitiesImages",
+        link: "#"
+      }
+    ];
+
+    // ไอคอนรูปภาพสำรอง (แสดงแทนรูปกรณีที่ยังไม่ได้ใส่รูปให้กิจกรรมนั้นๆ ใน activitiesImages
+    // หรือใส่ path ผิด/ไฟล์หาไม่เจอ)
+    const activityFallbackIcon = `<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="48" height="48">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5V6a2 2 0 012-2h14a2 2 0 012 2v10.5M3 16.5l5.5-5.5a2 2 0 012.8 0L15 14.5m-3.5-3.5L15 7.5a2 2 0 012.8 0L21 11m-21 5.5A2 2 0 005 18.5h14a2 2 0 002-2M7.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+      </svg>`;
+
+    // ฟังก์ชันสลับไปแสดงไอคอนรูปภาพสำรอง เมื่อโหลดรูปไม่สำเร็จ (เรียกจาก onerror ของ <img>)
+    // ⚠️ ห้ามฝังโค้ด SVG ลงในแอตทริบิวต์ onerror="..." ตรงๆ เพราะ SVG มีเครื่องหมาย " อยู่ข้างใน
+    // จะไปชนกับเครื่องหมาย " ที่ล้อมรอบ onerror เอง ทำให้ HTML พังตั้งแต่ตอนแปลงหน้าเว็บ
+    // ให้เรียกผ่านฟังก์ชันแบบนี้แทนเสมอ
+    function showActivityFallback(imgEl) {
+      imgEl.parentElement.innerHTML = activityFallbackIcon;
+    }
+
+    // สร้างการ์ดกิจกรรมทั้งหมดจาก activitiesData แล้วแทรกลงในหน้าเว็บ
+    function renderActivities() {
+      const grid = document.getElementById('activitiesGrid');
+      if (!grid) return;
+
+      let html = '';
+      activitiesData.forEach(a => {
+        // ค้นหารูปจาก activitiesImages โดยใช้ id ของกิจกรรมนั้นเป็นตัวจับคู่ (เหมือน instrumentImages ในหน้า index.html)
+        const imgSrc = activitiesImages[a.id];
+        const imageInner = imgSrc
+          ? `<img src="${imgSrc}" alt="${a.title}" onerror="showActivityFallback(this)">`
+          : activityFallbackIcon;
+
+        html += `
+        <div class="activity-card">
+          <div class="activity-image">${imageInner}</div>
+          <div class="activity-content">
+            <span class="activity-date">${a.date}</span>
+            <h3 class="activity-title">${a.title}</h3>
+            <p class="activity-desc">${a.desc}</p>
+            <a href="${a.link}" class="activity-link">
+              อ่านเพิ่มเติม
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>`;
+      });
+      grid.innerHTML = html;
+    }
+    renderActivities();
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Scroll to top
+    document.getElementById('scrollTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Mobile toggle
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Active nav link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // Intersection observer for animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
