@@ -1735,9 +1735,24 @@
     //   ไอคอนรูปคนแทนโดยอัตโนมัติ ไม่ต้องกังวลว่าเว็บจะพัง
     // =====================================================================
     const personnelImages = {
-      "somying": "images/personnel/somying.jpg",
-      "somchai": "images/personnel/somchai.jpg",
+      "nawapol": "images/personnel/nawapol.jpg",
+      "jaran": "images/personnel/jaran.jpg",
+      "thananya": "images/personnel/thananya.jpg",
       "kittitat": "images/personnel/kittitat.jpg",
+      "chawalit": "images/personnel/chawalit.jpg",
+      "bancha": "images/personnel/bancha.jpg",
+      "suwilai": "images/personnel/suwilai.jpg",
+      "tiyanun": "images/personnel/tiyanun.jpg",
+      "apiwat": "images/personnel/apiwat.jpg",
+      "pornphawit": "images/personnel/pornphawit.jpg",
+      "promsup": "images/personnel/promsup.jpg",
+      "wasinee": "images/personnel/wasinee.jpg",
+      "kanokwan": "images/personnel/kanokwan.jpg",
+      "jitrawadee": "images/personnel/jitrawadee.jpg",
+      "daranee": "images/personnel/daranee.jpg",
+      "jirat": "images/personnel/jirat.jpg",
+      "nitaya": "images/personnel/nitaya.jpg",
+
       // เพิ่มบุคลากรคนใหม่ -> เพิ่มบรรทัดรูปแบบ "id": "images/personnel/ชื่อไฟล์.jpg" ต่อจากนี้ได้เลย
     };
 
@@ -1746,35 +1761,107 @@
     // ⚠️ ค่า "id" ต้องไม่ซ้ำกัน และต้องตรงกับ key ที่ตั้งไว้ใน personnelImages ด้านบน
     const personnelData = [
       {
-        id: "somying",
-        name: "ดร. สมหญิง รักเรียน",
-        role: "นักวิทยาศาสตร์ผู้เชี่ยวชาญ",
-        desc: "ผู้ดูแลกลุ่มเครื่องมือ Microscope และ Chromatograph ประสบการณ์มากกว่า 10 ปี"
+        id: "nawapol",
+        name: "นวพล อุดพ้วย",
+        role: "หัวหน้าศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ",
+        desc: "กำกับการทำงานและนโยบายภานในศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ"
       },
       {
-        id: "somchai",
-        name: "นาย สมชาย ใจดี",
+        id: "jaran",
+        name: "จรัล นับเนืองทรัพย์",
         role: "นักวิทยาศาสตร์",
-        desc: "ผู้รับผิดชอบดูแลและบำรุงรักษาเครื่องมือ Spectrometer และ Thermal Analysis"
+        desc: "นักวิทยาศาสตร์ผู้รับผิดชอบเครื่องมือด้านการวิเคราะห์ Proteomics และ Mass Spectrometry"
       },
       {
-        id: "example1",
-        name: "ชื่อ นามสกุล (ตัวอย่าง 1)",
-        role: "ตำแหน่ง (ตัวอย่าง 1)",
-        desc: "รายละเอียดข้อมูลบุคลากร แก้ไขข้อความได้ใน data ด้านบน ส่วนรูปให้ไปเพิ่มใน personnelImages"
+        id: "thananya",
+        name: "ธนัญญา ศูนย์คุ้ม",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้ดูแลเครื่องมือด้านเตรียมตัวอย่างและเครื่อง NMR Spectroscopy"
       },
       {
-        id: "example2",
-        name: "ชื่อ นามสกุล (ตัวอย่าง 2)",
-        role: "ตำแหน่ง (ตัวอย่าง 2)",
-        desc: "รายละเอียดข้อมูลบุคลากร แก้ไขข้อความได้ใน data ด้านบน ส่วนรูปให้ไปเพิ่มใน personnelImages"
+        id: "chawalit",
+        name: "ชวลิต ทาคูณ",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้ดูแลรับผิดชอบเครื่องมือทาง Electron Microscope และ Sizer"
+      },
+      {
+        id: "bancha",
+        name: "บัญชา ปัญญาเจริญ",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้ดูแลเครื่องมือ FTIR และเครื่องมือวิเคราะห์ทางด้านวัสดุศาสตร์อื่นๆ"
+      },
+      {
+        id: "suwilai",
+        name: "สุวิไล เฉวียงหงส์",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้ดูแลเครื่องมือด้านวัสดุศาสตร์โดยเทคนิค X-Ray (XRD/XRF) และเครื่องมือวิเคราะห์ทางด้านวัสดุศาสตร์อื่นๆ"
+      },
+      {
+        id: "tiyanun",
+        name: "ทิยานันท์ เจือกโว้น",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้ดูแลเครื่องมือวิเคราะห์ธาตุ ICP-MS"
+      },
+      {
+        id: "apiwat",
+        name: "อภิวัฒน์ พานแก้ว",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้ดูแลเครื่องมือทางด้าน HPLC และ AFM"
+      },
+      {
+        id: "pornphawit",
+        name: "พรภวิษย์ เหมาะหมาย",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้รับผิดชอบเครื่องมือด้านเตรียมตัวอย่างและเครื่อง Cryo-TEM"
       },
       {
         id: "kittitat",
         name: "กิตติธัช ธีระโพธิ์",
         role: "นักวิทยาศาสตร์",
-        desc: "ผู้ดูแลกลุ่มเครื่องมือทางด้าน Bioscience และดูแลข้อมูลประจำศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ"
-      }
+        desc: "นักวิทยาศาสตร์ผู้รับผิดชอบเครื่องมือทางด้าน Bioscience และดูแลข้อมูลประจำศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ"
+      },
+      {
+        id: "promsup",
+        name: "พร้อมสรรพ ทรัพย์เจริญ",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผูรับผิดชอบด้านเครื่องมือด้าน Bioscience และดูแลระบบจัดการศูนย์เครืองมือวิจัยเพื่อความเป็นเลิศ"
+      },
+      {
+        id: "wasinee",
+        name: "วศิณี รังสฤษฏ์โยธิน",
+        role: "นักวิจัยระดับ 1",
+        desc: "นักวิจัยผู้รับผิดชอบเครื่องมือถอดรหัสพันธุกรรมและจัดการข้อมูลชีวสาสนเทศ"
+      },
+      {
+        id: "kanokwan",
+        name: "กนกวรรณ สกุลรุ่งฤทธิ์",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้รับผิดชอบเครื่องมือ MALDI-TOF MS และ Flash chromatography"
+      },
+      {
+        id: "jitrawadee",
+        name: "จิตรวดี มีราศรี",
+        role: "นักวิทยาศาสตร์",
+        desc: "นักวิทยาศาสตร์ผู้รับผิดชอบเครื่องมือวัสดุศาสตร์และเครื่อง Cryo-TEM"
+      },
+      {
+        id: "daranee",
+        name: "ดารณี ชาญวิทย์การ",
+        role: "เจ้าหน้าที่บริหารงานทั่วไป",
+        desc: "เจ้าหน้าที่บริหารงานทั่วไปผู้รับผิดชอบการออกเอกสารการเงินและดูแลจัดการเอกสารต่าง ๆ"
+      },
+      {
+        id: "jirat",
+        name: "จิรัฏฐ์ ลัดดาวัลย์",
+        role: "เจ้าหน้าที่บริหารงานทั่วไป",
+        desc: "เจ้าหน้าที่บริหารงานทั่วไปผู้รับผิดชอบการออกเอกสารและติดต่อประสานงานลูกค้า"
+      },
+      {
+        id: "nitaya",
+        name: "นิตยา แซ่ตั้ง",
+        role: "พนักงานสถานที่",
+        desc: "พนักงานสถานที่ดูแลความสะอาดเรียบร้อยภายในศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ"
+      },
     ];
 
     // ไอคอนคนสำรอง (แสดงแทนรูปกรณีที่ยังไม่ได้ใส่รูปให้คนนั้นๆ ใน personnelImages
