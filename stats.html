@@ -208,12 +208,10 @@
 
   <div id="alertBox" class="data-alert" style="display:none;"></div>
 
-  <!-- KPI CARDS -->
   <div class="kpi-row" id="kpiRow">
     <div class="loading-spinner" style="grid-column:1/-1;">⏳ กำลังโหลดข้อมูล...</div>
   </div>
 
-  <!-- SECTION: Research Quality -->
   <div class="section-title">📊 Research Quality Analysis</div>
   <div class="dashboard">
     <div class="chart-card">
@@ -228,7 +226,6 @@
     </div>
   </div>
 
-  <!-- SECTION: Journals & Subjects -->
   <div class="section-title">📰 Journals & Subject Categories</div>
   <div class="dashboard">
     <div class="chart-card">
@@ -243,7 +240,6 @@
     </div>
   </div>
 
-  <!-- SECTION: Instrument Utilization -->
   <div class="section-title">🔬 Instrument Utilization in Research</div>
   <div class="dashboard">
     <div class="chart-card">
@@ -260,7 +256,6 @@
     </div>
   </div>
 
-  <!-- SECTION: SDG & ANZSRC -->
   <div class="section-title">🌍 Research Impact & Strategy</div>
   <div class="dashboard">
     <div class="chart-card">
@@ -281,26 +276,10 @@
 
   <script>
     // ============================================================
-    // ⚙️ CONFIG — ใส่ CSV URL ที่ Publish จาก Google Sheets ตรงนี้
+    // ⚙️ CONFIG — อัปเดต URL เป็น Google Apps Script ที่สร้างไว้
     // ============================================================
-    const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTi7fz_xRHHpauPTrbt6MzopaAjO-AgaEEwi2yFMRlSgIqoHNS_fDYSpIgrAeQ6J3wg1ECY1XSYS8gM/pub?output=csv';
-    const CSV_URL = 'https://corsproxy.io/?' + encodeURIComponent(SHEET_CSV);
+    const CSV_URL = 'https://script.google.com/macros/s/AKfycbwVtYkEY-A9zSnaOAEbwRHynxrcPrIIMmsJVXVifMsqIR4E_FlIPxuulLydR3yNL3vF/exec';
     // ============================================================
-
-    // Column index (0-based) ตามโครงสร้าง:
-    // 0: Equip ID
-    // 1: Paper Title
-    // 2: Journal / Source
-    // 3: DOI
-    // 4: Abstract
-    // 5: Matched MUFRF Instruments
-    // 6: H-index
-    // 7: Quartile(s)
-    // 8: Subject Categories
-    // 9: Publication Year
-    // 10: Authors
-    // 11: Fields of Research (ANZSRC)
-    // 12: Sustainable Development Goals
 
     const COL = {
       equipId: 0,
@@ -318,12 +297,8 @@
       sdg: 12,
     };
 
-    // ============================================================
-    // CSV PARSER (รองรับ field ที่มี comma ใน quotes)
-    // ============================================================
     function parseCSV(text) {
       const lines = text.split(/\r?\n/).filter(l => l.trim());
-      const headers = splitCSVLine(lines[0]);
       return lines.slice(1).map(line => splitCSVLine(line));
     }
 
@@ -343,9 +318,6 @@
       return result;
     }
 
-    // ============================================================
-    // HELPERS
-    // ============================================================
     function countValues(rows, colIdx) {
       const counts = {};
       rows.forEach(row => {
@@ -368,11 +340,7 @@
     const COLORS = ['#2563eb','#0891b2','#7c3aed','#059669','#d97706','#dc2626','#0284c7','#9333ea','#16a34a','#ea580c'];
     const QUARTILE_COLORS = { Q1:'#059669', Q2:'#2563eb', Q3:'#d97706', Q4:'#dc2626', 'N/A':'#94a3b8' };
 
-    // ============================================================
-    // PROCESS DATA
-    // ============================================================
     function processData(rows) {
-      // KPI
       const uniquePapers = new Set(rows.map(r => (r[COL.title]||'').trim()).filter(Boolean)).size;
       const instruments = new Set(rows.map(r => (r[COL.equipId]||'').trim()).filter(Boolean)).size;
       const hindices = rows.map(r => parseFloat(r[COL.hindex])).filter(n => !isNaN(n));
@@ -380,10 +348,8 @@
       const q1Count = rows.filter(r => (r[COL.quartile]||'').includes('Q1')).length;
       const q1Pct = rows.length ? Math.round(q1Count / rows.length * 100) : 0;
 
-      // Quartile
       const qCounts = countValues(rows, COL.quartile);
 
-      // Year
       const yearCounts = {};
       rows.forEach(r => {
         const y = (r[COL.year]||'').trim();
@@ -391,20 +357,15 @@
       });
       const sortedYears = Object.keys(yearCounts).sort();
 
-      // Journal — นับจาก column journal โดยตรง (ไม่ split เพราะชื่อ journal อาจมี comma)
       const journalCounts = {};
       rows.forEach(r => {
         const j = (r[COL.journal]||'').trim();
         if (j) journalCounts[j] = (journalCounts[j]||0) + 1;
       });
 
-      // Subjects
       const subjectCounts = countValues(rows, COL.subjects);
-
-      // Instruments per paper
       const instrCounts = countValues(rows, COL.instruments);
 
-      // Co-usage: นับคู่เครื่องมือที่ใช้ใน paper เดียวกัน
       const coPairs = {};
       rows.forEach(r => {
         const instrList = (r[COL.instruments]||'').split(/[;,]+/).map(s => s.trim()).filter(Boolean);
@@ -416,10 +377,7 @@
         }
       });
 
-      // SDG
       const sdgCounts = countValues(rows, COL.sdg);
-
-      // ANZSRC
       const anzsrcCounts = countValues(rows, COL.anzsrc);
 
       return { uniquePapers, instruments, avgH, q1Pct, q1Count,
@@ -428,9 +386,6 @@
                coPairs, sdgCounts, anzsrcCounts };
     }
 
-    // ============================================================
-    // RENDER KPI
-    // ============================================================
     function renderKPI(d) {
       document.getElementById('kpiRow').innerHTML = `
         <div class="kpi-card"><div class="kpi-value">${d.uniquePapers}</div><div class="kpi-label">Unique Publications</div></div>
@@ -440,151 +395,110 @@
       `;
     }
 
-    // ============================================================
-    // RENDER CHARTS
-    // ============================================================
     function renderCharts(d) {
-      // 1. Quartile — Doughnut
       const qLabels = Object.keys(d.qCounts);
       const qData = qLabels.map(k => d.qCounts[k]);
       const qColors = qLabels.map(k => QUARTILE_COLORS[k] || '#94a3b8');
       new Chart(document.getElementById('quartileChart'), {
         type: 'doughnut',
         data: { labels: qLabels, datasets: [{ data: qData, backgroundColor: qColors, borderWidth: 0, hoverOffset: 6 }] },
-        options: { responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { position: 'right' },
-            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${Math.round(ctx.raw/qData.reduce((a,b)=>a+b,0)*100)}%)` } }
-          }
-        }
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }
       });
 
-      // 2. Publications by Year — Line
       new Chart(document.getElementById('yearChart'), {
         type: 'line',
         data: {
           labels: d.sortedYears,
           datasets: [{ label: 'Publications', data: d.sortedYears.map(y => d.yearCounts[y]),
-            borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)',
-            fill: true, tension: 0.4, pointRadius: 5, pointBackgroundColor: '#2563eb' }]
+            borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)', fill: true, tension: 0.4, pointRadius: 5 }]
         },
-        options: { responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
-          scales: { y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { grid: { display: false } } }
-        }
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
       });
 
-      // 3. Top Journals — Horizontal Bar
       const topJournals = topN(d.journalCounts, 10);
       new Chart(document.getElementById('journalChart'), {
         type: 'bar',
         data: {
           labels: topJournals.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
-          datasets: [{ data: topJournals.map(([,v]) => v),
-            backgroundColor: '#1e3a5f', borderRadius: 4 }]
+          datasets: [{ data: topJournals.map(([,v]) => v), backgroundColor: '#1e3a5f', borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topJournals[items[0].dataIndex][0] } }
-          },
-          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
       });
 
-      // 4. Subject Categories — Horizontal Bar
       const topSubjects = topN(d.subjectCounts, 12);
       new Chart(document.getElementById('subjectChart'), {
         type: 'bar',
         data: {
           labels: topSubjects.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
-          datasets: [{ data: topSubjects.map(([,v]) => v),
-            backgroundColor: '#0891b2', borderRadius: 4 }]
+          datasets: [{ data: topSubjects.map(([,v]) => v), backgroundColor: '#0891b2', borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topSubjects[items[0].dataIndex][0] } }
-          },
-          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
       });
 
-      // 5. Instruments — Horizontal Bar
       const topInstr = topN(d.instrCounts, 10);
       new Chart(document.getElementById('instrumentChart'), {
         type: 'bar',
         data: {
           labels: topInstr.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
-          datasets: [{ data: topInstr.map(([,v]) => v),
-            backgroundColor: COLORS.slice(0, topInstr.length), borderRadius: 4 }]
+          datasets: [{ data: topInstr.map(([,v]) => v), backgroundColor: COLORS.slice(0, topInstr.length), borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topInstr[items[0].dataIndex][0] } }
-          },
-          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
       });
 
-      // 6. Co-usage — Custom Table
       const topPairs = topN(d.coPairs, 10);
       const maxPair = topPairs[0] ? topPairs[0][1] : 1;
       document.getElementById('coUsageContainer').innerHTML = topPairs.length
         ? `<table class="co-usage-table">${topPairs.map(([pair, count]) => `
             <tr>
-              <td>
-                <div>${pair}</div>
-                <div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count/maxPair*100)}%"></div></div>
-              </td>
+              <td><div>${pair}</div><div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count/maxPair*100)}%"></div></div></td>
               <td>${count}</td>
             </tr>`).join('')}
            </table>`
-        : '<p style="color:var(--text-secondary);padding:1rem;">ไม่พบข้อมูล Co-usage (เครื่องมือต่อ paper มีน้อยกว่า 2 ชิ้น)</p>';
+        : '<p style="color:var(--text-secondary);padding:1rem;">ไม่พบข้อมูล</p>';
 
-      // 7. SDG — Horizontal Bar (colorful)
       const topSDG = topN(d.sdgCounts, 10);
       new Chart(document.getElementById('sdgChart'), {
         type: 'bar',
         data: {
           labels: topSDG.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
-          datasets: [{ data: topSDG.map(([,v]) => v),
-            backgroundColor: ['#1e40af','#eab308','#16a34a','#dc2626','#ea580c','#0891b2','#7c3aed','#db2777','#0d9488','#64748b'],
-            borderRadius: 4 }]
+          datasets: [{ data: topSDG.map(([,v]) => v), backgroundColor: ['#1e40af','#eab308','#16a34a','#dc2626','#ea580c','#0891b2','#7c3aed','#db2777','#0d9488','#64748b'], borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topSDG[items[0].dataIndex][0] } }
-          },
-          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
       });
 
-      // 8. ANZSRC — Horizontal Bar
       const topANZSRC = topN(d.anzsrcCounts, 10);
       new Chart(document.getElementById('anzsrcChart'), {
         type: 'bar',
         data: {
           labels: topANZSRC.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
-          datasets: [{ data: topANZSRC.map(([,v]) => v),
-            backgroundColor: '#7c3aed', borderRadius: 4 }]
+          datasets: [{ data: topANZSRC.map(([,v]) => v), backgroundColor: '#7c3aed', borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: { legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topANZSRC[items[0].dataIndex][0] } }
-          },
-          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
-        }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
       });
     }
 
-    // ============================================================
-    // INIT
-    // ============================================================
     document.addEventListener('DOMContentLoaded', async () => {
       try {
         const res = await fetch(CSV_URL);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const text = await res.text();
-        const rows = parseCSV(text);
-        if (rows.length < 2) throw new Error('ข้อมูลน้อยเกินไป');
+        
+        // เช็คเผื่อกรณีที่ Apps Script ส่งกลับมาเป็น JSON array (ถ้าโค้ด Apps Script ถูกเขียนมาให้ส่งแบบนั้น)
+        let rows = [];
+        if (text.trim().startsWith('[') || text.trim().startsWith('{')) {
+           const jsonData = JSON.parse(text);
+           // ถ้าส่งมาเป็น JSON (Array of arrays)
+           if (Array.isArray(jsonData) && Array.isArray(jsonData[0])) {
+               rows = jsonData.slice(1); // ข้ามแถว Header
+           } else {
+               throw new Error('รูปแบบ JSON ที่ได้จาก Apps Script ไม่ตรงกับที่ระบบต้องการ');
+           }
+        } else {
+           // ถ้าส่งมาเป็น CSV Text แบบเดิม
+           rows = parseCSV(text);
+        }
+
+        if (rows.length < 1) throw new Error('ไม่พบข้อมูล หรือข้อมูลน้อยเกินไป');
 
         const d = processData(rows);
         renderKPI(d);
@@ -594,8 +508,8 @@
         console.error(err);
         document.getElementById('alertBox').style.display = 'block';
         document.getElementById('alertBox').innerHTML =
-          `⚠️ ไม่สามารถดึงข้อมูลจาก Google Sheets ได้: ${err.message}<br>
-           ตรวจสอบว่า Sheet ถูก Publish เป็น CSV และ URL ใน CSV_URL ถูกต้อง`;
+          `⚠️ ไม่สามารถประมวลผลข้อมูลจาก Apps Script ได้: ${err.message}<br>
+           กรุณาตรวจสอบว่า Apps Script ถูก Deploy แบบ "Execute as: Me" และ "Who has access: Anyone" แล้วหรือไม่`;
         document.getElementById('kpiRow').innerHTML = '';
       }
     });
