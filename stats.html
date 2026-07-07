@@ -39,7 +39,6 @@
       background-image: radial-gradient(circle at 20% 30%, rgba(37,99,235,0.04) 0%, transparent 50%);
     }
 
-    /* NAVBAR */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0 2rem;
@@ -70,7 +69,6 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--text-primary); background: var(--glass-hover); }
 
-    /* HEADER */
     .stats-header {
       padding: 120px 2rem 40px;
       text-align: center; max-width: 800px; margin: 0 auto;
@@ -78,7 +76,6 @@
     .stats-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
     .stats-header p { color: var(--text-secondary); font-size: 1.1rem; }
 
-    /* KPI SUMMARY CARDS */
     .kpi-row {
       max-width: 1200px; margin: 0 auto 2rem;
       padding: 0 2rem;
@@ -105,7 +102,6 @@
       text-transform: uppercase; letter-spacing: 0.04em;
     }
 
-    /* SECTION TITLE */
     .section-title {
       max-width: 1200px; margin: 0 auto 1rem;
       padding: 0 2rem;
@@ -120,7 +116,6 @@
       border-radius: 2px;
     }
 
-    /* DASHBOARD GRID */
     .dashboard {
       max-width: 1200px; margin: 0 auto 2rem;
       padding: 0 2rem;
@@ -128,7 +123,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
-    .dashboard.full-width { grid-template-columns: 1fr; }
 
     .chart-card {
       background: var(--bg-card);
@@ -149,21 +143,19 @@
     .chart-container { position: relative; height: 300px; width: 100%; }
     .chart-container.tall { height: 400px; }
 
-    /* CO-USAGE TABLE */
     .co-usage-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
     .co-usage-table td { padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border); }
     .co-usage-table td:last-child { text-align: right; font-weight: 700; color: var(--accent-blue); }
     .co-usage-bar-wrap { height: 4px; background: #e2e8f0; border-radius: 2px; margin-top: 3px; }
     .co-usage-bar { height: 4px; background: var(--accent-cyan); border-radius: 2px; }
 
-    /* LOADING / ERROR */
     .data-alert {
       max-width: 1200px; margin: 0 auto 2rem;
       padding: 1rem 2rem;
-      background: rgba(37,99,235,0.08);
-      border-left: 4px solid var(--accent-blue);
+      background: rgba(220,38,38,0.08);
+      border-left: 4px solid #dc2626;
       border-radius: var(--radius-md);
-      color: var(--accent-blue); font-weight: 500;
+      color: #dc2626; font-weight: 500;
     }
     .loading-spinner {
       text-align: center; padding: 4rem;
@@ -226,7 +218,7 @@
     </div>
   </div>
 
-  <div class="section-title">📰 Journals & Subject Categories</div>
+  <div class="section-title">📰 Journals &amp; Subject Categories</div>
   <div class="dashboard">
     <div class="chart-card">
       <h3>Top Journals</h3>
@@ -256,7 +248,7 @@
     </div>
   </div>
 
-  <div class="section-title">🌍 Research Impact & Strategy</div>
+  <div class="section-title">🌍 Research Impact &amp; Strategy</div>
   <div class="dashboard">
     <div class="chart-card">
       <h3>SDG Coverage</h3>
@@ -265,7 +257,7 @@
     </div>
     <div class="chart-card">
       <h3>Fields of Research (ANZSRC)</h3>
-      <p class="chart-subtitle">Australian & NZ research classification</p>
+      <p class="chart-subtitle">Australian &amp; NZ research classification</p>
       <div class="chart-container tall"><canvas id="anzsrcChart"></canvas></div>
     </div>
   </div>
@@ -276,54 +268,38 @@
 
   <script>
     // ============================================================
-    // ⚙️ CONFIG — อัปเดต URL เป็น Google Apps Script ที่สร้างไว้
+    // ⚙️ CONFIG — Apps Script URL (ไม่ติด CORS)
     // ============================================================
-    const CSV_URL = 'https://script.google.com/macros/s/AKfycbwVtYkEY-A9zSnaOAEbwRHynxrcPrIIMmsJVXVifMsqIR4E_FlIPxuulLydR3yNL3vF/exec';
+    const API_URL = 'https://script.google.com/macros/s/AKfycbwVtYkEY-A9zSnaOAEbwRHynxrcPrIIMmsJVXVifMsqIR4E_FlIPxuulLydR3yNL3vF/exec';
     // ============================================================
 
+    // ชื่อ field ตรงกับ header ใน Google Sheet
     const COL = {
-      equipId: 0,
-      title: 1,
-      journal: 2,
-      doi: 3,
-      abstract: 4,
-      instruments: 5,
-      hindex: 6,
-      quartile: 7,
-      subjects: 8,
-      year: 9,
-      authors: 10,
-      anzsrc: 11,
-      sdg: 12,
+      equipId:     'Equip ID',
+      title:       'Paper Title',
+      journal:     'Journal / Source',
+      instruments: 'Matched MUFRF Instruments',
+      hindex:      'H-index',
+      quartile:    'Quartile(s)',
+      subjects:    'Subject Categories',
+      year:        'Publication Year',
+      anzsrc:      'Fields of Research (ANZSRC)',
+      sdg:         'Sustainable Development Goals',
     };
 
-    function parseCSV(text) {
-      const lines = text.split(/\r?\n/).filter(l => l.trim());
-      return lines.slice(1).map(line => splitCSVLine(line));
+    // ============================================================
+    // HELPERS
+    // ============================================================
+    function getField(row, key) {
+      return (row[COL[key]] || '').toString().trim();
     }
 
-    function splitCSVLine(line) {
-      const result = [];
-      let cur = '', inQuotes = false;
-      for (let i = 0; i < line.length; i++) {
-        const ch = line[i];
-        if (ch === '"') {
-          if (inQuotes && line[i+1] === '"') { cur += '"'; i++; }
-          else inQuotes = !inQuotes;
-        } else if (ch === ',' && !inQuotes) {
-          result.push(cur.trim()); cur = '';
-        } else cur += ch;
-      }
-      result.push(cur.trim());
-      return result;
-    }
-
-    function countValues(rows, colIdx) {
+    function countValues(rows, key) {
       const counts = {};
       rows.forEach(row => {
-        const val = (row[colIdx] || '').trim();
+        const val = getField(row, key);
         if (!val) return;
-        val.split(/[;,\/]+/).forEach(v => {
+        val.split(/[;]+/).forEach(v => {
           const k = v.trim();
           if (k) counts[k] = (counts[k] || 0) + 1;
         });
@@ -340,52 +316,58 @@
     const COLORS = ['#2563eb','#0891b2','#7c3aed','#059669','#d97706','#dc2626','#0284c7','#9333ea','#16a34a','#ea580c'];
     const QUARTILE_COLORS = { Q1:'#059669', Q2:'#2563eb', Q3:'#d97706', Q4:'#dc2626', 'N/A':'#94a3b8' };
 
+    // ============================================================
+    // PROCESS DATA (rows = array of objects จาก Apps Script)
+    // ============================================================
     function processData(rows) {
-      const uniquePapers = new Set(rows.map(r => (r[COL.title]||'').trim()).filter(Boolean)).size;
-      const instruments = new Set(rows.map(r => (r[COL.equipId]||'').trim()).filter(Boolean)).size;
-      const hindices = rows.map(r => parseFloat(r[COL.hindex])).filter(n => !isNaN(n));
+      const uniquePapers = new Set(rows.map(r => getField(r, 'title')).filter(Boolean)).size;
+      const instrSet = new Set(rows.map(r => getField(r, 'equipId')).filter(Boolean));
+      const hindices = rows.map(r => parseFloat(getField(r, 'hindex'))).filter(n => !isNaN(n));
       const avgH = hindices.length ? (hindices.reduce((a,b) => a+b, 0) / hindices.length).toFixed(1) : '-';
-      const q1Count = rows.filter(r => (r[COL.quartile]||'').includes('Q1')).length;
+      const q1Count = rows.filter(r => getField(r, 'quartile').includes('Q1')).length;
       const q1Pct = rows.length ? Math.round(q1Count / rows.length * 100) : 0;
 
-      const qCounts = countValues(rows, COL.quartile);
+      const qCounts = countValues(rows, 'quartile');
 
       const yearCounts = {};
       rows.forEach(r => {
-        const y = (r[COL.year]||'').trim();
-        if (y && /^\d{4}$/.test(y)) yearCounts[y] = (yearCounts[y]||0) + 1;
+        const y = getField(r, 'year');
+        if (y && /^\d{4}$/.test(y)) yearCounts[y] = (yearCounts[y] || 0) + 1;
       });
       const sortedYears = Object.keys(yearCounts).sort();
 
       const journalCounts = {};
       rows.forEach(r => {
-        const j = (r[COL.journal]||'').trim();
-        if (j) journalCounts[j] = (journalCounts[j]||0) + 1;
+        const j = getField(r, 'journal');
+        if (j) journalCounts[j] = (journalCounts[j] || 0) + 1;
       });
 
-      const subjectCounts = countValues(rows, COL.subjects);
-      const instrCounts = countValues(rows, COL.instruments);
+      const subjectCounts = countValues(rows, 'subjects');
+      const instrCounts = countValues(rows, 'instruments');
 
       const coPairs = {};
       rows.forEach(r => {
-        const instrList = (r[COL.instruments]||'').split(/[;,]+/).map(s => s.trim()).filter(Boolean);
+        const instrList = getField(r, 'instruments').split(/[;,]+/).map(s => s.trim()).filter(Boolean);
         for (let i = 0; i < instrList.length; i++) {
           for (let j = i+1; j < instrList.length; j++) {
             const pair = [instrList[i], instrList[j]].sort().join(' + ');
-            coPairs[pair] = (coPairs[pair]||0) + 1;
+            coPairs[pair] = (coPairs[pair] || 0) + 1;
           }
         }
       });
 
-      const sdgCounts = countValues(rows, COL.sdg);
-      const anzsrcCounts = countValues(rows, COL.anzsrc);
+      const sdgCounts = countValues(rows, 'sdg');
+      const anzsrcCounts = countValues(rows, 'anzsrc');
 
-      return { uniquePapers, instruments, avgH, q1Pct, q1Count,
+      return { uniquePapers, instruments: instrSet.size, avgH, q1Pct,
                qCounts, sortedYears, yearCounts,
                journalCounts, subjectCounts, instrCounts,
                coPairs, sdgCounts, anzsrcCounts };
     }
 
+    // ============================================================
+    // RENDER KPI
+    // ============================================================
     function renderKPI(d) {
       document.getElementById('kpiRow').innerHTML = `
         <div class="kpi-card"><div class="kpi-value">${d.uniquePapers}</div><div class="kpi-label">Unique Publications</div></div>
@@ -395,26 +377,40 @@
       `;
     }
 
+    // ============================================================
+    // RENDER CHARTS
+    // ============================================================
     function renderCharts(d) {
+      // 1. Quartile — Doughnut
       const qLabels = Object.keys(d.qCounts);
       const qData = qLabels.map(k => d.qCounts[k]);
       const qColors = qLabels.map(k => QUARTILE_COLORS[k] || '#94a3b8');
       new Chart(document.getElementById('quartileChart'), {
         type: 'doughnut',
         data: { labels: qLabels, datasets: [{ data: qData, backgroundColor: qColors, borderWidth: 0, hoverOffset: 6 }] },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }
+        options: { responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { position: 'right' },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${Math.round(ctx.raw/qData.reduce((a,b)=>a+b,0)*100)}%)` } }
+          }
+        }
       });
 
+      // 2. Publications by Year — Line
       new Chart(document.getElementById('yearChart'), {
         type: 'line',
         data: {
           labels: d.sortedYears,
           datasets: [{ label: 'Publications', data: d.sortedYears.map(y => d.yearCounts[y]),
-            borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)', fill: true, tension: 0.4, pointRadius: 5 }]
+            borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)',
+            fill: true, tension: 0.4, pointRadius: 5, pointBackgroundColor: '#2563eb' }]
         },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        options: { responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { grid: { display: false } } }
+        }
       });
 
+      // 3. Top Journals — Horizontal Bar
       const topJournals = topN(d.journalCounts, 10);
       new Chart(document.getElementById('journalChart'), {
         type: 'bar',
@@ -422,9 +418,15 @@
           labels: topJournals.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
           datasets: [{ data: topJournals.map(([,v]) => v), backgroundColor: '#1e3a5f', borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topJournals[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
+      // 4. Subject Categories — Horizontal Bar
       const topSubjects = topN(d.subjectCounts, 12);
       new Chart(document.getElementById('subjectChart'), {
         type: 'bar',
@@ -432,9 +434,15 @@
           labels: topSubjects.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
           datasets: [{ data: topSubjects.map(([,v]) => v), backgroundColor: '#0891b2', borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topSubjects[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
+      // 5. Instruments — Horizontal Bar
       const topInstr = topN(d.instrCounts, 10);
       new Chart(document.getElementById('instrumentChart'), {
         type: 'bar',
@@ -442,30 +450,48 @@
           labels: topInstr.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
           datasets: [{ data: topInstr.map(([,v]) => v), backgroundColor: COLORS.slice(0, topInstr.length), borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topInstr[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
+      // 6. Co-usage — Custom Table
       const topPairs = topN(d.coPairs, 10);
       const maxPair = topPairs[0] ? topPairs[0][1] : 1;
       document.getElementById('coUsageContainer').innerHTML = topPairs.length
         ? `<table class="co-usage-table">${topPairs.map(([pair, count]) => `
             <tr>
-              <td><div>${pair}</div><div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count/maxPair*100)}%"></div></div></td>
+              <td>
+                <div>${pair}</div>
+                <div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count/maxPair*100)}%"></div></div>
+              </td>
               <td>${count}</td>
             </tr>`).join('')}
            </table>`
-        : '<p style="color:var(--text-secondary);padding:1rem;">ไม่พบข้อมูล</p>';
+        : '<p style="color:var(--text-secondary);padding:1rem;">ไม่พบข้อมูล Co-usage</p>';
 
+      // 7. SDG — Horizontal Bar
       const topSDG = topN(d.sdgCounts, 10);
       new Chart(document.getElementById('sdgChart'), {
         type: 'bar',
         data: {
           labels: topSDG.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
-          datasets: [{ data: topSDG.map(([,v]) => v), backgroundColor: ['#1e40af','#eab308','#16a34a','#dc2626','#ea580c','#0891b2','#7c3aed','#db2777','#0d9488','#64748b'], borderRadius: 4 }]
+          datasets: [{ data: topSDG.map(([,v]) => v),
+            backgroundColor: ['#1e40af','#eab308','#16a34a','#dc2626','#ea580c','#0891b2','#7c3aed','#db2777','#0d9488','#64748b'],
+            borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topSDG[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
+      // 8. ANZSRC — Horizontal Bar
       const topANZSRC = topN(d.anzsrcCounts, 10);
       new Chart(document.getElementById('anzsrcChart'), {
         type: 'bar',
@@ -473,32 +499,24 @@
           labels: topANZSRC.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
           datasets: [{ data: topANZSRC.map(([,v]) => v), backgroundColor: '#7c3aed', borderRadius: 4 }]
         },
-        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topANZSRC[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
     }
 
+    // ============================================================
+    // INIT — ดึงข้อมูล JSON จาก Apps Script
+    // ============================================================
     document.addEventListener('DOMContentLoaded', async () => {
       try {
-        const res = await fetch(CSV_URL);
+        const res = await fetch(API_URL);
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        const text = await res.text();
-        
-        // เช็คเผื่อกรณีที่ Apps Script ส่งกลับมาเป็น JSON array (ถ้าโค้ด Apps Script ถูกเขียนมาให้ส่งแบบนั้น)
-        let rows = [];
-        if (text.trim().startsWith('[') || text.trim().startsWith('{')) {
-           const jsonData = JSON.parse(text);
-           // ถ้าส่งมาเป็น JSON (Array of arrays)
-           if (Array.isArray(jsonData) && Array.isArray(jsonData[0])) {
-               rows = jsonData.slice(1); // ข้ามแถว Header
-           } else {
-               throw new Error('รูปแบบ JSON ที่ได้จาก Apps Script ไม่ตรงกับที่ระบบต้องการ');
-           }
-        } else {
-           // ถ้าส่งมาเป็น CSV Text แบบเดิม
-           rows = parseCSV(text);
-        }
-
-        if (rows.length < 1) throw new Error('ไม่พบข้อมูล หรือข้อมูลน้อยเกินไป');
+        const rows = await res.json();
+        if (!Array.isArray(rows) || rows.length === 0) throw new Error('ไม่พบข้อมูลใน Sheet');
 
         const d = processData(rows);
         renderKPI(d);
@@ -508,8 +526,7 @@
         console.error(err);
         document.getElementById('alertBox').style.display = 'block';
         document.getElementById('alertBox').innerHTML =
-          `⚠️ ไม่สามารถประมวลผลข้อมูลจาก Apps Script ได้: ${err.message}<br>
-           กรุณาตรวจสอบว่า Apps Script ถูก Deploy แบบ "Execute as: Me" และ "Who has access: Anyone" แล้วหรือไม่`;
+          `⚠️ ไม่สามารถดึงข้อมูลจาก Google Sheets ได้: ${err.message}`;
         document.getElementById('kpiRow').innerHTML = '';
       }
     });
