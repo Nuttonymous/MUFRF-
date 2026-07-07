@@ -407,150 +407,35 @@
 
   <script>
     // ============================================================
-    // ⚙️ CONFIG — Apps Script URL (ไม่ติด CORS)
+    // ⚙️ CONFIG
     // ============================================================
     const API_URL = 'https://script.google.com/macros/s/AKfycbwVtYkEY-A9zSnaOAEbwRHynxrcPrIIMmsJVXVifMsqIR4E_FlIPxuulLydR3yNL3vF/exec';
+    const CACHE_KEY = 'mufrf_precomputed';
+    const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 ชั่วโมง
     // ============================================================
 
-    // ชื่อ field ตรงกับ header ใน Google Sheet
-    const COL = {
-      equipId: 'Equip ID',
-      title: 'Paper Title',
-      journal: 'Journal / Source',
-      instruments: 'Matched MUFRF Instruments',
-      hindex: 'H-index',
-      quartile: 'Quartile(s)',
-      subjects: 'Subject Categories',
-      year: 'Publication Year',
-      anzsrc: 'Fields of Research (ANZSRC)',
-      sdg: 'Sustainable Development Goals',
-    };
+    const COLORS = ['#2563eb','#0891b2','#7c3aed','#059669','#d97706','#dc2626','#0284c7','#9333ea','#16a34a','#ea580c'];
+    const QUARTILE_COLORS = { Q1:'#059669', Q2:'#2563eb', Q3:'#d97706', Q4:'#dc2626', 'N/A':'#94a3b8' };
 
     // ============================================================
-    // HELPERS
-    // ============================================================
-    function getField(row, key) {
-      return (row[COL[key]] || '').toString().trim();
-    }
-
-    function countValues(rows, key) {
-      const counts = {};
-      rows.forEach(row => {
-        const val = getField(row, key);
-        if (!val) return;
-        val.split(/[;]+/).forEach(v => {
-          const k = v.trim();
-          if (k) counts[k] = (counts[k] || 0) + 1;
-        });
-      });
-      return counts;
-    }
-
-    function topN(counts, n) {
-      return Object.entries(counts)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, n);
-    }
-
-    const COLORS = ['#2563eb', '#0891b2', '#7c3aed', '#059669', '#d97706', '#dc2626', '#0284c7', '#9333ea', '#16a34a', '#ea580c'];
-    const QUARTILE_COLORS = { Q1: '#059669', Q2: '#2563eb', Q3: '#d97706', Q4: '#dc2626', 'N/A': '#94a3b8' };
-
-    // ============================================================
-    // PROCESS DATA (rows = array of objects จาก Apps Script)
-    // ============================================================
-    function processData(rows) {
-      const uniquePapers = new Set(rows.map(r => getField(r, 'title')).filter(Boolean)).size;
-
-      // FIX 1: นับ instruments จากคอลัมน์ F (Matched MUFRF Instruments)
-      const instrSet = new Set();
-      rows.forEach(r => {
-        getField(r, 'instruments').split(/[;,]+/).map(s => s.trim()).filter(Boolean).forEach(s => instrSet.add(s));
-      });
-
-      const hindices = rows.map(r => parseFloat(getField(r, 'hindex'))).filter(n => !isNaN(n));
-      const avgH = hindices.length ? (hindices.reduce((a, b) => a + b, 0) / hindices.length).toFixed(1) : '-';
-      const q1Count = rows.filter(r => getField(r, 'quartile').includes('Q1')).length;
-      const q1Pct = rows.length ? Math.round(q1Count / rows.length * 100) : 0;
-
-      // FIX 2: Quartile — เอาเฉพาะตัวแรกของแต่ละ row (เช่น "Q1/Q2" → เอาแค่ Q1)
-      const qCounts = {};
-      rows.forEach(r => {
-        const val = getField(r, 'quartile');
-        if (!val) return;
-        const match = val.match(/Q[1-4]/i);
-        if (match) {
-          const k = match[0].toUpperCase();
-          qCounts[k] = (qCounts[k] || 0) + 1;
-        }
-      });
-
-      const yearCounts = {};
-      rows.forEach(r => {
-        const y = getField(r, 'year');
-        if (y && /^\d{4}$/.test(y)) yearCounts[y] = (yearCounts[y] || 0) + 1;
-      });
-      const sortedYears = Object.keys(yearCounts).sort();
-
-      const journalCounts = {};
-      rows.forEach(r => {
-        const j = getField(r, 'journal');
-        if (j) journalCounts[j] = (journalCounts[j] || 0) + 1;
-      });
-
-      const subjectCounts = countValues(rows, 'subjects');
-      const instrCounts = countValues(rows, 'instruments');
-
-      // FIX 4: Co-usage — จับคู่ instrument ที่ปรากฏใน paper เดียวกัน (ใช้ Paper Title เป็น key)
-      const paperInstrMap = {};
-      rows.forEach(r => {
-        const title = getField(r, 'title');
-        if (!title) return;
-        const instrList = getField(r, 'instruments').split(/[;,]+/).map(s => s.trim()).filter(Boolean);
-        if (!paperInstrMap[title]) paperInstrMap[title] = new Set();
-        instrList.forEach(inst => paperInstrMap[title].add(inst));
-      });
-
-      const coPairs = {};
-      Object.values(paperInstrMap).forEach(iSet => {
-        const instrList = Array.from(iSet);
-        for (let i = 0; i < instrList.length; i++) {
-          for (let j = i + 1; j < instrList.length; j++) {
-            const pair = [instrList[i], instrList[j]].sort().join(' + ');
-            coPairs[pair] = (coPairs[pair] || 0) + 1;
-          }
-        }
-      });
-
-      const sdgCounts = countValues(rows, 'sdg');
-      const anzsrcCounts = countValues(rows, 'anzsrc');
-
-      return {
-        uniquePapers, instruments: instrSet.size, avgH, q1Pct,
-        qCounts, sortedYears, yearCounts,
-        journalCounts, subjectCounts, instrCounts,
-        coPairs, sdgCounts, anzsrcCounts
-      };
-    }
-
-    // ============================================================
-    // RENDER KPI
+    // RENDER KPI — รับ pre-computed data โดยตรง
     // ============================================================
     function renderKPI(d) {
       document.getElementById('kpiRow').innerHTML = `
-        <div class="kpi-card"><div class="kpi-value">${d.uniquePapers}</div><div class="kpi-label">Unique Publications</div></div>
-        <div class="kpi-card"><div class="kpi-value">${d.instruments}</div><div class="kpi-label">Instruments Used</div></div>
-        <div class="kpi-card"><div class="kpi-value">${d.q1Pct}%</div><div class="kpi-label">Q1 Publications</div></div>
-        <div class="kpi-card"><div class="kpi-value">${d.avgH}</div><div class="kpi-label">Avg H-index</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.kpi.papers}</div><div class="kpi-label">Unique Publications</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.kpi.instruments}</div><div class="kpi-label">Instruments Used</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.kpi.q1Pct}%</div><div class="kpi-label">Q1 Publications</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.kpi.avgH}</div><div class="kpi-label">Avg H-index</div></div>
       `;
     }
 
     // ============================================================
-    // RENDER CHARTS
+    // RENDER CHARTS — รับ pre-computed data วาดกราฟได้เลย
     // ============================================================
     function renderCharts(d) {
       // 1. Quartile — Doughnut
-      const qLabels = Object.keys(d.qCounts);
-      const qData = qLabels.map(k => d.qCounts[k]);
+      const qLabels = Object.keys(d.quartile);
+      const qData = qLabels.map(k => d.quartile[k]);
       const qColors = qLabels.map(k => QUARTILE_COLORS[k] || '#94a3b8');
       new Chart(document.getElementById('quartileChart'), {
         type: 'doughnut',
@@ -559,7 +444,7 @@
           responsive: true, maintainAspectRatio: false,
           plugins: {
             legend: { position: 'right' },
-            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${Math.round(ctx.raw / qData.reduce((a, b) => a + b, 0) * 100)}%)` } }
+            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${Math.round(ctx.raw / qData.reduce((a,b)=>a+b,0) * 100)}%)` } }
           }
         }
       });
@@ -568,9 +453,9 @@
       new Chart(document.getElementById('yearChart'), {
         type: 'line',
         data: {
-          labels: d.sortedYears,
+          labels: d.year.labels,
           datasets: [{
-            label: 'Publications', data: d.sortedYears.map(y => d.yearCounts[y]),
+            label: 'Publications', data: d.year.data,
             borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)',
             fill: true, tension: 0.4, pointRadius: 5, pointBackgroundColor: '#2563eb'
           }]
@@ -583,126 +468,128 @@
       });
 
       // 3. Top Journals — Horizontal Bar
-      const topJournals = topN(d.journalCounts, 10);
       new Chart(document.getElementById('journalChart'), {
         type: 'bar',
         data: {
-          labels: topJournals.map(([k]) => k.length > 30 ? k.slice(0, 28) + '…' : k),
-          datasets: [{ data: topJournals.map(([, v]) => v), backgroundColor: topJournals.map((_, i) => COLORS[i % COLORS.length]), borderRadius: 4 }]
+          labels: d.topJournals.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
+          datasets: [{ data: d.topJournals.map(([,v]) => v), backgroundColor: d.topJournals.map((_,i) => COLORS[i % COLORS.length]), borderRadius: 4 }]
         },
         options: {
           indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topJournals[items[0].dataIndex][0] } }
-          },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => d.topJournals[items[0].dataIndex][0] } } },
           scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
         }
       });
 
       // 4. Subject Categories — Horizontal Bar
-      const topSubjects = topN(d.subjectCounts, 12);
       new Chart(document.getElementById('subjectChart'), {
         type: 'bar',
         data: {
-          labels: topSubjects.map(([k]) => k.length > 30 ? k.slice(0, 28) + '…' : k),
-          datasets: [{ data: topSubjects.map(([, v]) => v), backgroundColor: topSubjects.map((_, i) => COLORS[i % COLORS.length]), borderRadius: 4 }]
+          labels: d.topSubjects.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
+          datasets: [{ data: d.topSubjects.map(([,v]) => v), backgroundColor: d.topSubjects.map((_,i) => COLORS[i % COLORS.length]), borderRadius: 4 }]
         },
         options: {
           indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topSubjects[items[0].dataIndex][0] } }
-          },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => d.topSubjects[items[0].dataIndex][0] } } },
           scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
         }
       });
 
       // 5. Instruments — Horizontal Bar
-      const topInstr = topN(d.instrCounts, 10);
       new Chart(document.getElementById('instrumentChart'), {
         type: 'bar',
         data: {
-          labels: topInstr.map(([k]) => k.length > 35 ? k.slice(0, 33) + '…' : k),
-          datasets: [{ data: topInstr.map(([, v]) => v), backgroundColor: COLORS.slice(0, topInstr.length), borderRadius: 4 }]
+          labels: d.topInstruments.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: d.topInstruments.map(([,v]) => v), backgroundColor: COLORS.slice(0, d.topInstruments.length), borderRadius: 4 }]
         },
         options: {
           indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topInstr[items[0].dataIndex][0] } }
-          },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => d.topInstruments[items[0].dataIndex][0] } } },
           scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
         }
       });
 
       // 6. Co-usage — Custom Table
-      const topPairs = topN(d.coPairs, 10);
-      const maxPair = topPairs[0] ? topPairs[0][1] : 1;
-      document.getElementById('coUsageContainer').innerHTML = topPairs.length
-        ? `<table class="co-usage-table">${topPairs.map(([pair, count]) => `
+      const maxPair = d.topCoPairs[0] ? d.topCoPairs[0][1] : 1;
+      document.getElementById('coUsageContainer').innerHTML = d.topCoPairs.length
+        ? `<table class="co-usage-table">${d.topCoPairs.map(([pair, count]) => `
             <tr>
               <td>
                 <div>${pair}</div>
-                <div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count / maxPair * 100)}%"></div></div>
+                <div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count/maxPair*100)}%"></div></div>
               </td>
               <td>${count}</td>
-            </tr>`).join('')}
-           </table>`
+            </tr>`).join('')}</table>`
         : '<p style="color:var(--text-secondary);padding:1rem;">ไม่พบข้อมูล Co-usage</p>';
 
       // 7. SDG — Horizontal Bar
-      const topSDG = topN(d.sdgCounts, 10);
       new Chart(document.getElementById('sdgChart'), {
         type: 'bar',
         data: {
-          labels: topSDG.map(([k]) => k.length > 35 ? k.slice(0, 33) + '…' : k),
-          datasets: [{
-            data: topSDG.map(([, v]) => v),
-            backgroundColor: ['#1e40af', '#eab308', '#16a34a', '#dc2626', '#ea580c', '#0891b2', '#7c3aed', '#db2777', '#0d9488', '#64748b'],
-            borderRadius: 4
-          }]
+          labels: d.topSDG.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: d.topSDG.map(([,v]) => v), backgroundColor: ['#1e40af','#eab308','#16a34a','#dc2626','#ea580c','#0891b2','#7c3aed','#db2777','#0d9488','#64748b'], borderRadius: 4 }]
         },
         options: {
           indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topSDG[items[0].dataIndex][0] } }
-          },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => d.topSDG[items[0].dataIndex][0] } } },
           scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
         }
       });
 
       // 8. ANZSRC — Horizontal Bar
-      const topANZSRC = topN(d.anzsrcCounts, 10);
       new Chart(document.getElementById('anzsrcChart'), {
         type: 'bar',
         data: {
-          labels: topANZSRC.map(([k]) => k.length > 35 ? k.slice(0, 33) + '…' : k),
-          datasets: [{ data: topANZSRC.map(([, v]) => v), backgroundColor: topANZSRC.map((_, i) => COLORS[i % COLORS.length]), borderRadius: 4 }]
+          labels: d.topANZSRC.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: d.topANZSRC.map(([,v]) => v), backgroundColor: d.topANZSRC.map((_,i) => COLORS[i % COLORS.length]), borderRadius: 4 }]
         },
         options: {
           indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: (items) => topANZSRC[items[0].dataIndex][0] } }
-          },
+          plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => d.topANZSRC[items[0].dataIndex][0] } } },
           scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
         }
       });
+
+      // แสดงเวลาที่ข้อมูลอัปเดตล่าสุด
+      if (d.lastUpdated) {
+        const dt = new Date(d.lastUpdated).toLocaleString('th-TH');
+        document.querySelector('footer').textContent = `อัปเดตล่าสุด: ${dt} · MUFRF Mahidol University Frontier Research Facility`;
+      }
     }
 
     // ============================================================
-    // INIT — ดึงข้อมูล JSON จาก Apps Script
+    // INIT — Cache 24 ชั่วโมง + fetch pre-computed JSON
     // ============================================================
     document.addEventListener('DOMContentLoaded', async () => {
       try {
-        const res = await fetch(API_URL);
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const rows = await res.json();
-        if (!Array.isArray(rows) || rows.length === 0) throw new Error('ไม่พบข้อมูลใน Sheet');
+        let d = null;
 
-        const d = processData(rows);
+        // เช็ค cache ก่อน
+        try {
+          const cached = localStorage.getItem(CACHE_KEY);
+          if (cached) {
+            const { timestamp, data } = JSON.parse(cached);
+            if (Date.now() - timestamp < CACHE_TTL) {
+              d = data;
+              console.log('Using cached pre-computed data');
+            }
+          }
+        } catch(e) {}
+
+        // ถ้าไม่มี cache หรือหมดอายุ → fetch ใหม่
+        if (!d) {
+          const res = await fetch(API_URL);
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          d = await res.json();
+          if (d.error) throw new Error(d.error);
+
+          // บันทึก cache
+          try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: d }));
+          } catch(e) {}
+          console.log('Fetched fresh pre-computed data');
+        }
+
         renderKPI(d);
         renderCharts(d);
 
@@ -710,7 +597,7 @@
         console.error(err);
         document.getElementById('alertBox').style.display = 'block';
         document.getElementById('alertBox').innerHTML =
-          `⚠️ ไม่สามารถดึงข้อมูลจาก Google Sheets ได้: ${err.message}`;
+          `⚠️ ไม่สามารถดึงข้อมูลได้: ${err.message}`;
         document.getElementById('kpiRow').innerHTML = '';
       }
     });
