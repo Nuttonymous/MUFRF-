@@ -7,36 +7,28 @@
   <title>MUFRF — สถิติการให้บริการ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg-primary: #f8fafc;
-      --bg-card: rgba(255, 255, 255, 0.9);
-      --glass-border: rgba(0, 0, 0, 0.05);
-      --glass-hover: rgba(255, 255, 255, 0.9);
+      --bg-card: rgba(255,255,255,0.9);
+      --glass-border: rgba(0,0,0,0.05);
+      --glass-hover: rgba(255,255,255,0.9);
       --text-primary: #0f172a;
       --text-secondary: #475569;
       --accent-blue: #2563eb;
       --accent-cyan: #0891b2;
       --gradient-blue: linear-gradient(135deg, #2563eb, #0891b2);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-xl: 24px;
-      --font-sans: 'Inter', 'Noto Sans Thai', system-ui, sans-serif;
-      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-sans: 'Inter','Noto Sans Thai',system-ui,sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.4,0,0.2,1);
     }
 
     body {
@@ -44,111 +36,53 @@
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      background-image: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+      background-image: radial-gradient(circle at 20% 30%, rgba(37,99,235,0.04) 0%, transparent 50%);
     }
 
     .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0 2rem;
       backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255,255,255,0.95);
       border-bottom: 1px solid var(--glass-border);
       box-shadow: var(--shadow-md);
     }
-
     .navbar-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-primary);
-    }
-
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
     .logo-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius-sm);
+      width: 42px; height: 42px; border-radius: var(--radius-sm);
       background: var(--gradient-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem; color: #fff;
     }
-
-    .logo-text {
-      font-weight: 700;
-      font-size: 1.15rem;
-    }
-
-    .logo-text span {
-      color: var(--accent-cyan);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      list-style: none;
-    }
-
+    .logo-text { font-weight: 700; font-size: 1.15rem; }
+    .logo-text span { color: var(--accent-cyan); }
+    .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
     .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: var(--radius-sm);
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      padding: 8px 16px; border-radius: var(--radius-sm);
       transition: var(--transition-fast);
     }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text-primary);
-      background: var(--glass-hover);
-    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); background: var(--glass-hover); }
 
     .stats-header {
       padding: 120px 2rem 40px;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
+      text-align: center; max-width: 800px; margin: 0 auto;
     }
-
-    .stats-header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .stats-header p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-    }
+    .stats-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .stats-header p { color: var(--text-secondary); font-size: 1.1rem; }
 
     .kpi-row {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
+      max-width: 1200px; margin: 0 auto 2rem;
       padding: 0 2rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1rem;
     }
-
     .kpi-card {
       background: var(--bg-card);
       border: 1px solid var(--glass-border);
@@ -157,48 +91,33 @@
       box-shadow: var(--shadow-md);
       text-align: center;
     }
-
     .kpi-card .kpi-value {
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: 2rem; font-weight: 800;
       background: var(--gradient-blue);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-
     .kpi-card .kpi-label {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-      margin-top: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      font-size: 0.78rem; color: var(--text-secondary);
+      font-weight: 500; margin-top: 4px;
+      text-transform: uppercase; letter-spacing: 0.04em;
     }
 
     .section-title {
-      max-width: 1200px;
-      margin: 0 auto 1rem;
+      max-width: 1200px; margin: 0 auto 1rem;
       padding: 0 2rem;
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1.1rem; font-weight: 700;
       color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
     }
-
     .section-title::before {
-      content: '';
-      display: inline-block;
-      width: 4px;
-      height: 20px;
+      content: ''; display: inline-block;
+      width: 4px; height: 20px;
       background: var(--gradient-blue);
       border-radius: 2px;
     }
 
     .dashboard {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
+      max-width: 1200px; margin: 0 auto 2rem;
       padding: 0 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -212,100 +131,43 @@
       padding: 2rem;
       box-shadow: var(--shadow-lg);
     }
-
     .chart-card h3 {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-secondary);
       margin-bottom: 0.25rem;
     }
-
     .chart-card .chart-subtitle {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
+      font-size: 0.82rem; color: var(--text-secondary);
       margin-bottom: 1.5rem;
     }
+    .chart-container { position: relative; height: 300px; width: 100%; }
+    .chart-container.tall { height: 400px; }
 
-    .chart-container {
-      position: relative;
-      height: 300px;
-      width: 100%;
-    }
-
-    .chart-container.tall {
-      height: 400px;
-    }
-
-    .co-usage-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-
-    .co-usage-table td {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--glass-border);
-    }
-
-    .co-usage-table td:last-child {
-      text-align: right;
-      font-weight: 700;
-      color: var(--accent-blue);
-    }
-
-    .co-usage-bar-wrap {
-      height: 4px;
-      background: #e2e8f0;
-      border-radius: 2px;
-      margin-top: 3px;
-    }
-
-    .co-usage-bar {
-      height: 4px;
-      background: var(--accent-cyan);
-      border-radius: 2px;
-    }
+    .co-usage-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .co-usage-table td { padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border); }
+    .co-usage-table td:last-child { text-align: right; font-weight: 700; color: var(--accent-blue); }
+    .co-usage-bar-wrap { height: 4px; background: #e2e8f0; border-radius: 2px; margin-top: 3px; }
+    .co-usage-bar { height: 4px; background: var(--accent-cyan); border-radius: 2px; }
 
     .data-alert {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
+      max-width: 1200px; margin: 0 auto 2rem;
       padding: 1rem 2rem;
-      background: rgba(220, 38, 38, 0.08);
+      background: rgba(220,38,38,0.08);
       border-left: 4px solid #dc2626;
       border-radius: var(--radius-md);
-      color: #dc2626;
-      font-weight: 500;
+      color: #dc2626; font-weight: 500;
     }
-
     .loading-spinner {
-      text-align: center;
-      padding: 4rem;
-      color: var(--text-secondary);
-      font-size: 1rem;
+      text-align: center; padding: 4rem;
+      color: var(--text-secondary); font-size: 1rem;
     }
 
-    footer {
-      padding: 2rem;
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-      margin-top: 2rem;
-    }
+    footer { padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 2rem; }
 
     @media (max-width: 768px) {
-      .dashboard {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .kpi-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .dashboard { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -333,7 +195,7 @@
 
   <header class="stats-header">
     <h1>Research Impact Dashboard</h1>
-    <p>ข้อมูลภาพรวม Research Output ของศูนย์ MUFRF · อัปเดตอัตโนมัติจาก Google Sheets</p>
+    <p>ข้อมูลภาพรวม Research Output ของศูนย์ MUFRF ดึงข้อมูลแบบ Real-time จาก Google Sheets</p>
   </header>
 
   <div id="alertBox" class="data-alert" style="display:none;"></div>
@@ -400,373 +262,274 @@
     </div>
   </div>
 
-  <footer id="dashboardFooter">
-    กำลังโหลดข้อมูลสถิติ...
+  <footer>
+    ข้อมูลอัปเดตอัตโนมัติจาก Google Sheets · MUFRF Mahidol University Frontier Research Facility
   </footer>
 
   <script>
     // ============================================================
-    // CONFIG
+    // ⚙️ CONFIG — Apps Script URL (ไม่ติด CORS)
     // ============================================================
-    // Keep this URL after re-deploying Apps Script. Use the /exec URL, not /dev.
-    const API_URL = 'https://script.google.com/macros/s/AKfycbyViIs_4FtcAQP1h3lMlwvgyKUf5jsx-TKnyU7-o648dhRq2NBRnUS3HiyI82Ui-nQR/exec';
+    const API_URL = 'https://script.google.com/macros/s/AKfycbwVtYkEY-A9zSnaOAEbwRHynxrcPrIIMmsJVXVifMsqIR4E_FlIPxuulLydR3yNL3vF/exec';
+    // ============================================================
 
-    // Local browser cache: renders the previous successful dashboard immediately.
-    const STORAGE_KEY = 'mufrf-dashboard-cache-v1';
-    const LOCAL_CACHE_MAX_AGE_MS = 6 * 60 * 60 * 1000; // 6 hours
-
-    const COLORS = ['#2563eb', '#0891b2', '#7c3aed', '#059669', '#d97706', '#dc2626', '#0284c7', '#9333ea', '#16a34a', '#ea580c'];
-    const QUARTILE_COLORS = { Q1: '#059669', Q2: '#2563eb', Q3: '#d97706', Q4: '#dc2626', 'N/A': '#94a3b8' };
+    // ชื่อ field ตรงกับ header ใน Google Sheet
+    const COL = {
+      equipId:     'Equip ID',
+      title:       'Paper Title',
+      journal:     'Journal / Source',
+      instruments: 'Matched MUFRF Instruments',
+      hindex:      'H-index',
+      quartile:    'Quartile(s)',
+      subjects:    'Subject Categories',
+      year:        'Publication Year',
+      anzsrc:      'Fields of Research (ANZSRC)',
+      sdg:         'Sustainable Development Goals',
+    };
 
     // ============================================================
-    // LOCAL STORAGE + UI HELPERS
+    // HELPERS
     // ============================================================
-    function readLocalDashboard() {
-      try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        if (!saved || !saved.data || !saved.savedAt) return null;
-        return saved;
-      } catch {
-        localStorage.removeItem(STORAGE_KEY);
-        return null;
-      }
+    function getField(row, key) {
+      return (row[COL[key]] || '').toString().trim();
     }
 
-    function saveLocalDashboard(data) {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
-          savedAt: Date.now(),
-          data,
-        }));
-      } catch (error) {
-        // Page still works when storage is blocked or full.
-        console.warn('Unable to save local dashboard cache.', error);
-      }
+    function countValues(rows, key) {
+      const counts = {};
+      rows.forEach(row => {
+        const val = getField(row, key);
+        if (!val) return;
+        val.split(/[;]+/).forEach(v => {
+          const k = v.trim();
+          if (k) counts[k] = (counts[k] || 0) + 1;
+        });
+      });
+      return counts;
     }
 
-    function escapeHTML(value) {
-      return String(value ?? '').replace(/[&<>"']/g, char => ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;',
-      }[char]));
+    function topN(counts, n) {
+      return Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, n);
     }
 
-    function truncateLabel(value, maxLength) {
-      const text = String(value ?? '');
-      return text.length > maxLength ? `${text.slice(0, maxLength - 1)}…` : text;
-    }
+    const COLORS = ['#2563eb','#0891b2','#7c3aed','#059669','#d97706','#dc2626','#0284c7','#9333ea','#16a34a','#ea580c'];
+    const QUARTILE_COLORS = { Q1:'#059669', Q2:'#2563eb', Q3:'#d97706', Q4:'#dc2626', 'N/A':'#94a3b8' };
 
-    function showAlert(message) {
-      const alertBox = document.getElementById('alertBox');
-      alertBox.style.display = 'block';
-      alertBox.textContent = message;
-    }
+    // ============================================================
+    // PROCESS DATA (rows = array of objects จาก Apps Script)
+    // ============================================================
+    function processData(rows) {
+      const uniquePapers = new Set(rows.map(r => getField(r, 'title')).filter(Boolean)).size;
+      const instrSet = new Set(rows.map(r => getField(r, 'equipId')).filter(Boolean));
+      const hindices = rows.map(r => parseFloat(getField(r, 'hindex'))).filter(n => !isNaN(n));
+      const avgH = hindices.length ? (hindices.reduce((a,b) => a+b, 0) / hindices.length).toFixed(1) : '-';
+      const q1Count = rows.filter(r => getField(r, 'quartile').includes('Q1')).length;
+      const q1Pct = rows.length ? Math.round(q1Count / rows.length * 100) : 0;
 
-    function hideAlert() {
-      const alertBox = document.getElementById('alertBox');
-      alertBox.style.display = 'none';
-      alertBox.textContent = '';
-    }
+      const qCounts = countValues(rows, 'quartile');
 
-    function formatDateTime(isoString) {
-      if (!isoString) return '-';
-      const date = new Date(isoString);
-      if (Number.isNaN(date.getTime())) return '-';
+      const yearCounts = {};
+      rows.forEach(r => {
+        const y = getField(r, 'year');
+        if (y && /^\d{4}$/.test(y)) yearCounts[y] = (yearCounts[y] || 0) + 1;
+      });
+      const sortedYears = Object.keys(yearCounts).sort();
 
-      return new Intl.DateTimeFormat('th-TH', {
-        dateStyle: 'medium',
-        timeStyle: 'short',
-      }).format(date);
-    }
+      const journalCounts = {};
+      rows.forEach(r => {
+        const j = getField(r, 'journal');
+        if (j) journalCounts[j] = (journalCounts[j] || 0) + 1;
+      });
 
-    function updateFooter(data, isOffline = false) {
-      const footer = document.getElementById('dashboardFooter');
-      const suffix = isOffline ? ' · กำลังแสดงข้อมูลสำรองในเบราว์เซอร์' : '';
-      footer.textContent =
-        `ข้อมูลอัปเดตล่าสุด ${formatDateTime(data.generatedAt)} · ${data.sourceRows ?? 0} รายการ · MUFRF Mahidol University Frontier Research Facility${suffix}`;
-    }
+      const subjectCounts = countValues(rows, 'subjects');
+      const instrCounts = countValues(rows, 'instruments');
 
-    function destroyChart(canvasId) {
-      const previous = Chart.getChart(canvasId);
-      if (previous) previous.destroy();
-    }
+      const coPairs = {};
+      rows.forEach(r => {
+        const instrList = getField(r, 'instruments').split(/[;,]+/).map(s => s.trim()).filter(Boolean);
+        for (let i = 0; i < instrList.length; i++) {
+          for (let j = i+1; j < instrList.length; j++) {
+            const pair = [instrList[i], instrList[j]].sort().join(' + ');
+            coPairs[pair] = (coPairs[pair] || 0) + 1;
+          }
+        }
+      });
 
-    function createChart(canvasId, config) {
-      destroyChart(canvasId);
-      return new Chart(document.getElementById(canvasId), config);
+      const sdgCounts = countValues(rows, 'sdg');
+      const anzsrcCounts = countValues(rows, 'anzsrc');
+
+      return { uniquePapers, instruments: instrSet.size, avgH, q1Pct,
+               qCounts, sortedYears, yearCounts,
+               journalCounts, subjectCounts, instrCounts,
+               coPairs, sdgCounts, anzsrcCounts };
     }
 
     // ============================================================
     // RENDER KPI
     // ============================================================
-    function renderKPI(data) {
-      const kpi = data.kpis;
+    function renderKPI(d) {
       document.getElementById('kpiRow').innerHTML = `
-        <div class="kpi-card"><div class="kpi-value">${escapeHTML(kpi.uniquePapers)}</div><div class="kpi-label">Unique Publications</div></div>
-        <div class="kpi-card"><div class="kpi-value">${escapeHTML(kpi.instruments)}</div><div class="kpi-label">Instruments Used</div></div>
-        <div class="kpi-card"><div class="kpi-value">${escapeHTML(kpi.q1Pct)}%</div><div class="kpi-label">Q1 Publications</div></div>
-        <div class="kpi-card"><div class="kpi-value">${kpi.avgH === null ? '-' : escapeHTML(kpi.avgH)}</div><div class="kpi-label">Avg H-index</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.uniquePapers}</div><div class="kpi-label">Unique Publications</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.instruments}</div><div class="kpi-label">Instruments Used</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.q1Pct}%</div><div class="kpi-label">Q1 Publications</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.avgH}</div><div class="kpi-label">Avg H-index</div></div>
       `;
     }
 
     // ============================================================
     // RENDER CHARTS
     // ============================================================
-    function renderCharts(data) {
-      const charts = data.charts;
-
+    function renderCharts(d) {
       // 1. Quartile — Doughnut
-      const quartiles = charts.quartiles || [];
-      const qLabels = quartiles.map(item => item.label);
-      const qData = quartiles.map(item => item.value);
-      const qTotal = qData.reduce((sum, value) => sum + value, 0);
-
-      createChart('quartileChart', {
+      const qLabels = Object.keys(d.qCounts);
+      const qData = qLabels.map(k => d.qCounts[k]);
+      const qColors = qLabels.map(k => QUARTILE_COLORS[k] || '#94a3b8');
+      new Chart(document.getElementById('quartileChart'), {
         type: 'doughnut',
-        data: {
-          labels: qLabels,
-          datasets: [{
-            data: qData,
-            backgroundColor: qLabels.map(label => QUARTILE_COLORS[label] || '#94a3b8'),
-            borderWidth: 0,
-            hoverOffset: 6,
-          }],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'right' },
-            tooltip: {
-              callbacks: {
-                label: ctx => {
-                  const percent = qTotal ? Math.round((ctx.raw / qTotal) * 100) : 0;
-                  return ` ${ctx.label}: ${ctx.raw} (${percent}%)`;
-                },
-              },
-            },
-          },
-        },
+        data: { labels: qLabels, datasets: [{ data: qData, backgroundColor: qColors, borderWidth: 0, hoverOffset: 6 }] },
+        options: { responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { position: 'right' },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${Math.round(ctx.raw/qData.reduce((a,b)=>a+b,0)*100)}%)` } }
+          }
+        }
       });
 
       // 2. Publications by Year — Line
-      const years = charts.years || [];
-      createChart('yearChart', {
+      new Chart(document.getElementById('yearChart'), {
         type: 'line',
         data: {
-          labels: years.map(item => item.label),
-          datasets: [{
-            label: 'Publications',
-            data: years.map(item => item.value),
-            borderColor: '#2563eb',
-            backgroundColor: 'rgba(37,99,235,0.1)',
-            fill: true,
-            tension: 0.4,
-            pointRadius: 5,
-            pointBackgroundColor: '#2563eb',
-          }],
+          labels: d.sortedYears,
+          datasets: [{ label: 'Publications', data: d.sortedYears.map(y => d.yearCounts[y]),
+            borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)',
+            fill: true, tension: 0.4, pointRadius: 5, pointBackgroundColor: '#2563eb' }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
+        options: { responsive: true, maintainAspectRatio: false,
           plugins: { legend: { display: false } },
-          scales: {
-            y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-            x: { grid: { display: false } },
-          },
-        },
+          scales: { y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { grid: { display: false } } }
+        }
       });
 
       // 3. Top Journals — Horizontal Bar
-      const journals = charts.journals || [];
-      createChart('journalChart', {
+      const topJournals = topN(d.journalCounts, 10);
+      new Chart(document.getElementById('journalChart'), {
         type: 'bar',
         data: {
-          labels: journals.map(item => truncateLabel(item.label, 30)),
-          datasets: [{ data: journals.map(item => item.value), backgroundColor: '#1e3a5f', borderRadius: 4 }],
+          labels: topJournals.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
+          datasets: [{ data: topJournals.map(([,v]) => v), backgroundColor: '#1e3a5f', borderRadius: 4 }]
         },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: items => journals[items[0].dataIndex]?.label || '' } },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topJournals[items[0].dataIndex][0] } }
           },
-          scales: {
-            x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-            y: { grid: { display: false }, ticks: { font: { size: 11 } } },
-          },
-        },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
       // 4. Subject Categories — Horizontal Bar
-      const subjects = charts.subjects || [];
-      createChart('subjectChart', {
+      const topSubjects = topN(d.subjectCounts, 12);
+      new Chart(document.getElementById('subjectChart'), {
         type: 'bar',
         data: {
-          labels: subjects.map(item => truncateLabel(item.label, 30)),
-          datasets: [{ data: subjects.map(item => item.value), backgroundColor: '#0891b2', borderRadius: 4 }],
+          labels: topSubjects.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
+          datasets: [{ data: topSubjects.map(([,v]) => v), backgroundColor: '#0891b2', borderRadius: 4 }]
         },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: items => subjects[items[0].dataIndex]?.label || '' } },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topSubjects[items[0].dataIndex][0] } }
           },
-          scales: {
-            x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-            y: { grid: { display: false }, ticks: { font: { size: 11 } } },
-          },
-        },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
       // 5. Instruments — Horizontal Bar
-      const instruments = charts.instruments || [];
-      createChart('instrumentChart', {
+      const topInstr = topN(d.instrCounts, 10);
+      new Chart(document.getElementById('instrumentChart'), {
         type: 'bar',
         data: {
-          labels: instruments.map(item => truncateLabel(item.label, 35)),
-          datasets: [{
-            data: instruments.map(item => item.value),
-            backgroundColor: COLORS.slice(0, instruments.length),
-            borderRadius: 4,
-          }],
+          labels: topInstr.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: topInstr.map(([,v]) => v), backgroundColor: COLORS.slice(0, topInstr.length), borderRadius: 4 }]
         },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: items => instruments[items[0].dataIndex]?.label || '' } },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topInstr[items[0].dataIndex][0] } }
           },
-          scales: {
-            x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-            y: { grid: { display: false }, ticks: { font: { size: 11 } } },
-          },
-        },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
       // 6. Co-usage — Custom Table
-      const pairs = charts.coUsage || [];
-      const maxPair = pairs[0]?.value || 1;
-
-      document.getElementById('coUsageContainer').innerHTML = pairs.length
-        ? `<table class="co-usage-table">${pairs.map(item => `
+      const topPairs = topN(d.coPairs, 10);
+      const maxPair = topPairs[0] ? topPairs[0][1] : 1;
+      document.getElementById('coUsageContainer').innerHTML = topPairs.length
+        ? `<table class="co-usage-table">${topPairs.map(([pair, count]) => `
             <tr>
               <td>
-                <div>${escapeHTML(item.label)}</div>
-                <div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round((item.value / maxPair) * 100)}%"></div></div>
+                <div>${pair}</div>
+                <div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count/maxPair*100)}%"></div></div>
               </td>
-              <td>${escapeHTML(item.value)}</td>
+              <td>${count}</td>
             </tr>`).join('')}
-          </table>`
+           </table>`
         : '<p style="color:var(--text-secondary);padding:1rem;">ไม่พบข้อมูล Co-usage</p>';
 
       // 7. SDG — Horizontal Bar
-      const sdg = charts.sdg || [];
-      createChart('sdgChart', {
+      const topSDG = topN(d.sdgCounts, 10);
+      new Chart(document.getElementById('sdgChart'), {
         type: 'bar',
         data: {
-          labels: sdg.map(item => truncateLabel(item.label, 35)),
-          datasets: [{
-            data: sdg.map(item => item.value),
-            backgroundColor: ['#1e40af', '#eab308', '#16a34a', '#dc2626', '#ea580c', '#0891b2', '#7c3aed', '#db2777', '#0d9488', '#64748b'],
-            borderRadius: 4,
-          }],
+          labels: topSDG.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: topSDG.map(([,v]) => v),
+            backgroundColor: ['#1e40af','#eab308','#16a34a','#dc2626','#ea580c','#0891b2','#7c3aed','#db2777','#0d9488','#64748b'],
+            borderRadius: 4 }]
         },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: items => sdg[items[0].dataIndex]?.label || '' } },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topSDG[items[0].dataIndex][0] } }
           },
-          scales: {
-            x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-            y: { grid: { display: false }, ticks: { font: { size: 11 } } },
-          },
-        },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
 
       // 8. ANZSRC — Horizontal Bar
-      const anzsrc = charts.anzsrc || [];
-      createChart('anzsrcChart', {
+      const topANZSRC = topN(d.anzsrcCounts, 10);
+      new Chart(document.getElementById('anzsrcChart'), {
         type: 'bar',
         data: {
-          labels: anzsrc.map(item => truncateLabel(item.label, 35)),
-          datasets: [{ data: anzsrc.map(item => item.value), backgroundColor: '#7c3aed', borderRadius: 4 }],
+          labels: topANZSRC.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: topANZSRC.map(([,v]) => v), backgroundColor: '#7c3aed', borderRadius: 4 }]
         },
-        options: {
-          indexAxis: 'y',
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { title: items => anzsrc[items[0].dataIndex]?.label || '' } },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topANZSRC[items[0].dataIndex][0] } }
           },
-          scales: {
-            x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-            y: { grid: { display: false }, ticks: { font: { size: 11 } } },
-          },
-        },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
       });
     }
 
-    function renderDashboard(data, isOffline = false) {
-      renderKPI(data);
-      renderCharts(data);
-      updateFooter(data, isOffline);
-    }
-
     // ============================================================
-    // INIT — render local cache first, then refresh from Apps Script
+    // INIT — ดึงข้อมูล JSON จาก Apps Script
     // ============================================================
     document.addEventListener('DOMContentLoaded', async () => {
-      const local = readLocalDashboard();
-      let hasLocalData = false;
-
-      if (local?.data?.kpis && local?.data?.charts) {
-        hasLocalData = true;
-        const isStale = Date.now() - local.savedAt > LOCAL_CACHE_MAX_AGE_MS;
-        renderDashboard(local.data, true);
-
-        if (isStale) {
-          showAlert('กำลังแสดงข้อมูลสำรองที่เก่ากว่า 6 ชั่วโมง และกำลังลองอัปเดตข้อมูลใหม่...');
-        }
-      }
-
       try {
-        // Browser does not cache this request; freshness is controlled by Apps Script cache.
-        const response = await fetch(API_URL, { cache: 'no-store' });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const rows = await res.json();
+        if (!Array.isArray(rows) || rows.length === 0) throw new Error('ไม่พบข้อมูลใน Sheet');
 
-        const data = await response.json();
-        if (data?.error) throw new Error(data.message || 'Apps Script returned an error.');
-        if (!data?.kpis || !data?.charts) throw new Error('รูปแบบข้อมูลจาก API ไม่ถูกต้อง');
+        const d = processData(rows);
+        renderKPI(d);
+        renderCharts(d);
 
-        saveLocalDashboard(data);
-        renderDashboard(data, false);
-        hideAlert();
-      } catch (error) {
-        console.error(error);
-
-        if (hasLocalData) {
-          showAlert('ไม่สามารถอัปเดตข้อมูลล่าสุดได้ ขณะนี้แสดงข้อมูลสำรองจากเบราว์เซอร์');
-        } else {
-          showAlert(`⚠️ ไม่สามารถดึงข้อมูลได้: ${error.message}`);
-          document.getElementById('kpiRow').innerHTML = '';
-        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById('alertBox').style.display = 'block';
+        document.getElementById('alertBox').innerHTML =
+          `⚠️ ไม่สามารถดึงข้อมูลจาก Google Sheets ได้: ${err.message}`;
+        document.getElementById('kpiRow').innerHTML = '';
       }
     });
   </script>
 </body>
-
 </html>
