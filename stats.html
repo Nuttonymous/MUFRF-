@@ -7,39 +7,28 @@
   <title>MUFRF — สถิติการให้บริการ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* ===== CSS RESET & VARIABLES ===== */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg-primary: #f8fafc;
-      --bg-secondary: #f1f5f9;
-      --bg-card: rgba(255, 255, 255, 0.9);
-      --glass-border: rgba(0, 0, 0, 0.05);
-      --glass-hover: rgba(255, 255, 255, 0.9);
+      --bg-card: rgba(255,255,255,0.9);
+      --glass-border: rgba(0,0,0,0.05);
+      --glass-hover: rgba(255,255,255,0.9);
       --text-primary: #0f172a;
       --text-secondary: #475569;
-      --text-muted: #64748b;
       --accent-blue: #2563eb;
       --accent-cyan: #0891b2;
       --gradient-blue: linear-gradient(135deg, #2563eb, #0891b2);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-xl: 24px;
-      --font-sans: 'Inter', 'Noto Sans Thai', system-ui, sans-serif;
-      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-sans: 'Inter','Noto Sans Thai',system-ui,sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.4,0,0.2,1);
     }
 
     body {
@@ -47,112 +36,99 @@
       background: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.6;
-      background-image: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+      background-image: radial-gradient(circle at 20% 30%, rgba(37,99,235,0.04) 0%, transparent 50%);
     }
 
-    /* ===== NAVBAR ===== */
+    /* NAVBAR */
     .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0 2rem;
       backdrop-filter: blur(20px) saturate(180%);
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255,255,255,0.95);
       border-bottom: 1px solid var(--glass-border);
       box-shadow: var(--shadow-md);
     }
-
     .navbar-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-primary);
-    }
-
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-primary); }
     .logo-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: var(--radius-sm);
+      width: 42px; height: 42px; border-radius: var(--radius-sm);
       background: var(--gradient-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.1rem; color: #fff;
     }
-
-    .logo-text {
-      font-weight: 700;
-      font-size: 1.15rem;
-    }
-
-    .logo-text span {
-      color: var(--accent-cyan);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      list-style: none;
-    }
-
+    .logo-text { font-weight: 700; font-size: 1.15rem; }
+    .logo-text span { color: var(--accent-cyan); }
+    .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
     .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: var(--radius-sm);
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      padding: 8px 16px; border-radius: var(--radius-sm);
       transition: var(--transition-fast);
     }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); background: var(--glass-hover); }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text-primary);
-      background: var(--glass-hover);
-    }
-
-    /* ===== STATS DASHBOARD ===== */
+    /* HEADER */
     .stats-header {
       padding: 120px 2rem 40px;
+      text-align: center; max-width: 800px; margin: 0 auto;
+    }
+    .stats-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+    .stats-header p { color: var(--text-secondary); font-size: 1.1rem; }
+
+    /* KPI SUMMARY CARDS */
+    .kpi-row {
+      max-width: 1200px; margin: 0 auto 2rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-md);
       text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
+    }
+    .kpi-card .kpi-value {
+      font-size: 2rem; font-weight: 800;
+      background: var(--gradient-blue);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .kpi-card .kpi-label {
+      font-size: 0.78rem; color: var(--text-secondary);
+      font-weight: 500; margin-top: 4px;
+      text-transform: uppercase; letter-spacing: 0.04em;
     }
 
-    .stats-header h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
+    /* SECTION TITLE */
+    .section-title {
+      max-width: 1200px; margin: 0 auto 1rem;
+      padding: 0 2rem;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--text-primary);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title::before {
+      content: ''; display: inline-block;
+      width: 4px; height: 20px;
+      background: var(--gradient-blue);
+      border-radius: 2px;
     }
 
-    .stats-header p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-    }
-
+    /* DASHBOARD GRID */
     .dashboard {
-      max-width: 1200px;
-      margin: 0 auto 80px;
+      max-width: 1200px; margin: 0 auto 2rem;
       padding: 0 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
+    .dashboard.full-width { grid-template-columns: 1fr; }
 
     .chart-card {
       background: var(--bg-card);
@@ -161,61 +137,58 @@
       padding: 2rem;
       box-shadow: var(--shadow-lg);
     }
-
     .chart-card h3 {
-      font-size: 1.25rem;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+    .chart-card .chart-subtitle {
+      font-size: 0.82rem; color: var(--text-secondary);
       margin-bottom: 1.5rem;
-      color: var(--text-primary);
-      text-align: center;
     }
+    .chart-container { position: relative; height: 300px; width: 100%; }
+    .chart-container.tall { height: 400px; }
 
-    .chart-container {
-      position: relative;
-      height: 300px;
-      width: 100%;
-    }
+    /* CO-USAGE TABLE */
+    .co-usage-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .co-usage-table td { padding: 0.5rem 0; border-bottom: 1px solid var(--glass-border); }
+    .co-usage-table td:last-child { text-align: right; font-weight: 700; color: var(--accent-blue); }
+    .co-usage-bar-wrap { height: 4px; background: #e2e8f0; border-radius: 2px; margin-top: 3px; }
+    .co-usage-bar { height: 4px; background: var(--accent-cyan); border-radius: 2px; }
 
-    /* ===== DATA ALERT ===== */
+    /* LOADING / ERROR */
     .data-alert {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
+      max-width: 1200px; margin: 0 auto 2rem;
       padding: 1rem 2rem;
-      background: rgba(37, 99, 235, 0.1);
+      background: rgba(37,99,235,0.08);
       border-left: 4px solid var(--accent-blue);
       border-radius: var(--radius-md);
-      color: var(--accent-blue);
-      font-weight: 500;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      color: var(--accent-blue); font-weight: 500;
+    }
+    .loading-spinner {
+      text-align: center; padding: 4rem;
+      color: var(--text-secondary); font-size: 1rem;
     }
 
-    .data-alert a {
-      color: var(--accent-blue);
-      text-decoration: underline;
-    }
+    footer { padding: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 2rem; }
 
     @media (max-width: 768px) {
-      .dashboard {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
+      .dashboard { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar" id="navbar">
+  <nav class="navbar">
     <div class="navbar-inner">
       <a href="index.html" class="logo">
         <div class="logo-icon">MU</div>
-        <div class="logo-text">MUFRF <span>Mahidol University Frontier Research Facility </span></div>
+        <div class="logo-text">MUFRF <span>Mahidol University Frontier Research Facility</span></div>
       </a>
-                  <ul class="nav-links">
+      <ul class="nav-links">
         <li><a href="index.html">หน้าแรก</a></li>
         <li><a href="index.html#services">บริการ</a></li>
         <li><a href="index.html#pricing-info">อัตราค่าบริการ</a></li>
@@ -229,152 +202,403 @@
   </nav>
 
   <header class="stats-header">
-    <h1>สถิติการให้บริการ</h1>
-    <p>ข้อมูลภาพรวมการให้บริการเครื่องมือวิทยาศาสตร์ของศูนย์ MUFRF (ดึงข้อมูลแบบ Real-time จาก Google Sheets)</p>
+    <h1>Research Impact Dashboard</h1>
+    <p>ข้อมูลภาพรวม Research Output ของศูนย์ MUFRF ดึงข้อมูลแบบ Real-time จาก Google Sheets</p>
   </header>
 
-  <div class="data-alert" id="dataAlert">
-    <span>💡 กำลังแสดงข้อมูลจำลอง (Placeholder Data) เนื่องจากยังไม่มีลิงก์ Google Sheets ของจริง</span>
-    <a href="#"
-      onclick="alert('วิธีเชื่อมต่อ: Publish Google Sheet เป็น CSV แล้วนำลิงก์มาใส่ในตัวแปร GOOGLE_SHEET_CSV_URL ในไฟล์ stats.html'); return false;">ดูวิธีตั้งค่า</a>
+  <div id="alertBox" class="data-alert" style="display:none;"></div>
+
+  <!-- KPI CARDS -->
+  <div class="kpi-row" id="kpiRow">
+    <div class="loading-spinner" style="grid-column:1/-1;">⏳ กำลังโหลดข้อมูล...</div>
   </div>
 
-  <section class="dashboard">
+  <!-- SECTION: Research Quality -->
+  <div class="section-title">📊 Research Quality Analysis</div>
+  <div class="dashboard">
     <div class="chart-card">
-      <h3>สัดส่วนผู้ใช้บริการ (ประเภทหน่วยงาน)</h3>
-      <div class="chart-container">
-        <canvas id="userTypeChart"></canvas>
-      </div>
+      <h3>Quartile Distribution</h3>
+      <p class="chart-subtitle">Journal quality classification</p>
+      <div class="chart-container"><canvas id="quartileChart"></canvas></div>
     </div>
+    <div class="chart-card">
+      <h3>Publications by Year</h3>
+      <p class="chart-subtitle">Yearly trend</p>
+      <div class="chart-container"><canvas id="yearChart"></canvas></div>
+    </div>
+  </div>
 
+  <!-- SECTION: Journals & Subjects -->
+  <div class="section-title">📰 Journals & Subject Categories</div>
+  <div class="dashboard">
     <div class="chart-card">
-      <h3>จำนวนการใช้บริการแยกตามกลุ่มเครื่องมือ</h3>
-      <div class="chart-container">
-        <canvas id="serviceUsageChart"></canvas>
+      <h3>Top Journals</h3>
+      <p class="chart-subtitle">By publication count</p>
+      <div class="chart-container tall"><canvas id="journalChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Subject Categories</h3>
+      <p class="chart-subtitle">Research field distribution</p>
+      <div class="chart-container tall"><canvas id="subjectChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- SECTION: Instrument Utilization -->
+  <div class="section-title">🔬 Instrument Utilization in Research</div>
+  <div class="dashboard">
+    <div class="chart-card">
+      <h3>Papers per Instrument</h3>
+      <p class="chart-subtitle">Ranked by publication count</p>
+      <div class="chart-container tall"><canvas id="instrumentChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Instrument Co-usage</h3>
+      <p class="chart-subtitle">Pairs frequently used in same paper</p>
+      <div style="overflow-y:auto; max-height:400px;" id="coUsageContainer">
+        <div class="loading-spinner">⏳ กำลังประมวลผล...</div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- SECTION: SDG & ANZSRC -->
+  <div class="section-title">🌍 Research Impact & Strategy</div>
+  <div class="dashboard">
+    <div class="chart-card">
+      <h3>SDG Coverage</h3>
+      <p class="chart-subtitle">UN Sustainable Development Goals</p>
+      <div class="chart-container tall"><canvas id="sdgChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Fields of Research (ANZSRC)</h3>
+      <p class="chart-subtitle">Australian & NZ research classification</p>
+      <div class="chart-container tall"><canvas id="anzsrcChart"></canvas></div>
+    </div>
+  </div>
+
+  <footer>
+    ข้อมูลอัปเดตอัตโนมัติจาก Google Sheets · MUFRF Mahidol University Frontier Research Facility
+  </footer>
 
   <script>
-    // ==========================================
-    // GOOGLE SHEETS INTEGRATION CONFIGURATION
-    // ==========================================
-    // 1. ไปที่ Google Sheet ของคุณ -> เลือก เมนู File -> Share -> Publish to web
-    // 2. เลือกแผ่นงานที่ต้องการ และเลือกรูปแบบเป็น "Comma-separated values (.csv)"
-    // 3. นำลิงก์ที่ได้มาใส่ในตัวแปรด้านล่างนี้
+    // ============================================================
+    // ⚙️ CONFIG — ใส่ CSV URL ที่ Publish จาก Google Sheets ตรงนี้
+    // ============================================================
+    const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTi7fz_xRHHpauPTrbt6MzopaAjO-AgaEEwi2yFMRlSgIqoHNS_fDYSpIgrAeQ6J3wg1ECY1XSYS8gM/pub?output=csv';
+    const CSV_URL = 'https://corsproxy.io/?' + encodeURIComponent(SHEET_CSV);
+    // ============================================================
 
-    const GOOGLE_SHEET_CSV_URL = ''; // <-- ใส่ลิงก์ CSV ที่นี่ เช่น 'https://docs.google.com/spreadsheets/d/e/.../pub?output=csv'
+    // Column index (0-based) ตามโครงสร้าง:
+    // 0: Equip ID
+    // 1: Paper Title
+    // 2: Journal / Source
+    // 3: DOI
+    // 4: Abstract
+    // 5: Matched MUFRF Instruments
+    // 6: H-index
+    // 7: Quartile(s)
+    // 8: Subject Categories
+    // 9: Publication Year
+    // 10: Authors
+    // 11: Fields of Research (ANZSRC)
+    // 12: Sustainable Development Goals
 
-    // ==========================================
+    const COL = {
+      equipId: 0,
+      title: 1,
+      journal: 2,
+      doi: 3,
+      abstract: 4,
+      instruments: 5,
+      hindex: 6,
+      quartile: 7,
+      subjects: 8,
+      year: 9,
+      authors: 10,
+      anzsrc: 11,
+      sdg: 12,
+    };
 
-    async function fetchStatsData() {
-      if (!GOOGLE_SHEET_CSV_URL) {
-        // หากยังไม่มีลิงก์ ให้แสดงข้อมูลจำลอง
-        return getPlaceholderData();
+    // ============================================================
+    // CSV PARSER (รองรับ field ที่มี comma ใน quotes)
+    // ============================================================
+    function parseCSV(text) {
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      const headers = splitCSVLine(lines[0]);
+      return lines.slice(1).map(line => splitCSVLine(line));
+    }
+
+    function splitCSVLine(line) {
+      const result = [];
+      let cur = '', inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+          if (inQuotes && line[i+1] === '"') { cur += '"'; i++; }
+          else inQuotes = !inQuotes;
+        } else if (ch === ',' && !inQuotes) {
+          result.push(cur.trim()); cur = '';
+        } else cur += ch;
       }
-
-      try {
-        const response = await fetch(GOOGLE_SHEET_CSV_URL);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const csvText = await response.text();
-        return parseCSVData(csvText);
-      } catch (error) {
-        console.error('Error fetching Google Sheet:', error);
-        document.getElementById('dataAlert').innerHTML = `<span>⚠️ ไม่สามารถดึงข้อมูลจาก Google Sheets ได้ (กำลังแสดงข้อมูลจำลอง)</span>`;
-        return getPlaceholderData();
-      }
+      result.push(cur.trim());
+      return result;
     }
 
-    function parseCSVData(csvText) {
-      // ตัวอย่างฟังก์ชันสำหรับ Parse CSV อย่างง่าย
-      // สมมติว่าโครงสร้าง CSV คือ:
-      // Category, Value
-      // Mahidol, 45
-      // Government, 20
-      // Private, 35
-      // ... ขึ้นอยู่กับโครงสร้างจริงของ Sheet
-
-      // ตอนนี้เพื่อให้โปรแกรมทำงานได้โดยไม่พัง จะคืนค่าข้อมูลจำลอง
-      // คุณสามารถแก้ฟังก์ชันนี้ให้อ่านข้อมูลจริงตาม format CSV ของคุณได้
-      return getPlaceholderData();
+    // ============================================================
+    // HELPERS
+    // ============================================================
+    function countValues(rows, colIdx) {
+      const counts = {};
+      rows.forEach(row => {
+        const val = (row[colIdx] || '').trim();
+        if (!val) return;
+        val.split(/[;,\/]+/).forEach(v => {
+          const k = v.trim();
+          if (k) counts[k] = (counts[k] || 0) + 1;
+        });
+      });
+      return counts;
     }
 
-    function getPlaceholderData() {
-      return {
-        userTypes: {
-          labels: ['บุคลากรมหิดล', 'หน่วยงานราชการ', 'ภาคเอกชน'],
-          data: [55, 25, 20]
-        },
-        serviceUsage: {
-          labels: ['Spectrometer', 'Microscope', 'Chromatograph', 'Bioscience', 'Thermal', 'X-ray'],
-          data: [120, 95, 80, 65, 40, 35]
-        }
-      };
+    function topN(counts, n) {
+      return Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, n);
     }
 
-    function renderCharts(data) {
-      // 1. Pie Chart: User Types
-      const ctxUser = document.getElementById('userTypeChart').getContext('2d');
-      new Chart(ctxUser, {
-        type: 'doughnut',
-        data: {
-          labels: data.userTypes.labels,
-          datasets: [{
-            data: data.userTypes.data,
-            backgroundColor: [
-              '#2563eb', // blue
-              '#0891b2', // cyan
-              '#7c3aed'  // purple
-            ],
-            borderWidth: 0,
-            hoverOffset: 4
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom' }
+    const COLORS = ['#2563eb','#0891b2','#7c3aed','#059669','#d97706','#dc2626','#0284c7','#9333ea','#16a34a','#ea580c'];
+    const QUARTILE_COLORS = { Q1:'#059669', Q2:'#2563eb', Q3:'#d97706', Q4:'#dc2626', 'N/A':'#94a3b8' };
+
+    // ============================================================
+    // PROCESS DATA
+    // ============================================================
+    function processData(rows) {
+      // KPI
+      const uniquePapers = new Set(rows.map(r => (r[COL.title]||'').trim()).filter(Boolean)).size;
+      const instruments = new Set(rows.map(r => (r[COL.equipId]||'').trim()).filter(Boolean)).size;
+      const hindices = rows.map(r => parseFloat(r[COL.hindex])).filter(n => !isNaN(n));
+      const avgH = hindices.length ? (hindices.reduce((a,b) => a+b, 0) / hindices.length).toFixed(1) : '-';
+      const q1Count = rows.filter(r => (r[COL.quartile]||'').includes('Q1')).length;
+      const q1Pct = rows.length ? Math.round(q1Count / rows.length * 100) : 0;
+
+      // Quartile
+      const qCounts = countValues(rows, COL.quartile);
+
+      // Year
+      const yearCounts = {};
+      rows.forEach(r => {
+        const y = (r[COL.year]||'').trim();
+        if (y && /^\d{4}$/.test(y)) yearCounts[y] = (yearCounts[y]||0) + 1;
+      });
+      const sortedYears = Object.keys(yearCounts).sort();
+
+      // Journal — นับจาก column journal โดยตรง (ไม่ split เพราะชื่อ journal อาจมี comma)
+      const journalCounts = {};
+      rows.forEach(r => {
+        const j = (r[COL.journal]||'').trim();
+        if (j) journalCounts[j] = (journalCounts[j]||0) + 1;
+      });
+
+      // Subjects
+      const subjectCounts = countValues(rows, COL.subjects);
+
+      // Instruments per paper
+      const instrCounts = countValues(rows, COL.instruments);
+
+      // Co-usage: นับคู่เครื่องมือที่ใช้ใน paper เดียวกัน
+      const coPairs = {};
+      rows.forEach(r => {
+        const instrList = (r[COL.instruments]||'').split(/[;,]+/).map(s => s.trim()).filter(Boolean);
+        for (let i = 0; i < instrList.length; i++) {
+          for (let j = i+1; j < instrList.length; j++) {
+            const pair = [instrList[i], instrList[j]].sort().join(' + ');
+            coPairs[pair] = (coPairs[pair]||0) + 1;
           }
         }
       });
 
-      // 2. Bar Chart: Service Usage
-      const ctxService = document.getElementById('serviceUsageChart').getContext('2d');
-      new Chart(ctxService, {
+      // SDG
+      const sdgCounts = countValues(rows, COL.sdg);
+
+      // ANZSRC
+      const anzsrcCounts = countValues(rows, COL.anzsrc);
+
+      return { uniquePapers, instruments, avgH, q1Pct, q1Count,
+               qCounts, sortedYears, yearCounts,
+               journalCounts, subjectCounts, instrCounts,
+               coPairs, sdgCounts, anzsrcCounts };
+    }
+
+    // ============================================================
+    // RENDER KPI
+    // ============================================================
+    function renderKPI(d) {
+      document.getElementById('kpiRow').innerHTML = `
+        <div class="kpi-card"><div class="kpi-value">${d.uniquePapers}</div><div class="kpi-label">Unique Publications</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.instruments}</div><div class="kpi-label">Instruments Used</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.q1Pct}%</div><div class="kpi-label">Q1 Publications</div></div>
+        <div class="kpi-card"><div class="kpi-value">${d.avgH}</div><div class="kpi-label">Avg H-index</div></div>
+      `;
+    }
+
+    // ============================================================
+    // RENDER CHARTS
+    // ============================================================
+    function renderCharts(d) {
+      // 1. Quartile — Doughnut
+      const qLabels = Object.keys(d.qCounts);
+      const qData = qLabels.map(k => d.qCounts[k]);
+      const qColors = qLabels.map(k => QUARTILE_COLORS[k] || '#94a3b8');
+      new Chart(document.getElementById('quartileChart'), {
+        type: 'doughnut',
+        data: { labels: qLabels, datasets: [{ data: qData, backgroundColor: qColors, borderWidth: 0, hoverOffset: 6 }] },
+        options: { responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { position: 'right' },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw} (${Math.round(ctx.raw/qData.reduce((a,b)=>a+b,0)*100)}%)` } }
+          }
+        }
+      });
+
+      // 2. Publications by Year — Line
+      new Chart(document.getElementById('yearChart'), {
+        type: 'line',
+        data: {
+          labels: d.sortedYears,
+          datasets: [{ label: 'Publications', data: d.sortedYears.map(y => d.yearCounts[y]),
+            borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)',
+            fill: true, tension: 0.4, pointRadius: 5, pointBackgroundColor: '#2563eb' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: { y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { grid: { display: false } } }
+        }
+      });
+
+      // 3. Top Journals — Horizontal Bar
+      const topJournals = topN(d.journalCounts, 10);
+      new Chart(document.getElementById('journalChart'), {
         type: 'bar',
         data: {
-          labels: data.serviceUsage.labels,
-          datasets: [{
-            label: 'จำนวนครั้งที่ใช้บริการ',
-            data: data.serviceUsage.data,
-            backgroundColor: '#0891b2',
-            borderRadius: 6
-          }]
+          labels: topJournals.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
+          datasets: [{ data: topJournals.map(([,v]) => v),
+            backgroundColor: '#1e3a5f', borderRadius: 4 }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false }
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topJournals[items[0].dataIndex][0] } }
           },
-          scales: {
-            y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
-            x: { grid: { display: false } }
-          }
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
+      });
+
+      // 4. Subject Categories — Horizontal Bar
+      const topSubjects = topN(d.subjectCounts, 12);
+      new Chart(document.getElementById('subjectChart'), {
+        type: 'bar',
+        data: {
+          labels: topSubjects.map(([k]) => k.length > 30 ? k.slice(0,28)+'…' : k),
+          datasets: [{ data: topSubjects.map(([,v]) => v),
+            backgroundColor: '#0891b2', borderRadius: 4 }]
+        },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topSubjects[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
+      });
+
+      // 5. Instruments — Horizontal Bar
+      const topInstr = topN(d.instrCounts, 10);
+      new Chart(document.getElementById('instrumentChart'), {
+        type: 'bar',
+        data: {
+          labels: topInstr.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: topInstr.map(([,v]) => v),
+            backgroundColor: COLORS.slice(0, topInstr.length), borderRadius: 4 }]
+        },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topInstr[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
+      });
+
+      // 6. Co-usage — Custom Table
+      const topPairs = topN(d.coPairs, 10);
+      const maxPair = topPairs[0] ? topPairs[0][1] : 1;
+      document.getElementById('coUsageContainer').innerHTML = topPairs.length
+        ? `<table class="co-usage-table">${topPairs.map(([pair, count]) => `
+            <tr>
+              <td>
+                <div>${pair}</div>
+                <div class="co-usage-bar-wrap"><div class="co-usage-bar" style="width:${Math.round(count/maxPair*100)}%"></div></div>
+              </td>
+              <td>${count}</td>
+            </tr>`).join('')}
+           </table>`
+        : '<p style="color:var(--text-secondary);padding:1rem;">ไม่พบข้อมูล Co-usage (เครื่องมือต่อ paper มีน้อยกว่า 2 ชิ้น)</p>';
+
+      // 7. SDG — Horizontal Bar (colorful)
+      const topSDG = topN(d.sdgCounts, 10);
+      new Chart(document.getElementById('sdgChart'), {
+        type: 'bar',
+        data: {
+          labels: topSDG.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: topSDG.map(([,v]) => v),
+            backgroundColor: ['#1e40af','#eab308','#16a34a','#dc2626','#ea580c','#0891b2','#7c3aed','#db2777','#0d9488','#64748b'],
+            borderRadius: 4 }]
+        },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topSDG[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
+        }
+      });
+
+      // 8. ANZSRC — Horizontal Bar
+      const topANZSRC = topN(d.anzsrcCounts, 10);
+      new Chart(document.getElementById('anzsrcChart'), {
+        type: 'bar',
+        data: {
+          labels: topANZSRC.map(([k]) => k.length > 35 ? k.slice(0,33)+'…' : k),
+          datasets: [{ data: topANZSRC.map(([,v]) => v),
+            backgroundColor: '#7c3aed', borderRadius: 4 }]
+        },
+        options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false },
+            tooltip: { callbacks: { title: (items) => topANZSRC[items[0].dataIndex][0] } }
+          },
+          scales: { x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } }
         }
       });
     }
 
-    // Initialize
+    // ============================================================
+    // INIT
+    // ============================================================
     document.addEventListener('DOMContentLoaded', async () => {
-      if (GOOGLE_SHEET_CSV_URL !== '') {
-        document.getElementById('dataAlert').style.display = 'none';
+      try {
+        const res = await fetch(CSV_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        const rows = parseCSV(text);
+        if (rows.length < 2) throw new Error('ข้อมูลน้อยเกินไป');
+
+        const d = processData(rows);
+        renderKPI(d);
+        renderCharts(d);
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('alertBox').style.display = 'block';
+        document.getElementById('alertBox').innerHTML =
+          `⚠️ ไม่สามารถดึงข้อมูลจาก Google Sheets ได้: ${err.message}<br>
+           ตรวจสอบว่า Sheet ถูก Publish เป็น CSV และ URL ใน CSV_URL ถูกต้อง`;
+        document.getElementById('kpiRow').innerHTML = '';
       }
-      const data = await fetchStatsData();
-      renderCharts(data);
     });
   </script>
 </body>
-
 </html>
