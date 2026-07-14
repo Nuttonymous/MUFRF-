@@ -1583,6 +1583,166 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* ===== LOADING SKELETON ===== */
+    .skeleton-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .skeleton-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+
+    .skeleton-content {
+      padding: 1.5rem;
+    }
+
+    .skeleton-line {
+      height: 14px;
+      border-radius: 7px;
+      background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+      margin-bottom: 12px;
+    }
+
+    .skeleton-line.short {
+      width: 40%;
+    }
+
+    .skeleton-line.medium {
+      width: 70%;
+    }
+
+    .skeleton-line.long {
+      width: 100%;
+    }
+
+    .skeleton-line.title {
+      height: 20px;
+      width: 85%;
+      margin-bottom: 16px;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    /* ===== ERROR STATE ===== */
+    .error-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .error-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .error-icon svg {
+      width: 36px;
+      height: 36px;
+      color: #ef4444;
+    }
+
+    .error-state h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .error-state p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .btn-retry {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-blue);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-retry:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-retry svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ===== DATA SOURCE BADGE ===== */
+    .data-source-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: var(--transition-fast);
+    }
+
+    .data-source-badge.live {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .data-source-badge.fallback {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .data-source-badge .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .data-source-badge.live .badge-dot {
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
   </style>
 </head>
 
@@ -1621,9 +1781,9 @@
       </h2>
       <p style="color: var(--text-secondary); font-size:1.1rem;">ข่าวสาร การฝึกอบรม
         และกิจกรรมน่าสนใจจากทางศูนย์เครื่องมือ</p>
+      <div id="dataSourceBadge"></div>
     </div>
-    <!-- การ์ดกิจกรรมทั้งหมดถูกสร้างขึ้นอัตโนมัติด้วย JavaScript (ดูฟังก์ชัน renderActivities
-         และตัวแปร activitiesData / activitiesImages ในส่วนสคริปต์ท้ายไฟล์) -->
+    <!-- การ์ดกิจกรรมทั้งหมดถูกสร้างจาก Google Sheets อัตโนมัติ (ดูฟังก์ชัน fetchActivities ในส่วนสคริปต์ท้ายไฟล์) -->
     <div class="activities-grid animate-on-scroll" id="activitiesGrid"></div>
   </section>
 
@@ -1683,100 +1843,225 @@
 
   <script>
     // =====================================================================
-    // ===== รูปภาพกิจกรรม (ACTIVITIES IMAGES) =====
+    // ===== GOOGLE SHEETS CONFIGURATION =====
     // =====================================================================
-    // วิธีใส่รูปกิจกรรมใหม่ (ทำได้ 3 ขั้นตอนง่ายๆ เหมือนหน้าบุคลากร / หน้าอุปกรณ์ใน index.html):
-    //   1) เตรียมไฟล์รูปภาพ (นามสกุล .jpg .jpeg .png หรือ .webp ก็ได้)
-    //      แนะนำอัตราส่วนแนวนอนประมาณ 4:2.5 (เช่น 800x500px) จะได้พอดีกับกรอบรูป
-    //   2) นำไฟล์รูปไปวางไว้ในโฟลเดอร์ "images/activities/"
-    //      (ถ้ายังไม่มีโฟลเดอร์นี้ ให้สร้างโฟลเดอร์ "activities" ไว้ข้างใน
-    //       โฟลเดอร์ "images" ที่อยู่ระดับเดียวกับไฟล์ activities.html นี้)
-    //   3) มาเพิ่ม/แก้ไข "บรรทัด" ในตัวแปร activitiesImages ด้านล่างนี้
-    //      โดยฝั่งซ้าย (key) ต้องตรงกับค่า "id" ของกิจกรรมนั้นๆ ที่อยู่ใน activitiesData
-    //      ฝั่งขวา (value) คือ path ไปยังไฟล์รูปที่วางไว้ในขั้นตอนที่ 2
+    // 📋 วิธีตั้งค่า:
+    //   1) สร้าง Google Sheet ตามคู่มือ google-sheets-setup-guide.md
+    //   2) Publish to the web เป็น CSV
+    //   3) คัดลอก URL มาวางแทน placeholder ด้านล่าง
     //
-    //   ตัวอย่าง: ถ้าเพิ่มกิจกรรมใหม่ id: "workshop-nmr" และมีไฟล์รูปชื่อ workshop-nmr.jpg
-    //   ก็ให้เพิ่มบรรทัด:   "workshop-nmr": "images/activities/workshop-nmr.jpg",
-    //
-    //   หมายเหตุ: ถ้ากิจกรรมไหนยังไม่มีรูป (ไม่ได้ใส่ไว้ใน map นี้) ระบบจะแสดง
-    //   ไอคอนรูปภาพสำรองแทนโดยอัตโนมัติ ไม่ต้องกังวลว่าเว็บจะพัง
+    // ⚠️ แก้ไขบรรทัดนี้เพียงบรรทัดเดียว!
     // =====================================================================
-    const activitiesImages = {
-      "sem-training": "images/activities/sem-training.jpg",
-      "rmutr30062026": "images/activities/rmutr30062026.jpg",
-      // เพิ่มกิจกรรมใหม่ -> เพิ่มบรรทัดรูปแบบ "id": "images/activities/ชื่อไฟล์.jpg" ต่อจากนี้ได้เลย
-    };
+    const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTi7fz_xRHHpauPTrbt6MzopaAjO-AgaEEwi2yFMRlSgIqoHNS_fDYSpIgrAeQ6J3wg1ECY1XSYS8gM/pub?gid=704467102&single=true&output=csv';
+    // ตัวอย่าง URL จริง:
+    // const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-XXXXXXX/pub?output=csv';
 
-    // ===== ข้อมูลกิจกรรม (ACTIVITIES DATA) =====
-    // เพิ่มกิจกรรมใหม่: copy { ... } ด้านล่าง 1 ก้อน มาวางต่อท้าย (หรือวางไว้บนสุดถ้าอยากให้ขึ้นก่อน)
-    // แล้วแก้ id / date / title / desc / link
-    // ⚠️ ค่า "id" ต้องไม่ซ้ำกัน และต้องตรงกับ key ที่ตั้งไว้ใน activitiesImages ด้านบน (ถ้ามีรูป)
-    const activitiesData = [
+    // =====================================================================
+    // ===== FALLBACK DATA (ข้อมูลสำรอง) =====
+    // =====================================================================
+    // ข้อมูลนี้จะใช้แสดงเมื่อดึงข้อมูลจาก Google Sheet ไม่สำเร็จ
+    // หรือเมื่อยังไม่ได้ตั้งค่า Google Sheet URL
+    // =====================================================================
+    const FALLBACK_ACTIVITIES = [
       {
         id: "rmutr30062026",
         date: "วันที่ 30 มิถุนายน 2569",
         title: "สถาบันวิจัยและพัฒนา มหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ เข้าเยี่ยมชม ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล",
         desc: "วันที่ 30 มิถุนายน 2569 ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล ได้ต้อนรับผู้เข้าเยี่ยมชมจากสถาบันวิจัยและพัฒนา มหาวิทยาลัยเทคโนโลยีราชมงคลสุวรรณภูมิ โดยได้เยี่ยมชมเครื่องมือวิเคราะห์ของทางศูนย์ฯ เพื่อเข้าเยี่ยมชมห้องปฏิบัติการและเครื่องมือภายในศูนย์เครื่องมือฯ และส่งเสริมการสร้างความร่วมมือด้านวิจัยและการบริการวิชาการในอนาคต ซึ่งนำไปสู่การพัฒนาการบริหารงานวิจัยและนวัตกรรมให้สามารถนำไปใช้ประโยชน์เชิงพาณิชย์ได้อย่างมีประสิทธิภาพ",
-        link: "#"
+        link: "#",
+        image: "images/activities/rmutr30062026.jpg"
       },
       {
-        id: "research-seminar-1",
-        date: "2 สิงหาคม 2026",
-        title: "Research Seminar: Cryo-electron Microscopy",
-        desc: "เสวนาพิเศษจากนักวิจัยผู้เชี่ยวชาญด้าน Cryo-EM: การวิเคราะห์โครงสร้างโมเลกุลชีวภาพที่อุณหภูมิต่ำ",
-        link: "#"
-      },
-      {
-        id: "example-2",
-        date: "20 พฤศจิกายน 2026",
-        title: "หัวข้อกิจกรรม (ตัวอย่างที่ 2)",
-        desc: "รายละเอียดกิจกรรมตัวอย่าง แก้ไขหัวข้อและรายละเอียดได้ที่นี่ ส่วนรูปให้ไปเพิ่มใน activitiesImages",
-        link: "#"
-      },
-      {
-        id: "example-3",
-        date: "1 ธันวาคม 2026",
-        title: "หัวข้อกิจกรรม (ตัวอย่างที่ 3)",
-        desc: "รายละเอียดกิจกรรมตัวอย่าง แก้ไขหัวข้อและรายละเอียดได้ที่นี่ ส่วนรูปให้ไปเพิ่มใน activitiesImages",
-        link: "#"
+        id: "sem-training",
+        date: "15 กรกฎาคม 2569",
+        title: "อบรมการใช้งานกล้องจุลทรรศน์อิเล็กตรอนแบบส่องกราด (SEM)",
+        desc: "การฝึกอบรมการใช้งานกล้องจุลทรรศน์อิเล็กตรอนแบบส่องกราด สำหรับนักวิจัยและบุคลากรที่สนใจ",
+        link: "#",
+        image: "images/activities/sem-training.jpg"
       }
     ];
 
-    // ไอคอนรูปภาพสำรอง (แสดงแทนรูปกรณีที่ยังไม่ได้ใส่รูปให้กิจกรรมนั้นๆ ใน activitiesImages
-    // หรือใส่ path ผิด/ไฟล์หาไม่เจอ)
+    // =====================================================================
+    // ===== CSV PARSER =====
+    // =====================================================================
+    // แปลง CSV text จาก Google Sheets ให้เป็น array ของ objects
+    // รองรับ: เครื่องหมาย " ครอบ field, comma ใน field, newline ใน field
+    // =====================================================================
+    function parseCSV(csvText) {
+      const rows = [];
+      let currentRow = [];
+      let currentField = '';
+      let insideQuotes = false;
+
+      for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+
+        if (insideQuotes) {
+          if (char === '"' && nextChar === '"') {
+            // Escaped quote
+            currentField += '"';
+            i++;
+          } else if (char === '"') {
+            // End of quoted field
+            insideQuotes = false;
+          } else {
+            currentField += char;
+          }
+        } else {
+          if (char === '"') {
+            insideQuotes = true;
+          } else if (char === ',') {
+            currentRow.push(currentField.trim());
+            currentField = '';
+          } else if (char === '\n' || (char === '\r' && nextChar === '\n')) {
+            currentRow.push(currentField.trim());
+            if (currentRow.some(f => f !== '')) {
+              rows.push(currentRow);
+            }
+            currentRow = [];
+            currentField = '';
+            if (char === '\r') i++; // skip \n in \r\n
+          } else {
+            currentField += char;
+          }
+        }
+      }
+      // Last field/row
+      currentRow.push(currentField.trim());
+      if (currentRow.some(f => f !== '')) {
+        rows.push(currentRow);
+      }
+
+      if (rows.length < 2) return []; // ต้องมีอย่างน้อย header + 1 data row
+
+      // แถวแรก = header, แปลงเป็น lowercase
+      const headers = rows[0].map(h => h.toLowerCase().trim());
+      const data = [];
+
+      for (let r = 1; r < rows.length; r++) {
+        const obj = {};
+        headers.forEach((header, idx) => {
+          obj[header] = rows[r][idx] || '';
+        });
+        // ข้ามแถวที่ไม่มี title
+        if (obj.title) {
+          data.push(obj);
+        }
+      }
+      return data;
+    }
+
+    // =====================================================================
+    // ===== FALLBACK ICON =====
+    // =====================================================================
     const activityFallbackIcon = `<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="48" height="48">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5V6a2 2 0 012-2h14a2 2 0 012 2v10.5M3 16.5l5.5-5.5a2 2 0 012.8 0L15 14.5m-3.5-3.5L15 7.5a2 2 0 012.8 0L21 11m-21 5.5A2 2 0 005 18.5h14a2 2 0 002-2M7.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
       </svg>`;
 
-    // ฟังก์ชันสลับไปแสดงไอคอนรูปภาพสำรอง เมื่อโหลดรูปไม่สำเร็จ (เรียกจาก onerror ของ <img>)
-    // ⚠️ ห้ามฝังโค้ด SVG ลงในแอตทริบิวต์ onerror="..." ตรงๆ เพราะ SVG มีเครื่องหมาย " อยู่ข้างใน
-    // จะไปชนกับเครื่องหมาย " ที่ล้อมรอบ onerror เอง ทำให้ HTML พังตั้งแต่ตอนแปลงหน้าเว็บ
-    // ให้เรียกผ่านฟังก์ชันแบบนี้แทนเสมอ
     function showActivityFallback(imgEl) {
       imgEl.parentElement.innerHTML = activityFallbackIcon;
     }
 
-    // สร้างการ์ดกิจกรรมทั้งหมดจาก activitiesData แล้วแทรกลงในหน้าเว็บ
-    function renderActivities() {
+    // =====================================================================
+    // ===== LOADING SKELETON =====
+    // =====================================================================
+    function showLoadingSkeleton() {
+      const grid = document.getElementById('activitiesGrid');
+      if (!grid) return;
+      let html = '';
+      for (let i = 0; i < 3; i++) {
+        html += `
+        <div class="skeleton-card">
+          <div class="skeleton-image"></div>
+          <div class="skeleton-content">
+            <div class="skeleton-line short" style="animation-delay: ${i * 0.1}s"></div>
+            <div class="skeleton-line title" style="animation-delay: ${i * 0.1 + 0.05}s"></div>
+            <div class="skeleton-line long" style="animation-delay: ${i * 0.1 + 0.1}s"></div>
+            <div class="skeleton-line medium" style="animation-delay: ${i * 0.1 + 0.15}s"></div>
+            <div class="skeleton-line short" style="animation-delay: ${i * 0.1 + 0.2}s; margin-top: 1rem;"></div>
+          </div>
+        </div>`;
+      }
+      grid.innerHTML = html;
+    }
+
+    // =====================================================================
+    // ===== ERROR STATE =====
+    // =====================================================================
+    function showErrorState(message) {
+      const grid = document.getElementById('activitiesGrid');
+      if (!grid) return;
+      grid.innerHTML = `
+        <div class="error-state" style="grid-column: 1 / -1;">
+          <div class="error-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+            </svg>
+          </div>
+          <h3>ไม่สามารถโหลดข้อมูลกิจกรรมได้</h3>
+          <p>${message}</p>
+          <button class="btn-retry" onclick="fetchActivities()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+            ลองใหม่อีกครั้ง
+          </button>
+        </div>`;
+    }
+
+    // =====================================================================
+    // ===== DATA SOURCE BADGE =====
+    // =====================================================================
+    function showDataSourceBadge(isLive) {
+      const badge = document.getElementById('dataSourceBadge');
+      if (!badge) return;
+      if (isLive) {
+        badge.innerHTML = `<span class="data-source-badge live">
+          <span class="badge-dot"></span>
+          ข้อมูลจาก Google Sheets (Live)
+        </span>`;
+      } else {
+        badge.innerHTML = `<span class="data-source-badge fallback">
+          <span class="badge-dot"></span>
+          ข้อมูลสำรอง (Offline)
+        </span>`;
+      }
+    }
+
+    // =====================================================================
+    // ===== RENDER ACTIVITIES =====
+    // =====================================================================
+    function renderActivities(data) {
       const grid = document.getElementById('activitiesGrid');
       if (!grid) return;
 
+      if (!data || data.length === 0) {
+        showErrorState('ไม่พบข้อมูลกิจกรรม');
+        return;
+      }
+
       let html = '';
-      activitiesData.forEach(a => {
-        // ค้นหารูปจาก activitiesImages โดยใช้ id ของกิจกรรมนั้นเป็นตัวจับคู่ (เหมือน instrumentImages ในหน้า index.html)
-        const imgSrc = activitiesImages[a.id];
+      data.forEach(a => {
+        // ใช้ image URL จาก Google Sheet (คอลัมน์ image)
+        // ถ้าเป็น Google Drive sharing link → แปลงเป็น direct URL
+        let imgSrc = a.image || '';
+        if (imgSrc) {
+          imgSrc = convertGoogleDriveUrl(imgSrc);
+        }
+
         const imageInner = imgSrc
-          ? `<img src="${imgSrc}" alt="${a.title}" onerror="showActivityFallback(this)">`
+          ? `<img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(a.title)}" loading="lazy" onerror="showActivityFallback(this)">`
           : activityFallbackIcon;
+
+        const linkUrl = a.link || '#';
 
         html += `
         <div class="activity-card">
           <div class="activity-image">${imageInner}</div>
           <div class="activity-content">
-            <span class="activity-date">${a.date}</span>
-            <h3 class="activity-title">${a.title}</h3>
-            <p class="activity-desc">${a.desc}</p>
-            <a href="${a.link}" class="activity-link">
+            <span class="activity-date">${escapeHtml(a.date || '')}</span>
+            <h3 class="activity-title">${escapeHtml(a.title || '')}</h3>
+            <p class="activity-desc">${escapeHtml(a.desc || '')}</p>
+            <a href="${escapeHtml(linkUrl)}" class="activity-link">
               อ่านเพิ่มเติม
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
@@ -1785,7 +2070,90 @@
       });
       grid.innerHTML = html;
     }
-    renderActivities();
+
+    // =====================================================================
+    // ===== UTILITY FUNCTIONS =====
+    // =====================================================================
+    // ป้องกัน XSS — escape HTML entities ก่อนแทรกลงใน DOM
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // แปลง Google Drive sharing URL ให้เป็น direct image URL
+    // เช่น https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+    //   → https://lh3.googleusercontent.com/d/FILE_ID
+    function convertGoogleDriveUrl(url) {
+      // Pattern 1: /file/d/FILE_ID/...
+      const match1 = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (match1) {
+        return `https://lh3.googleusercontent.com/d/${match1[1]}`;
+      }
+      // Pattern 2: ?id=FILE_ID
+      const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (match2) {
+        return `https://lh3.googleusercontent.com/d/${match2[1]}`;
+      }
+      // ไม่ใช่ Google Drive URL → ส่งกลับเหมือนเดิม
+      return url;
+    }
+
+    // =====================================================================
+    // ===== FETCH FROM GOOGLE SHEETS =====
+    // =====================================================================
+    async function fetchActivities() {
+      const grid = document.getElementById('activitiesGrid');
+
+      // ถ้ายังไม่ได้ตั้งค่า URL → ใช้ fallback data ทันที
+      if (!GOOGLE_SHEET_CSV_URL || GOOGLE_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
+        console.info('[MUFRF Activities] Google Sheet URL ยังไม่ได้ตั้งค่า → ใช้ข้อมูลสำรอง');
+        renderActivities(FALLBACK_ACTIVITIES);
+        showDataSourceBadge(false);
+        return;
+      }
+
+      // แสดง loading skeleton
+      showLoadingSkeleton();
+
+      try {
+        const response = await fetch(GOOGLE_SHEET_CSV_URL, {
+          signal: AbortSignal.timeout(15000) // timeout 15 วินาที
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        const csvText = await response.text();
+        const data = parseCSV(csvText);
+
+        if (data.length === 0) {
+          console.warn('[MUFRF Activities] Google Sheet ว่างเปล่าหรือรูปแบบไม่ถูกต้อง → ใช้ข้อมูลสำรอง');
+          renderActivities(FALLBACK_ACTIVITIES);
+          showDataSourceBadge(false);
+          return;
+        }
+
+        console.info(`[MUFRF Activities] โหลดข้อมูลจาก Google Sheet สำเร็จ: ${data.length} กิจกรรม`);
+        renderActivities(data);
+        showDataSourceBadge(true);
+
+      } catch (error) {
+        console.error('[MUFRF Activities] โหลดข้อมูลล้มเหลว:', error.message);
+
+        // Fallback → แสดงข้อมูลสำรองแทนที่จะแสดงหน้าว่าง
+        console.info('[MUFRF Activities] ใช้ข้อมูลสำรองแทน');
+        renderActivities(FALLBACK_ACTIVITIES);
+        showDataSourceBadge(false);
+      }
+    }
+
+    // =====================================================================
+    // ===== INITIALIZE =====
+    // =====================================================================
+    // เรียก fetch เมื่อหน้าเว็บโหลดเสร็จ
+    fetchActivities();
 
     // Navbar scroll
     const navbar = document.getElementById('navbar');
