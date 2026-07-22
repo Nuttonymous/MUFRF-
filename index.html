@@ -2151,10 +2151,12 @@
 
       categoryPills.querySelectorAll('.category-pill').forEach(pill => {
         pill.addEventListener('click', () => {
-          categoryPills.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
-          pill.classList.add('active');
-          activeGroup = pill.dataset.group;
-          filterAndRender();
+          const group = pill.dataset.group;
+          if (group === 'all') {
+            window.location.href = 'pricing.html';
+          } else {
+            window.location.href = 'pricing.html?group=' + encodeURIComponent(group);
+          }
         });
       });
     }
@@ -2176,13 +2178,19 @@
     // Build group cards
     function filterAndRender() {
       const query = searchInput.value.toLowerCase().trim();
+      
+      if (!query) {
+        groupsGrid.innerHTML = '';
+        noResults.classList.remove('visible');
+        return;
+      }
+
       const groups = [...new Set(serviceData.map(s => s.group))];
       let html = '';
       let visibleCount = 0;
 
       groups.forEach((groupName, idx) => {
         const cfg = groupConfig[groupName];
-        if (activeGroup !== 'all' && cfg.key !== activeGroup) return;
 
         // Filter services
         let services = serviceData.filter(s => s.group === groupName);
@@ -2207,7 +2215,7 @@
 
         html += `
         <div class="group-card" data-group="${cfg.key}" style="animation-delay:${idx * 0.05}s">
-          <div class="group-header" onclick="window.location.href='pricing.html?group=' + encodeURIComponent('${cfg.key}')">
+          <div class="group-header" onclick="window.location.href='pricing.html?q=' + encodeURIComponent(query)">
             <div class="group-header-left">
               <div class="group-icon">${cfg.icon}</div>
               <div>
@@ -2248,6 +2256,10 @@
       navbar.classList.toggle('scrolled', window.scrollY > 50);
       document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
     });
+
+    // Initialize
+    buildPills();
+    filterAndRender();
 
     // Scroll to top
     document.getElementById('scrollTop').addEventListener('click', () => {
