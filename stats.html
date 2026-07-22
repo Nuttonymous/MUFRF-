@@ -609,6 +609,7 @@
         },
         options: {
           responsive: true, maintainAspectRatio: false,
+          layout: { padding: { top: 24, right: 8, left: 4, bottom: 4 } },
           plugins: {
             legend: { display: false },
             tooltip: { enabled: false },
@@ -618,6 +619,7 @@
               color: '#2563eb',
               font: { weight: 'bold', size: 12 },
               formatter: v => fmtK(v),
+              clamp: true,
             }
           },
           scales: {
