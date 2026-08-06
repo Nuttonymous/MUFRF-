@@ -11,7 +11,8 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
   <style>
     *,
     *::before,
@@ -147,9 +148,9 @@
       background: var(--bg-card);
       border-radius: var(--radius-xl);
       padding: 1.75rem 1.5rem 1.5rem;
-      box-shadow: 0 4px 24px -4px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
       overflow: hidden;
-      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: default;
     }
 
@@ -162,6 +163,7 @@
       background: var(--kpi-gradient, linear-gradient(135deg, #2563eb, #0891b2));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask-composite: exclude;
       opacity: 0.6;
       transition: opacity 0.25s;
@@ -175,14 +177,14 @@
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      background: var(--kpi-glow, rgba(37,99,235,0.08));
+      background: var(--kpi-glow, rgba(37, 99, 235, 0.08));
       filter: blur(30px);
       pointer-events: none;
     }
 
     .kpi-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px -8px rgba(0,0,0,0.14), 0 2px 4px rgba(0,0,0,0.06);
+      box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.14), 0 2px 4px rgba(0, 0, 0, 0.06);
     }
 
     .kpi-card:hover::before {
@@ -193,7 +195,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: var(--kpi-icon-bg, rgba(37,99,235,0.1));
+      background: var(--kpi-icon-bg, rgba(37, 99, 235, 0.1));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -386,7 +388,6 @@
 
   <header class="stats-header">
     <h1>Research Impact Dashboard</h1>
-    <p>ข้อมูลภาพรวม Research Output ของศูนย์ MUFRF ดึงข้อมูลแบบ Real-time จาก Google Sheets</p>
   </header>
 
   <div id="alertBox" class="data-alert" style="display:none;"></div>

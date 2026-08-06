@@ -1131,6 +1131,10 @@
         font-size: 1.8rem;
       }
 
+      .kpi-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .hero-cta {
         flex-direction: column;
         align-items: center;
@@ -1689,6 +1693,125 @@
       flex: 1;
       min-width: 0;
     }
+
+    /* ===== KPI CARDS INSIDE HERO ===== */
+    .kpi-row {
+      max-width: 900px;
+      margin: 1.5rem auto 0;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .kpi-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.15rem 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 8px 32px -8px rgba(0, 0, 0, 0.12),
+        0 2px 8px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: default;
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+    }
+
+    /* Gradient top accent bar */
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      background: var(--kpi-gradient, linear-gradient(135deg, #2563eb, #0891b2));
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    /* Glow orb */
+    .kpi-card::after {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--kpi-glow, rgba(37, 99, 235, 0.08));
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-5px);
+      box-shadow:
+        0 16px 40px -10px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .kpi-card:hover::before {
+      opacity: 1;
+    }
+
+    .kpi-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--kpi-icon-bg, rgba(37, 99, 235, 0.1));
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .kpi-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .kpi-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1;
+      background: var(--kpi-gradient, linear-gradient(135deg, #2563eb, #0891b2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.8px;
+      margin-bottom: 0.2rem;
+    }
+
+    .kpi-desc {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.4;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    @media (max-width: 480px) {
+      .kpi-row {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1737,32 +1860,42 @@
         ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงสำหรับงานวิจัยและพัฒนา ครอบคลุมทุกสาขาวิทยาศาสตร์
         พร้อมอัตราค่าบริการที่เหมาะสมสำหรับทุกหน่วยงาน
       </p>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-value" id="statGroups">11</div>
-          <div class="hero-stat-label">กลุ่มเครื่องมือ</div>
+      <div class="kpi-row" id="kpiRow">
+        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #7c3aed, #a855f7); --kpi-glow: rgba(124,58,237,0.06); --kpi-icon-bg: rgba(124,58,237,0.08);">
+          <div class="kpi-icon">🔬</div>
+          <div class="kpi-label">Instruments</div>
+          <div class="kpi-value" id="kpiInstruments">91+</div>
+          <div class="kpi-desc">เครื่องมือวิทยาศาสตร์ให้บริการ</div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value" id="statInstruments">91+</div>
-          <div class="hero-stat-label">เครื่องมือ</div>
+        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #2563eb, #0891b2); --kpi-glow: rgba(37,99,235,0.06); --kpi-icon-bg: rgba(37,99,235,0.08);">
+          <div class="kpi-icon">🧬</div>
+          <div class="kpi-label">Instrument groups</div>
+          <div class="kpi-value" id="kpiGroups">11</div>
+          <div class="kpi-desc">กลุ่มเครื่องมือวิจัยที่ให้บริการ</div>
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value" id="statServices">319</div>
-          <div class="hero-stat-label">รายการบริการ</div>
+        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #059669, #10b981); --kpi-glow: rgba(5,150,105,0.06); --kpi-icon-bg: rgba(5,150,105,0.08);">
+          <div class="kpi-icon">📄</div>
+          <div class="kpi-label">publication</div>
+          <div class="kpi-value" id="kpiPublications">288</div>
+          <div class="kpi-desc">งานวิจัยที่ตีพิมพ์ทั้งหมด</div>
+        </div>
+        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #d97706, #f59e0b); --kpi-glow: rgba(217,119,6,0.06); --kpi-icon-bg: rgba(217,119,6,0.08);">
+          <div class="kpi-icon">🧑‍🔬</div>
+          <div class="kpi-label">จำนวนนักวิทยาศาสตร์</div>
+          <div class="kpi-value" id="kpiScientists">13</div>
+          <div class="kpi-desc">นักวิทยาศาสตร์และนักวิจัย</div>
         </div>
       </div>
       <div class="hero-cta">
         <a href="#services" class="btn btn-primary">
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           ค้นหาบริการ
         </a>
         <a href="#pricing-info" class="btn btn-ghost">
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           ข้อมูลค่าบริการ
         </a>
@@ -2101,8 +2234,72 @@
       });
     }
 
-    // Initialize marquee loading
-    document.addEventListener('DOMContentLoaded', loadMarqueeActivities);
+    // Fetch and update dynamic stats from stats API
+    async function loadDynamicStats() {
+      // 1. Calculate stats from serviceData (local variables)
+      try {
+        if (typeof serviceData !== 'undefined' && Array.isArray(serviceData)) {
+          const uniqueInstruments = [...new Set(serviceData.map(s => s.instrument))].length;
+          const uniqueGroups = [...new Set(serviceData.map(s => s.group))].length;
+          
+          document.getElementById('kpiInstruments').textContent = uniqueInstruments + '+';
+          document.getElementById('kpiGroups').textContent = uniqueGroups;
+        }
+      } catch (e) {
+        console.error('Failed to calculate local serviceData stats:', e);
+      }
+
+      // 2. Fetch publication and instrument counts from remote API
+      const API_URL = 'https://script.google.com/macros/s/AKfycbwVtYkEY-A9zSnaOAEbwRHynxrcPrIIMmsJVXVifMsqIR4E_FlIPxuulLydR3yNL3vF/exec';
+      const CACHE_KEY = 'mufrf_precomputed';
+      const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+      try {
+        let d = null;
+        // Check cache first
+        try {
+          const cached = localStorage.getItem(CACHE_KEY);
+          if (cached) {
+            const { timestamp, data } = JSON.parse(cached);
+            if (Date.now() - timestamp < CACHE_TTL) {
+              d = data;
+              console.log('Using cached stats data on homepage');
+            }
+          }
+        } catch (e) {}
+
+        // If no cache or expired, fetch new
+        if (!d) {
+          const res = await fetch(API_URL);
+          if (res.ok) {
+            d = await res.json();
+            if (d && !d.error) {
+              try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: d }));
+              } catch (e) {}
+              console.log('Fetched fresh stats data on homepage');
+            }
+          }
+        }
+
+        if (d && d.kpi) {
+          if (d.kpi.papers) {
+            document.getElementById('kpiPublications').textContent = d.kpi.papers;
+          }
+          if (d.kpi.instruments) {
+            document.getElementById('kpiInstruments').textContent = d.kpi.instruments + '+';
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch dynamic stats:', err);
+      }
+    }
+
+    // Initialize marquee and dynamic stats loading
+    document.addEventListener('DOMContentLoaded', () => {
+      loadMarqueeActivities();
+      loadDynamicStats();
+    });
 
     // =====================================================================
 
@@ -2192,15 +2389,13 @@
       groups.forEach((groupName, idx) => {
         const cfg = groupConfig[groupName];
 
-        // Filter services
+        // Filter services matching query
         let services = serviceData.filter(s => s.group === groupName);
-        if (query) {
-          services = services.filter(s =>
-            s.instrument.toLowerCase().includes(query) ||
-            s.mode.toLowerCase().includes(query) ||
-            s.code.toLowerCase().includes(query)
-          );
-        }
+        services = services.filter(s =>
+          s.instrument.toLowerCase().includes(query) ||
+          s.mode.toLowerCase().includes(query) ||
+          s.code.toLowerCase().includes(query)
+        );
         if (services.length === 0) return;
         visibleCount++;
 
@@ -2211,20 +2406,62 @@
           instruments[s.instrument].push(s);
         });
 
-        const isOpen = query || activeGroup !== 'all' ? 'open' : '';
+        // Build instrument sections with full table rows + images
+        let instrumentsHtml = '';
+        Object.entries(instruments).forEach(([instrName, rows]) => {
+          const tableRows = rows.map(s => `
+            <tr>
+              <td class="code-cell">${s.code}</td>
+              <td class="mode-cell">${s.mode}</td>
+              <td class="unit-cell"><span class="unit-badge ${unitClass(s.unit)}">${s.unit}</span></td>
+              <td class="price-mahidol">${s.mahidol ? fmt(+s.mahidol) : '-'}</td>
+              <td class="price-gov">${s.gov ? fmt(+s.gov) : '-'}</td>
+              <td class="price-private">${s.private ? fmt(+s.private) : '-'}</td>
+            </tr>`).join('');
+
+          const imgHtml = (typeof instrumentImages !== 'undefined' && instrumentImages[instrName])
+            ? `<img src="${instrumentImages[instrName]}" alt="${instrName}" class="instrument-img" onerror="showInstrumentFallback(this)">`
+            : `<div class="instrument-img-placeholder"></div>`;
+
+          instrumentsHtml += `
+            <div class="instrument-section">
+              <div class="instrument-name">${instrName}</div>
+              <div class="instrument-content">
+                ${imgHtml}
+                <div class="table-wrapper">
+                  <table class="service-table">
+                    <thead>
+                      <tr>
+                        <th style="width:80px">รหัส</th>
+                        <th>รายการบริการ</th>
+                        <th style="width:80px">หน่วย</th>
+                        <th style="width:100px">มหิดล (บาท)</th>
+                        <th style="width:100px">ราชการ (บาท)</th>
+                        <th style="width:100px">เอกชน (บาท)</th>
+                      </tr>
+                    </thead>
+                    <tbody>${tableRows}</tbody>
+                  </table>
+                </div>
+              </div>
+            </div>`;
+        });
 
         html += `
-        <div class="group-card" data-group="${cfg.key}" style="animation-delay:${idx * 0.05}s">
-          <div class="group-header" onclick="window.location.href='pricing.html?q=' + encodeURIComponent(query)">
+        <div class="group-card open" data-group="${cfg.key}" style="animation-delay:${idx * 0.05}s">
+          <div class="group-header" onclick="window.location.href='pricing.html?q=' + encodeURIComponent('${query.replace(/'/g, "\\'")}')"
+               style="cursor:pointer;" title="ดูผลลัพธ์ทั้งหมดในหน้าอัตราค่าบริการ">
             <div class="group-header-left">
               <div class="group-icon">${cfg.icon}</div>
               <div>
                 <div class="group-title">${cfg.label}</div>
-                <div class="group-subtitle">${services.length} รายการบริการ · ${Object.keys(instruments).length} เครื่องมือ</div>
+                <div class="group-subtitle">${services.length} รายการบริการ · ${Object.keys(instruments).length} เครื่องมือ · <span style="color:var(--accent-blue)">คลิกดูทั้งหมด →</span></div>
               </div>
             </div>
-            <div class="group-toggle">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+          <div class="group-body" style="max-height:10000px">
+            <div class="group-body-inner">
+              ${instrumentsHtml}
             </div>
           </div>
         </div>`;
