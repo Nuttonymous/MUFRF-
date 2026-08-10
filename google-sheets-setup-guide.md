@@ -90,12 +90,21 @@
 
 ## การใส่รูปภาพ
 
+### 🖼️ วิธีใส่หลายรูปภาพสำหรับ 1 กิจกรรม (คั่นด้วยเครื่องหมายจุลภาค `,`)
+
+หากกิจกรรมหนึ่งมีหลายรูปภาพ (เช่น 3 รูป) ให้วาง URL รูปภาพลงในคอลัมน์ **image** โดยคั่นแต่ละรูปด้วยเครื่องหมาย `,` เช่น:
+```
+https://drive.google.com/file/d/AAA/view , https://drive.google.com/file/d/BBB/view , https://drive.google.com/file/d/CCC/view
+```
+* **รูปแรก (หน้าสุด)**: จะถูกนำไปใช้เป็นรูปปกหน้าการ์ดกิจกรรม
+* **เมื่อกดที่การ์ดกิจกรรม**: ระบบจะเปิดหน้าต่างป๊อปอัป (Popup Modal) แสดงรูปภาพทั้งหมดในกิจกรรมนั้นๆ
+
 ### วิธีที่ 1: ใช้รูปจาก Google Drive (แนะนำ)
 
 1. อัปโหลดรูปภาพลง Google Drive
 2. คลิกขวาที่ไฟล์ → **Share** → **General access** → เปลี่ยนเป็น **Anyone with the link**
 3. คัดลอก link ที่ได้ (เช่น `https://drive.google.com/file/d/1AbCdEfGhIjKlMnOp/view?usp=sharing`)
-4. วาง link นี้ลงในคอลัมน์ **image** ของ Google Sheet
+4. วาง link นี้ลงในคอลัมน์ **image** ของ Google Sheet (หากมีหลายรูป ให้คั่นด้วยเครื่องหมาย `,`)
 
 > ✅ ระบบจะแปลง Google Drive URL ให้เป็น direct image URL อัตโนมัติ ไม่ต้องแปลงเอง!
 
