@@ -200,9 +200,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 2rem 80px;
+      padding: 100px 2rem 60px;
       background: var(--gradient-hero);
       overflow: hidden;
+      min-height: 100vh;
     }
 
     .hero-orbs {
@@ -267,7 +268,8 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      max-width: 900px;
+      max-width: 1000px;
+      width: 100%;
     }
 
     .hero-badge {
@@ -337,7 +339,7 @@
       font-size: clamp(1rem, 2vw, 1.25rem);
       color: var(--text-secondary);
       max-width: 600px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 1.5rem;
       line-height: 1.7;
       animation: fadeInUp 0.6s ease-out 0.2s both;
     }
@@ -376,6 +378,62 @@
       justify-content: center;
       margin-top: 2.5rem;
       animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+
+    /* ===== HERO SEARCH & FILTER ===== */
+    .hero-search-area {
+      width: 100%;
+      max-width: 860px;
+      margin: 1.8rem auto 0;
+      animation: fadeInUp 0.6s ease-out 0.5s both;
+    }
+
+    .hero-search-box {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-search-box input {
+      width: 100%;
+      padding: 16px 24px 16px 56px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1.5px solid rgba(99, 102, 241, 0.18);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition-normal);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .hero-search-box input:focus {
+      border-color: rgba(99, 102, 241, 0.45);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 4px 20px rgba(99, 102, 241, 0.12);
+      background: rgba(255, 255, 255, 0.97);
+    }
+
+    .hero-search-box svg {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      color: var(--accent-indigo);
+      pointer-events: none;
+    }
+
+    .hero-category-pills {
+      display: grid;
+      grid-template-columns: repeat(6, auto);
+      gap: 8px;
+      justify-content: center;
     }
 
     .btn {
@@ -1238,6 +1296,15 @@
       margin-bottom: 2rem;
     }
 
+    .booking-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.25rem;
+    }
+
     .booking-btn {
       display: inline-flex;
       align-items: center;
@@ -1256,6 +1323,26 @@
     .booking-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+    }
+
+    .labpass-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient-blue);
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: var(--transition-normal);
+      box-shadow: var(--shadow-glow-blue);
+    }
+
+    .labpass-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
     }
 
     /* ===== CONTACT SECTION ===== */
@@ -1697,7 +1784,7 @@
     /* ===== KPI CARDS INSIDE HERO ===== */
     .kpi-row {
       max-width: 900px;
-      margin: 1.5rem auto 0;
+      margin: 1rem auto 0;
       padding: 0 1rem;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1861,50 +1948,52 @@
         พร้อมอัตราค่าบริการที่เหมาะสมสำหรับทุกหน่วยงาน
       </p>
       <div class="kpi-row" id="kpiRow">
-        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #7c3aed, #a855f7); --kpi-glow: rgba(124,58,237,0.06); --kpi-icon-bg: rgba(124,58,237,0.08);">
+        <div class="kpi-card"
+          style="--kpi-gradient: linear-gradient(135deg, #7c3aed, #a855f7); --kpi-glow: rgba(124,58,237,0.06); --kpi-icon-bg: rgba(124,58,237,0.08);">
           <div class="kpi-icon">🔬</div>
           <div class="kpi-label">Instruments</div>
           <div class="kpi-value" id="kpiInstruments">91+</div>
           <div class="kpi-desc">เครื่องมือวิทยาศาสตร์ให้บริการ</div>
         </div>
-        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #2563eb, #0891b2); --kpi-glow: rgba(37,99,235,0.06); --kpi-icon-bg: rgba(37,99,235,0.08);">
+        <div class="kpi-card"
+          style="--kpi-gradient: linear-gradient(135deg, #2563eb, #0891b2); --kpi-glow: rgba(37,99,235,0.06); --kpi-icon-bg: rgba(37,99,235,0.08);">
           <div class="kpi-icon">🧬</div>
           <div class="kpi-label">Instrument groups</div>
           <div class="kpi-value" id="kpiGroups">11</div>
           <div class="kpi-desc">กลุ่มเครื่องมือวิจัยที่ให้บริการ</div>
         </div>
-        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #059669, #10b981); --kpi-glow: rgba(5,150,105,0.06); --kpi-icon-bg: rgba(5,150,105,0.08);">
+        <div class="kpi-card"
+          style="--kpi-gradient: linear-gradient(135deg, #059669, #10b981); --kpi-glow: rgba(5,150,105,0.06); --kpi-icon-bg: rgba(5,150,105,0.08);">
           <div class="kpi-icon">📄</div>
           <div class="kpi-label">publication</div>
           <div class="kpi-value" id="kpiPublications">288</div>
           <div class="kpi-desc">งานวิจัยที่ตีพิมพ์ทั้งหมด</div>
         </div>
-        <div class="kpi-card" style="--kpi-gradient: linear-gradient(135deg, #d97706, #f59e0b); --kpi-glow: rgba(217,119,6,0.06); --kpi-icon-bg: rgba(217,119,6,0.08);">
+        <div class="kpi-card"
+          style="--kpi-gradient: linear-gradient(135deg, #d97706, #f59e0b); --kpi-glow: rgba(217,119,6,0.06); --kpi-icon-bg: rgba(217,119,6,0.08);">
           <div class="kpi-icon">🧑‍🔬</div>
           <div class="kpi-label">จำนวนนักวิทยาศาสตร์</div>
           <div class="kpi-value" id="kpiScientists">13</div>
           <div class="kpi-desc">นักวิทยาศาสตร์และนักวิจัย</div>
         </div>
       </div>
-      <div class="hero-cta">
-        <a href="#services" class="btn btn-primary">
-          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      <div class="hero-search-area">
+        <div class="hero-search-box">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          ค้นหาบริการ
-        </a>
-        <a href="#pricing-info" class="btn btn-ghost">
-          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          ข้อมูลค่าบริการ
-        </a>
+          <input type="text" id="searchInput" placeholder="ค้นหาเครื่องมือ เช่น SEM, HPLC, XRD...">
+        </div>
+        <div class="hero-category-pills" id="categoryPills">
+          <!-- Generated by JS -->
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== RECENT ACTIVITIES MARQUEE ===== -->
-  <section class="recent-activities-section" id="recent-activities" style="display: none;">
+  <section class="recent-activities-section" id="recent-activities">
     <div class="section-header animate-on-scroll">
       <h2>กิจกรรมล่าสุด</h2>
       <p>ติดตามข่าวสารและกิจกรรมที่น่าสนใจจาก MUFRF</p>
@@ -1917,29 +2006,7 @@
   </section>
 
   <!-- ===== SERVICES SECTION ===== -->
-  <section class="section" id="services">
-    <div class="section-header animate-on-scroll">
-      <h2>รายการบริการเครื่องมือวิจัย</h2>
-      <p>เลือกกลุ่มเครื่องมือเพื่อดูรายละเอียดบริการ หน่วยการให้บริการ และอัตราค่าบริการสำหรับแต่ละประเภทหน่วยงาน</p>
-    </div>
-
-    <!-- Search -->
-    <div class="search-wrapper animate-on-scroll">
-      <div class="search-box">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-        <input type="text" id="searchInput" placeholder="ค้นหาเครื่องมือ เช่น SEM, HPLC, XRD...">
-      </div>
-    </div>
-
-    <!-- Category Pills -->
-    <div class="category-nav animate-on-scroll">
-      <div class="category-pills" id="categoryPills">
-        <!-- Generated by JS -->
-      </div>
-    </div>
+  <section class="section" id="services" style="padding-top: 2.5rem;">
 
     <!-- Group Cards -->
     <div class="groups-grid" id="groupsGrid">
@@ -1959,21 +2026,38 @@
   <!-- ===== BOOKING SECTION ===== -->
   <section class="booking-section" id="booking">
     <div class="booking-container animate-on-scroll">
-      <h2 class="booking-title">พร้อมใช้งานบริการของเราแล้วหรือยัง?</h2>
+      <h2 class="booking-title">จองใช้บริการเครื่องมือ</h2>
       <p class="booking-desc">
-        ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล เปิดให้บริการสำหรับนักวิจัยทั้งภายในมหิดล ภาครัฐ
-        และภาคเอกชน
-        (เมื่อนัดหมายกับนักวิทย์แล้วทำการจองล่วงหน้าอย่างน้อย 1 วัน ภายในช่วงเวลา 8.30 -
-        15.00 น.)
+        <strong style="font-size: 1.3em;">ยกระดับงานวิจัยของคุณด้วยบริการเครื่องมือวิทยาศาสตร์ระดับชั้นนำ</strong>
+        <br>
+        เปิดให้บริการแก่นักวิจัย บุคลากรทั้งภายในมหาวิทยาลัยมหิดล หน่วยงานภาครัฐ และภาคเอกชน
+        โดยสามารถนัดหมายและจองใช้เครื่องมือวิทยาศาสตร์ล่วงหน้าได้อย่างสะดวกและรวดเร็ว
+        <br><br>
+        <span style="font-size: 0.85em; display: block; text-align: left;">
+          * 1. นัดหมายกับนักวิทยาศาสตร์ก่อนทุกครั้ง และจองล่วงหน้าอย่างน้อย 1 วันทำการ | เวลาทำการ 8.30-15.00
+          วันจันทร์-ศุกร์
+          <br>
+          &nbsp;&nbsp;2. ผู้ใช้บริการต้องผ่าน MU-FRF Labpass ก่อนการจองและใช้งานเครื่องมือ
+        </span>
       </p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0saQk7frRvQZ_jYcUFaMOTlL49kITWAoW-N7LT97jAdAufg/viewform"
-        target="_blank" rel="noopener" class="booking-btn">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        เข้าสู่ระบบจองเครื่องมือ (Book Now)
-      </a>
+      <div class="booking-btns">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0saQk7frRvQZ_jYcUFaMOTlL49kITWAoW-N7LT97jAdAufg/viewform"
+          target="_blank" rel="noopener" class="booking-btn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          เริ่มต้นจองใช้งานเครื่องมือ (Book Services)
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfI5GufHUjpWhnP64uNNvtS0eD-9tKrf1ossqIuEfVmDjWH-g/viewform"
+          target="_blank" rel="noopener" class="labpass-btn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c0 1.306.835 2.417 2 2.83M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+          </svg>
+          MU-FRF Labpass
+        </a>
+      </div>
     </div>
   </section>
 
@@ -2063,7 +2147,7 @@
         </a>
         <p>
           ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (Mahidol University Frontier Research Facility)
-          ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงเพื่อสนับสนุนงานวิจัยและนวัตกรรมระดับ
+          ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงเพื่อสนับสนุนงานวิจัยและนวัตกรรม
         </p>
       </div>
       <div>
@@ -2241,7 +2325,7 @@
         if (typeof serviceData !== 'undefined' && Array.isArray(serviceData)) {
           const uniqueInstruments = [...new Set(serviceData.map(s => s.instrument))].length;
           const uniqueGroups = [...new Set(serviceData.map(s => s.group))].length;
-          
+
           document.getElementById('kpiInstruments').textContent = uniqueInstruments + '+';
           document.getElementById('kpiGroups').textContent = uniqueGroups;
         }
@@ -2266,7 +2350,7 @@
               console.log('Using cached stats data on homepage');
             }
           }
-        } catch (e) {}
+        } catch (e) { }
 
         // If no cache or expired, fetch new
         if (!d) {
@@ -2276,7 +2360,7 @@
             if (d && !d.error) {
               try {
                 localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: d }));
-              } catch (e) {}
+              } catch (e) { }
               console.log('Fetched fresh stats data on homepage');
             }
           }
@@ -2375,7 +2459,7 @@
     // Build group cards
     function filterAndRender() {
       const query = searchInput.value.toLowerCase().trim();
-      
+
       if (!query) {
         groupsGrid.innerHTML = '';
         noResults.classList.remove('visible');
@@ -2469,9 +2553,21 @@
 
       groupsGrid.innerHTML = html;
       noResults.classList.toggle('visible', visibleCount === 0);
+
+      // Auto-scroll to results when there's a query
+      if (query && visibleCount > 0) {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+          setTimeout(() => {
+            const top = servicesSection.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }, 50);
+        }
+      }
     }
 
     // ===== EVENT LISTENERS =====
+    let scrollPending = false;
     searchInput.addEventListener('input', () => {
       filterAndRender();
     });
