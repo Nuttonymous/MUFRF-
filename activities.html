@@ -1716,7 +1716,7 @@
       background: var(--bg-card, #ffffff);
       border: 1px solid var(--glass-border, rgba(0, 0, 0, 0.1));
       border-radius: 999px;
-      box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.04));
+      box-shadow: var(--shadow-sm, 0 2px 4px rgba(0, 0, 0, 0.04));
       transition: transform 0.2s, background 0.2s, color 0.2s;
     }
 
@@ -1731,7 +1731,7 @@
       border: 1px solid var(--glass-border, rgba(0, 0, 0, 0.08));
       border-radius: var(--radius-xl, 20px);
       padding: 2.5rem;
-      box-shadow: var(--shadow-lg, 0 10px 30px rgba(0,0,0,0.08));
+      box-shadow: var(--shadow-lg, 0 10px 30px rgba(0, 0, 0, 0.08));
     }
 
     .single-activity-date {
@@ -1770,7 +1770,7 @@
       height: 240px;
       object-fit: cover;
       border-radius: var(--radius-lg, 12px);
-      border: 1px solid var(--glass-border, rgba(0,0,0,0.08));
+      border: 1px solid var(--glass-border, rgba(0, 0, 0, 0.08));
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
       cursor: pointer;
@@ -1778,7 +1778,7 @@
 
     .single-activity-gallery img:hover {
       transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
     /* ===== LOADING SKELETON ===== */
@@ -1959,7 +1959,7 @@
         <li><a href="index.html#pricing-info">อัตราค่าบริการ</a></li>
         <li><a href="index.html#booking">การจอง</a></li>
         <li><a href="personnel.html">บุคลากร</a></li>
-        <li><a href="activities.html" class="active">กิจกรรม</a></li>
+        <li><a href="activities.html" class="active">กิจกรรมและข่าวสาร</a></li>
         <li><a href="stats.html">สถิติ</a></li>
         <li><a href="index.html#contact">ติดต่อ</a></li>
       </ul>
@@ -2182,7 +2182,7 @@
       const grid = document.getElementById('activitiesGrid');
       if (!grid) return;
       let html = '';
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 6; i++) {
         html += `
         <div class="skeleton-card">
           <div class="skeleton-image"></div>
@@ -2251,7 +2251,7 @@
 
       if (targetId) {
         const decodedId = decodeURIComponent(targetId).toLowerCase().trim();
-        const found = data.find(a => 
+        const found = data.find(a =>
           (a.id && a.id.toLowerCase().trim() === decodedId) ||
           (a.title && a.title.toLowerCase().trim() === decodedId) ||
           (a.id && encodeURIComponent(a.id) === targetId) ||
@@ -2282,7 +2282,8 @@
       }
 
       let html = '';
-      data.forEach((a) => {
+      const displayData = (data || []).slice(0, 6);
+      displayData.forEach((a) => {
         const images = getImagesList(a.image);
         const firstImgSrc = images[0] || '';
 
@@ -2348,7 +2349,7 @@
 
           ${galleryHtml ? `
             <div style="margin-top: 2rem; border-top: 1px solid var(--glass-border); padding-top: 1.5rem;">
-              <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">📷 ภาพกิจกรรม (${images.length} รูป)</h3>
+              <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">📷 ภาพกิจกรรม</h3>
               <div class="single-activity-gallery">${galleryHtml}</div>
             </div>
           ` : ''}
