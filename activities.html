@@ -2282,7 +2282,8 @@
       }
 
       let html = '';
-      const displayData = (data || []).slice(0, 6);
+      // Reverse activities array so bottom-most (latest) items in Google Sheets appear first
+      const displayData = [...(data || [])].reverse();
       displayData.forEach((a) => {
         const images = getImagesList(a.image);
         const firstImgSrc = images[0] || '';

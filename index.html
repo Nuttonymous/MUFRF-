@@ -2498,8 +2498,10 @@
       if (!grid) return;
       grid.innerHTML = '';
 
+      // Reverse activities array so bottom-most (latest) items in Google Sheets appear first (leftmost)
+      const reversed = [...activities].reverse();
       // Show only the 3 most recent
-      const top3 = activities.slice(0, 3);
+      const top3 = reversed.slice(0, 3);
 
       top3.forEach(activity => {
         const firstImgRaw = (activity.image || '').split(',')[0].trim();
