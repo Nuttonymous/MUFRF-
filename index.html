@@ -2054,8 +2054,8 @@
         <span class="gradient-text">มหาวิทยาลัยมหิดล</span>
       </h1>
       <p>
-        ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงสำหรับงานวิจัยและพัฒนา ครอบคลุมทุกสาขาวิทยาศาสตร์
-        พร้อมอัตราค่าบริการที่เหมาะสมสำหรับทุกหน่วยงาน
+        มุ่งมั่นขับเคลื่อนงานวิจัยสู่ความเป็นเลิศ ด้วยเครื่องมือวิเคราะห์ขั้นสูงและบริการวิชาการที่ครอบคลุม
+        เพื่อรองรับการพัฒนางานวิจัยและนวัตกรรมอย่างยั่งยืน
       </p>
       <div class="kpi-row" id="kpiRow">
         <div class="kpi-card"
@@ -2134,7 +2134,7 @@
           1. นัดหมายกับนักวิทยาศาสตร์ก่อนทุกครั้ง และจองล่วงหน้าอย่างน้อย 1 วันทำการ | เวลาทำการ 8.30-15.00
           วันจันทร์-ศุกร์
           <br>
-          2. ผู้ใช้บริการต้องผ่าน MU-FRF Labpass ก่อนการจองและใช้งานเครื่องมือ
+          2. ผู้ใช้บริการต้องผ่าน MU-FRF Laboratory Safety ก่อนการจองและใช้งานเครื่องมือ
         </span>
       </p>
       <div class="booking-btns">
@@ -2152,7 +2152,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c0 1.306.835 2.417 2 2.83M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
           </svg>
-          MU-FRF Safety Labpass
+          MU-FRF Laboratory Safety
         </a>
         <a href="https://drive.google.com/file/d/13WHyYWZUAE7r1A8g9fnDCnn-Qagp1sAj/view" target="_blank" rel="noopener"
           class="handout-btn">
@@ -2160,7 +2160,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
-          Handout: MU-FRF Safety Labpass
+          Handout: MU-FRF Laboratory Safety
         </a>
       </div>
     </div>
@@ -2237,7 +2237,7 @@
       </div>
 
       <div class="contact-form animate-on-scroll">
-        <form onsubmit="event.preventDefault(); alert('ขอบคุณที่ติดต่อเรา ข้อความของคุณถูกส่งเรียบร้อยแล้ว');">
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
           <div class="form-group">
             <label for="name">ชื่อ - นามสกุล</label>
             <input type="text" id="name" class="form-control" placeholder="กรอกชื่อของคุณ" required>
@@ -2254,7 +2254,8 @@
             <label for="message">ข้อความ</label>
             <textarea id="message" class="form-control" placeholder="เขียนข้อความของคุณที่นี่..." required></textarea>
           </div>
-          <button type="submit" class="btn-submit">ส่งข้อความ</button>
+          <button type="submit" class="btn-submit" id="submitBtn">ส่งข้อความ</button>
+          <div id="formStatus" style="margin-top:1rem; font-size:0.9rem; text-align:center; display:none;"></div>
         </form>
       </div>
     </div>
@@ -2315,6 +2316,68 @@
 
   <script src="data.js"></script>
   <script>
+    // =====================================================================
+    // ===== GOOGLE SHEETS CONFIGURATION FOR CONTACT FORM =====
+    // =====================================================================
+    // วางURL ของ Google Apps Script ที่นี่หลังจาก Deploy แล้ว
+    const GOOGLE_SHEET_CONTACT_URL = 'https://script.google.com/macros/s/AKfycbzxRRQQ0H0LMDkHOugY-WFWVmGknRYZZov03-BSRrf8ryp-nxk4DM0qiGLKHGVlBjY/exec';
+
+    async function handleContactSubmit(event) {
+      event.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const statusDiv = document.getElementById('formStatus');
+      const form = document.getElementById('contactForm');
+
+      // Collect data
+      const data = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subject: document.getElementById('subject').value.trim(),
+        message: document.getElementById('message').value.trim()
+      };
+
+      // Check if URL is configured
+      if (!GOOGLE_SHEET_CONTACT_URL || GOOGLE_SHEET_CONTACT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+        statusDiv.style.display = 'block';
+        statusDiv.style.color = '#d97706';
+        statusDiv.innerHTML = '⚠️ กรุณาตั้งค่า Google Apps Script URL ก่อน (ดูคู่มือ)';
+        return;
+      }
+
+      // Update button state
+      btn.disabled = true;
+      btn.textContent = 'กำลังส่ง...';
+      statusDiv.style.display = 'none';
+
+      try {
+        const response = await fetch(GOOGLE_SHEET_CONTACT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        // no-cors mode always returns opaque response, treat as success
+        form.reset();
+        statusDiv.style.display = 'block';
+        statusDiv.style.color = '#059669';
+        statusDiv.innerHTML = '✅ ขอบคุณที่ติดต่อเรา! เราจะตอบกลับภายใน 1-2 วันทำการ';
+        btn.textContent = 'ส่งแล้ว ✓';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = 'ส่งข้อความ';
+        }, 4000);
+
+      } catch (err) {
+        statusDiv.style.display = 'block';
+        statusDiv.style.color = '#e11d48';
+        statusDiv.innerHTML = '❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง หรือติดต่อทาง opscif@mahidol.ac.th';
+        btn.disabled = false;
+        btn.textContent = 'ส่งข้อความ';
+        console.error('Contact form error:', err);
+      }
+    }
+
     // =====================================================================
     // ===== GOOGLE SHEETS CONFIGURATION FOR ACTIVITIES =====
     // =====================================================================
