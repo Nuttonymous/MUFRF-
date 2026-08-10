@@ -2004,7 +2004,23 @@
     }
 
     // Fetch and render activities marquee
+    const ACTIVITIES_CACHE_KEY = 'mufrf_activities_cache';
+
+    // Fetch and render activities marquee with localStorage caching
     async function loadMarqueeActivities() {
+      // 1. Load from localStorage cache immediately (Instant load)
+      try {
+        const cachedRaw = localStorage.getItem(ACTIVITIES_CACHE_KEY);
+        if (cachedRaw) {
+          const { data } = JSON.parse(cachedRaw);
+          if (data && data.length > 0) {
+            document.getElementById('recent-activities').style.display = 'block';
+            renderMarquee(data);
+          }
+        }
+      } catch (e) {}
+
+      // 2. Fetch fresh data in background
       try {
         const response = await fetch(GOOGLE_SHEET_CSV_URL);
         if (!response.ok) throw new Error('Network response was not ok');
@@ -2012,6 +2028,12 @@
         const activities = parseCSV(csvText);
 
         if (activities.length > 0) {
+          try {
+            localStorage.setItem(ACTIVITIES_CACHE_KEY, JSON.stringify({
+              timestamp: Date.now(),
+              data: activities
+            }));
+          } catch (e) {}
           document.getElementById('recent-activities').style.display = 'block';
           renderMarquee(activities);
         }

@@ -2443,23 +2443,46 @@
     // =====================================================================
     // ===== FETCH FROM GOOGLE SHEETS =====
     // =====================================================================
+    const CACHE_KEY = 'mufrf_activities_cache';
+
     async function fetchActivities() {
-      const grid = document.getElementById('activitiesGrid');
+      let hasRenderedCache = false;
+
+      // 1. อ่านจาก localStorage ก่อนเพื่อแสดงผลทันที (Instant load แบบหน้าสถิติ)
+      try {
+        const cachedRaw = localStorage.getItem(CACHE_KEY);
+        if (cachedRaw) {
+          const { data } = JSON.parse(cachedRaw);
+          if (data && data.length > 0) {
+            console.info('[MUFRF Activities] โหลดข้อมูลจาก Cache ทันที');
+            checkAndRender(data);
+            showDataSourceBadge(true);
+            hasRenderedCache = true;
+          }
+        }
+      } catch (e) {
+        console.warn('[MUFRF Activities] อ่าน cache ล้มเหลว:', e);
+      }
 
       // ถ้ายังไม่ได้ตั้งค่า URL → ใช้ fallback data ทันที
       if (!GOOGLE_SHEET_CSV_URL || GOOGLE_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
-        console.info('[MUFRF Activities] Google Sheet URL ยังไม่ได้ตั้งค่า → ใช้ข้อมูลสำรอง');
-        checkAndRender(FALLBACK_ACTIVITIES);
-        showDataSourceBadge(false);
+        if (!hasRenderedCache) {
+          console.info('[MUFRF Activities] Google Sheet URL ยังไม่ได้ตั้งค่า → ใช้ข้อมูลสำรอง');
+          checkAndRender(FALLBACK_ACTIVITIES);
+          showDataSourceBadge(false);
+        }
         return;
       }
 
-      // แสดง loading skeleton
-      showLoadingSkeleton();
+      // ถ้ายังไม่มี cache แสดง loading skeleton
+      if (!hasRenderedCache) {
+        showLoadingSkeleton();
+      }
 
+      // 2. Fetch ข้อมูลใหม่จาก Google Sheets
       try {
         const response = await fetch(GOOGLE_SHEET_CSV_URL, {
-          signal: AbortSignal.timeout(15000) // timeout 15 วินาที
+          signal: AbortSignal.timeout(15000)
         });
 
         if (!response.ok) {
@@ -2467,26 +2490,33 @@
         }
 
         const csvText = await response.text();
-        const data = parseCSV(csvText);
+        const freshData = parseCSV(csvText);
 
-        if (data.length === 0) {
-          console.warn('[MUFRF Activities] Google Sheet ว่างเปล่าหรือรูปแบบไม่ถูกต้อง → ใช้ข้อมูลสำรอง');
+        if (freshData.length > 0) {
+          // บันทึกลง localStorage
+          try {
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+              timestamp: Date.now(),
+              data: freshData
+            }));
+          } catch (e) {}
+
+          console.info(`[MUFRF Activities] โหลดข้อมูลจาก Google Sheet สำเร็จ: ${freshData.length} กิจกรรม`);
+          checkAndRender(freshData);
+          showDataSourceBadge(true);
+        } else if (!hasRenderedCache) {
+          console.warn('[MUFRF Activities] Google Sheet ว่างเปล่า → ใช้ข้อมูลสำรอง');
           checkAndRender(FALLBACK_ACTIVITIES);
           showDataSourceBadge(false);
-          return;
         }
-
-        console.info(`[MUFRF Activities] โหลดข้อมูลจาก Google Sheet สำเร็จ: ${data.length} กิจกรรม`);
-        checkAndRender(data);
-        showDataSourceBadge(true);
 
       } catch (error) {
         console.error('[MUFRF Activities] โหลดข้อมูลล้มเหลว:', error.message);
-
-        // Fallback → แสดงข้อมูลสำรองแทนที่จะแสดงหน้าว่าง
-        console.info('[MUFRF Activities] ใช้ข้อมูลสำรองแทน');
-        checkAndRender(FALLBACK_ACTIVITIES);
-        showDataSourceBadge(false);
+        if (!hasRenderedCache) {
+          console.info('[MUFRF Activities] ใช้ข้อมูลสำรองแทน');
+          checkAndRender(FALLBACK_ACTIVITIES);
+          showDataSourceBadge(false);
+        }
       }
     }
 
