@@ -2024,7 +2024,7 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#hero" class="active">หน้าแรก</a></li>
-        <li><a href="#services">บริการ</a></li>
+        <li><a href="services.html">บริการ</a></li>
         <li><a href="pricing.html">อัตราค่าบริการ</a></li>
         <li><a href="#booking">การจอง</a></li>
         <li><a href="personnel.html">บุคลากร</a></li>
@@ -2721,7 +2721,7 @@
               <td class="unit-cell"><span class="unit-badge ${unitClass(s.unit)}">${s.unit}</span></td>
               <td class="price-mahidol">${s.mahidol ? fmt(+s.mahidol) : '-'}</td>
               <td class="price-gov">${s.gov ? fmt(+s.gov) : '-'}</td>
-              <td class="price-private">${s.private ? fmt(+s.private) : '-'}</td>
+              <td class="price-private">${s.priv ? fmt(+s.priv) : '-'}</td>
             </tr>`).join('');
 
           const imgHtml = (typeof instrumentImages !== 'undefined' && instrumentImages[instrName])

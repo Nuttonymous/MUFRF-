@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUFRF — Mahidol University Frontier Research Facility | บริการเครื่องมือวิทยาศาสตร์</title>
+  <meta name="description"
+    content="ทำเนียบเครื่องมือวิทยาศาสตร์ขั้นสูง ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (MUFRF) — ค้นหาเครื่องมือ กลุ่ม และสาขาวิจัย">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Static data -->
+  <script src="data.js"></script>
+
+  <style>
+    /* ===== CSS RESET & VARIABLES ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --bg-card-hover: rgba(255, 255, 255, 1);
+      --glass: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.05);
+      --glass-hover: rgba(255, 255, 255, 0.9);
+
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+
+      --accent-blue: #2563eb;
+      --accent-cyan: #0891b2;
+      --accent-purple: #7c3aed;
+      --accent-pink: #db2777;
+      --accent-amber: #d97706;
+      --accent-emerald: #059669;
+      --accent-rose: #e11d48;
+      --accent-indigo: #4f46e5;
+      --accent-teal: #0d9488;
+      --accent-orange: #ea580c;
+      --accent-lime: #65a30d;
+
+      --gradient-hero: linear-gradient(135deg, #f0fdfa 0%, #e0e7ff 50%, #f8fafc 100%);
+      --gradient-blue: linear-gradient(135deg, #2563eb, #0891b2);
+      --gradient-purple: linear-gradient(135deg, #7c3aed, #db2777);
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      --shadow-glow-blue: 0 0 30px rgba(37, 99, 235, 0.15);
+      --shadow-glow-purple: 0 0 30px rgba(124, 58, 237, 0.15);
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      --font-sans: 'Inter', 'Noto Sans Thai', system-ui, sans-serif;
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
+    }
+
+    .bg-grid::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ===== HEADER / NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255, 255, 255, 0.75);
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition-normal);
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .navbar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .logo-img {
+      height: 100px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-blue);
+      background: rgba(37, 99, 235, 0.08);
+      font-weight: 600;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .mobile-toggle svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 110px 2rem 50px;
+      background: var(--gradient-hero);
+      overflow: hidden;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: orbFloat 20s ease-in-out infinite;
+    }
+
+    .hero-orb:nth-child(1) {
+      width: 450px;
+      height: 450px;
+      background: var(--accent-blue);
+      top: -10%;
+      left: -5%;
+      animation-delay: 0s;
+    }
+
+    .hero-orb:nth-child(2) {
+      width: 350px;
+      height: 350px;
+      background: var(--accent-purple);
+      bottom: -15%;
+      right: -5%;
+      animation-delay: -7s;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -40px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      color: var(--accent-cyan);
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 .hero-title-line {
+      display: block;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      color: var(--text-primary);
+    }
+
+    .hero h1 .gradient-text {
+      display: block;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ===== MAIN LAYOUT ===== */
+    .layout {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      padding: 2.5rem 2rem 5rem;
+      gap: 2rem;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      position: sticky;
+      top: 90px;
+      height: fit-content;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 4px; }
+
+    .sidebar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
+
+    /* Group pills */
+    .group-pills { display: flex; flex-direction: column; gap: 4px; }
+    .group-pill {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 12px; border-radius: var(--radius-md); cursor: pointer;
+      font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);
+      border: 1px solid transparent; background: transparent;
+      text-align: left; font-family: var(--font-sans); gap: 6px; transition: var(--transition-normal);
+    }
+    .group-pill:hover { background: rgba(37,99,235,0.06); color: var(--text-primary); }
+    .group-pill.active {
+      background: rgba(37,99,235,0.1); color: var(--accent-blue);
+      border-color: rgba(37,99,235,0.2); font-weight: 600;
+    }
+    .gp-left { display: flex; align-items: center; gap: 8px; }
+    .gp-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+    .gp-abbr { font-weight: 700; font-size: 0.75rem; min-width: 28px; }
+    .gp-count {
+      font-size: 0.72rem; font-weight: 600; color: var(--text-muted);
+      background: rgba(0,0,0,0.04); padding: 2px 8px; border-radius: 999px; flex-shrink: 0;
+    }
+    .group-pill.active .gp-count { background: rgba(37,99,235,0.15); color: var(--accent-blue); }
+
+    /* Tag pills */
+    .tag-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill {
+      display: inline-flex; align-items: center; padding: 5px 12px;
+      border-radius: 999px; cursor: pointer; font-size: 0.78rem;
+      font-weight: 500; color: var(--text-secondary);
+      background: var(--bg-card); border: 1px solid var(--glass-border);
+      font-family: var(--font-sans); transition: var(--transition-normal);
+    }
+    .tag-pill:hover { border-color: rgba(37,99,235,0.3); color: var(--accent-blue); }
+    .tag-pill.active { background: rgba(37,99,235,0.1); color: var(--accent-blue); border-color: rgba(37,99,235,0.3); font-weight: 600; }
+
+    /* Abbrev legend */
+    .abbrev-list { display: flex; flex-direction: column; gap: 6px; }
+    .abbrev-item { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-secondary); }
+    .abbrev-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+    .abbrev-code { font-weight: 700; font-size: 0.75rem; min-width: 30px; }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content { min-width: 0; }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .search-box { flex: 1; min-width: 260px; position: relative; }
+    .search-box input {
+      width: 100%; padding: 12px 18px 12px 46px;
+      border-radius: var(--radius-lg); border: 1px solid var(--glass-border);
+      background: var(--bg-card); font-family: var(--font-sans); font-size: 0.95rem;
+      color: var(--text-primary); outline: none; transition: var(--transition-normal);
+      box-shadow: var(--shadow-sm); backdrop-filter: blur(10px);
+    }
+    .search-box input:focus {
+      border-color: rgba(37,99,235,0.4);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.1), var(--shadow-md);
+      background: #fff;
+    }
+    .search-box input::placeholder { color: var(--text-muted); }
+    .search-icon {
+      position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+      width: 19px; height: 19px; color: var(--text-muted); pointer-events: none;
+    }
+    .results-count { font-size: 0.9rem; color: var(--text-secondary); white-space: nowrap; }
+    .results-count strong { color: var(--accent-blue); font-weight: 700; }
+    .view-toggle {
+      display: flex; gap: 4px; background: var(--bg-card);
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      padding: 4px; flex-shrink: 0; backdrop-filter: blur(10px);
+    }
+    .view-btn {
+      width: 34px; height: 34px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; border: none; background: transparent;
+      color: var(--text-muted); transition: var(--transition-normal);
+    }
+    .view-btn:hover { color: var(--text-primary); }
+    .view-btn.active { background: var(--accent-blue); color: #fff; box-shadow: 0 2px 8px rgba(37,99,235,0.3); }
+    .view-btn svg { width: 17px; height: 17px; }
+
+    /* ===== GRID VIEW ===== */
+    .instruments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .instrument-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-normal);
+      display: flex; flex-direction: column;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .instrument-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(37, 99, 235, 0.25);
+    }
+
+    .card-image {
+      width: 100%; height: 180px;
+      background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative; flex-shrink: 0;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .card-image img {
+      width: 100%; height: 100%; object-fit: contain;
+      padding: 14px; transition: var(--transition-normal);
+    }
+
+    .instrument-card:hover .card-image img { transform: scale(1.05); }
+
+    .card-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(148, 163, 184, 0.4);
+    }
+
+    .card-placeholder svg { width: 52px; height: 52px; }
+
+    .card-badge {
+      position: absolute; top: 10px; right: 10px;
+      padding: 4px 10px; border-radius: 999px;
+      font-size: 0.7rem; font-weight: 700;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-body {
+      padding: 1.25rem;
+      flex: 1; display: flex; flex-direction: column; gap: 0.5rem;
+    }
+
+    .card-title-en {
+      font-size: 1.05rem; font-weight: 700; line-height: 1.35;
+      color: var(--text-primary);
+    }
+
+    .card-title-th { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; }
+
+    .card-desc {
+      font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1;
+      display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      margin-top: 0.2rem;
+    }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.4rem; }
+
+    .card-tag {
+      padding: 3px 9px; border-radius: 999px; font-size: 0.68rem; font-weight: 600;
+      background: rgba(37,99,235,0.08); color: var(--accent-blue);
+      border: 1px solid rgba(37,99,235,0.15);
+    }
+
+    .card-brand { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+    /* ===== LIST VIEW ===== */
+    .instruments-list { display: flex; flex-direction: column; gap: 0.85rem; }
+
+    .list-item {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.4rem;
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      transition: var(--transition-normal); cursor: pointer;
+      box-shadow: var(--shadow-md); backdrop-filter: blur(10px);
+    }
+
+    .list-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(37,99,235,0.25);
+    }
+
+    .list-img {
+      width: 90px; height: 68px; flex-shrink: 0;
+      border-radius: var(--radius-md); overflow: hidden;
+      background: linear-gradient(135deg, #e0e7ff, #f0fdfa);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--glass-border);
+    }
+
+    .list-img img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+
+    .list-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(148,163,184,0.4); }
+    .list-img-placeholder svg { width: 28px; height: 28px; }
+
+    .list-body { flex: 1; min-width: 0; }
+    .list-header { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.25rem; }
+    .list-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+    .list-gbadge { padding: 3px 10px; border-radius: 999px; font-size: 0.68rem; font-weight: 700; }
+    .list-th { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
+    .list-desc {
+      font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;
+      display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .list-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.4rem; }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      max-width: 760px; width: 100%; max-height: 90vh;
+      overflow-y: auto; box-shadow: var(--shadow-xl);
+      animation: modalIn 0.3s cubic-bezier(0.4,0,0.2,1);
+      border: 1px solid var(--glass-border);
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95) translateY(15px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-top {
+      position: sticky; top: 0; display: flex; justify-content: flex-end;
+      padding: 1rem 1.25rem 0; background: #ffffff; z-index: 2;
+    }
+
+    .modal-close-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(0,0,0,0.05); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-secondary); transition: var(--transition-normal);
+    }
+    .modal-close-btn:hover { background: rgba(0,0,0,0.1); color: var(--text-primary); }
+    .modal-close-btn svg { width: 18px; height: 18px; }
+
+    .modal-body { padding: 0 2rem 2.25rem; }
+
+    .modal-img {
+      width: 100%; height: 250px;
+      background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
+      border-radius: var(--radius-lg); overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; border: 1px solid var(--glass-border);
+    }
+    .modal-img img { max-width: 100%; max-height: 100%; object-fit: contain; padding: 18px; }
+    .modal-img-placeholder { color: rgba(148,163,184,0.4); }
+    .modal-img-placeholder svg { width: 72px; height: 72px; }
+
+    .modal-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
+    .modal-title-th { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem; }
+
+    .modal-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+    .modal-gbadge { padding: 4px 14px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; color: #fff; }
+
+    .modal-sec { margin-bottom: 1.2rem; }
+    .modal-sec-lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .modal-sec p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; }
+
+    .modal-specs {
+      background: var(--bg-secondary); border-radius: var(--radius-md);
+      padding: 1rem 1.15rem; font-size: 0.9rem; color: var(--text-secondary);
+      border: 1px solid var(--glass-border);
+    }
+
+    .modal-tag {
+      padding: 4px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 600;
+      background: rgba(37,99,235,0.08); color: var(--accent-blue);
+      border: 1px solid rgba(37,99,235,0.15);
+    }
+
+    .modal-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gradient-blue); color: #fff;
+      padding: 0.75rem 1.6rem; border-radius: var(--radius-md);
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: var(--transition-normal); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      margin-top: 0.75rem;
+    }
+    .modal-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+    }
+
+    /* ===== NO RESULTS ===== */
+    .no-results {
+      text-align: center; padding: 5rem 2rem;
+      color: var(--text-muted); display: none;
+      background: var(--bg-card); border-radius: var(--radius-xl);
+      border: 1px solid var(--glass-border);
+    }
+    .no-results.visible { display: block; }
+    .no-results svg { width: 56px; height: 56px; margin: 0 auto 1rem; opacity: 0.3; }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 90;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--gradient-blue); border: none; color: #fff;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      opacity: 0; transform: translateY(20px);
+      transition: var(--transition-normal); pointer-events: none;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4); }
+    .scroll-top svg { width: 20px; height: 20px; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--glass-border);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      max-width: 400px;
+    }
+
+    .footer h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-blue);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; max-height: none; padding-right: 0; margin-bottom: 1.5rem; }
+      .group-pills { flex-direction: row; flex-wrap: wrap; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: rgba(255,255,255,0.98); border-bottom: 1px solid var(--glass-border);
+        padding: 1rem; box-shadow: var(--shadow-lg); backdrop-filter: blur(20px);
+      }
+      .instruments-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-grid"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="MUFRF Logo" class="logo-img">
+        <div class="logo-text"><span>Mahidol University Frontier Research Facility</span></div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">หน้าแรก</a></li>
+        <li><a href="services.html" class="active">บริการ</a></li>
+        <li><a href="pricing.html">อัตราค่าบริการ</a></li>
+        <li><a href="index.html#booking">การจอง</a></li>
+        <li><a href="personnel.html">บุคลากร</a></li>
+        <li><a href="activities.html">กิจกรรมและข่าวสาร</a></li>
+        <li><a href="stats.html">สถิติ</a></li>
+        <li><a href="index.html#contact">ติดต่อ</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ===== MAIN LAYOUT ===== -->
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-label">กลุ่มเครื่องมือ (GROUPS)</div>
+        <div class="group-pills" id="groupPills"></div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">สาขาวิจัย (DOMAIN TAGS)</div>
+        <div class="tag-pills" id="tagPills"></div>
+      </div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">อักษรย่อกลุ่มเครื่องมือ</div>
+        <div class="abbrev-list" id="abbrevList"></div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="toolbar">
+        <div class="search-box">
+          <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="ค้นหาเครื่องมือ... (ไทย, English, ยี่ห้อ/รุ่น, รหัส)">
+        </div>
+        <span class="results-count" id="resultsCount"></span>
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridBtn" title="Grid view" aria-label="Grid view">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+          </button>
+          <button class="view-btn" id="listBtn" title="List view" aria-label="List view">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="instrumentsWrap"></div>
+
+      <div class="no-results" id="noResults">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p style="font-size:1.1rem; color:var(--text-primary); margin-bottom:0.4rem; font-weight:700;">ไม่พบเครื่องมือที่ตรงกัน</p>
+        <small>ลองค้นหาด้วยคำอื่น หรือเลือกกลุ่มเครื่องมือในแถบด้านข้าง</small>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-top">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" alt="MUFRF Logo" class="logo-img">
+          <div class="logo-text"><span>Mahidol University Frontier Research Facility</span></div>
+        </a>
+        <p>
+          ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (Mahidol University Frontier Research Facility)
+          ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงเพื่อสนับสนุนงานวิจัยและนวัตกรรม
+        </p>
+      </div>
+      <div>
+        <h4>กลุ่มบริการ</h4>
+        <ul class="footer-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem;">
+          <li><a href="pricing.html#services">Bioscience</a></li>
+          <li><a href="pricing.html#services">Chromatograph</a></li>
+          <li><a href="pricing.html#services">Freezer</a></li>
+          <li><a href="pricing.html#services">Microscope</a></li>
+          <li><a href="pricing.html#services">Sample Prep</a></li>
+          <li><a href="pricing.html#services">Spectrometer</a></li>
+          <li><a href="pricing.html#services">Surface Analysis</a></li>
+          <li><a href="pricing.html#services">Thermal Analysis</a></li>
+          <li><a href="pricing.html#services">Water System</a></li>
+          <li><a href="pricing.html#services">X-ray</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ข้อมูลเพิ่มเติม</h4>
+        <ul class="footer-links">
+          <li><a href="pricing.html">อัตราค่าบริการ</a></li>
+          <li><a href="services.html">ทำเนียบเครื่องมือ</a></li>
+          <li><a href="personnel.html">บุคลากร</a></li>
+          <li><a href="activities.html">กิจกรรมและข่าวสาร</a></li>
+          <li><a href="index.html#booking">การจองเครื่องมือ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Mahidol University Frontier Research Facility (MUFRF)</span>
+      <span>อัตราค่าบริการอาจมีการเปลี่ยนแปลง กรุณาติดต่อสอบถามก่อนใช้บริการ</span>
+    </div>
+  </footer>
+
+  <script>
+  // =====================================================================
+  // COLOR CONFIG FOR GROUPS
+  // =====================================================================
+  const GROUP_COLORS = {
+    1: '#059669',  // BS
+    2: '#2563eb',  // CG
+    3: '#0891b2',  // FZ
+    4: '#7c3aed',  // MC
+    5: '#d97706',  // SP
+    6: '#db2777',  // SM
+    7: '#4f46e5',  // SF
+    8: '#e11d48',  // TM
+    9: '#0d9488',  // WP
+    10: '#ea580c', // XR
+    11: '#65a30d', // HPC
+  };
+
+  // =====================================================================
+  // STATE
+  // =====================================================================
+  let allInstruments = [];
+  let activeGroup = 'all';
+  let activeTags = new Set();
+  let searchQuery = '';
+  let viewMode = 'grid';
+
+  const IMG_FALLBACK_SVG = '<svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>';
+
+  function esc(s) {
+    if (!s) return '';
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+  }
+
+  function getBestImage(item) {
+    let url = (item.imageUrl || '').trim();
+    if (!url && typeof instrumentImages !== 'undefined') {
+      url = instrumentImages[item.id] || instrumentImages[item.nameEn] || instrumentImages[item.nameTh] || '';
+    }
+    if (!url) return '';
+    const gd = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (gd) return `https://lh3.googleusercontent.com/d/${gd[1]}`;
+    const wm = url.match(/Special:FilePath\/(.+)/);
+    if (wm) return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(decodeURIComponent(wm[1]))}?width=400`;
+    return url;
+  }
+
+  function getGroupCfg(groupId) {
+    if (typeof equipmentGroupConfig !== 'undefined' && equipmentGroupConfig[groupId]) {
+      const g = equipmentGroupConfig[groupId];
+      return {
+        code: g.code,
+        name: g.name,
+        nameTh: g.nameTh,
+        color: GROUP_COLORS[groupId] || '#2563eb'
+      };
+    }
+    return { code: 'EQ', name: 'Equipment', nameTh: 'เครื่องมือ', color: '#64748b' };
+  }
+
+  function getDomainLabel(tagKey) {
+    if (typeof domainTags !== 'undefined' && domainTags[tagKey]) {
+      return domainTags[tagKey];
+    }
+    return tagKey;
+  }
+
+  // Load from data.js
+  function initData() {
+    if (typeof equipmentData !== 'undefined' && Array.isArray(equipmentData)) {
+      allInstruments = equipmentData;
+    } else {
+      allInstruments = [];
+    }
+
+    renderSidebar();
+    renderAll();
+  }
+
+  // =====================================================================
+  // SIDEBAR RENDER
+  // =====================================================================
+  function renderSidebar() {
+    const total = allInstruments.length;
+
+    // Group counts
+    const groupCounts = {};
+    allInstruments.forEach(item => {
+      const gId = item.groupId || 1;
+      groupCounts[gId] = (groupCounts[gId] || 0) + 1;
+    });
+
+    // Group Pills
+    let ghtml = `<button class="group-pill ${activeGroup === 'all' ? 'active' : ''}" data-g="all">
+      <div class="gp-left"><div class="gp-dot" style="background:#64748b"></div>
+        <span class="gp-abbr">ALL</span><span>ทั้งหมด</span></div>
+      <span class="gp-count">· ${total}</span>
+    </button>`;
+
+    if (typeof equipmentGroupConfig !== 'undefined') {
+      Object.keys(equipmentGroupConfig).forEach(gIdStr => {
+        const gId = parseInt(gIdStr, 10);
+        const cfg = getGroupCfg(gId);
+        const count = groupCounts[gId] || 0;
+        ghtml += `<button class="group-pill ${activeGroup === gIdStr ? 'active' : ''}" data-g="${gIdStr}">
+          <div class="gp-left">
+            <div class="gp-dot" style="background:${cfg.color}"></div>
+            <span class="gp-abbr" style="color:${cfg.color}">${cfg.code}</span>
+            <span>${esc(cfg.code)}</span>
+          </div>
+          <span class="gp-count">· ${count}</span>
+        </button>`;
+      });
+    }
+    document.getElementById('groupPills').innerHTML = ghtml;
+    document.querySelectorAll('.group-pill').forEach(b => {
+      b.addEventListener('click', () => { activeGroup = b.dataset.g; renderSidebar(); renderAll(); });
+    });
+
+    // Tag Pills
+    const allTagsSet = new Set();
+    allInstruments.forEach(item => {
+      if (Array.isArray(item.domainTags)) {
+        item.domainTags.forEach(t => allTagsSet.add(t));
+      }
+    });
+    const sortedTags = [...allTagsSet].sort();
+
+    document.getElementById('tagPills').innerHTML = sortedTags.map(t =>
+      `<button class="tag-pill ${activeTags.has(t) ? 'active' : ''}" data-t="${esc(t)}">${esc(getDomainLabel(t))}</button>`
+    ).join('');
+    document.querySelectorAll('.tag-pill').forEach(b => {
+      b.addEventListener('click', () => {
+        const t = b.dataset.t;
+        activeTags.has(t) ? activeTags.delete(t) : activeTags.add(t);
+        renderSidebar(); renderAll();
+      });
+    });
+
+    // Abbrev Legend
+    if (typeof equipmentGroupConfig !== 'undefined') {
+      document.getElementById('abbrevList').innerHTML = Object.keys(equipmentGroupConfig).map(gIdStr => {
+        const gId = parseInt(gIdStr, 10);
+        const cfg = getGroupCfg(gId);
+        return `<div class="abbrev-item">
+          <div class="abbrev-dot" style="background:${cfg.color}"></div>
+          <span class="abbrev-code" style="color:${cfg.color}">${cfg.code}</span>
+          <span>${esc(cfg.name)}</span>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  // =====================================================================
+  // FILTER & RENDER
+  // =====================================================================
+  function parseOrder(orderStr) {
+    // Convert "1.10" → 1.10 as float, supporting sub-decimals like "1.10" > "1.2"
+    // Split into major.minor and compare numerically
+    const parts = String(orderStr || '').split('.');
+    const major = parseInt(parts[0], 10) || 0;
+    const minor = parseInt(parts[1], 10) || 0;
+    return major * 10000 + minor;
+  }
+
+  function getFiltered() {
+    const q = searchQuery.toLowerCase().trim();
+    const filtered = allInstruments.filter(i => {
+      // Group filter
+      if (activeGroup !== 'all' && String(i.groupId) !== activeGroup) return false;
+
+      // Tag filter
+      if (activeTags.size > 0) {
+        const itemTags = Array.isArray(i.domainTags) ? i.domainTags : [];
+        if (![...activeTags].every(t => itemTags.includes(t))) return false;
+      }
+
+      // Search query filter
+      if (q) {
+        const haystack = [
+          i.nameEn, i.nameTh, i.brand, i.descTh, i.descEn,
+          i.specs, i.testCodes, i.order
+        ].join(' ').toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
+
+      return true;
+    });
+
+    // Sort by order (numeric) then by id as tiebreaker
+    filtered.sort((a, b) => {
+      const oa = parseOrder(a.order);
+      const ob = parseOrder(b.order);
+      if (oa !== ob) return oa - ob;
+      return (a.id || 0) - (b.id || 0);
+    });
+
+    return filtered;
+  }
+
+  function renderAll() {
+    const filtered = getFiltered();
+    const total = allInstruments.length;
+    const groupCount = typeof equipmentGroupConfig !== 'undefined' ? Object.keys(equipmentGroupConfig).length : 11;
+
+    document.getElementById('resultsCount').innerHTML = `พบ <strong>${filtered.length}</strong> รายการ`;
+    const headerSubEl = document.getElementById('headerSub');
+    if (headerSubEl) {
+      headerSubEl.innerHTML =
+        `ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (MUFRF) ค้นหาและเรียนรู้ข้อมูลเครื่องมือวิทยาศาสตร์ขั้นสูง <strong>${total}</strong> รายการ จาก <strong>${groupCount}</strong> กลุ่มบริการ`;
+    }
+
+    document.getElementById('noResults').classList.toggle('visible', filtered.length === 0);
+
+    // Build order labels: add a/b/c suffix when order duplicates exist in the filtered list
+    const orderCount = {};
+    filtered.forEach(i => { const o = i.order || String(i.id); orderCount[o] = (orderCount[o] || 0) + 1; });
+    const orderIndex = {};
+    const orderLabel = {};
+    filtered.forEach(i => {
+      const o = i.order || String(i.id);
+      if (orderCount[o] > 1) {
+        orderIndex[o] = (orderIndex[o] || 0);
+        orderLabel[i.id] = o + String.fromCharCode(97 + orderIndex[o]); // 'a', 'b', 'c'...
+        orderIndex[o]++;
+      } else {
+        orderLabel[i.id] = o;
+      }
+    });
+
+    const wrap = document.getElementById('instrumentsWrap');
+    if (viewMode === 'grid') {
+      wrap.innerHTML = `<div class="instruments-grid">${filtered.map(inst => renderCard(inst, orderLabel[inst.id])).join('')}</div>`;
+    } else {
+      wrap.innerHTML = `<div class="instruments-list">${filtered.map(inst => renderListItem(inst, orderLabel[inst.id])).join('')}</div>`;
+    }
+
+    wrap.querySelectorAll('[data-iid]').forEach(el => {
+      el.addEventListener('click', () => {
+        const inst = allInstruments.find(i => String(i.id) === String(el.dataset.iid));
+        if (inst) openModal(inst);
+      });
+    });
+  }
+
+  // =====================================================================
+  // CARD / LIST RENDER
+  // =====================================================================
+  function showImgFallback(el, cls) {
+    el.parentElement.innerHTML = `<div class="${cls}">${IMG_FALLBACK_SVG}</div>`;
+  }
+
+  function imgHtml(url, nameEn, fallbackCls) {
+    if (!url) return `<div class="${fallbackCls}">${IMG_FALLBACK_SVG}</div>`;
+    return `<img src="${esc(url)}" alt="${esc(nameEn)}" loading="lazy" onerror="showImgFallback(this,'${fallbackCls}')">`;
+  }
+
+  function cardTagsHtml(domainTagsArr, max) {
+    if (!Array.isArray(domainTagsArr)) return '';
+    return domainTagsArr.slice(0, max).map(t =>
+      `<span class="card-tag">${esc(getDomainLabel(t))}</span>`
+    ).join('');
+  }
+
+  function renderCard(inst, label) {
+    const cfg = getGroupCfg(inst.groupId);
+    const url = getBestImage(inst);
+    const displayLabel = label || inst.order || inst.id;
+    return `<div class="instrument-card" data-iid="${esc(inst.id)}" tabindex="0" role="button">
+      <div class="card-image">
+        ${imgHtml(url, inst.nameEn, 'card-placeholder')}
+        <span class="card-badge" style="color:${cfg.color}">${cfg.code} · ${esc(displayLabel)}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title-en">${esc(inst.nameEn)}</div>
+        ${inst.nameTh ? `<div class="card-title-th">${esc(inst.nameTh)}</div>` : ''}
+        ${inst.descEn ? `<div class="card-desc">${esc(inst.descEn)}</div>` : ''}
+        <div class="card-tags">${cardTagsHtml(inst.domainTags, 3)}</div>
+        ${inst.brand ? `<div class="card-brand">🏷️ ${esc(inst.brand)}</div>` : ''}
+      </div>
+    </div>`;
+  }
+
+  function renderListItem(inst, label) {
+    const cfg = getGroupCfg(inst.groupId);
+    const url = getBestImage(inst);
+    const tags = cardTagsHtml(inst.domainTags, 4);
+    const displayLabel = label || inst.order || inst.id;
+    return `<div class="list-item" data-iid="${esc(inst.id)}" tabindex="0" role="button">
+      <div class="list-img">${imgHtml(url, inst.nameEn, 'list-img-placeholder')}</div>
+      <div class="list-body">
+        <div class="list-header">
+          <span class="list-title">${esc(inst.nameEn)}</span>
+          <span class="list-gbadge" style="background:${cfg.color};color:#fff">${cfg.code} · ${esc(displayLabel)}</span>
+        </div>
+        ${inst.nameTh ? `<div class="list-th">${esc(inst.nameTh)}</div>` : ''}
+        ${inst.descEn ? `<div class="list-desc">${esc(inst.descEn)}</div>` : ''}
+        <div class="list-tags">${tags}</div>
+      </div>
+    </div>`;
+  }
+
+  // =====================================================================
+  // MODAL
+  // =====================================================================
+  function openModal(inst) {
+    const cfg = getGroupCfg(inst.groupId);
+    const url = getBestImage(inst);
+    const tags = Array.isArray(inst.domainTags) ? inst.domainTags : [];
+    const code = (inst.testCodes || '').split(/[\n,]/)[0].trim();
+    const link = code
+      ? `pricing.html?q=${encodeURIComponent(code)}`
+      : `pricing.html?q=${encodeURIComponent(inst.nameEn)}`;
+
+    const mimg = url
+      ? `<img src="${esc(url)}" alt="${esc(inst.nameEn)}" onerror="showImgFallback(this,'modal-img-placeholder')">`
+      : `<div class="modal-img-placeholder">${IMG_FALLBACK_SVG}</div>`;
+
+    document.getElementById('modalBody').innerHTML = `
+      <div class="modal-img">${mimg}</div>
+      <h2 class="modal-title">${esc(inst.nameEn)}</h2>
+      ${inst.nameTh ? `<p class="modal-title-th">${esc(inst.nameTh)}</p>` : ''}
+      <div class="modal-badges">
+        <span class="modal-gbadge" style="background:${cfg.color}">${cfg.code} — ${esc(cfg.name)}</span>
+        ${inst.testCodes ? `<span style="padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:600;background:rgba(0,0,0,0.06);color:var(--text-secondary)">${esc(inst.testCodes.substring(0,80))}</span>` : ''}
+        ${inst.qty ? `<span style="padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:600;background:rgba(5,150,105,0.1);color:#059669">จำนวน ${esc(inst.qty)} เครื่อง</span>` : ''}
+      </div>
+      ${inst.brand ? `<div class="modal-sec"><div class="modal-sec-lbl">ยี่ห้อ / รุ่น</div><p>${esc(inst.brand)}</p></div>` : ''}
+      ${inst.descTh ? `<div class="modal-sec"><div class="modal-sec-lbl">คำอธิบาย (ภาษาไทย)</div><p>${esc(inst.descTh)}</p></div>` : ''}
+      ${inst.descEn ? `<div class="modal-sec"><div class="modal-sec-lbl">Description (English)</div><p>${esc(inst.descEn)}</p></div>` : ''}
+      ${inst.specs ? `<div class="modal-sec"><div class="modal-sec-lbl">Specs หลัก</div><div class="modal-specs">${esc(inst.specs)}</div></div>` : ''}
+      ${tags.length ? `<div class="modal-sec"><div class="modal-sec-lbl">Research Domains</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:0.3rem">${tags.map(t => `<span class="modal-tag">${esc(getDomainLabel(t))}</span>`).join('')}</div></div>` : ''}
+      <a href="${link}" class="modal-cta">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        ดูอัตราค่าบริการ
+      </a>`;
+
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // =====================================================================
+  // EVENTS
+  // =====================================================================
+  document.getElementById('searchInput').addEventListener('input', e => {
+    searchQuery = e.target.value; renderAll();
+  });
+  document.getElementById('gridBtn').addEventListener('click', () => {
+    viewMode = 'grid';
+    document.getElementById('gridBtn').classList.add('active');
+    document.getElementById('listBtn').classList.remove('active');
+    renderAll();
+  });
+  document.getElementById('listBtn').addEventListener('click', () => {
+    viewMode = 'list';
+    document.getElementById('listBtn').classList.add('active');
+    document.getElementById('gridBtn').classList.remove('active');
+    renderAll();
+  });
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+  document.getElementById('modalOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.activeElement.dataset.iid) {
+      const inst = allInstruments.find(i => String(i.id) === String(document.activeElement.dataset.iid));
+      if (inst) openModal(inst);
+    }
+  });
+
+  // Navbar scroll & Scroll top button
+  const navbar = document.getElementById('navbar');
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  document.getElementById('mobileToggle').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Init when DOM is loaded
+  document.addEventListener('DOMContentLoaded', initData);
+  </script>
+</body>
+</html>
