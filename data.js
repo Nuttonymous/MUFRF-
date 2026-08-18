@@ -486,92 +486,92 @@ const equipmentData = [
 // วิธีใส่รูป: สามารถใช้ ID ของเครื่องมือ (id), ชื่อภาษาอังกฤษ (nameEn) หรือชื่อภาษาไทย (nameTh) 
 // ที่อยู่ในตัวแปร equipmentData เป็นคีย์ (key) ได้เลย
 const servicesImages = {
-  1: "images/microplate-reader.png", // Microplate Reader
-  2: "", // UV-Vis and Fluorescence Microplate Reader
-  3: "", // Microplate Reader (Multimode)
-  4: "", // Image Analyzer
-  5: "", // Gel Documentation
-  6: "", // Flow Cytometer (Analyzer)
-  7: "", // Flow Cytometer (Cell Sorter)
-  8: "", // Thermocycler (PCR)
-  9: "", // Real-Time PCR (qPCR)
-  10: "", // Next-Generation Sequencer (Production-Scale)
-  11: "", // Next-Generation Sequencer (Benchtop)
-  12: "", // Fragment Analyzer
-  13: "", // MassARRAY Genotyping System
-  14: "", // Biomolecular Interaction Analyzer (SPR)
-  15: "", // Automated Western Blot
-  16: "", // ELISpot / FluoroSpot Analyzer
-  17: "", // MALDI-TOF/TOF Mass Spectrometer
-  18: "", // Bioreactor
-  19: "", // Biomolecular Imager
-  20: "", // CO2 Incubator / Cooling Incubator / Heating Incubator / Shaking Incubator
-  21: "", // High Performance Liquid Chromatograph (HPLC)
-  22: "", // Ultra Performance LC (UPLC)
-  23: "", // HPLC (Thermo Dionex Ultimate 3200/3400)
-  24: "", // Ultra High Performance LC (UHPLC)
-  25: "", // LC-MS Triple TOF (High Resolution)
-  26: "", // LC-MS Triple Quadrupole (QTRAP)
-  27: "", // Flash Chromatograph
-  28: "", // Direct Analysis in Real Time Mass Spectrometer (DART-MS)
-  29: "", // Fast Protein Liquid Chromatograph (FPLC)
-  30: "", // FPLC (Preparative-Scale)
-  31: "", // Gas Chromatograph (GC)
-  32: "", // Gas Chromatograph-Mass Spectrometer (GC-MS)
-  33: "", // GC-Triple Quadrupole Mass Spectrometer (GC-TQ)
-  34: "", // Ultra-Low Temperature Freezer (-80°C)
-  35: "", // Deep Freezer (-40°C)
-  36: "", // Standard Freezer (-20°C)
-  37: "", // Optical Microscope
-  38: "", // Fluorescence Inverted Microscope
-  39: "", // Light & Fluorescence Stereomicroscope
-  40: "", // Inverted Microscope
-  41: "", // Laser Microdissection Microscope
-  42: "", // High-Resolution Inverted Microscope
-  43: "", // DeltaVision Microscope
-  44: "", // Optical Sectioning Microscope
-  45: "", // Atomic Force Microscope (AFM)
-  46: "", // Atomic Force Microscope-Raman Spectrometer
-  47: "", // Cryogenic Transmission Electron Microscope (Cryo-TEM)
-  48: "", // Scanning Electron Microscope (SEM)
-  49: "", // Field Emission Scanning Electron Microscope (FE-SEM)
-  50: "", // Analytical Balance (2/4/6 digits)
-  51: "", // Auto Fine Coater (Sputter Coater)
-  52: "", // Autoclave
-  53: "", // Automated Liquid Handling System
-  54: "", // Automated Vitrification Machine
-  55: "", // Centrifuge (Benchtop/High Speed/Superspeed/Ultra Speed)
-  56: "", // Sample Concentrator (Cooling/N2/SpeedVac)
-  57: "", // Crossflow Filtration Concentrator
-  58: "", // Cryostat
-  59: "", // Freeze Dryer (Lyophilizer)
-  60: "", // Cryogenic Grinder (Freeze Mill)
-  61: "", // High Intensity Ultrasonic Processor
-  62: "", // Rotary Evaporator
-  63: "", // Raman Microscope
-  64: "", // Spectrofluorometer
-  65: "", // NanoDrop Spectrophotometer
-  66: "", // Nuclear Magnetic Resonance Spectrometer (NMR)
-  67: "", // Flame Atomic Absorption Spectrometer (FAAS)
-  68: "", // Graphite Furnace Atomic Absorption Spectrometer (GFAAS)
-  69: "", // Inductively Coupled Plasma-Mass Spectrometer (ICP-MS)
-  70: "", // Circular Dichroism Spectrometer (CD)
-  71: "", // Fourier-Transform Infrared Spectrometer (FTIR)
-  72: "", // FTIR Microscope Spectrometer
-  73: "", // Nanosizer / Dynamic Light Scattering (DLS)
-  74: "", // Microparticle Size Analyzer (Laser Diffraction)
-  75: "", // Fluorometer (DNA/RNA Quantification)
-  76: "", // Optical Contact Angle Analyzer (OCA)
-  77: "", // Tensiometer
-  78: "", // Simultaneous Thermal Analyzer (STA)
-  79: "", // Differential Scanning Calorimeter (DSC)
-  80: "", // Automated Simultaneous Thermal Analyzer
-  81: "", // Water Purification System (Type I/II/III)
-  82: "", // Nanoscale X-ray Computed Tomograph (Nano-CT)
-  83: "", // X-ray Diffractometer (XRD)
-  84: "", // Benchtop X-ray Diffractometer
-  85: "", // Wavelength Dispersive X-ray Fluorescence (WDXRF)
-  86: "", // X-ray Fluorescence Microscope (Micro-XRF)
+  1: "images/varioflash.png", // Microplate Reader
+  2: "images/tecan.png", // UV-Vis and Fluorescence Microplate Reader
+  3: "images/microplate-reader.png", // Microplate Reader (Multimode)
+  4: "images/image-analyzer.png", // Image Analyzer
+  5: "images/gel doc.png", // Gel Documentation
+  6: "images/flow.png", // Flow Cytometer (Analyzer)
+  7: "images/flow-sorter.jpg", // Flow Cytometer (Cell Sorter)
+  8: "images/pcr.png", // Thermocycler (PCR)
+  9: "images/realtime-pcr.png", // Real-Time PCR (qPCR)
+  10: "images/ngs-p.scale.png", // Next-Generation Sequencer (Production-Scale)
+  11: "images/ngs-bt.png", // Next-Generation Sequencer (Benchtop)
+  12: "images/fragment.png", // Fragment Analyzer
+  13: "images/ma.png", // MassARRAY Genotyping System
+  14: "images/biacore.png", // Biomolecular Interaction Analyzer (SPR)
+  15: "images/jess.png", // Automated Western Blot
+  16: "images/elispot.png", // ELISpot / FluoroSpot Analyzer
+  17: "images/maldi.png", // MALDI-TOF/TOF Mass Spectrometer
+  18: "images/bioreactor.png", // Bioreactor
+  19: "images/typhoon.png", // Biomolecular Imager
+  20: "images/incubator.png", // CO2 Incubator / Cooling Incubator / Heating Incubator / Shaking Incubator
+  21: "images/hplc-water.png", // High Performance Liquid Chromatograph (HPLC)
+  22: "images/uplc.png", // Ultra Performance LC (UPLC)
+  23: "images/hplc.png", // HPLC (Thermo Dionex Ultimate 3200/3400)
+  24: "images/uhplc.png", // Ultra High Performance LC (UHPLC)
+  25: "images/lcmsttof.png", // LC-MS Triple TOF (High Resolution)
+  26: "images/lcmsqtrap.png", // LC-MS Triple Quadrupole (QTRAP)
+  27: "images/flash.png", // Flash Chromatograph
+  28: "images/dart.png", // Direct Analysis in Real Time Mass Spectrometer (DART-MS)
+  29: "images/purifier10.png", // Fast Protein Liquid Chromatograph (FPLC)
+  30: "images/fplc.png", // FPLC (Preparative-Scale)
+  31: "images/gc.png", // Gas Chromatograph (GC)
+  32: "images/gc-ms.png", // Gas Chromatograph-Mass Spectrometer (GC-MS)
+  33: "images/gc-tq.png", // GC-Triple Quadrupole Mass Spectrometer (GC-TQ)
+  34: "images/-80.png", // Ultra-Low Temperature Freezer (-80°C)
+  35: "images/-40.png", // Deep Freezer (-40°C)
+  36: "images/-20.png", // Standard Freezer (-20°C)
+  37: "images/optical-microscope.png", // Optical Microscope
+  38: "images/flu-opt-microscope.png", // Fluorescence Inverted Microscope
+  39: "images/lf-stereomicroscope.png", // Light & Fluorescence Stereomicroscope
+  40: "images/inverted-microscope.png", // Inverted Microscope
+  41: "images/laser-dis-microscope.png", // Laser Microdissection Microscope
+  42: "images/hr-inv-microscope.png", // High-Resolution Inverted Microscope
+  43: "images/deltavision.png", // DeltaVision Microscope
+  44: "images/optical-sectioning-microscope.png", // Optical Sectioning Microscope
+  45: "images/afm.png", // Atomic Force Microscope (AFM)
+  46: "images/afm-raman.png", // Atomic Force Microscope-Raman Spectrometer
+  47: "images/cryo-tem.png", // Cryogenic Transmission Electron Microscope (Cryo-TEM)
+  48: "images/sem.png", // Scanning Electron Microscope (SEM)
+  49: "images/fesem.png", // Field Emission Scanning Electron Microscope (FE-SEM)
+  50: "images/balance.png", // Analytical Balance (2/4/6 digits)
+  51: "images/coater.png", // Auto Fine Coater (Sputter Coater)
+  52: "images/autoclave.png", // Autoclave
+  53: "images/epmotion.png", // Automated Liquid Handling System
+  54: "images/autovertri.png", // Automated Vitrification Machine
+  55: "images/centrifuge.png", // Centrifuge (Benchtop/High Speed/Superspeed/Ultra Speed)
+  56: "images/speedvac.png", // Sample Concentrator (Cooling/N2/SpeedVac)
+  57: "images/tff.png", // Crossflow Filtration Concentrator
+  58: "images/cryostat.png", // Cryostat
+  59: "images/freezedryer.png", // Freeze Dryer (Lyophilizer)
+  60: "images/freeze-mill.png", // Cryogenic Grinder (Freeze Mill)
+  61: "images/sonicator.png", // High Intensity Ultrasonic Processor
+  62: "images/rotaryevap.png", // Rotary Evaporator
+  63: "images/raman.png", // Raman Microscope
+  64: "images/spectrofluorometer.png", // Spectrofluorometer
+  65: "images/nanodrop.png", // NanoDrop Spectrophotometer
+  66: "images/nmr.png", // Nuclear Magnetic Resonance Spectrometer (NMR)
+  67: "images/faas.png", // Flame Atomic Absorption Spectrometer (FAAS)
+  68: "images/gfaas.png", // Graphite Furnace Atomic Absorption Spectrometer (GFAAS)
+  69: "images/icpms.png", // Inductively Coupled Plasma-Mass Spectrometer (ICP-MS)
+  70: "images/cd.png", // Circular Dichroism Spectrometer (CD)
+  71: "images/ftir.png", // Fourier-Transform Infrared Spectrometer (FTIR)
+  72: "images/ftir-microscope.png", // FTIR Microscope Spectrometer
+  73: "images/dls.png", // Nanosizer / Dynamic Light Scattering (DLS)
+  74: "images/ld.png", // Microparticle Size Analyzer (Laser Diffraction)
+  75: "images/fluorometer.png", // Fluorometer (DNA/RNA Quantification)
+  76: "images/oca.png", // Optical Contact Angle Analyzer (OCA)
+  77: "images/tensiometer.png", // Tensiometer
+  78: "images/sta.png", // Simultaneous Thermal Analyzer (STA)
+  79: "images/dsc.png", // Differential Scanning Calorimeter (DSC)
+  80: "images/auto-sta.png", // Automated Simultaneous Thermal Analyzer
+  81: "images/water-purification.png", // Water Purification System (Type I/II/III)
+  82: "images/nanoct.png", // Nanoscale X-ray Computed Tomograph (Nano-CT)
+  83: "images/xrd.png", // X-ray Diffractometer (XRD)
+  84: "images/benchtop-xrd.png", // Benchtop X-ray Diffractometer
+  85: "images/wdxrf.png", // Wavelength Dispersive X-ray Fluorescence (WDXRF)
+  86: "images/microxrf.png", // X-ray Fluorescence Microscope (Micro-XRF)
   87: "images/hpc.png", // High Performance Computing (HPC) Facility
 };
 
