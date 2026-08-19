@@ -1,0 +1,442 @@
+// ===== RELATED PAPERS DATA =====
+// ใช้ไฟล์นี้เพื่อเก็บ DOI ของผลงานวิจัยที่เกี่ยวข้องกับเครื่องมือแต่ละชิ้น
+// โดยอ้างอิงจากรหัส id ของเครื่องมือ (ดู id ได้จากไฟล์ data.js)
+
+const relatedPapersData = {
+  // 1: Microplate Reader
+  1: [
+    "10.1038/s41586-021-03653-6",
+    "10.1016/j.cell.2020.08.001"
+  ],
+
+  // 2: UV-Vis and Fluorescence Microplate Reader
+  2: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 3: Microplate Reader (Multimode)
+  3: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 4: Image Analyzer
+  4: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 5: Gel Documentation
+  5: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 6: Flow Cytometer (Analyzer)
+  6: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 7: Flow Cytometer (Cell Sorter)
+  7: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 8: Thermocycler (PCR)
+  8: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 9: Real-Time PCR (qPCR)
+  9: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 10: Next-Generation Sequencer (Production-Scale)
+  10: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 11: Next-Generation Sequencer (Benchtop)
+  11: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 12: Fragment Analyzer
+  12: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 13: MassARRAY Genotyping System
+  13: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 14: Biomolecular Interaction Analyzer (SPR)
+  14: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 15: Automated Western Blot
+  15: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 16: ELISpot / FluoroSpot Analyzer
+  16: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 17: MALDI-TOF/TOF Mass Spectrometer
+  17: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 18: Bioreactor
+  18: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 19: Biomolecular Imager
+  19: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 20: CO2 Incubator / Cooling Incubator / Heating Incubator / Shaking Incubator
+  20: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 21: High Performance Liquid Chromatograph (HPLC)
+  21: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 22: Ultra Performance LC (UPLC)
+  22: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 23: HPLC (Thermo Dionex Ultimate 3200/3400)
+  23: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 24: Ultra High Performance LC (UHPLC)
+  24: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 25: LC-MS Triple TOF (High Resolution)
+  25: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 26: LC-MS Triple Quadrupole (QTRAP)
+  26: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 27: Flash Chromatograph
+  27: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 28: Direct Analysis in Real Time Mass Spectrometer (DART-MS)
+  28: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 29: Fast Protein Liquid Chromatograph (FPLC)
+  29: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 30: FPLC (Preparative-Scale)
+  30: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 31: Gas Chromatograph (GC)
+  31: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 32: Gas Chromatograph-Mass Spectrometer (GC-MS)
+  32: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 33: GC-Triple Quadrupole Mass Spectrometer (GC-TQ)
+  33: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 34: Ultra-Low Temperature Freezer (-80°C)
+  34: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 35: Deep Freezer (-40°C)
+  35: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 36: Standard Freezer (-20°C)
+  36: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 37: Optical Microscope
+  37: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 38: Fluorescence Inverted Microscope
+  38: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 39: Light & Fluorescence Stereomicroscope
+  39: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 40: Inverted Microscope
+  40: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 41: Laser Microdissection Microscope
+  41: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 42: High-Resolution Inverted Microscope
+  42: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 43: DeltaVision Microscope
+  43: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 44: Optical Sectioning Microscope
+  44: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 45: Atomic Force Microscope (AFM)
+  45: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 46: Atomic Force Microscope-Raman Spectrometer
+  46: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 47: Cryogenic Transmission Electron Microscope (Cryo-TEM)
+  47: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 48: Scanning Electron Microscope (SEM)
+  48: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 49: Field Emission Scanning Electron Microscope (FE-SEM)
+  49: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 50: Analytical Balance (2/4/6 digits)
+  50: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 51: Auto Fine Coater (Sputter Coater)
+  51: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 52: Autoclave
+  52: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 53: Automated Liquid Handling System
+  53: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 54: Automated Vitrification Machine
+  54: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 55: Centrifuge (Benchtop/High Speed/Superspeed/Ultra Speed)
+  55: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 56: Sample Concentrator (Cooling/N2/SpeedVac)
+  56: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 57: Crossflow Filtration Concentrator
+  57: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 58: Cryostat
+  58: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 59: Freeze Dryer (Lyophilizer)
+  59: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 60: Cryogenic Grinder (Freeze Mill)
+  60: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 61: High Intensity Ultrasonic Processor
+  61: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 62: Rotary Evaporator
+  62: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 63: Raman Microscope
+  63: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 64: Spectrofluorometer
+  64: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 65: NanoDrop Spectrophotometer
+  65: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 66: Nuclear Magnetic Resonance Spectrometer (NMR)
+  66: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 67: Flame Atomic Absorption Spectrometer (FAAS)
+  67: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 68: Graphite Furnace Atomic Absorption Spectrometer (GFAAS)
+  68: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 69: Inductively Coupled Plasma-Mass Spectrometer (ICP-MS)
+  69: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 70: Circular Dichroism Spectrometer (CD)
+  70: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 71: Fourier-Transform Infrared Spectrometer (FTIR)
+  71: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 72: FTIR Microscope Spectrometer
+  72: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 73: Nanosizer / Dynamic Light Scattering (DLS)
+  73: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 74: Microparticle Size Analyzer (Laser Diffraction)
+  74: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 75: Fluorometer (DNA/RNA Quantification)
+  75: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 76: Optical Contact Angle Analyzer (OCA)
+  76: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 77: Tensiometer
+  77: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 78: Simultaneous Thermal Analyzer (STA)
+  78: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 79: Differential Scanning Calorimeter (DSC)
+  79: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 80: Automated Simultaneous Thermal Analyzer
+  80: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 81: Water Purification System (Type I/II/III)
+  81: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 82: Nanoscale X-ray Computed Tomograph (Nano-CT)
+  82: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 83: X-ray Diffractometer (XRD)
+  83: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 84: Benchtop X-ray Diffractometer
+  84: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 85: Wavelength Dispersive X-ray Fluorescence (WDXRF)
+  85: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 86: X-ray Fluorescence Microscope (Micro-XRF)
+  86: [
+    // "10.xxxx/yyyy"
+  ],
+
+  // 87: High Performance Computing (HPC) Facility
+  87: [
+    // "10.xxxx/yyyy"
+  ],
+
+};
