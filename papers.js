@@ -5,8 +5,8 @@
 const relatedPapersData = {
   // 1: Microplate Reader
   1: [
-    "10.1038/s41586-021-03653-6",
-    "10.1016/j.cell.2020.08.001"
+    "",
+    ""
   ],
 
   // 2: UV-Vis and Fluorescence Microplate Reader
@@ -76,6 +76,8 @@ const relatedPapersData = {
 
   // 15: Automated Western Blot
   15: [
+    "10.31557/apjcp.2026.27.1.183"
+
     // "10.xxxx/yyyy"
   ],
 
@@ -86,6 +88,7 @@ const relatedPapersData = {
 
   // 17: MALDI-TOF/TOF Mass Spectrometer
   17: [
+    "10.1002/cbf.70256"
     // "10.xxxx/yyyy"
   ],
 
@@ -126,6 +129,7 @@ const relatedPapersData = {
 
   // 25: LC-MS Triple TOF (High Resolution)
   25: [
+    "10.3390/cosmetics13030107"
     // "10.xxxx/yyyy"
   ],
 
@@ -201,6 +205,7 @@ const relatedPapersData = {
 
   // 40: Inverted Microscope
   40: [
+    "10.1016/j.fufo.2026.101066"
     // "10.xxxx/yyyy"
   ],
 
@@ -216,6 +221,7 @@ const relatedPapersData = {
 
   // 43: DeltaVision Microscope
   43: [
+    "10.1128/spectrum.04159-25"
     // "10.xxxx/yyyy"
   ],
 
@@ -231,21 +237,26 @@ const relatedPapersData = {
 
   // 46: Atomic Force Microscope-Raman Spectrometer
   46: [
+    "10.1016/j.microc.2026.118555"
     // "10.xxxx/yyyy"
   ],
 
   // 47: Cryogenic Transmission Electron Microscope (Cryo-TEM)
   47: [
+    "10.1038/s41598-026-55427-7"
     // "10.xxxx/yyyy"
   ],
 
   // 48: Scanning Electron Microscope (SEM)
   48: [
+    "10.35848/1347-4065/ae6aaa"
     // "10.xxxx/yyyy"
   ],
 
   // 49: Field Emission Scanning Electron Microscope (FE-SEM)
   49: [
+    "10.1021/acsomega.6c02494",
+    "10.35848/1347-4065/ae6aaa"
     // "10.xxxx/yyyy"
   ],
 
@@ -316,6 +327,7 @@ const relatedPapersData = {
 
   // 63: Raman Microscope
   63: [
+    "10.1021/acsomega.6c02494"
     // "10.xxxx/yyyy"
   ],
 
@@ -346,6 +358,9 @@ const relatedPapersData = {
 
   // 69: Inductively Coupled Plasma-Mass Spectrometer (ICP-MS)
   69: [
+    "10.1016/j.hazadv.2026.101329",
+    "10.1016/j.marpolbul.2026.119905",
+    "10.1016/j.hazadv.2026.101157"
     // "10.xxxx/yyyy"
   ],
 
@@ -356,6 +371,8 @@ const relatedPapersData = {
 
   // 71: Fourier-Transform Infrared Spectrometer (FTIR)
   71: [
+    "10.1007/s11356-026-37873-y",
+    "10.1016/j.microc.2026.118555"
     // "10.xxxx/yyyy"
   ],
 
@@ -411,11 +428,13 @@ const relatedPapersData = {
 
   // 82: Nanoscale X-ray Computed Tomograph (Nano-CT)
   82: [
+    "10.1371/journal.pone.0349259"
     // "10.xxxx/yyyy"
   ],
 
   // 83: X-ray Diffractometer (XRD)
   83: [
+    "10.1021/acsomega.6c02494"
     // "10.xxxx/yyyy"
   ],
 
@@ -431,6 +450,7 @@ const relatedPapersData = {
 
   // 86: X-ray Fluorescence Microscope (Micro-XRF)
   86: [
+    "10.1016/j.hazadv.2026.101357"
     // "10.xxxx/yyyy"
   ],
 
