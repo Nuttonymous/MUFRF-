@@ -1776,18 +1776,33 @@
         const listEl = document.getElementById('relatedPapersList');
         container.style.display = 'block';
 
-        Promise.all(papers.map(doi =>
-          fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`)
-            .then(r => r.ok ? r.json() : null)
-            .catch(() => null)
-        )).then(results => {
+        // Sequential fetch to avoid Crossref rate limiting (concurrency limit = 1)
+        const fetchAllPapers = async () => {
+          let results = [];
+          for (let doi of papers) {
+            try {
+              const r = await fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`);
+              results.push(r.ok ? await r.json() : null);
+            } catch (e) {
+              results.push(null);
+            }
+            await new Promise(resolve => setTimeout(resolve, 100)); // Be polite to API
+          }
+          return results;
+        };
+
+        fetchAllPapers().then(results => {
           let availableYears = new Set();
           let papersData = []; // Store parsed paper data for filtering
 
           results.forEach((res, idx) => {
             if (res && res.message) {
               const paper = res.message;
-              const title = paper.title ? paper.title[0] : 'Untitled';
+              let title = (paper.title && paper.title.length > 0) ? paper.title[0] : '';
+              if (!title && paper.assertion) {
+                const assertTitle = paper.assertion.find(a => a.name === 'articletitle');
+                if (assertTitle) title = assertTitle.value;
+              }
               const year = paper.published && paper.published['date-parts'] ? paper.published['date-parts'][0][0] : '';
               if (year) availableYears.add(year.toString());
               const journal = paper['container-title'] ? paper['container-title'][0] : '';
