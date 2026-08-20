@@ -6,7 +6,6 @@ const relatedPapersData = {
   // 1: Microplate Reader
   1: [
     "",
-    ""
   ],
 
   // 2: UV-Vis and Fluorescence Microplate Reader
@@ -21,6 +20,7 @@ const relatedPapersData = {
 
   // 4: Image Analyzer
   4: [
+    "10.1016/j.fct.2025.115743",
     // "10.xxxx/yyyy"
   ],
 
@@ -56,6 +56,7 @@ const relatedPapersData = {
 
   // 11: Next-Generation Sequencer (Benchtop)
   11: [
+    "10.1038/s41598-025-10791-8",
     // "10.xxxx/yyyy"
   ],
 
@@ -66,6 +67,7 @@ const relatedPapersData = {
 
   // 13: MassARRAY Genotyping System
   13: [
+    "10.52635/eamr/16.1.28-39"
     // "10.xxxx/yyyy"
   ],
 
@@ -165,6 +167,7 @@ const relatedPapersData = {
 
   // 32: Gas Chromatograph-Mass Spectrometer (GC-MS)
   32: [
+    "10.1016/j.afres.2025.101353",
     // "10.xxxx/yyyy"
   ],
 
@@ -211,6 +214,7 @@ const relatedPapersData = {
 
   // 41: Laser Microdissection Microscope
   41: [
+    "10.1016/j.jpba.2025.117183"
     // "10.xxxx/yyyy"
   ],
 
@@ -237,26 +241,44 @@ const relatedPapersData = {
 
   // 46: Atomic Force Microscope-Raman Spectrometer
   46: [
-    "10.1016/j.microc.2026.118555"
+    "10.1016/j.microc.2026.118555",
+    "10.1016/j.fuproc.2026.108482",
+    "10.1016/j.mtcomm.2025.113797",
+    "10.1016/j.materresbull.2025.113500",
     // "10.xxxx/yyyy"
   ],
 
   // 47: Cryogenic Transmission Electron Microscope (Cryo-TEM)
   47: [
-    "10.1038/s41598-026-55427-7"
+    "10.1038/s41598-026-55427-7",
+    "10.1016/j.ijbiomac.2026.150988",
+    "10.64898/2026.01.17.700097",
+    "10.1038/s41598-025-34661-5",
+    "10.21203/rs.3.rs-7778530/v1",
     // "10.xxxx/yyyy"
   ],
 
   // 48: Scanning Electron Microscope (SEM)
   48: [
-    "10.35848/1347-4065/ae6aaa"
+    "10.35848/1347-4065/ae6aaa",
+    "10.1021/acsomega.5c07292",
+    "10.1007/s11259-025-11000-7",
+    "10.1021/acsaem.5c02806",
+    "10.1016/j.materresbull.2025.113500",
+    "10.1186/s12917-025-04951-1",
     // "10.xxxx/yyyy"
   ],
 
   // 49: Field Emission Scanning Electron Microscope (FE-SEM)
   49: [
     "10.1021/acsomega.6c02494",
-    "10.35848/1347-4065/ae6aaa"
+    "10.35848/1347-4065/ae6aaa",
+    "10.1016/j.applthermaleng.2026.131083",
+    "10.37188/lam.2026.073",
+    "10.1016/j.isci.2026.115893",
+    "10.1016/j.rineng.2026.110377",
+    "10.1002/smsc.202500451",
+    "10.1021/acsomega.5c03627",
     // "10.xxxx/yyyy"
   ],
 
@@ -307,6 +329,7 @@ const relatedPapersData = {
 
   // 59: Freeze Dryer (Lyophilizer)
   59: [
+    "10.1016/j.carpta.2025.100763",
     // "10.xxxx/yyyy"
   ],
 
@@ -327,12 +350,17 @@ const relatedPapersData = {
 
   // 63: Raman Microscope
   63: [
-    "10.1021/acsomega.6c02494"
+    "10.1021/acsomega.6c02494",
+    "10.1016/j.rineng.2026.110377",
+    "10.1016/j.materresbull.2025.113711",
+    "10.1016/j.recm.2025.100153",
+    "10.1021/acsomega.5c03627",
     // "10.xxxx/yyyy"
   ],
 
   // 64: Spectrofluorometer
   64: [
+    "10.1016/j.surfin.2026.108604",
     // "10.xxxx/yyyy"
   ],
 
@@ -343,11 +371,18 @@ const relatedPapersData = {
 
   // 66: Nuclear Magnetic Resonance Spectrometer (NMR)
   66: [
+    "10.1039/d5tc03926f",
+    "10.1021/acs.inorgchem.5c04533",
+    "10.1016/j.recm.2025.100126",
+    "10.1016/j.solmat.2025.113545"
     // "10.xxxx/yyyy"
   ],
 
   // 67: Flame Atomic Absorption Spectrometer (FAAS)
   67: [
+    "10.1080/15226514.2026.2636202",
+    "10.1038/s41598-025-27933-7",
+    "10.1002/prp2.70148",
     // "10.xxxx/yyyy"
   ],
 
@@ -360,29 +395,37 @@ const relatedPapersData = {
   69: [
     "10.1016/j.hazadv.2026.101329",
     "10.1016/j.marpolbul.2026.119905",
-    "10.1016/j.hazadv.2026.101157"
+    "10.1016/j.hazadv.2026.101157",
+    "10.1016/j.rsma.2025.104498",
+    "10.1080/03650340.2025.2518266"
     // "10.xxxx/yyyy"
   ],
 
   // 70: Circular Dichroism Spectrometer (CD)
   70: [
+    "10.1038/s41598-025-24052-1",
     // "10.xxxx/yyyy"
   ],
 
   // 71: Fourier-Transform Infrared Spectrometer (FTIR)
   71: [
     "10.1007/s11356-026-37873-y",
-    "10.1016/j.microc.2026.118555"
+    "10.1016/j.microc.2026.118555",
+    "10.1002/smsc.202500451",
+    "10.1016/j.carpta.2025.100763"
     // "10.xxxx/yyyy"
   ],
 
   // 72: FTIR Microscope Spectrometer
   72: [
+    "10.1016/j.envres.2026.124396",
     // "10.xxxx/yyyy"
   ],
 
   // 73: Nanosizer / Dynamic Light Scattering (DLS)
   73: [
+    "10.1016/j.isci.2026.115893",
+    "10.1016/j.afres.2025.101353",
     // "10.xxxx/yyyy"
   ],
 
@@ -408,16 +451,22 @@ const relatedPapersData = {
 
   // 78: Simultaneous Thermal Analyzer (STA)
   78: [
+    "10.1016/j.grets.2026.100370",
+    "10.1016/j.recm.2025.100148",
+    "10.1016/j.cscee.2025.101217",
     // "10.xxxx/yyyy"
   ],
 
   // 79: Differential Scanning Calorimeter (DSC)
   79: [
+    "10.1016/j.recm.2025.100126",
+    "10.1016/j.carpta.2025.100763",
     // "10.xxxx/yyyy"
   ],
 
   // 80: Automated Simultaneous Thermal Analyzer
   80: [
+    "10.1016/j.grets.2026.100370",
     // "10.xxxx/yyyy"
   ],
 
@@ -428,18 +477,35 @@ const relatedPapersData = {
 
   // 82: Nanoscale X-ray Computed Tomograph (Nano-CT)
   82: [
-    "10.1371/journal.pone.0349259"
+    "10.1371/journal.pone.0349259",
+    "10.1038/s41598-025-06485-w"
     // "10.xxxx/yyyy"
   ],
 
   // 83: X-ray Diffractometer (XRD)
   83: [
-    "10.1021/acsomega.6c02494"
+    "10.1021/acsomega.6c02494",
+    "10.1016/j.applthermaleng.2026.131083",
+    "10.1016/j.fuproc.2026.108482",
+    "10.1016/j.mtadv.2026.100832",
+    "10.37188/lam.2026.073",
+    "10.1016/j.grets.2026.100370",
+    "10.1016/j.rineng.2026.110377",
+    "10.1016/j.jece.2026.121211",
+    "10.1002/smsc.202500451",
+    "10.1016/j.materresbull.2025.113711",
+    "10.1016/j.recm.2025.100126",
+    "10.1021/acsaem.5c02806",
+    "10.1016/j.recm.2025.100148",
+    "10.1016/j.carpta.2025.100763",
+    "10.1016/j.cscee.2025.101217",
+    "10.1021/acsomega.5c03627",
     // "10.xxxx/yyyy"
   ],
 
   // 84: Benchtop X-ray Diffractometer
   84: [
+    "10.1039/d5ra06278k",
     // "10.xxxx/yyyy"
   ],
 
@@ -450,12 +516,14 @@ const relatedPapersData = {
 
   // 86: X-ray Fluorescence Microscope (Micro-XRF)
   86: [
-    "10.1016/j.hazadv.2026.101357"
+    "10.1016/j.hazadv.2026.101357",
+    "10.1016/j.jece.2026.121211",
     // "10.xxxx/yyyy"
   ],
 
   // 87: High Performance Computing (HPC) Facility
   87: [
+    "10.1016/j.compbiomed.2025.111313",
     // "10.xxxx/yyyy"
   ],
 
