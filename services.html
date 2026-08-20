@@ -9,8 +9,10 @@
     content="ทำเนียบเครื่องมือวิทยาศาสตร์ขั้นสูง ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (MUFRF) — ค้นหาเครื่องมือ กลุ่ม และสาขาวิจัย">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <!-- Static data -->
   <script src="data.js"></script>
   <script src="papers.js"></script>
@@ -246,9 +248,19 @@
     }
 
     @keyframes orbFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(30px, -40px) scale(1.05); }
-      66% { transform: translate(-20px, 20px) scale(0.95); }
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(30px, -40px) scale(1.05);
+      }
+
+      66% {
+        transform: translate(-20px, 20px) scale(0.95);
+      }
     }
 
     .hero-content {
@@ -284,8 +296,17 @@
     }
 
     @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+      }
     }
 
     .hero h1 {
@@ -326,7 +347,7 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: 260px 1fr;
-      padding: 2.5rem 2rem 5rem;
+      padding: calc(72px + 2.5rem) 2rem 5rem;
       gap: 2rem;
     }
 
@@ -340,8 +361,14 @@
       padding-right: 0.5rem;
     }
 
-    .sidebar::-webkit-scrollbar { width: 4px; }
-    .sidebar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 4px; }
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
 
     .sidebar-card {
       background: var(--bg-card);
@@ -363,88 +390,244 @@
     }
 
     /* Group pills */
-    .group-pills { display: flex; flex-direction: column; gap: 4px; }
+    .group-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
     .group-pill {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 8px 12px; border-radius: var(--radius-md); cursor: pointer;
-      font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);
-      border: 1px solid transparent; background: transparent;
-      text-align: left; font-family: var(--font-sans); gap: 6px; transition: var(--transition-normal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      background: transparent;
+      text-align: left;
+      font-family: var(--font-sans);
+      gap: 6px;
+      transition: var(--transition-normal);
     }
-    .group-pill:hover { background: rgba(37,99,235,0.06); color: var(--text-primary); }
+
+    .group-pill:hover {
+      background: rgba(37, 99, 235, 0.06);
+      color: var(--text-primary);
+    }
+
     .group-pill.active {
-      background: rgba(37,99,235,0.1); color: var(--accent-blue);
-      border-color: rgba(37,99,235,0.2); font-weight: 600;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent-blue);
+      border-color: rgba(37, 99, 235, 0.2);
+      font-weight: 600;
     }
-    .gp-left { display: flex; align-items: center; gap: 8px; }
-    .gp-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
-    .gp-abbr { font-weight: 700; font-size: 0.75rem; min-width: 28px; }
+
+    .gp-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gp-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .gp-abbr {
+      font-weight: 700;
+      font-size: 0.75rem;
+      min-width: 28px;
+    }
+
     .gp-count {
-      font-size: 0.72rem; font-weight: 600; color: var(--text-muted);
-      background: rgba(0,0,0,0.04); padding: 2px 8px; border-radius: 999px; flex-shrink: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.04);
+      padding: 2px 8px;
+      border-radius: 999px;
+      flex-shrink: 0;
     }
-    .group-pill.active .gp-count { background: rgba(37,99,235,0.15); color: var(--accent-blue); }
+
+    .group-pill.active .gp-count {
+      background: rgba(37, 99, 235, 0.15);
+      color: var(--accent-blue);
+    }
 
     /* Tag pills */
-    .tag-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill {
-      display: inline-flex; align-items: center; padding: 5px 12px;
-      border-radius: 999px; cursor: pointer; font-size: 0.78rem;
-      font-weight: 500; color: var(--text-secondary);
-      background: var(--bg-card); border: 1px solid var(--glass-border);
-      font-family: var(--font-sans); transition: var(--transition-normal);
+    .tag-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
-    .tag-pill:hover { border-color: rgba(37,99,235,0.3); color: var(--accent-blue); }
-    .tag-pill.active { background: rgba(37,99,235,0.1); color: var(--accent-blue); border-color: rgba(37,99,235,0.3); font-weight: 600; }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      font-family: var(--font-sans);
+      transition: var(--transition-normal);
+    }
+
+    .tag-pill:hover {
+      border-color: rgba(37, 99, 235, 0.3);
+      color: var(--accent-blue);
+    }
+
+    .tag-pill.active {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent-blue);
+      border-color: rgba(37, 99, 235, 0.3);
+      font-weight: 600;
+    }
 
     /* Abbrev legend */
-    .abbrev-list { display: flex; flex-direction: column; gap: 6px; }
-    .abbrev-item { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-secondary); }
-    .abbrev-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
-    .abbrev-code { font-weight: 700; font-size: 0.75rem; min-width: 30px; }
+    .abbrev-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .abbrev-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .abbrev-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .abbrev-code {
+      font-weight: 700;
+      font-size: 0.75rem;
+      min-width: 30px;
+    }
 
     /* ===== MAIN CONTENT ===== */
-    .main-content { min-width: 0; }
+    .main-content {
+      min-width: 0;
+    }
 
     /* Toolbar */
     .toolbar {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1.5rem; flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
     }
-    .search-box { flex: 1; min-width: 260px; position: relative; }
+
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
     .search-box input {
-      width: 100%; padding: 12px 18px 12px 46px;
-      border-radius: var(--radius-lg); border: 1px solid var(--glass-border);
-      background: var(--bg-card); font-family: var(--font-sans); font-size: 0.95rem;
-      color: var(--text-primary); outline: none; transition: var(--transition-normal);
-      box-shadow: var(--shadow-sm); backdrop-filter: blur(10px);
+      width: 100%;
+      padding: 12px 18px 12px 46px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--glass-border);
+      background: var(--bg-card);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: var(--transition-normal);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
     }
+
     .search-box input:focus {
-      border-color: rgba(37,99,235,0.4);
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.1), var(--shadow-md);
+      border-color: rgba(37, 99, 235, 0.4);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1), var(--shadow-md);
       background: #fff;
     }
-    .search-box input::placeholder { color: var(--text-muted); }
+
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+
     .search-icon {
-      position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-      width: 19px; height: 19px; color: var(--text-muted); pointer-events: none;
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 19px;
+      height: 19px;
+      color: var(--text-muted);
+      pointer-events: none;
     }
-    .results-count { font-size: 0.9rem; color: var(--text-secondary); white-space: nowrap; }
-    .results-count strong { color: var(--accent-blue); font-weight: 700; }
+
+    .results-count {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .results-count strong {
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
     .view-toggle {
-      display: flex; gap: 4px; background: var(--bg-card);
-      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
-      padding: 4px; flex-shrink: 0; backdrop-filter: blur(10px);
+      display: flex;
+      gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      flex-shrink: 0;
+      backdrop-filter: blur(10px);
     }
+
     .view-btn {
-      width: 34px; height: 34px; border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; border: none; background: transparent;
-      color: var(--text-muted); transition: var(--transition-normal);
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      transition: var(--transition-normal);
     }
-    .view-btn:hover { color: var(--text-primary); }
-    .view-btn.active { background: var(--accent-blue); color: #fff; box-shadow: 0 2px 8px rgba(37,99,235,0.3); }
-    .view-btn svg { width: 17px; height: 17px; }
+
+    .view-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .view-btn.active {
+      background: var(--accent-blue);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    }
+
+    .view-btn svg {
+      width: 17px;
+      height: 17px;
+    }
 
     /* ===== GRID VIEW ===== */
     .instruments-grid {
@@ -460,7 +643,8 @@
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: var(--transition-normal);
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       cursor: pointer;
       backdrop-filter: blur(10px);
     }
@@ -472,190 +656,417 @@
     }
 
     .card-image {
-      width: 100%; height: 180px;
+      width: 100%;
+      height: 180px;
       background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; position: relative; flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
       border-bottom: 1px solid var(--glass-border);
     }
 
     .card-image img {
-      width: 100%; height: 100%; object-fit: contain;
-      padding: 14px; transition: var(--transition-normal);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 14px;
+      transition: var(--transition-normal);
     }
 
-    .instrument-card:hover .card-image img { transform: scale(1.05); }
+    .instrument-card:hover .card-image img {
+      transform: scale(1.05);
+    }
 
     .card-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: rgba(148, 163, 184, 0.4);
     }
 
-    .card-placeholder svg { width: 52px; height: 52px; }
+    .card-placeholder svg {
+      width: 52px;
+      height: 52px;
+    }
 
     .card-badge {
-      position: absolute; top: 10px; right: 10px;
-      padding: 4px 10px; border-radius: 999px;
-      font-size: 0.7rem; font-weight: 700;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(0,0,0,0.06);
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       backdrop-filter: blur(8px);
       box-shadow: var(--shadow-sm);
     }
 
     .card-body {
       padding: 1.25rem;
-      flex: 1; display: flex; flex-direction: column; gap: 0.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .card-title-en {
-      font-size: 1.05rem; font-weight: 700; line-height: 1.35;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.35;
       color: var(--text-primary);
     }
 
-    .card-title-th { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; }
+    .card-title-th {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
 
     .card-desc {
-      font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; flex: 1;
-      display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
       margin-top: 0.2rem;
     }
 
-    .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.4rem; }
-
-    .card-tag {
-      padding: 3px 9px; border-radius: 999px; font-size: 0.68rem; font-weight: 600;
-      background: rgba(37,99,235,0.08); color: var(--accent-blue);
-      border: 1px solid rgba(37,99,235,0.15);
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 0.4rem;
     }
 
-    .card-brand { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+    .card-tag {
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--accent-blue);
+      border: 1px solid rgba(37, 99, 235, 0.15);
+    }
+
+    .card-brand {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
 
     /* ===== LIST VIEW ===== */
-    .instruments-list { display: flex; flex-direction: column; gap: 0.85rem; }
+    .instruments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
 
     .list-item {
       background: var(--bg-card);
       border: 1px solid var(--glass-border);
       border-radius: var(--radius-lg);
       padding: 1.1rem 1.4rem;
-      display: flex; align-items: flex-start; gap: 1.25rem;
-      transition: var(--transition-normal); cursor: pointer;
-      box-shadow: var(--shadow-md); backdrop-filter: blur(10px);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      transition: var(--transition-normal);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(10px);
     }
 
     .list-item:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
-      border-color: rgba(37,99,235,0.25);
+      border-color: rgba(37, 99, 235, 0.25);
     }
 
     .list-img {
-      width: 90px; height: 68px; flex-shrink: 0;
-      border-radius: var(--radius-md); overflow: hidden;
+      width: 90px;
+      height: 68px;
+      flex-shrink: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
       background: linear-gradient(135deg, #e0e7ff, #f0fdfa);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 1px solid var(--glass-border);
     }
 
-    .list-img img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
-
-    .list-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: rgba(148,163,184,0.4); }
-    .list-img-placeholder svg { width: 28px; height: 28px; }
-
-    .list-body { flex: 1; min-width: 0; }
-    .list-header { display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.25rem; }
-    .list-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
-    .list-gbadge { padding: 3px 10px; border-radius: 999px; font-size: 0.68rem; font-weight: 700; }
-    .list-th { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
-    .list-desc {
-      font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;
-      display: -webkit-box; -webkit-line-clamp: 1; line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+    .list-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
     }
-    .list-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 0.4rem; }
+
+    .list-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(148, 163, 184, 0.4);
+    }
+
+    .list-img-placeholder svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .list-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .list-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.25rem;
+    }
+
+    .list-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .list-gbadge {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .list-th {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .list-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .list-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 0.4rem;
+    }
 
     /* ===== MODAL ===== */
     .modal-overlay {
-      position: fixed; inset: 0; z-index: 500;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
       background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      display: none; align-items: center; justify-content: center;
+      display: none;
+      align-items: center;
+      justify-content: center;
       padding: 1.5rem;
     }
-    .modal-overlay.open { display: flex; }
+
+    .modal-overlay.open {
+      display: flex;
+    }
 
     .modal {
       background: #ffffff;
       border-radius: var(--radius-xl);
-      max-width: 760px; width: 100%; max-height: 90vh;
-      overflow-y: auto; box-shadow: var(--shadow-xl);
-      animation: modalIn 0.3s cubic-bezier(0.4,0,0.2,1);
+      max-width: 760px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-xl);
+      animation: modalIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       border: 1px solid var(--glass-border);
     }
+
     @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.95) translateY(15px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
 
     .modal-top {
-      position: sticky; top: 0; display: flex; justify-content: flex-end;
-      padding: 1rem 1.25rem 0; background: #ffffff; z-index: 2;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: flex-end;
+      padding: 1rem 1.25rem 0;
+      background: #ffffff;
+      z-index: 2;
     }
 
     .modal-close-btn {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(0,0,0,0.05); border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-secondary); transition: var(--transition-normal);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.05);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: var(--transition-normal);
     }
-    .modal-close-btn:hover { background: rgba(0,0,0,0.1); color: var(--text-primary); }
-    .modal-close-btn svg { width: 18px; height: 18px; }
 
-    .modal-body { padding: 0 2rem 2.25rem; }
+    .modal-close-btn:hover {
+      background: rgba(0, 0, 0, 0.1);
+      color: var(--text-primary);
+    }
+
+    .modal-close-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .modal-body {
+      padding: 0 2rem 2.25rem;
+    }
 
     .modal-img {
-      width: 100%; height: 250px;
+      width: 100%;
+      height: 250px;
       background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%);
-      border-radius: var(--radius-lg); overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.5rem; border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--glass-border);
     }
-    .modal-img img { max-width: 100%; max-height: 100%; object-fit: contain; padding: 18px; }
-    .modal-img-placeholder { color: rgba(148,163,184,0.4); }
-    .modal-img-placeholder svg { width: 72px; height: 72px; }
 
-    .modal-title { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.3rem; }
-    .modal-title-th { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem; }
+    .modal-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      padding: 18px;
+    }
 
-    .modal-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
-    .modal-gbadge { padding: 4px 14px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; color: #fff; }
+    .modal-img-placeholder {
+      color: rgba(148, 163, 184, 0.4);
+    }
 
-    .modal-sec { margin-bottom: 1.2rem; }
-    .modal-sec-lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.4rem; }
-    .modal-sec p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.65; }
+    .modal-img-placeholder svg {
+      width: 72px;
+      height: 72px;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-title-th {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .modal-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-gbadge {
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .modal-sec {
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-sec-lbl {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-sec p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
 
     .modal-specs {
-      background: var(--bg-secondary); border-radius: var(--radius-md);
-      padding: 1rem 1.15rem; font-size: 0.9rem; color: var(--text-secondary);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
       border: 1px solid var(--glass-border);
     }
 
     .modal-tag {
-      padding: 4px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 600;
-      background: rgba(37,99,235,0.08); color: var(--accent-blue);
-      border: 1px solid rgba(37,99,235,0.15);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--accent-blue);
+      border: 1px solid rgba(37, 99, 235, 0.15);
     }
 
     .modal-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--gradient-blue); color: #fff;
-      padding: 0.75rem 1.6rem; border-radius: var(--radius-md);
-      font-weight: 600; font-size: 0.95rem; text-decoration: none;
-      transition: var(--transition-normal); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gradient-blue);
+      color: #fff;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition-normal);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
       margin-top: 0.75rem;
     }
+
     .modal-cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
@@ -663,27 +1074,64 @@
 
     /* ===== NO RESULTS ===== */
     .no-results {
-      text-align: center; padding: 5rem 2rem;
-      color: var(--text-muted); display: none;
-      background: var(--bg-card); border-radius: var(--radius-xl);
+      text-align: center;
+      padding: 5rem 2rem;
+      color: var(--text-muted);
+      display: none;
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
       border: 1px solid var(--glass-border);
     }
-    .no-results.visible { display: block; }
-    .no-results svg { width: 56px; height: 56px; margin: 0 auto 1rem; opacity: 0.3; }
+
+    .no-results.visible {
+      display: block;
+    }
+
+    .no-results svg {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 1rem;
+      opacity: 0.3;
+    }
 
     /* ===== SCROLL TO TOP ===== */
     .scroll-top {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 90;
-      width: 46px; height: 46px; border-radius: 50%;
-      background: var(--gradient-blue); border: none; color: #fff;
-      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 90;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--gradient-blue);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-      opacity: 0; transform: translateY(20px);
-      transition: var(--transition-normal); pointer-events: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition-normal);
+      pointer-events: none;
     }
-    .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
-    .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4); }
-    .scroll-top svg { width: 20px; height: 20px; }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+    }
+
+    .scroll-top svg {
+      width: 20px;
+      height: 20px;
+    }
 
     /* ===== FOOTER ===== */
     .footer {
@@ -751,23 +1199,57 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; max-height: none; padding-right: 0; margin-bottom: 1.5rem; }
-      .group-pills { flex-direction: row; flex-wrap: wrap; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        max-height: none;
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .group-pills {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .mobile-toggle { display: block; }
-      .nav-links.open {
-        display: flex; flex-direction: column; position: absolute;
-        top: 72px; left: 0; right: 0;
-        background: rgba(255,255,255,0.98); border-bottom: 1px solid var(--glass-border);
-        padding: 1rem; box-shadow: var(--shadow-lg); backdrop-filter: blur(20px);
+      .nav-links {
+        display: none;
       }
-      .instruments-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 1rem;
+        box-shadow: var(--shadow-lg);
+        backdrop-filter: blur(20px);
+      }
+
+      .instruments-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -826,17 +1308,24 @@
       <div class="toolbar">
         <div class="search-box">
           <svg class="search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           <input type="text" id="searchInput" placeholder="ค้นหาเครื่องมือ... (ไทย, English, ยี่ห้อ/รุ่น, รหัส)">
         </div>
         <span class="results-count" id="resultsCount"></span>
         <div class="view-toggle">
           <button class="view-btn active" id="gridBtn" title="Grid view" aria-label="Grid view">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
           </button>
           <button class="view-btn" id="listBtn" title="List view" aria-label="List view">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </div>
@@ -845,9 +1334,11 @@
 
       <div class="no-results" id="noResults">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <p style="font-size:1.1rem; color:var(--text-primary); margin-bottom:0.4rem; font-weight:700;">ไม่พบเครื่องมือที่ตรงกัน</p>
+        <p style="font-size:1.1rem; color:var(--text-primary); margin-bottom:0.4rem; font-weight:700;">
+          ไม่พบเครื่องมือที่ตรงกัน</p>
         <small>ลองค้นหาด้วยคำอื่น หรือเลือกกลุ่มเครื่องมือในแถบด้านข้าง</small>
       </div>
     </main>
@@ -858,7 +1349,9 @@
     <div class="modal">
       <div class="modal-top">
         <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
       </div>
       <div class="modal-body" id="modalBody"></div>
@@ -918,110 +1411,110 @@
   </footer>
 
   <script>
-  // =====================================================================
-  // COLOR CONFIG FOR GROUPS
-  // =====================================================================
-  const GROUP_COLORS = {
-    1: '#059669',  // BS
-    2: '#2563eb',  // CG
-    3: '#0891b2',  // FZ
-    4: '#7c3aed',  // MC
-    5: '#d97706',  // SP
-    6: '#db2777',  // SM
-    7: '#4f46e5',  // SF
-    8: '#e11d48',  // TM
-    9: '#0d9488',  // WP
-    10: '#ea580c', // XR
-    11: '#65a30d', // HPC
-  };
+    // =====================================================================
+    // COLOR CONFIG FOR GROUPS
+    // =====================================================================
+    const GROUP_COLORS = {
+      1: '#059669',  // BS
+      2: '#2563eb',  // CG
+      3: '#0891b2',  // FZ
+      4: '#7c3aed',  // MC
+      5: '#d97706',  // SP
+      6: '#db2777',  // SM
+      7: '#4f46e5',  // SF
+      8: '#e11d48',  // TM
+      9: '#0d9488',  // WP
+      10: '#ea580c', // XR
+      11: '#65a30d', // HPC
+    };
 
-  // =====================================================================
-  // STATE
-  // =====================================================================
-  let allInstruments = [];
-  let activeGroup = 'all';
-  let activeTags = new Set();
-  let searchQuery = '';
-  let viewMode = 'grid';
+    // =====================================================================
+    // STATE
+    // =====================================================================
+    let allInstruments = [];
+    let activeGroup = 'all';
+    let activeTags = new Set();
+    let searchQuery = '';
+    let viewMode = 'grid';
 
-  const IMG_FALLBACK_SVG = '<svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>';
+    const IMG_FALLBACK_SVG = '<svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>';
 
-  function esc(s) {
-    if (!s) return '';
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
-  }
-
-  function getBestImage(item) {
-    let url = (item.imageUrl || '').trim();
-    if (!url && typeof instrumentImages !== 'undefined') {
-      url = instrumentImages[item.id] || instrumentImages[item.nameEn] || instrumentImages[item.nameTh] || '';
-    }
-    if (!url) return '';
-    const gd = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-    if (gd) return `https://lh3.googleusercontent.com/d/${gd[1]}`;
-    const wm = url.match(/Special:FilePath\/(.+)/);
-    if (wm) return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(decodeURIComponent(wm[1]))}?width=400`;
-    return url;
-  }
-
-  function getGroupCfg(groupId) {
-    if (typeof equipmentGroupConfig !== 'undefined' && equipmentGroupConfig[groupId]) {
-      const g = equipmentGroupConfig[groupId];
-      return {
-        code: g.code,
-        name: g.name,
-        nameTh: g.nameTh,
-        color: GROUP_COLORS[groupId] || '#2563eb'
-      };
-    }
-    return { code: 'EQ', name: 'Equipment', nameTh: 'เครื่องมือ', color: '#64748b' };
-  }
-
-  function getDomainLabel(tagKey) {
-    if (typeof domainTags !== 'undefined' && domainTags[tagKey]) {
-      return domainTags[tagKey];
-    }
-    return tagKey;
-  }
-
-  // Load from data.js
-  function initData() {
-    if (typeof equipmentData !== 'undefined' && Array.isArray(equipmentData)) {
-      allInstruments = equipmentData;
-    } else {
-      allInstruments = [];
+    function esc(s) {
+      if (!s) return '';
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
     }
 
-    renderSidebar();
-    renderAll();
-  }
+    function getBestImage(item) {
+      let url = (item.imageUrl || '').trim();
+      if (!url && typeof instrumentImages !== 'undefined') {
+        url = instrumentImages[item.id] || instrumentImages[item.nameEn] || instrumentImages[item.nameTh] || '';
+      }
+      if (!url) return '';
+      const gd = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (gd) return `https://lh3.googleusercontent.com/d/${gd[1]}`;
+      const wm = url.match(/Special:FilePath\/(.+)/);
+      if (wm) return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(decodeURIComponent(wm[1]))}?width=400`;
+      return url;
+    }
 
-  // =====================================================================
-  // SIDEBAR RENDER
-  // =====================================================================
-  function renderSidebar() {
-    const total = allInstruments.length;
+    function getGroupCfg(groupId) {
+      if (typeof equipmentGroupConfig !== 'undefined' && equipmentGroupConfig[groupId]) {
+        const g = equipmentGroupConfig[groupId];
+        return {
+          code: g.code,
+          name: g.name,
+          nameTh: g.nameTh,
+          color: GROUP_COLORS[groupId] || '#2563eb'
+        };
+      }
+      return { code: 'EQ', name: 'Equipment', nameTh: 'เครื่องมือ', color: '#64748b' };
+    }
 
-    // Group counts
-    const groupCounts = {};
-    allInstruments.forEach(item => {
-      const gId = item.groupId || 1;
-      groupCounts[gId] = (groupCounts[gId] || 0) + 1;
-    });
+    function getDomainLabel(tagKey) {
+      if (typeof domainTags !== 'undefined' && domainTags[tagKey]) {
+        return domainTags[tagKey];
+      }
+      return tagKey;
+    }
 
-    // Group Pills
-    let ghtml = `<button class="group-pill ${activeGroup === 'all' ? 'active' : ''}" data-g="all">
+    // Load from data.js
+    function initData() {
+      if (typeof equipmentData !== 'undefined' && Array.isArray(equipmentData)) {
+        allInstruments = equipmentData;
+      } else {
+        allInstruments = [];
+      }
+
+      renderSidebar();
+      renderAll();
+    }
+
+    // =====================================================================
+    // SIDEBAR RENDER
+    // =====================================================================
+    function renderSidebar() {
+      const total = allInstruments.length;
+
+      // Group counts
+      const groupCounts = {};
+      allInstruments.forEach(item => {
+        const gId = item.groupId || 1;
+        groupCounts[gId] = (groupCounts[gId] || 0) + 1;
+      });
+
+      // Group Pills
+      let ghtml = `<button class="group-pill ${activeGroup === 'all' ? 'active' : ''}" data-g="all">
       <div class="gp-left"><div class="gp-dot" style="background:#64748b"></div>
         <span class="gp-abbr">ALL</span><span>ทั้งหมด</span></div>
       <span class="gp-count">${total}</span>
     </button>`;
 
-    if (typeof equipmentGroupConfig !== 'undefined') {
-      Object.keys(equipmentGroupConfig).forEach(gIdStr => {
-        const gId = parseInt(gIdStr, 10);
-        const cfg = getGroupCfg(gId);
-        const count = groupCounts[gId] || 0;
-        ghtml += `<button class="group-pill ${activeGroup === gIdStr ? 'active' : ''}" data-g="${gIdStr}">
+      if (typeof equipmentGroupConfig !== 'undefined') {
+        Object.keys(equipmentGroupConfig).forEach(gIdStr => {
+          const gId = parseInt(gIdStr, 10);
+          const cfg = getGroupCfg(gId);
+          const count = groupCounts[gId] || 0;
+          ghtml += `<button class="group-pill ${activeGroup === gIdStr ? 'active' : ''}" data-g="${gIdStr}">
           <div class="gp-left">
             <div class="gp-dot" style="background:${cfg.color}"></div>
             <span class="gp-abbr" style="color:${cfg.color}">${cfg.code}</span>
@@ -1029,163 +1522,163 @@
           </div>
           <span class="gp-count">${count}</span>
         </button>`;
-      });
-    }
-    document.getElementById('groupPills').innerHTML = ghtml;
-    document.querySelectorAll('.group-pill').forEach(b => {
-      b.addEventListener('click', () => { activeGroup = b.dataset.g; renderSidebar(); renderAll(); });
-    });
-
-    // Tag Pills
-    const allTagsSet = new Set();
-    allInstruments.forEach(item => {
-      if (Array.isArray(item.domainTags)) {
-        item.domainTags.forEach(t => allTagsSet.add(t));
+        });
       }
-    });
-    const sortedTags = [...allTagsSet].sort();
-
-    document.getElementById('tagPills').innerHTML = sortedTags.map(t =>
-      `<button class="tag-pill ${activeTags.has(t) ? 'active' : ''}" data-t="${esc(t)}">${esc(getDomainLabel(t))}</button>`
-    ).join('');
-    document.querySelectorAll('.tag-pill').forEach(b => {
-      b.addEventListener('click', () => {
-        const t = b.dataset.t;
-        activeTags.has(t) ? activeTags.delete(t) : activeTags.add(t);
-        renderSidebar(); renderAll();
+      document.getElementById('groupPills').innerHTML = ghtml;
+      document.querySelectorAll('.group-pill').forEach(b => {
+        b.addEventListener('click', () => { activeGroup = b.dataset.g; renderSidebar(); renderAll(); });
       });
-    });
 
-    // Abbrev Legend
-    if (typeof equipmentGroupConfig !== 'undefined') {
-      document.getElementById('abbrevList').innerHTML = Object.keys(equipmentGroupConfig).map(gIdStr => {
-        const gId = parseInt(gIdStr, 10);
-        const cfg = getGroupCfg(gId);
-        return `<div class="abbrev-item">
+      // Tag Pills
+      const allTagsSet = new Set();
+      allInstruments.forEach(item => {
+        if (Array.isArray(item.domainTags)) {
+          item.domainTags.forEach(t => allTagsSet.add(t));
+        }
+      });
+      const sortedTags = [...allTagsSet].sort();
+
+      document.getElementById('tagPills').innerHTML = sortedTags.map(t =>
+        `<button class="tag-pill ${activeTags.has(t) ? 'active' : ''}" data-t="${esc(t)}">${esc(getDomainLabel(t))}</button>`
+      ).join('');
+      document.querySelectorAll('.tag-pill').forEach(b => {
+        b.addEventListener('click', () => {
+          const t = b.dataset.t;
+          activeTags.has(t) ? activeTags.delete(t) : activeTags.add(t);
+          renderSidebar(); renderAll();
+        });
+      });
+
+      // Abbrev Legend
+      if (typeof equipmentGroupConfig !== 'undefined') {
+        document.getElementById('abbrevList').innerHTML = Object.keys(equipmentGroupConfig).map(gIdStr => {
+          const gId = parseInt(gIdStr, 10);
+          const cfg = getGroupCfg(gId);
+          return `<div class="abbrev-item">
           <div class="abbrev-dot" style="background:${cfg.color}"></div>
           <span class="abbrev-code" style="color:${cfg.color}">${cfg.code}</span>
           <span>${esc(cfg.name)}</span>
         </div>`;
-      }).join('');
-    }
-  }
-
-  // =====================================================================
-  // FILTER & RENDER
-  // =====================================================================
-  function parseOrder(orderStr) {
-    // Convert "1.10" → 1.10 as float, supporting sub-decimals like "1.10" > "1.2"
-    // Split into major.minor and compare numerically
-    const parts = String(orderStr || '').split('.');
-    const major = parseInt(parts[0], 10) || 0;
-    const minor = parseInt(parts[1], 10) || 0;
-    return major * 10000 + minor;
-  }
-
-  function getFiltered() {
-    const q = searchQuery.toLowerCase().trim();
-    const filtered = allInstruments.filter(i => {
-      // Group filter
-      if (activeGroup !== 'all' && String(i.groupId) !== activeGroup) return false;
-
-      // Tag filter
-      if (activeTags.size > 0) {
-        const itemTags = Array.isArray(i.domainTags) ? i.domainTags : [];
-        if (![...activeTags].every(t => itemTags.includes(t))) return false;
+        }).join('');
       }
-
-      // Search query filter
-      if (q) {
-        const haystack = [
-          i.nameEn, i.nameTh, i.brand, i.descTh, i.descEn,
-          i.specs, i.testCodes, i.order
-        ].join(' ').toLowerCase();
-        if (!haystack.includes(q)) return false;
-      }
-
-      return true;
-    });
-
-    // Sort by order (numeric) then by id as tiebreaker
-    filtered.sort((a, b) => {
-      const oa = parseOrder(a.order);
-      const ob = parseOrder(b.order);
-      if (oa !== ob) return oa - ob;
-      return (a.id || 0) - (b.id || 0);
-    });
-
-    return filtered;
-  }
-
-  function renderAll() {
-    const filtered = getFiltered();
-    const total = allInstruments.length;
-    const groupCount = typeof equipmentGroupConfig !== 'undefined' ? Object.keys(equipmentGroupConfig).length : 11;
-
-    document.getElementById('resultsCount').innerHTML = `พบ <strong>${filtered.length}</strong> รายการ`;
-    const headerSubEl = document.getElementById('headerSub');
-    if (headerSubEl) {
-      headerSubEl.innerHTML =
-        `ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (MUFRF) ค้นหาและเรียนรู้ข้อมูลเครื่องมือวิทยาศาสตร์ขั้นสูง <strong>${total}</strong> รายการ จาก <strong>${groupCount}</strong> กลุ่มบริการ`;
     }
 
-    document.getElementById('noResults').classList.toggle('visible', filtered.length === 0);
-
-    // Build order labels: add a/b/c suffix when order duplicates exist in the filtered list
-    const orderCount = {};
-    filtered.forEach(i => { const o = i.order || String(i.id); orderCount[o] = (orderCount[o] || 0) + 1; });
-    const orderIndex = {};
-    const orderLabel = {};
-    filtered.forEach(i => {
-      const o = i.order || String(i.id);
-      if (orderCount[o] > 1) {
-        orderIndex[o] = (orderIndex[o] || 0);
-        orderLabel[i.id] = o + String.fromCharCode(97 + orderIndex[o]); // 'a', 'b', 'c'...
-        orderIndex[o]++;
-      } else {
-        orderLabel[i.id] = o;
-      }
-    });
-
-    const wrap = document.getElementById('instrumentsWrap');
-    if (viewMode === 'grid') {
-      wrap.innerHTML = `<div class="instruments-grid">${filtered.map(inst => renderCard(inst, orderLabel[inst.id])).join('')}</div>`;
-    } else {
-      wrap.innerHTML = `<div class="instruments-list">${filtered.map(inst => renderListItem(inst, orderLabel[inst.id])).join('')}</div>`;
+    // =====================================================================
+    // FILTER & RENDER
+    // =====================================================================
+    function parseOrder(orderStr) {
+      // Convert "1.10" → 1.10 as float, supporting sub-decimals like "1.10" > "1.2"
+      // Split into major.minor and compare numerically
+      const parts = String(orderStr || '').split('.');
+      const major = parseInt(parts[0], 10) || 0;
+      const minor = parseInt(parts[1], 10) || 0;
+      return major * 10000 + minor;
     }
 
-    wrap.querySelectorAll('[data-iid]').forEach(el => {
-      el.addEventListener('click', () => {
-        const inst = allInstruments.find(i => String(i.id) === String(el.dataset.iid));
-        if (inst) openModal(inst);
+    function getFiltered() {
+      const q = searchQuery.toLowerCase().trim();
+      const filtered = allInstruments.filter(i => {
+        // Group filter
+        if (activeGroup !== 'all' && String(i.groupId) !== activeGroup) return false;
+
+        // Tag filter
+        if (activeTags.size > 0) {
+          const itemTags = Array.isArray(i.domainTags) ? i.domainTags : [];
+          if (![...activeTags].every(t => itemTags.includes(t))) return false;
+        }
+
+        // Search query filter
+        if (q) {
+          const haystack = [
+            i.nameEn, i.nameTh, i.brand, i.descTh, i.descEn,
+            i.specs, i.testCodes, i.order
+          ].join(' ').toLowerCase();
+          if (!haystack.includes(q)) return false;
+        }
+
+        return true;
       });
-    });
-  }
 
-  // =====================================================================
-  // CARD / LIST RENDER
-  // =====================================================================
-  function showImgFallback(el, cls) {
-    el.parentElement.innerHTML = `<div class="${cls}">${IMG_FALLBACK_SVG}</div>`;
-  }
+      // Sort by order (numeric) then by id as tiebreaker
+      filtered.sort((a, b) => {
+        const oa = parseOrder(a.order);
+        const ob = parseOrder(b.order);
+        if (oa !== ob) return oa - ob;
+        return (a.id || 0) - (b.id || 0);
+      });
 
-  function imgHtml(url, nameEn, fallbackCls) {
-    if (!url) return `<div class="${fallbackCls}">${IMG_FALLBACK_SVG}</div>`;
-    return `<img src="${esc(url)}" alt="${esc(nameEn)}" loading="lazy" onerror="showImgFallback(this,'${fallbackCls}')">`;
-  }
+      return filtered;
+    }
 
-  function cardTagsHtml(domainTagsArr, max) {
-    if (!Array.isArray(domainTagsArr)) return '';
-    return domainTagsArr.slice(0, max).map(t =>
-      `<span class="card-tag">${esc(getDomainLabel(t))}</span>`
-    ).join('');
-  }
+    function renderAll() {
+      const filtered = getFiltered();
+      const total = allInstruments.length;
+      const groupCount = typeof equipmentGroupConfig !== 'undefined' ? Object.keys(equipmentGroupConfig).length : 11;
 
-  function renderCard(inst, label) {
-    const cfg = getGroupCfg(inst.groupId);
-    const url = getBestImage(inst);
-    const displayLabel = label || inst.order || inst.id;
-    return `<div class="instrument-card" data-iid="${esc(inst.id)}" tabindex="0" role="button">
+      document.getElementById('resultsCount').innerHTML = `พบ <strong>${filtered.length}</strong> รายการ`;
+      const headerSubEl = document.getElementById('headerSub');
+      if (headerSubEl) {
+        headerSubEl.innerHTML =
+          `ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (MUFRF) ค้นหาและเรียนรู้ข้อมูลเครื่องมือวิทยาศาสตร์ขั้นสูง <strong>${total}</strong> รายการ จาก <strong>${groupCount}</strong> กลุ่มบริการ`;
+      }
+
+      document.getElementById('noResults').classList.toggle('visible', filtered.length === 0);
+
+      // Build order labels: add a/b/c suffix when order duplicates exist in the filtered list
+      const orderCount = {};
+      filtered.forEach(i => { const o = i.order || String(i.id); orderCount[o] = (orderCount[o] || 0) + 1; });
+      const orderIndex = {};
+      const orderLabel = {};
+      filtered.forEach(i => {
+        const o = i.order || String(i.id);
+        if (orderCount[o] > 1) {
+          orderIndex[o] = (orderIndex[o] || 0);
+          orderLabel[i.id] = o + String.fromCharCode(97 + orderIndex[o]); // 'a', 'b', 'c'...
+          orderIndex[o]++;
+        } else {
+          orderLabel[i.id] = o;
+        }
+      });
+
+      const wrap = document.getElementById('instrumentsWrap');
+      if (viewMode === 'grid') {
+        wrap.innerHTML = `<div class="instruments-grid">${filtered.map(inst => renderCard(inst, orderLabel[inst.id])).join('')}</div>`;
+      } else {
+        wrap.innerHTML = `<div class="instruments-list">${filtered.map(inst => renderListItem(inst, orderLabel[inst.id])).join('')}</div>`;
+      }
+
+      wrap.querySelectorAll('[data-iid]').forEach(el => {
+        el.addEventListener('click', () => {
+          const inst = allInstruments.find(i => String(i.id) === String(el.dataset.iid));
+          if (inst) openModal(inst);
+        });
+      });
+    }
+
+    // =====================================================================
+    // CARD / LIST RENDER
+    // =====================================================================
+    function showImgFallback(el, cls) {
+      el.parentElement.innerHTML = `<div class="${cls}">${IMG_FALLBACK_SVG}</div>`;
+    }
+
+    function imgHtml(url, nameEn, fallbackCls) {
+      if (!url) return `<div class="${fallbackCls}">${IMG_FALLBACK_SVG}</div>`;
+      return `<img src="${esc(url)}" alt="${esc(nameEn)}" loading="lazy" onerror="showImgFallback(this,'${fallbackCls}')">`;
+    }
+
+    function cardTagsHtml(domainTagsArr, max) {
+      if (!Array.isArray(domainTagsArr)) return '';
+      return domainTagsArr.slice(0, max).map(t =>
+        `<span class="card-tag">${esc(getDomainLabel(t))}</span>`
+      ).join('');
+    }
+
+    function renderCard(inst, label) {
+      const cfg = getGroupCfg(inst.groupId);
+      const url = getBestImage(inst);
+      const displayLabel = label || inst.order || inst.id;
+      return `<div class="instrument-card" data-iid="${esc(inst.id)}" tabindex="0" role="button">
       <div class="card-image">
         ${imgHtml(url, inst.nameEn, 'card-placeholder')}
         <span class="card-badge" style="color:${cfg.color}">${cfg.code} · ${esc(displayLabel)}</span>
@@ -1198,14 +1691,14 @@
         ${inst.brand ? `<div class="card-brand">🏷️ ${esc(inst.brand)}</div>` : ''}
       </div>
     </div>`;
-  }
+    }
 
-  function renderListItem(inst, label) {
-    const cfg = getGroupCfg(inst.groupId);
-    const url = getBestImage(inst);
-    const tags = cardTagsHtml(inst.domainTags, 4);
-    const displayLabel = label || inst.order || inst.id;
-    return `<div class="list-item" data-iid="${esc(inst.id)}" tabindex="0" role="button">
+    function renderListItem(inst, label) {
+      const cfg = getGroupCfg(inst.groupId);
+      const url = getBestImage(inst);
+      const tags = cardTagsHtml(inst.domainTags, 4);
+      const displayLabel = label || inst.order || inst.id;
+      return `<div class="list-item" data-iid="${esc(inst.id)}" tabindex="0" role="button">
       <div class="list-img">${imgHtml(url, inst.nameEn, 'list-img-placeholder')}</div>
       <div class="list-body">
         <div class="list-header">
@@ -1217,25 +1710,25 @@
         <div class="list-tags">${tags}</div>
       </div>
     </div>`;
-  }
+    }
 
-  // =====================================================================
-  // MODAL
-  // =====================================================================
-  function openModal(inst) {
-    const cfg = getGroupCfg(inst.groupId);
-    const url = getBestImage(inst);
-    const tags = Array.isArray(inst.domainTags) ? inst.domainTags : [];
-    const code = (inst.testCodes || '').split(/[\n,]/)[0].trim();
-    const link = code
-      ? `pricing.html?q=${encodeURIComponent(code)}`
-      : `pricing.html?q=${encodeURIComponent(inst.nameEn)}`;
+    // =====================================================================
+    // MODAL
+    // =====================================================================
+    function openModal(inst) {
+      const cfg = getGroupCfg(inst.groupId);
+      const url = getBestImage(inst);
+      const tags = Array.isArray(inst.domainTags) ? inst.domainTags : [];
+      const code = (inst.testCodes || '').split(/[\n,]/)[0].trim();
+      const link = code
+        ? `pricing.html?q=${encodeURIComponent(code)}`
+        : `pricing.html?q=${encodeURIComponent(inst.nameEn)}`;
 
-    const mimg = url
-      ? `<img src="${esc(url)}" alt="${esc(inst.nameEn)}" onerror="showImgFallback(this,'modal-img-placeholder')">`
-      : `<div class="modal-img-placeholder">${IMG_FALLBACK_SVG}</div>`;
+      const mimg = url
+        ? `<img src="${esc(url)}" alt="${esc(inst.nameEn)}" onerror="showImgFallback(this,'modal-img-placeholder')">`
+        : `<div class="modal-img-placeholder">${IMG_FALLBACK_SVG}</div>`;
 
-    document.getElementById('modalBody').innerHTML = `
+      document.getElementById('modalBody').innerHTML = `
       <style>
         .paper-card:hover { border-color: var(--accent-purple) !important; background: #fff !important; box-shadow: var(--shadow-sm); transform: translateY(-2px); }
       </style>
@@ -1244,7 +1737,7 @@
       ${inst.nameTh ? `<p class="modal-title-th">${esc(inst.nameTh)}</p>` : ''}
       <div class="modal-badges">
         <span class="modal-gbadge" style="background:${cfg.color}">${cfg.code} — ${esc(cfg.name)}</span>
-        ${inst.testCodes ? `<span style="padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:600;background:rgba(0,0,0,0.06);color:var(--text-secondary)">${esc(inst.testCodes.substring(0,80))}</span>` : ''}
+        ${inst.testCodes ? `<span style="padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:600;background:rgba(0,0,0,0.06);color:var(--text-secondary)">${esc(inst.testCodes.substring(0, 80))}</span>` : ''}
         ${inst.qty ? `<span style="padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:600;background:rgba(5,150,105,0.1);color:#059669">จำนวน ${esc(inst.qty)} เครื่อง</span>` : ''}
       </div>
       ${inst.brand ? `<div class="modal-sec"><div class="modal-sec-lbl">ยี่ห้อ / รุ่น</div><p>${esc(inst.brand)}</p></div>` : ''}
@@ -1254,9 +1747,14 @@
       ${tags.length ? `<div class="modal-sec"><div class="modal-sec-lbl">Research Domains</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:0.3rem">${tags.map(t => `<span class="modal-tag">${esc(getDomainLabel(t))}</span>`).join('')}</div></div>` : ''}
       
       <div id="relatedPapersContainer" class="modal-sec" style="display:none; margin-top:1.5rem; padding-top:1.5rem; border-top:1px dashed var(--glass-border);">
-        <div class="modal-sec-lbl" style="color:var(--accent-purple); display:flex; align-items:center; gap:6px;">
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-          ผลงานวิจัยที่เกี่ยวข้อง (Related Papers)
+        <div class="modal-sec-lbl" style="color:var(--accent-purple); display:flex; align-items:center; justify-content:space-between; gap:6px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            ผลงานวิจัยที่เกี่ยวข้อง (Related Papers)
+          </div>
+          <select id="paperYearFilter" style="display:none; font-size:0.75rem; padding:2px 8px; border:1px solid var(--glass-border); border-radius:4px; outline:none; color:var(--text-secondary); background:var(--bg-card); cursor:pointer;">
+            <option value="all">ทั้งหมด</option>
+          </select>
         </div>
         <div id="relatedPapersList" style="display:flex; flex-direction:column; gap:0.6rem; margin-top:0.8rem;">
           <div style="font-size:0.85rem; color:var(--text-muted);">กำลังโหลดข้อมูลเปเปอร์...</div>
@@ -1268,120 +1766,157 @@
         ดูอัตราค่าบริการ
       </a>`;
 
-    document.getElementById('modalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
 
-    // Fetch related papers if any
-    const papers = (typeof relatedPapersData !== 'undefined') ? relatedPapersData[inst.id] : null;
-    if (papers && papers.length > 0) {
-      const container = document.getElementById('relatedPapersContainer');
-      const listEl = document.getElementById('relatedPapersList');
-      container.style.display = 'block';
+      // Fetch related papers if any
+      const papers = (typeof relatedPapersData !== 'undefined') ? relatedPapersData[inst.id] : null;
+      if (papers && papers.length > 0) {
+        const container = document.getElementById('relatedPapersContainer');
+        const listEl = document.getElementById('relatedPapersList');
+        container.style.display = 'block';
 
-      Promise.all(papers.map(doi => 
-        fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`)
-          .then(r => r.ok ? r.json() : null)
-          .catch(() => null)
-      )).then(results => {
-        let html = '';
-        results.forEach((res, idx) => {
-          if (res && res.message) {
-            const paper = res.message;
-            const title = paper.title ? paper.title[0] : 'Untitled';
-            const year = paper.published && paper.published['date-parts'] ? paper.published['date-parts'][0][0] : '';
-            const journal = paper['container-title'] ? paper['container-title'][0] : '';
-            
-            let abstractText = '';
-            if (paper.abstract) {
-              abstractText = paper.abstract.replace(/<[^>]+>/g, '').trim();
-              if (abstractText.length > 250) abstractText = abstractText.substring(0, 250) + '...';
+        Promise.all(papers.map(doi =>
+          fetch(`https://api.crossref.org/works/${encodeURIComponent(doi)}`)
+            .then(r => r.ok ? r.json() : null)
+            .catch(() => null)
+        )).then(results => {
+          let availableYears = new Set();
+          let papersData = []; // Store parsed paper data for filtering
+
+          results.forEach((res, idx) => {
+            if (res && res.message) {
+              const paper = res.message;
+              const title = paper.title ? paper.title[0] : 'Untitled';
+              const year = paper.published && paper.published['date-parts'] ? paper.published['date-parts'][0][0] : '';
+              if (year) availableYears.add(year.toString());
+              const journal = paper['container-title'] ? paper['container-title'][0] : '';
+
+              let abstractText = '';
+              if (paper.abstract) {
+                abstractText = paper.abstract.replace(/<[^>]+>/g, '').trim();
+                if (abstractText.length > 250) abstractText = abstractText.substring(0, 250) + '...';
+              }
+
+              let fallbackAuthor = '';
+              if (!abstractText && paper.author && paper.author.length > 0) {
+                const authors = paper.author.map(a => `${a.given || ''} ${a.family || ''}`.trim());
+                fallbackAuthor = authors.slice(0, 3).join(', ');
+                if (authors.length > 3) fallbackAuthor += ' et al.';
+              }
+
+              const doiLink = `https://doi.org/${papers[idx]}`;
+              papersData.push({
+                doi: papers[idx],
+                title, year: year ? year.toString() : '', journal, abstractText, fallbackAuthor, doiLink, isValid: true
+              });
+            } else {
+              papersData.push({ doi: papers[idx], isValid: false });
             }
+          });
 
-            let fallbackAuthor = '';
-            if (!abstractText && paper.author && paper.author.length > 0) {
-              const authors = paper.author.map(a => `${a.given || ''} ${a.family || ''}`.trim());
-              fallbackAuthor = authors.slice(0, 3).join(', ');
-              if (authors.length > 3) fallbackAuthor += ' et al.';
+          const renderPapers = (filterYear) => {
+            let html = '';
+            papersData.forEach(p => {
+              if (filterYear !== 'all' && p.year !== filterYear && p.isValid) return;
+              if (filterYear !== 'all' && !p.isValid) return; // Hide invalid DOI entries when filtering by specific year
+
+              if (p.isValid) {
+                html += `
+                <a href="${p.doiLink}" target="_blank" rel="noopener noreferrer" class="paper-card" style="display:block; padding:12px 16px; background:var(--bg-secondary); border:1px solid var(--glass-border); border-radius:var(--radius-md); text-decoration:none; transition:var(--transition-fast);">
+                  <div style="font-size:0.9rem; font-weight:600; color:var(--text-primary); line-height:1.4; margin-bottom:6px;">${esc(p.title)}</div>
+                  ${p.abstractText
+                    ? `<div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:6px; line-height:1.4;">${esc(p.abstractText)}</div>`
+                    : `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:6px; font-style:italic;">[Abstract not available via Crossref] <br><strong>Authors:</strong> ${esc(p.fallbackAuthor || '-')}</div>`
+                  }
+                  <div style="font-size:0.75rem; color:var(--accent-purple); font-weight:600;">${esc(p.journal)} ${p.year ? `(${p.year})` : ''}</div>
+                </a>
+              `;
+              } else {
+                const doiLink = `https://doi.org/${p.doi}`;
+                html += `
+                <a href="${doiLink}" target="_blank" rel="noopener noreferrer" class="paper-card" style="display:block; padding:12px 16px; background:var(--bg-secondary); border:1px solid var(--glass-border); border-radius:var(--radius-md); text-decoration:none; transition:var(--transition-fast);">
+                  <div style="font-size:0.9rem; font-weight:600; color:var(--text-primary); line-height:1.4; margin-bottom:4px;">Paper DOI: ${esc(p.doi)}</div>
+                  <div style="font-size:0.8rem; color:var(--text-secondary);">คลิกเพื่อดูรายละเอียดผลงานวิจัย (View on doi.org)</div>
+                </a>
+              `;
+              }
+            });
+
+            if (html === '') {
+              html = `<div style="font-size:0.85rem; color:var(--text-muted);">ไม่มีผลงานวิจัยในปี ${filterYear}</div>`;
             }
+            listEl.innerHTML = html;
+          };
 
-            const doiLink = `https://doi.org/${papers[idx]}`;
+          const yearFilterEl = document.getElementById('paperYearFilter');
+          if (availableYears.size > 0) {
+            yearFilterEl.style.display = 'block';
+            const sortedYears = Array.from(availableYears).sort((a, b) => b - a);
+            yearFilterEl.innerHTML = `<option value="all">ทั้งหมด</option>` + sortedYears.map(y => `<option value="${y}">${y}</option>`).join('');
 
-            html += `
-              <a href="${doiLink}" target="_blank" rel="noopener noreferrer" class="paper-card" style="display:block; padding:12px 16px; background:var(--bg-secondary); border:1px solid var(--glass-border); border-radius:var(--radius-md); text-decoration:none; transition:var(--transition-fast);">
-                <div style="font-size:0.9rem; font-weight:600; color:var(--text-primary); line-height:1.4; margin-bottom:6px;">${esc(title)}</div>
-                ${abstractText 
-                  ? `<div style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:6px; line-height:1.4;">${esc(abstractText)}</div>` 
-                  : `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:6px; font-style:italic;">[Abstract not available via Crossref] <br><strong>Authors:</strong> ${esc(fallbackAuthor || '-')}</div>`
-                }
-                <div style="font-size:0.75rem; color:var(--accent-purple); font-weight:600;">${esc(journal)} ${year ? `(${year})` : ''}</div>
-              </a>
-            `;
-          } else {
-            // Failed to fetch or invalid DOI
-            const doiLink = `https://doi.org/${papers[idx]}`;
-            html += `
-              <a href="${doiLink}" target="_blank" rel="noopener noreferrer" class="paper-card" style="display:block; padding:12px 16px; background:var(--bg-secondary); border:1px solid var(--glass-border); border-radius:var(--radius-md); text-decoration:none; transition:var(--transition-fast);">
-                <div style="font-size:0.9rem; font-weight:600; color:var(--text-primary); line-height:1.4; margin-bottom:4px;">Paper DOI: ${esc(papers[idx])}</div>
-                <div style="font-size:0.8rem; color:var(--text-secondary);">คลิกเพื่อดูรายละเอียดผลงานวิจัย (View on doi.org)</div>
-              </a>
-            `;
+            yearFilterEl.addEventListener('change', (e) => {
+              renderPapers(e.target.value);
+            });
           }
+
+          // Initial render
+          renderPapers('all');
         });
-        listEl.innerHTML = html;
-      });
+      }
     }
-  }
 
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  // =====================================================================
-  // EVENTS
-  // =====================================================================
-  document.getElementById('searchInput').addEventListener('input', e => {
-    searchQuery = e.target.value; renderAll();
-  });
-  document.getElementById('gridBtn').addEventListener('click', () => {
-    viewMode = 'grid';
-    document.getElementById('gridBtn').classList.add('active');
-    document.getElementById('listBtn').classList.remove('active');
-    renderAll();
-  });
-  document.getElementById('listBtn').addEventListener('click', () => {
-    viewMode = 'list';
-    document.getElementById('listBtn').classList.add('active');
-    document.getElementById('gridBtn').classList.remove('active');
-    renderAll();
-  });
-  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
-  document.getElementById('modalOverlay').addEventListener('click', e => {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && document.activeElement.dataset.iid) {
-      const inst = allInstruments.find(i => String(i.id) === String(document.activeElement.dataset.iid));
-      if (inst) openModal(inst);
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
     }
-  });
 
-  // Navbar scroll & Scroll top button
-  const navbar = document.getElementById('navbar');
-  const scrollTopBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-  });
-  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // =====================================================================
+    // EVENTS
+    // =====================================================================
+    document.getElementById('searchInput').addEventListener('input', e => {
+      searchQuery = e.target.value; renderAll();
+    });
+    document.getElementById('gridBtn').addEventListener('click', () => {
+      viewMode = 'grid';
+      document.getElementById('gridBtn').classList.add('active');
+      document.getElementById('listBtn').classList.remove('active');
+      renderAll();
+    });
+    document.getElementById('listBtn').addEventListener('click', () => {
+      viewMode = 'list';
+      document.getElementById('listBtn').classList.add('active');
+      document.getElementById('gridBtn').classList.remove('active');
+      renderAll();
+    });
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    document.getElementById('modalOverlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && document.activeElement.dataset.iid) {
+        const inst = allInstruments.find(i => String(i.id) === String(document.activeElement.dataset.iid));
+        if (inst) openModal(inst);
+      }
+    });
 
-  document.getElementById('mobileToggle').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
+    // Navbar scroll & Scroll top button
+    const navbar = document.getElementById('navbar');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Init when DOM is loaded
-  document.addEventListener('DOMContentLoaded', initData);
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Init when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initData);
   </script>
 </body>
+
 </html>
