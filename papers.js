@@ -21,6 +21,7 @@ const relatedPapersData = {
   // 4: Image Analyzer
   4: [
     "10.1016/j.fct.2025.115743",
+    "10.1002/cbin.70013",
     // "10.xxxx/yyyy"
   ],
 
@@ -56,6 +57,7 @@ const relatedPapersData = {
 
   // 11: Next-Generation Sequencer (Benchtop)
   11: [
+    "10.1038/s41598-025-10791-8",
     "10.1038/s41598-025-10791-8",
     // "10.xxxx/yyyy"
   ],
@@ -121,6 +123,7 @@ const relatedPapersData = {
 
   // 23: HPLC (Thermo Dionex Ultimate 3200/3400)
   23: [
+    "10.1002/fsn3.4681",
     // "10.xxxx/yyyy"
   ],
 
@@ -147,6 +150,7 @@ const relatedPapersData = {
 
   // 28: Direct Analysis in Real Time Mass Spectrometer (DART-MS)
   28: [
+    "10.1002/ajoc.202400808",
     // "10.xxxx/yyyy"
   ],
 
@@ -203,6 +207,7 @@ const relatedPapersData = {
 
   // 39: Light & Fluorescence Stereomicroscope
   39: [
+    "10.1016/j.eti.2024.103991",
     // "10.xxxx/yyyy"
   ],
 
@@ -225,7 +230,9 @@ const relatedPapersData = {
 
   // 43: DeltaVision Microscope
   43: [
-    "10.1128/spectrum.04159-25"
+    "10.1128/spectrum.04159-25",
+    "10.1371/journal.ppat.1012936",
+    "10.1016/j.heliyon.2024.e39048",
     // "10.xxxx/yyyy"
   ],
 
@@ -236,6 +243,7 @@ const relatedPapersData = {
 
   // 45: Atomic Force Microscope (AFM)
   45: [
+    "10.1016/j.apsusc.2024.161591",
     // "10.xxxx/yyyy"
   ],
 
@@ -245,6 +253,9 @@ const relatedPapersData = {
     "10.1016/j.fuproc.2026.108482",
     "10.1016/j.mtcomm.2025.113797",
     "10.1016/j.materresbull.2025.113500",
+    "10.1016/j.psep.2025.01.006",
+    "10.1016/j.carbon.2024.119705",
+    "10.21203/rs.3.rs-5505585/v1",
     // "10.xxxx/yyyy"
   ],
 
@@ -266,6 +277,9 @@ const relatedPapersData = {
     "10.1021/acsaem.5c02806",
     "10.1016/j.materresbull.2025.113500",
     "10.1186/s12917-025-04951-1",
+    "10.1016/j.nfs.2024.100209",
+    "10.3390/ani14223178",
+    "10.1038/s41598-024-70276-y",
     // "10.xxxx/yyyy"
   ],
 
@@ -279,6 +293,11 @@ const relatedPapersData = {
     "10.1016/j.rineng.2026.110377",
     "10.1002/smsc.202500451",
     "10.1021/acsomega.5c03627",
+    "10.1002/solr.202400910",
+    "10.1039/d4na01022a",
+    "10.1016/j.apsusc.2024.161591",
+    "10.1021/acsphotonics.4c01469",
+    "10.1021/acsomega.4c09165",
     // "10.xxxx/yyyy"
   ],
 
@@ -324,6 +343,7 @@ const relatedPapersData = {
 
   // 58: Cryostat
   58: [
+    "10.1038/s41598-024-84395-z",
     // "10.xxxx/yyyy"
   ],
 
@@ -355,12 +375,22 @@ const relatedPapersData = {
     "10.1016/j.materresbull.2025.113711",
     "10.1016/j.recm.2025.100153",
     "10.1021/acsomega.5c03627",
+    "10.1038/s41598-025-99439-1",
+    "10.1021/acsphotonics.4c01469",
+    "10.1016/j.jksus.2024.103557",
+    "10.1016/j.sna.2024.116061",
+    "10.1021/acsanm.4c04921",
+    "10.1016/j.heliyon.2024.e38708",
+    "10.1038/s41598-024-70503-6",
+    "10.1039/d4tc02062f",
     // "10.xxxx/yyyy"
   ],
 
   // 64: Spectrofluorometer
   64: [
     "10.1016/j.surfin.2026.108604",
+    "10.1016/j.psep.2025.01.006",
+    "10.1039/d4ra04585h",
     // "10.xxxx/yyyy"
   ],
 
@@ -374,7 +404,11 @@ const relatedPapersData = {
     "10.1039/d5tc03926f",
     "10.1021/acs.inorgchem.5c04533",
     "10.1016/j.recm.2025.100126",
-    "10.1016/j.solmat.2025.113545"
+    "10.1016/j.solmat.2025.113545",
+    "10.1002/slct.202500544",
+    "10.1016/j.nfs.2024.100209",
+    "10.1016/j.jddst.2024.106437",
+    "10.1016/j.clema.2024.100280",
     // "10.xxxx/yyyy"
   ],
 
@@ -397,13 +431,17 @@ const relatedPapersData = {
     "10.1016/j.marpolbul.2026.119905",
     "10.1016/j.hazadv.2026.101157",
     "10.1016/j.rsma.2025.104498",
-    "10.1080/03650340.2025.2518266"
+    "10.1080/03650340.2025.2518266",
+    "10.1080/03650340.2025.2518266",
+    "10.1016/j.fochx.2024.102119",
+    "10.1016/j.jafr.2024.101272",
     // "10.xxxx/yyyy"
   ],
 
   // 70: Circular Dichroism Spectrometer (CD)
   70: [
     "10.1038/s41598-025-24052-1",
+    "10.58837/chula.jmbs.7.s1.21",
     // "10.xxxx/yyyy"
   ],
 
@@ -412,13 +450,18 @@ const relatedPapersData = {
     "10.1007/s11356-026-37873-y",
     "10.1016/j.microc.2026.118555",
     "10.1002/smsc.202500451",
-    "10.1016/j.carpta.2025.100763"
+    "10.1016/j.carpta.2025.100763",
+    "10.1016/j.eti.2024.103991",
+    "10.1016/j.heliyon.2024.e38708",
+    "10.1016/j.wasman.2024.08.033",
+    "10.1039/d4tc02062f",
     // "10.xxxx/yyyy"
   ],
 
   // 72: FTIR Microscope Spectrometer
   72: [
     "10.1016/j.envres.2026.124396",
+    "10.1002/solr.202400910",
     // "10.xxxx/yyyy"
   ],
 
@@ -426,11 +469,14 @@ const relatedPapersData = {
   73: [
     "10.1016/j.isci.2026.115893",
     "10.1016/j.afres.2025.101353",
+    "10.1016/j.psep.2025.01.006",
+    "10.1016/j.carbon.2024.119705",
     // "10.xxxx/yyyy"
   ],
 
   // 74: Microparticle Size Analyzer (Laser Diffraction)
   74: [
+    "10.1016/j.wasman.2024.08.033",
     // "10.xxxx/yyyy"
   ],
 
@@ -454,6 +500,9 @@ const relatedPapersData = {
     "10.1016/j.grets.2026.100370",
     "10.1016/j.recm.2025.100148",
     "10.1016/j.cscee.2025.101217",
+    "10.1016/j.recm.2024.10.002",
+    "10.1016/j.clema.2024.100280",
+    "10.1016/j.clema.2024.100254",
     // "10.xxxx/yyyy"
   ],
 
@@ -461,12 +510,15 @@ const relatedPapersData = {
   79: [
     "10.1016/j.recm.2025.100126",
     "10.1016/j.carpta.2025.100763",
+    "10.1016/j.clema.2024.100280",
+    "10.1038/s41598-024-70276-y",
     // "10.xxxx/yyyy"
   ],
 
   // 80: Automated Simultaneous Thermal Analyzer
   80: [
     "10.1016/j.grets.2026.100370",
+    "10.1002/solr.202400910",
     // "10.xxxx/yyyy"
   ],
 
@@ -478,7 +530,8 @@ const relatedPapersData = {
   // 82: Nanoscale X-ray Computed Tomograph (Nano-CT)
   82: [
     "10.1371/journal.pone.0349259",
-    "10.1038/s41598-025-06485-w"
+    "10.1038/s41598-025-06485-w",
+    "10.1038/s41598-025-06485-w",
     // "10.xxxx/yyyy"
   ],
 
@@ -500,6 +553,21 @@ const relatedPapersData = {
     "10.1016/j.carpta.2025.100763",
     "10.1016/j.cscee.2025.101217",
     "10.1021/acsomega.5c03627",
+    "10.1038/s41598-025-99439-1",
+    "10.1002/solr.202400910",
+    "10.1016/j.recm.2024.10.002",
+    "10.1016/j.psep.2025.01.006",
+    "10.1016/j.apsusc.2024.161591",
+    "10.1021/acsphotonics.4c01469",
+    "10.1016/j.carbon.2024.119705",
+    "10.21203/rs.3.rs-5505585/v1",
+    "10.1016/j.clema.2024.100280",
+    "10.1016/j.heliyon.2024.e37808",
+    "10.1016/j.wasman.2024.08.033",
+    "10.1039/d4ra04585h",
+    "10.1016/j.clema.2024.100254",
+    "10.1038/s41598-024-70503-6",
+    "10.1039/d4tc02062f",
     // "10.xxxx/yyyy"
   ],
 
@@ -518,6 +586,8 @@ const relatedPapersData = {
   86: [
     "10.1016/j.hazadv.2026.101357",
     "10.1016/j.jece.2026.121211",
+    "10.1080/03650340.2025.2518266",
+    "10.1016/j.wasman.2024.08.033",
     // "10.xxxx/yyyy"
   ],
 
