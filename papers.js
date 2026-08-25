@@ -80,8 +80,8 @@ const relatedPapersData = {
 
   // 15: Automated Western Blot
   15: [
-    "10.31557/apjcp.2026.27.1.183"
-
+    "10.31557/apjcp.2026.27.1.183",
+    "10.1016/j.bbrc.2024.150429",
     // "10.xxxx/yyyy"
   ],
 
@@ -172,6 +172,7 @@ const relatedPapersData = {
   // 32: Gas Chromatograph-Mass Spectrometer (GC-MS)
   32: [
     "10.1016/j.afres.2025.101353",
+    "10.1038/s41598-024-66650-5",
     // "10.xxxx/yyyy"
   ],
 
@@ -256,6 +257,7 @@ const relatedPapersData = {
     "10.1016/j.psep.2025.01.006",
     "10.1016/j.carbon.2024.119705",
     "10.21203/rs.3.rs-5505585/v1",
+    "10.1039/d4ra04284k",
     // "10.xxxx/yyyy"
   ],
 
@@ -280,6 +282,7 @@ const relatedPapersData = {
     "10.1016/j.nfs.2024.100209",
     "10.3390/ani14223178",
     "10.1038/s41598-024-70276-y",
+    "10.1039/d4ra04284k",
     // "10.xxxx/yyyy"
   ],
 
@@ -298,6 +301,9 @@ const relatedPapersData = {
     "10.1016/j.apsusc.2024.161591",
     "10.1021/acsphotonics.4c01469",
     "10.1021/acsomega.4c09165",
+    "10.1016/j.eti.2024.103681",
+    "10.1038/s41598-024-66650-5",
+    "10.1016/j.jtice.2023.105324",
     // "10.xxxx/yyyy"
   ],
 
@@ -328,6 +334,7 @@ const relatedPapersData = {
 
   // 55: Centrifuge (Benchtop/High Speed/Superspeed/Ultra Speed)
   55: [
+    "10.1002/mame.202400211",
     // "10.xxxx/yyyy"
   ],
 
@@ -383,6 +390,7 @@ const relatedPapersData = {
     "10.1016/j.heliyon.2024.e38708",
     "10.1038/s41598-024-70503-6",
     "10.1039/d4tc02062f",
+    "10.1038/s41598-024-66938-6",
     // "10.xxxx/yyyy"
   ],
 
@@ -409,6 +417,7 @@ const relatedPapersData = {
     "10.1016/j.nfs.2024.100209",
     "10.1016/j.jddst.2024.106437",
     "10.1016/j.clema.2024.100280",
+    "10.1016/j.susmat.2024.e00973",
     // "10.xxxx/yyyy"
   ],
 
@@ -417,6 +426,7 @@ const relatedPapersData = {
     "10.1080/15226514.2026.2636202",
     "10.1038/s41598-025-27933-7",
     "10.1002/prp2.70148",
+    "10.1038/s41598-024-66650-5",
     // "10.xxxx/yyyy"
   ],
 
@@ -455,6 +465,8 @@ const relatedPapersData = {
     "10.1016/j.heliyon.2024.e38708",
     "10.1016/j.wasman.2024.08.033",
     "10.1039/d4tc02062f",
+    "10.1016/j.chemosphere.2024.142997",
+    "10.1038/s41598-024-66650-5",
     // "10.xxxx/yyyy"
   ],
 
@@ -471,6 +483,7 @@ const relatedPapersData = {
     "10.1016/j.afres.2025.101353",
     "10.1016/j.psep.2025.01.006",
     "10.1016/j.carbon.2024.119705",
+    "10.1038/s41598-024-66650-5",
     // "10.xxxx/yyyy"
   ],
 
@@ -503,6 +516,8 @@ const relatedPapersData = {
     "10.1016/j.recm.2024.10.002",
     "10.1016/j.clema.2024.100280",
     "10.1016/j.clema.2024.100254",
+    "10.1016/j.susmat.2024.e00973",
+    "10.1016/j.jtice.2023.105324",
     // "10.xxxx/yyyy"
   ],
 
@@ -512,6 +527,7 @@ const relatedPapersData = {
     "10.1016/j.carpta.2025.100763",
     "10.1016/j.clema.2024.100280",
     "10.1038/s41598-024-70276-y",
+    "10.1016/j.susmat.2024.e00973",
     // "10.xxxx/yyyy"
   ],
 
@@ -568,6 +584,13 @@ const relatedPapersData = {
     "10.1016/j.clema.2024.100254",
     "10.1038/s41598-024-70503-6",
     "10.1039/d4tc02062f",
+    "10.1016/j.chemosphere.2024.142997",
+    "10.1016/j.ijhydene.2024.07.114",
+    "10.1039/d4ra04284k",
+    "10.1038/s41598-024-66938-6",
+    "10.1038/s41598-024-66650-5",
+    "10.1016/j.susmat.2024.e00973",
+    "10.1016/j.jtice.2023.105324",
     // "10.xxxx/yyyy"
   ],
 
@@ -588,6 +611,7 @@ const relatedPapersData = {
     "10.1016/j.jece.2026.121211",
     "10.1080/03650340.2025.2518266",
     "10.1016/j.wasman.2024.08.033",
+    "10.1016/j.jtice.2023.105324",
     // "10.xxxx/yyyy"
   ],
 
