@@ -1287,6 +1287,11 @@
   <div class="layout">
     <!-- SIDEBAR -->
     <aside class="sidebar">
+      <div class="sidebar-card" id="branchCard" style="display: none;">
+        <div class="sidebar-label">สาขาของศูนย์เครื่องมือ (BRANCHES)</div>
+        <div class="group-pills" id="branchPills"></div>
+      </div>
+
       <div class="sidebar-card">
         <div class="sidebar-label">กลุ่มเครื่องมือ (GROUPS)</div>
         <div class="group-pills" id="groupPills"></div>
@@ -1433,6 +1438,7 @@
     // =====================================================================
     let allInstruments = [];
     let activeGroup = 'all';
+    let activeBranch = 'all';
     let activeTags = new Set();
     let searchQuery = '';
     let viewMode = 'grid';
@@ -1495,9 +1501,37 @@
     function renderSidebar() {
       const total = allInstruments.length;
 
+      // Branch Pills
+      const branchCard = document.getElementById('branchCard');
+      if (typeof branchConfig !== 'undefined' && Object.keys(branchConfig).length > 0) {
+        branchCard.style.display = 'block';
+        let bhtml = `<button class="group-pill ${activeBranch === 'all' ? 'active' : ''}" data-b="all">
+          <div class="gp-left"><div class="gp-dot" style="background:#64748b"></div>
+            <span class="gp-abbr">ALL</span><span>ทุกสาขา</span></div>
+        </button>`;
+        Object.keys(branchConfig).forEach(bId => {
+          const b = branchConfig[bId];
+          bhtml += `<button class="group-pill ${activeBranch === bId ? 'active' : ''}" data-b="${bId}">
+            <div class="gp-left">
+              <div class="gp-dot" style="background:${b.color || '#2563eb'}"></div>
+              <span>${esc(b.name)}</span>
+            </div>
+          </button>`;
+        });
+        document.getElementById('branchPills').innerHTML = bhtml;
+        document.querySelectorAll('#branchPills .group-pill').forEach(btn => {
+          btn.addEventListener('click', () => { activeBranch = btn.dataset.b; renderSidebar(); renderAll(); });
+        });
+      }
+
       // Group counts
       const groupCounts = {};
       allInstruments.forEach(item => {
+        // Only count items that match the current branch filter
+        if (activeBranch !== 'all') {
+          const itemBranch = item.branch || 'salaya';
+          if (itemBranch !== activeBranch) return;
+        }
         const gId = item.groupId || 1;
         groupCounts[gId] = (groupCounts[gId] || 0) + 1;
       });
@@ -1525,7 +1559,7 @@
         });
       }
       document.getElementById('groupPills').innerHTML = ghtml;
-      document.querySelectorAll('.group-pill').forEach(b => {
+      document.querySelectorAll('#groupPills .group-pill').forEach(b => {
         b.addEventListener('click', () => { activeGroup = b.dataset.g; renderSidebar(); renderAll(); });
       });
 
@@ -1578,6 +1612,12 @@
     function getFiltered() {
       const q = searchQuery.toLowerCase().trim();
       const filtered = allInstruments.filter(i => {
+        // Branch filter
+        if (activeBranch !== 'all') {
+          const itemBranch = i.branch || 'salaya';
+          if (itemBranch !== activeBranch) return false;
+        }
+
         // Group filter
         if (activeGroup !== 'all' && String(i.groupId) !== activeGroup) return false;
 

@@ -477,6 +477,17 @@ const groupConfig = {
   "Special tests": { key: "special", icon: "⭐", label: "Special Tests" },
 };
 
+// ===== BRANCH CONFIG =====
+// วิธีตั้งค่าสาขา (Branch):
+// หากต้องการเพิ่มสาขาใหม่ ให้ใส่รหัสย่อ (เช่น "phayathai") เป็น key และกำหนดชื่อ (name) และสี (color)
+// จากนั้นใน equipmentData เครื่องมือตัวไหนอยู่สาขาใด ให้เพิ่ม property `branch: "รหัสสาขา"` เข้าไป
+// เช่น `branch: "phayathai"` (ถ้าไม่ใส่ ระบบจะถือว่าเป็นสาขาเริ่มต้น "salaya" โดยอัตโนมัติ)
+const branchConfig = {
+  "salaya": { name: "MU-FRF", color: "#2563eb" },
+  "muka": { name: "MUKA", color: "#059669" },
+  "musc": { name: "MUSC", color: "#db2777" },
+};
+
 // ===== DOMAIN TAG LABELS =====
 const domainTagLabels = {
   molecular_bio: "Molecular Biology",
