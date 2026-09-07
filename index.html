@@ -425,8 +425,9 @@
       transform: translateY(-50%);
       width: 22px;
       height: 22px;
-      color: var(--accent-indigo);
+      color: var(--text-muted);
       pointer-events: none;
+      z-index: 10;
     }
 
     .hero-category-pills {
@@ -536,7 +537,6 @@
     .section {
       position: relative;
       z-index: 1;
-      padding: 5rem 2rem;
     }
 
     .section-header {
@@ -1265,7 +1265,7 @@
 
     /* ===== BOOKING SECTION ===== */
     .booking-section {
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
       background: var(--bg-secondary);
       text-align: center;
     }
@@ -1298,11 +1298,19 @@
 
     .booking-btns {
       display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .booking-sub-btns {
+      display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center;
       align-items: center;
-      margin-top: 0.25rem;
     }
 
     .booking-btn {
@@ -1768,6 +1776,100 @@
       }
     }
 
+    /* ===== ACCREDITATION SECTION ===== */
+    .accreditation-section {
+      padding: 3.5rem 2rem;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .accreditation-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .accreditation-inner .section-header {
+      margin-bottom: 2.25rem;
+    }
+
+    .accreditation-logos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      align-items: center;
+      justify-items: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .accred-logo-wrap {
+      width: 100%;
+      aspect-ratio: 1.15 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--glass-border);
+      background: #ffffff;
+      padding: 0.35rem;
+      transition: var(--transition-normal);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .accred-logo-wrap:hover {
+      border-color: rgba(99, 102, 241, 0.45);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.12);
+      transform: translateY(-3px);
+    }
+
+    .accred-logo {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: var(--radius-sm);
+      transition: var(--transition-normal);
+    }
+
+    .accred-placeholder {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .accred-logo[src=""] {
+      display: none;
+    }
+
+    .accred-logo[src=""]+.accred-placeholder {
+      display: flex;
+    }
+
+    @media (max-width: 680px) {
+      .accreditation-logos {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 480px;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .accreditation-logos {
+        grid-template-columns: 1fr;
+        max-width: 250px;
+        gap: 1rem;
+      }
+    }
+
     .marquee-wrapper::after {
       right: 0;
       background: linear-gradient(to left, var(--bg-primary), transparent);
@@ -1960,17 +2062,17 @@
     }
 
     .kpi-icon {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
-      background: var(--kpi-icon-bg, rgba(37, 99, 235, 0.1));
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: linear-gradient(var(--kpi-icon-bg), var(--kpi-icon-bg)), #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0.75rem;
-      font-size: 1.3rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      margin-bottom: 0.85rem;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px var(--kpi-glow);
     }
 
     .kpi-label {
@@ -2104,7 +2206,7 @@
   </section>
 
   <!-- ===== SERVICES SECTION ===== -->
-  <section class="section" id="services" style="padding-top: 2.5rem;">
+  <section class="section" id="services">
 
     <!-- Group Cards -->
     <div class="groups-grid" id="groupsGrid">
@@ -2147,22 +2249,24 @@
           </svg>
           เริ่มต้นจองใช้งานเครื่องมือ (Book Services)
         </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfI5GufHUjpWhnP64uNNvtS0eD-9tKrf1ossqIuEfVmDjWH-g/viewform"
-          target="_blank" rel="noopener" class="labpass-btn">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c0 1.306.835 2.417 2 2.83M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
-          </svg>
-          MU-FRF Laboratory Safety
-        </a>
-        <a href="https://drive.google.com/file/d/13WHyYWZUAE7r1A8g9fnDCnn-Qagp1sAj/view" target="_blank" rel="noopener"
-          class="handout-btn">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          Handout: MU-FRF Laboratory Safety
-        </a>
+        <div class="booking-sub-btns">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfI5GufHUjpWhnP64uNNvtS0eD-9tKrf1ossqIuEfVmDjWH-g/viewform"
+            target="_blank" rel="noopener" class="labpass-btn">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c0 1.306.835 2.417 2 2.83M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+            </svg>
+            MU-FRF Laboratory Safety
+          </a>
+          <a href="https://drive.google.com/file/d/13WHyYWZUAE7r1A8g9fnDCnn-Qagp1sAj/view" target="_blank"
+            rel="noopener" class="handout-btn">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Handout: MU-FRF Laboratory Safety
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -2182,6 +2286,60 @@
         </svg>
         ดูกิจกรรมและข่าวสารเพิ่มเติม
       </a>
+    </div>
+  </section>
+
+  <!-- ===== ACCREDITATION SECTION ===== -->
+  <section class="accreditation-section">
+    <div class="accreditation-inner">
+      <div class="section-header animate-on-scroll">
+        <h2>มาตรฐานที่ได้รับการรับรอง</h2>
+      </div>
+      <div class="accreditation-logos">
+
+        <!-- LOGO 1 — แก้ src="..." เป็น path รูปจริง -->
+        <div class="accred-logo-wrap">
+          <img src="images/Accredit.tif.jpg" alt="Accreditation 1" class="accred-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="accred-placeholder">Logo 1</div>
+        </div>
+
+        <!-- LOGO 2 -->
+        <div class="accred-logo-wrap">
+          <img src="images/Peer_ESPPReL_2025.png.jpg" alt="Accreditation 2" class="accred-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="accred-placeholder">Logo 2</div>
+        </div>
+
+        <!-- LOGO 3 -->
+        <div class="accred-logo-wrap">
+          <img src="Images/DLS_interlab.png.jpg" alt="Accreditation 3" class="accred-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="accred-placeholder">Logo 3</div>
+        </div>
+
+        <!-- LOGO 4 -->
+        <div class="accred-logo-wrap">
+          <img src="images/XRD_interlab.png.jpg" alt="Accreditation 4" class="accred-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="accred-placeholder">Logo 4</div>
+        </div>
+
+        <!-- LOGO 5 -->
+        <div class="accred-logo-wrap">
+          <img src="images/XRD_Interlab2.png.jpg" alt="Accreditation 5" class="accred-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="accred-placeholder">Logo 5</div>
+        </div>
+
+        <!-- LOGO 6 -->
+        <div class="accred-logo-wrap">
+          <img src="images/EDS_Interlab.png.jpg" alt="Accreditation 6" class="accred-logo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="accred-placeholder">Logo 6</div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -2234,11 +2392,17 @@
               <p>02-441-9522</p>
             </div>
           </div>
-          <div class="contact-qr-card" style="margin-top: 1.5rem; background: rgba(6, 199, 85, 0.05); border: 1px solid rgba(6, 199, 85, 0.25); border-radius: 16px; padding: 1.2rem; display: flex; align-items: center; gap: 1.2rem; box-shadow: 0 4px 15px rgba(6, 199, 85, 0.08);">
-            <img src="images/line-qr.png" alt="LINE Official Account QR Code" style="width: 105px; height: 105px; border-radius: 12px; background: #ffffff; padding: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-shrink: 0; object-fit: contain;">
+          <div class="contact-qr-card"
+            style="margin-top: 1.5rem; background: rgba(6, 199, 85, 0.05); border: 1px solid rgba(6, 199, 85, 0.25); border-radius: 16px; padding: 1.2rem; display: flex; align-items: center; gap: 1.2rem; box-shadow: 0 4px 15px rgba(6, 199, 85, 0.08);">
+            <img src="images/line-qr.png" alt="LINE Official Account QR Code"
+              style="width: 105px; height: 105px; border-radius: 12px; background: #ffffff; padding: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-shrink: 0; object-fit: contain;">
             <div>
-              <h4 style="font-size: 1rem; font-weight: 700; color: #06C755; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.4rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#06C755"><path d="M12 2C6.48 2 2 5.92 2 10.75c0 4.28 3.52 7.87 8.27 8.56.32.07.76.21.87.49.1.25.07.64.03.9-.07.39-.29 1.55-.33 1.88-.06.49.23.48.49.33.26-.15 3.32-2.18 4.54-3.02C19.78 17.58 22 14.41 22 10.75 22 5.92 17.52 2 12 2z"/></svg>
+              <h4
+                style="font-size: 1rem; font-weight: 700; color: #06C755; margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#06C755">
+                  <path
+                    d="M12 2C6.48 2 2 5.92 2 10.75c0 4.28 3.52 7.87 8.27 8.56.32.07.76.21.87.49.1.25.07.64.03.9-.07.39-.29 1.55-.33 1.88-.06.49.23.48.49.33.26-.15 3.32-2.18 4.54-3.02C19.78 17.58 22 14.41 22 10.75 22 5.92 17.52 2 12 2z" />
+                </svg>
                 LINE Official Account
               </h4>
               <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">

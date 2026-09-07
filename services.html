@@ -494,34 +494,6 @@
       font-weight: 600;
     }
 
-    /* Abbrev legend */
-    .abbrev-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .abbrev-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-    }
-
-    .abbrev-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .abbrev-code {
-      font-weight: 700;
-      font-size: 0.75rem;
-      min-width: 30px;
-    }
-
     /* ===== MAIN CONTENT ===== */
     .main-content {
       min-width: 0;
@@ -1294,18 +1266,13 @@
       </div>
 
       <div class="sidebar-card">
-        <div class="sidebar-label">กลุ่มเครื่องมือ (GROUPS)</div>
+        <div class="sidebar-label">Instrument Groups</div>
         <div class="group-pills" id="groupPills"></div>
       </div>
 
       <div class="sidebar-card">
         <div class="sidebar-label">สาขาวิจัย (DOMAIN TAGS)</div>
         <div class="tag-pills" id="tagPills"></div>
-      </div>
-
-      <div class="sidebar-card">
-        <div class="sidebar-label">อักษรย่อกลุ่มเครื่องมือ</div>
-        <div class="abbrev-list" id="abbrevList"></div>
       </div>
     </aside>
 
@@ -1508,7 +1475,7 @@
         branchCard.style.display = 'block';
         let bhtml = `<button class="group-pill ${activeBranch === 'all' ? 'active' : ''}" data-b="all">
           <div class="gp-left"><div class="gp-dot" style="background:#64748b"></div>
-            <span class="gp-abbr">ALL</span><span>ทุกสาขา</span></div>
+            <span class="gp-abbr">ALL</span></div>
         </button>`;
         Object.keys(branchConfig).forEach(bId => {
           const b = branchConfig[bId];
@@ -1540,7 +1507,7 @@
       // Group Pills
       let ghtml = `<button class="group-pill ${activeGroup === 'all' ? 'active' : ''}" data-g="all">
       <div class="gp-left"><div class="gp-dot" style="background:#64748b"></div>
-        <span class="gp-abbr">ALL</span><span>ทั้งหมด</span></div>
+        <span>All</span></div>
       <span class="gp-count">${total}</span>
     </button>`;
 
@@ -1552,11 +1519,11 @@
           ghtml += `<button class="group-pill ${activeGroup === gIdStr ? 'active' : ''}" data-g="${gIdStr}">
           <div class="gp-left">
             <div class="gp-dot" style="background:${cfg.color}"></div>
-            <span class="gp-abbr" style="color:${cfg.color}">${cfg.code}</span>
-            <span>${esc(cfg.code)}</span>
+            <span>${esc(cfg.name)}</span>
           </div>
           <span class="gp-count">${count}</span>
         </button>`;
+
         });
       }
       document.getElementById('groupPills').innerHTML = ghtml;
@@ -1585,8 +1552,9 @@
       });
 
       // Abbrev Legend
-      if (typeof equipmentGroupConfig !== 'undefined') {
-        document.getElementById('abbrevList').innerHTML = Object.keys(equipmentGroupConfig).map(gIdStr => {
+      const abbrevEl = document.getElementById('abbrevList');
+      if (typeof equipmentGroupConfig !== 'undefined' && abbrevEl) {
+        abbrevEl.innerHTML = Object.keys(equipmentGroupConfig).map(gIdStr => {
           const gId = parseInt(gIdStr, 10);
           const cfg = getGroupCfg(gId);
           return `<div class="abbrev-item">
@@ -1782,30 +1750,39 @@
         ${inst.qty ? `<span style="padding:4px 12px;border-radius:999px;font-size:0.75rem;font-weight:600;background:rgba(5,150,105,0.1);color:#059669">จำนวน ${esc(inst.qty)} เครื่อง</span>` : ''}
       </div>
       ${inst.brand ? `<div class="modal-sec"><div class="modal-sec-lbl">ยี่ห้อ / รุ่น</div><p>${esc(inst.brand)}</p></div>` : ''}
-      ${inst.descTh ? `<div class="modal-sec"><div class="modal-sec-lbl">คำอธิบาย (ภาษาไทย)</div><p>${esc(inst.descTh)}</p></div>` : ''}
-      ${inst.descEn ? `<div class="modal-sec"><div class="modal-sec-lbl">Description (English)</div><p>${esc(inst.descEn)}</p></div>` : ''}
-      ${inst.specs ? `<div class="modal-sec"><div class="modal-sec-lbl">Specs หลัก</div><div class="modal-specs">${esc(inst.specs)}</div></div>` : ''}
+      ${inst.descTh ? `<div class="modal-sec"><div class="modal-sec-lbl">คำอธิบาย</div><p>${esc(inst.descTh)}</p></div>` : ''}
+      ${inst.descEn ? `<div class="modal-sec"><div class="modal-sec-lbl">Description</div><p>${esc(inst.descEn)}</p></div>` : ''}
+      ${inst.specs ? `<div class="modal-sec"><div class="modal-sec-lbl">Main Specification</div><div class="modal-specs">${esc(inst.specs)}</div></div>` : ''}
       ${tags.length ? `<div class="modal-sec"><div class="modal-sec-lbl">Research Domains</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:0.3rem">${tags.map(t => `<span class="modal-tag">${esc(getDomainLabel(t))}</span>`).join('')}</div></div>` : ''}
       
       <div id="relatedPapersContainer" class="modal-sec" style="display:none; margin-top:1.5rem; padding-top:1.5rem; border-top:1px dashed var(--glass-border);">
         <div class="modal-sec-lbl" style="color:var(--accent-purple); display:flex; align-items:center; justify-content:space-between; gap:6px;">
           <div style="display:flex; align-items:center; gap:6px;">
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-            ผลงานวิจัยที่เกี่ยวข้อง (Related Papers)
+            ผลงานวิจัยที่เกี่ยวข้อง (Related Publication)
           </div>
-          <select id="paperYearFilter" style="display:none; font-size:0.75rem; padding:2px 8px; border:1px solid var(--glass-border); border-radius:4px; outline:none; color:var(--text-secondary); background:var(--bg-card); cursor:pointer;">
-            <option value="all">ทั้งหมด</option>
-          </select>
+          <div id="paperYearWrapper" style="display:none; align-items:center; gap:4px;">
+            <span style="font-size:0.75rem; color:var(--text-muted); font-weight:500; text-transform:none; letter-spacing:normal;">Years</span>
+            <select id="paperYearFilter" style="font-size:0.75rem; padding:2px 8px; border:1px solid var(--glass-border); border-radius:4px; outline:none; color:var(--text-secondary); background:var(--bg-card); cursor:pointer;">
+              <option value="all">ทั้งหมด</option>
+            </select>
+          </div>
         </div>
         <div id="relatedPapersList" style="display:flex; flex-direction:column; gap:0.6rem; margin-top:0.8rem;">
           <div style="font-size:0.85rem; color:var(--text-muted);">Loading...</div>
         </div>
       </div>
 
-      <a href="${link}" class="modal-cta">
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        ดูอัตราค่าบริการ
-      </a>`;
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.5rem;">
+        <a href="${link}" class="modal-cta" style="margin-top:0;">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          ดูอัตราค่าบริการ
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0saQk7frRvQZ_jYcUFaMOTlL49kITWAoW-N7LT97jAdAufg/viewform?pli=1" target="_blank" rel="noopener" class="modal-cta" style="margin-top:0; background:linear-gradient(135deg,#059669,#10b981); box-shadow:0 4px 15px rgba(5,150,105,0.3);">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          จองใช้เครื่องมือ (Book service)
+        </a>
+      </div>`;
 
       document.getElementById('modalOverlay').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1906,8 +1883,9 @@
           };
 
           const yearFilterEl = document.getElementById('paperYearFilter');
+          const yearWrapperEl = document.getElementById('paperYearWrapper');
           if (availableYears.size > 0) {
-            yearFilterEl.style.display = 'block';
+            if (yearWrapperEl) yearWrapperEl.style.display = 'flex';
             const sortedYears = Array.from(availableYears).sort((a, b) => b - a);
             yearFilterEl.innerHTML = `<option value="all">ทั้งหมด</option>` + sortedYears.map(y => `<option value="${y}">${y}</option>`).join('');
 

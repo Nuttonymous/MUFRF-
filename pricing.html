@@ -590,7 +590,7 @@
     .search-box input:focus {
       border-color: rgba(59, 130, 246, 0.4);
       box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-      background: rgba(17, 24, 39, 0.8);
+      background: rgba(255, 255, 255, 0.95);
     }
 
     .search-box svg {
@@ -635,6 +635,7 @@
       cursor: pointer;
       transition: var(--transition-fast);
       user-select: none;
+      gap: 0.75rem;
     }
 
     .group-header:hover {
@@ -701,6 +702,41 @@
 
     .group-card.open .group-toggle svg {
       color: var(--accent-blue);
+    }
+
+    .group-book-btn {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(5, 150, 105, 0.3);
+      transition: var(--transition-normal);
+      flex-shrink: 0;
+    }
+
+    .group-book-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.4);
+    }
+
+    .group-book-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .group-card.open .group-book-btn {
+      display: flex;
     }
 
     .group-body {
@@ -1749,26 +1785,8 @@
       </div>
     </div>
 
-    <!-- Pricing Legend -->
-    <div class="pricing-legend animate-on-scroll" id="pricing-info">
-      <div class="pricing-legend-inner">
-        <div class="legend-item">
-          <div class="legend-dot mahidol"></div>
-          <span>บุคลากร/นักศึกษามหิดล (Mahidol)</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot gov"></div>
-          <span>หน่วยงานราชการ (Government)</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-dot private"></div>
-          <span>ภาคเอกชน (Private)</span>
-        </div>
-        <div class="legend-item" style="font-size:0.8rem; color:var(--text-muted);">
-          💰 หน่วย: บาท (THB)
-        </div>
-      </div>
-    </div>
+
+
 
     <!-- Group Cards -->
     <div class="groups-grid" id="groupsGrid">
@@ -2197,6 +2215,10 @@
                 <div class="group-subtitle">${services.length} รายการบริการ · ${Object.keys(instruments).length} เครื่องมือ</div>
               </div>
             </div>
+            <a class="group-book-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSf0saQk7frRvQZ_jYcUFaMOTlL49kITWAoW-N7LT97jAdAufg/viewform?pli=1" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-left:auto;">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              จองใช้เครื่องมือ (Book Service)
+            </a>
             <div class="group-toggle">
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </div>
