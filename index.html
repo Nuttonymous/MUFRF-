@@ -1778,14 +1778,14 @@
 
     /* ===== ACCREDITATION SECTION ===== */
     .accreditation-section {
-      padding: 3.5rem 2rem;
+      padding: 3.5rem 1.5rem;
       background: var(--bg-secondary);
       border-top: 1px solid var(--glass-border);
       border-bottom: 1px solid var(--glass-border);
     }
 
     .accreditation-inner {
-      max-width: 1100px;
+      max-width: 1400px;
       margin: 0 auto;
       text-align: center;
     }
@@ -1796,11 +1796,11 @@
 
     .accreditation-logos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
       align-items: center;
       justify-items: center;
-      max-width: 780px;
+      max-width: 100%;
       margin: 0 auto;
     }
 
@@ -1817,12 +1817,13 @@
       transition: var(--transition-normal);
       box-shadow: var(--shadow-sm);
       overflow: hidden;
+      cursor: pointer;
     }
 
     .accred-logo-wrap:hover {
       border-color: rgba(99, 102, 241, 0.45);
-      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.12);
-      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.15);
+      transform: translateY(-4px);
     }
 
     .accred-logo {
@@ -1854,11 +1855,88 @@
       display: flex;
     }
 
+    /* Modal for enlarged certificate view */
+    .cert-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .cert-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .cert-modal-content {
+      position: relative;
+      max-width: 650px;
+      width: 100%;
+      background: #ffffff;
+      padding: 0.85rem;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      animation: modalZoom 0.22s ease-out;
+    }
+
+    .cert-modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .cert-modal-close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      width: 36px;
+      height: 36px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s;
+    }
+
+    .cert-modal-close:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+      transform: scale(1.1);
+    }
+
+    @keyframes modalZoom {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 1024px) {
+      .accreditation-logos {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 780px;
+        gap: 1rem;
+      }
+    }
+
     @media (max-width: 680px) {
       .accreditation-logos {
         grid-template-columns: repeat(2, 1fr);
         max-width: 480px;
-        gap: 1rem;
+        gap: 0.85rem;
       }
     }
 
@@ -1866,7 +1944,7 @@
       .accreditation-logos {
         grid-template-columns: 1fr;
         max-width: 250px;
-        gap: 1rem;
+        gap: 0.75rem;
       }
     }
 
@@ -2297,44 +2375,44 @@
       </div>
       <div class="accreditation-logos">
 
-        <!-- LOGO 1 — แก้ src="..." เป็น path รูปจริง -->
-        <div class="accred-logo-wrap">
-          <img src="images/Accredit.tif.jpg" alt="Accreditation 1" class="accred-logo"
+        <!-- LOGO 1 -->
+        <div class="accred-logo-wrap" onclick="openCertModal('images/Accredit.tif.jpg', 'TIS 2677-2558: Safety Management System for Chemical Laboratories')" title="คลิกเพื่อดูรูปขยาย TIS 2677-2558">
+          <img src="images/Accredit.tif.jpg" alt="TIS 2677-2558: Safety Management System for Chemical Laboratories (2025-2028)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 1</div>
         </div>
 
         <!-- LOGO 2 -->
-        <div class="accred-logo-wrap">
-          <img src="images/Peer_ESPPReL_2025.png.jpg" alt="Accreditation 2" class="accred-logo"
+        <div class="accred-logo-wrap" onclick="openCertModal('images/Peer_ESPPReL_2025.png.jpg', 'Peer Evaluation/ESPReL (2025-2028)')" title="คลิกเพื่อดูรูปขยาย Peer Evaluation/ESPReL">
+          <img src="images/Peer_ESPPReL_2025.png.jpg" alt="Peer Evaluation/ESPReL (Enhancement of Safety Practice of Research Laboratory)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 2</div>
         </div>
 
         <!-- LOGO 3 -->
-        <div class="accred-logo-wrap">
-          <img src="images/DLS_interlab.png.jpg" alt="Accreditation 3" class="accred-logo"
+        <div class="accred-logo-wrap" onclick="openCertModal('images/DLS_interlab.png.jpg', 'Interlaboratory Comparisons: Dynamic Light Scattering (2025)')" title="คลิกเพื่อดูรูปขยาย Dynamic Light Scattering (2025)">
+          <img src="images/DLS_interlab.png.jpg" alt="Interlaboratory Comparisons: Dynamic Light Scattering (2025)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 3</div>
         </div>
 
         <!-- LOGO 4 -->
-        <div class="accred-logo-wrap">
-          <img src="images/XRD_interlab.png.jpg" alt="Accreditation 4" class="accred-logo"
+        <div class="accred-logo-wrap" onclick="openCertModal('images/XRD_interlab.png.jpg', 'Interlaboratory Comparisons: XRD 06 (2024)')" title="คลิกเพื่อดูรูปขยาย XRD 06 (2024)">
+          <img src="images/XRD_interlab.png.jpg" alt="Interlaboratory Comparisons: XRD 06 (2024)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 4</div>
         </div>
 
         <!-- LOGO 5 -->
-        <div class="accred-logo-wrap">
-          <img src="images/XRD_Interlab2.png.jpg" alt="Accreditation 5" class="accred-logo"
+        <div class="accred-logo-wrap" onclick="openCertModal('images/XRD_Interlab2.png.jpg', 'Interlaboratory Comparisons: XRD 07 (2024)')" title="คลิกเพื่อดูรูปขยาย XRD 07 (2024)">
+          <img src="images/XRD_Interlab2.png.jpg" alt="Interlaboratory Comparisons: XRD 07 (2024)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 5</div>
         </div>
 
         <!-- LOGO 6 -->
-        <div class="accred-logo-wrap">
-          <img src="images/EDS_Interlab.png.jpg" alt="Accreditation 6" class="accred-logo"
+        <div class="accred-logo-wrap" onclick="openCertModal('images/EDS_Interlab.png.jpg', 'Interlaboratory Comparisons: MICROSCALE ANALYSIS EDS: 5 (2023)')" title="คลิกเพื่อดูรูปขยาย MICROSCALE ANALYSIS EDS: 5 (2023)">
+          <img src="images/EDS_Interlab.png.jpg" alt="Interlaboratory Comparisons: MICROSCALE ANALYSIS EDS: 5 (2023)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 6</div>
         </div>
@@ -2538,7 +2616,7 @@
         form.reset();
         statusDiv.style.display = 'block';
         statusDiv.style.color = '#059669';
-        statusDiv.innerHTML = '✅ ขอบคุณที่ติดต่อเรา! เราจะตอบกลับภายใน 1-2 วันทำการ';
+        statusDiv.innerHTML = '✅ Thank you for contacting us! We will get back to you within 1-2 business days.';
         btn.textContent = 'ส่งแล้ว ✓';
         setTimeout(() => {
           btn.disabled = false;
@@ -2998,10 +3076,40 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
+    // Certificate Lightbox Modal
+    function openCertModal(src, alt) {
+      const modal = document.getElementById('certModal');
+      const img = document.getElementById('certModalImg');
+      if (!modal || !img) return;
+      img.src = src;
+      img.alt = alt || 'Certificate Preview';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+      const modal = document.getElementById('certModal');
+      if (!modal) return;
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCertModal();
+    });
+
     // Init
     buildPills();
     filterAndRender();
   </script>
+
+  <!-- Certificate Lightbox Modal -->
+  <div id="certModal" class="cert-modal" onclick="closeCertModal()">
+    <div class="cert-modal-content" onclick="event.stopPropagation()">
+      <button class="cert-modal-close" onclick="closeCertModal()" aria-label="Close" title="ปิด">&times;</button>
+      <img id="certModalImg" src="" alt="Certificate Preview">
+    </div>
+  </div>
 </body>
 
 </html>
