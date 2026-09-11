@@ -2261,11 +2261,11 @@
           <div class="kpi-desc">งานวิจัยที่ดีพิมพ์ทั้งหมด</div>
         </div>
         <div class="kpi-card"
-          style="--kpi-gradient: linear-gradient(135deg, #d97706, #f59e0b); --kpi-glow: rgba(217,119,6,0.06); --kpi-icon-bg: rgba(217,119,6,0.08);">
-          <div class="kpi-icon">👨‍🔬</div>
-          <div class="kpi-label">จำนวนนักวิทยาศาสตร์</div>
-          <div class="kpi-value" id="kpiScientists">13</div>
-          <div class="kpi-desc">นักวิทยาศาสตร์และนักวิจัย</div>
+          style="--kpi-gradient: linear-gradient(135deg, #059669, #10b981); --kpi-glow: rgba(5,150,105,0.06); --kpi-icon-bg: rgba(5,150,105,0.08);">
+          <div class="kpi-icon">🏆</div>
+          <div class="kpi-label">Q1 Publications</div>
+          <div class="kpi-value" id="kpiQ1">—</div>
+          <div class="kpi-desc">งานวิจัยตีพิมพ์ในวารสาร Q1</div>
         </div>
       </div>
       <div class="hero-search-area">
@@ -2837,6 +2837,10 @@
           if (d.kpi.instruments) {
             document.getElementById('kpiInstruments').textContent = d.kpi.instruments + '+';
           }
+        }
+        // Update Q1 count from quartile breakdown
+        if (d && d.quartile && d.quartile.Q1 != null) {
+          document.getElementById('kpiQ1').textContent = d.quartile.Q1;
         }
       } catch (err) {
         console.error('Failed to fetch dynamic stats:', err);
