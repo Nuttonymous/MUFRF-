@@ -1042,6 +1042,18 @@
       font-size: 0.9rem;
       line-height: 1.7;
       margin-top: 1rem;
+      max-width: 310px;
+    }
+
+    .footer-brand .logo {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .footer-brand .logo .logo-text {
+      font-size: 1rem;
+      margin-top: -12px;
     }
 
     .footer h4 {
@@ -1920,8 +1932,15 @@
     }
 
     @keyframes modalZoom {
-      from { transform: scale(0.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0.92);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     @media (max-width: 1024px) {
@@ -2264,7 +2283,7 @@
           style="--kpi-gradient: linear-gradient(135deg, #059669, #10b981); --kpi-glow: rgba(5,150,105,0.06); --kpi-icon-bg: rgba(5,150,105,0.08);">
           <div class="kpi-icon">🏆</div>
           <div class="kpi-label">Q1 Publications</div>
-          <div class="kpi-value" id="kpiQ1">—</div>
+          <div class="kpi-value" id="kpiQ1">—%</div>
           <div class="kpi-desc">งานวิจัยตีพิมพ์ในวารสาร Q1</div>
         </div>
       </div>
@@ -2376,44 +2395,58 @@
       <div class="accreditation-logos">
 
         <!-- LOGO 1 -->
-        <div class="accred-logo-wrap" onclick="openCertModal('images/Accredit.tif.jpg', 'TIS 2677-2558: Safety Management System for Chemical Laboratories')" title="คลิกเพื่อดูรูปขยาย TIS 2677-2558">
-          <img src="images/Accredit.tif.jpg" alt="TIS 2677-2558: Safety Management System for Chemical Laboratories (2025-2028)" class="accred-logo"
+        <div class="accred-logo-wrap"
+          onclick="openCertModal('images/Accredit.tif.jpg', 'TIS 2677-2558: Safety Management System for Chemical Laboratories')"
+          title="คลิกเพื่อดูรูปขยาย TIS 2677-2558">
+          <img src="images/Accredit.tif.jpg"
+            alt="TIS 2677-2558: Safety Management System for Chemical Laboratories (2025-2028)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 1</div>
         </div>
 
         <!-- LOGO 2 -->
-        <div class="accred-logo-wrap" onclick="openCertModal('images/Peer_ESPPReL_2025.png.jpg', 'Peer Evaluation/ESPReL (2025-2028)')" title="คลิกเพื่อดูรูปขยาย Peer Evaluation/ESPReL">
-          <img src="images/Peer_ESPPReL_2025.png.jpg" alt="Peer Evaluation/ESPReL (Enhancement of Safety Practice of Research Laboratory)" class="accred-logo"
+        <div class="accred-logo-wrap"
+          onclick="openCertModal('images/Peer_ESPPReL_2025.png.jpg', 'Peer Evaluation/ESPReL (2025-2028)')"
+          title="คลิกเพื่อดูรูปขยาย Peer Evaluation/ESPReL">
+          <img src="images/Peer_ESPPReL_2025.png.jpg"
+            alt="Peer Evaluation/ESPReL (Enhancement of Safety Practice of Research Laboratory)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 2</div>
         </div>
 
         <!-- LOGO 3 -->
-        <div class="accred-logo-wrap" onclick="openCertModal('images/DLS_interlab.png.jpg', 'Interlaboratory Comparisons: Dynamic Light Scattering (2025)')" title="คลิกเพื่อดูรูปขยาย Dynamic Light Scattering (2025)">
-          <img src="images/DLS_interlab.png.jpg" alt="Interlaboratory Comparisons: Dynamic Light Scattering (2025)" class="accred-logo"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="accred-logo-wrap"
+          onclick="openCertModal('images/DLS_interlab.png.jpg', 'Interlaboratory Comparisons: Dynamic Light Scattering (2025)')"
+          title="คลิกเพื่อดูรูปขยาย Dynamic Light Scattering (2025)">
+          <img src="images/DLS_interlab.png.jpg" alt="Interlaboratory Comparisons: Dynamic Light Scattering (2025)"
+            class="accred-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 3</div>
         </div>
 
         <!-- LOGO 4 -->
-        <div class="accred-logo-wrap" onclick="openCertModal('images/XRD_interlab.png.jpg', 'Interlaboratory Comparisons: XRD 06 (2024)')" title="คลิกเพื่อดูรูปขยาย XRD 06 (2024)">
+        <div class="accred-logo-wrap"
+          onclick="openCertModal('images/XRD_interlab.png.jpg', 'Interlaboratory Comparisons: XRD 06 (2024)')"
+          title="คลิกเพื่อดูรูปขยาย XRD 06 (2024)">
           <img src="images/XRD_interlab.png.jpg" alt="Interlaboratory Comparisons: XRD 06 (2024)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 4</div>
         </div>
 
         <!-- LOGO 5 -->
-        <div class="accred-logo-wrap" onclick="openCertModal('images/XRD_Interlab2.png.jpg', 'Interlaboratory Comparisons: XRD 07 (2024)')" title="คลิกเพื่อดูรูปขยาย XRD 07 (2024)">
+        <div class="accred-logo-wrap"
+          onclick="openCertModal('images/XRD_Interlab2.png.jpg', 'Interlaboratory Comparisons: XRD 07 (2024)')"
+          title="คลิกเพื่อดูรูปขยาย XRD 07 (2024)">
           <img src="images/XRD_Interlab2.png.jpg" alt="Interlaboratory Comparisons: XRD 07 (2024)" class="accred-logo"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 5</div>
         </div>
 
         <!-- LOGO 6 -->
-        <div class="accred-logo-wrap" onclick="openCertModal('images/EDS_Interlab.png.jpg', 'Interlaboratory Comparisons: MICROSCALE ANALYSIS EDS: 5 (2023)')" title="คลิกเพื่อดูรูปขยาย MICROSCALE ANALYSIS EDS: 5 (2023)">
-          <img src="images/EDS_Interlab.png.jpg" alt="Interlaboratory Comparisons: MICROSCALE ANALYSIS EDS: 5 (2023)" class="accred-logo"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="accred-logo-wrap"
+          onclick="openCertModal('images/EDS_Interlab.png.jpg', 'Interlaboratory Comparisons: MICROSCALE ANALYSIS EDS: 5 (2023)')"
+          title="คลิกเพื่อดูรูปขยาย MICROSCALE ANALYSIS EDS: 5 (2023)">
+          <img src="images/EDS_Interlab.png.jpg" alt="Interlaboratory Comparisons: MICROSCALE ANALYSIS EDS: 5 (2023)"
+            class="accred-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="accred-placeholder">Logo 6</div>
         </div>
 
@@ -2524,25 +2557,21 @@
           <img src="images/logo.png" alt="MUFRF Logo" class="logo-img">
           <div class="logo-text"><span>Mahidol University Frontier Research Facility</span></div>
         </a>
-        <p>
-          ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล (Mahidol University Frontier Research Facility)
+        <p>ศูนย์เครื่องมือวิจัยเพื่อความเป็นเลิศ มหาวิทยาลัยมหิดล
           ให้บริการเครื่องมือวิทยาศาสตร์ขั้นสูงเพื่อสนับสนุนงานวิจัยและนวัตกรรม
+          <br>
+          <br>
+          เวลาทำการ : 8.30 - 16.30 น.
         </p>
       </div>
       <div>
-        <h4>กลุ่มบริการ</h4>
-        <ul class="footer-links" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem;">
-          <li><a href="#services">Bioscience</a></li>
-          <li><a href="#services">Chromatograph</a></li>
-          <li><a href="#services">Freezer</a></li>
-          <li><a href="#services">Microscope</a></li>
-          <li><a href="#services">Sample Prep</a></li>
-          <li><a href="#services">Spectrometer</a></li>
-          <li><a href="#services">Surface Analysis</a></li>
-          <li><a href="#services">Thermal Analysis</a></li>
-          <li><a href="#services">Water System</a></li>
-          <li><a href="#services">X-ray</a></li>
-          <li><a href="#services">Special Tests</a></li>
+        <h4>ทางลัด (Quick Links)</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">หน้าแรก</a></li>
+          <li><a href="services.html">เครื่องมือวิจัย</a></li>
+          <li><a href="pricing.html">อัตราค่าบริการ</a></li>
+          <li><a href="#booking">จองใช้เครื่องมือ</a></li>
+          <li><a href="personnel.html">บุคลากร</a></li>
         </ul>
       </div>
       <div>
@@ -2838,9 +2867,12 @@
             document.getElementById('kpiInstruments').textContent = d.kpi.instruments + '+';
           }
         }
-        // Update Q1 count from quartile breakdown
-        if (d && d.quartile && d.quartile.Q1 != null) {
-          document.getElementById('kpiQ1').textContent = d.quartile.Q1;
+        // Update Q1 percentage from quartile breakdown
+        if (d && d.quartile && d.quartile.Q1 != null && d.kpi && d.kpi.papers) {
+          const pct = Math.round((d.quartile.Q1 / d.kpi.papers) * 100);
+          document.getElementById('kpiQ1').textContent = pct + '%';
+        } else if (d && d.quartile && d.quartile.Q1 != null) {
+          document.getElementById('kpiQ1').textContent = d.quartile.Q1 + '%';
         }
       } catch (err) {
         console.error('Failed to fetch dynamic stats:', err);
