@@ -38,6 +38,8 @@ const relatedPapersData = {
   // 7: Flow Cytometer (Cell Sorter)
   7: [
     // "10.xxxx/yyyy"
+    "10.1038/s41598-024-61092-5",
+
   ],
 
   // 8: Thermocycler (PCR)
@@ -234,6 +236,8 @@ const relatedPapersData = {
     "10.1128/spectrum.04159-25",
     "10.1371/journal.ppat.1012936",
     "10.1016/j.heliyon.2024.e39048",
+    "10.1101/2024.06.15.599175",
+    "10.1016/j.micres.2024.127749",
     // "10.xxxx/yyyy"
   ],
 
@@ -258,6 +262,7 @@ const relatedPapersData = {
     "10.1016/j.carbon.2024.119705",
     "10.21203/rs.3.rs-5505585/v1",
     "10.1039/d4ra04284k",
+    "10.1016/j.chemosphere.2024.142536",
     // "10.xxxx/yyyy"
   ],
 
@@ -283,6 +288,8 @@ const relatedPapersData = {
     "10.3390/ani14223178",
     "10.1038/s41598-024-70276-y",
     "10.1039/d4ra04284k",
+    "10.3390/antibiotics13070579",
+    "10.1016/j.cej.2024.150825",
     // "10.xxxx/yyyy"
   ],
 
@@ -351,6 +358,7 @@ const relatedPapersData = {
   // 58: Cryostat
   58: [
     "10.1038/s41598-024-84395-z",
+    "10.1038/s41598-024-60459-y",
     // "10.xxxx/yyyy"
   ],
 
@@ -391,6 +399,8 @@ const relatedPapersData = {
     "10.1038/s41598-024-70503-6",
     "10.1039/d4tc02062f",
     "10.1038/s41598-024-66938-6",
+    "10.1021/acsapm.4c00931",
+    "10.1021/acsomega.4c01353",
     // "10.xxxx/yyyy"
   ],
 
@@ -427,6 +437,7 @@ const relatedPapersData = {
     "10.1038/s41598-025-27933-7",
     "10.1002/prp2.70148",
     "10.1038/s41598-024-66650-5",
+    "10.1016/j.heliyon.2024.e33097",
     // "10.xxxx/yyyy"
   ],
 
@@ -518,6 +529,7 @@ const relatedPapersData = {
     "10.1016/j.clema.2024.100254",
     "10.1016/j.susmat.2024.e00973",
     "10.1016/j.jtice.2023.105324",
+    "10.3390/polym16131767",
     // "10.xxxx/yyyy"
   ],
 
@@ -528,6 +540,7 @@ const relatedPapersData = {
     "10.1016/j.clema.2024.100280",
     "10.1038/s41598-024-70276-y",
     "10.1016/j.susmat.2024.e00973",
+    "10.3390/polym16131767",
     // "10.xxxx/yyyy"
   ],
 
@@ -591,6 +604,7 @@ const relatedPapersData = {
     "10.1038/s41598-024-66650-5",
     "10.1016/j.susmat.2024.e00973",
     "10.1016/j.jtice.2023.105324",
+    "10.1016/j.cej.2024.150825",
     // "10.xxxx/yyyy"
   ],
 
@@ -612,6 +626,7 @@ const relatedPapersData = {
     "10.1080/03650340.2025.2518266",
     "10.1016/j.wasman.2024.08.033",
     "10.1016/j.jtice.2023.105324",
+    "10.1021/acsapm.4c00931",
     // "10.xxxx/yyyy"
   ],
 
