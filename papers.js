@@ -39,6 +39,7 @@ const relatedPapersData = {
   7: [
     // "10.xxxx/yyyy"
     "10.1038/s41598-024-61092-5",
+    "10.1038/s41598-024-52414-8",
 
   ],
 
@@ -94,7 +95,9 @@ const relatedPapersData = {
 
   // 17: MALDI-TOF/TOF Mass Spectrometer
   17: [
-    "10.1002/cbf.70256"
+    "10.1002/cbf.70256",
+    "10.1016/j.biombioe.2023.107005",
+
     // "10.xxxx/yyyy"
   ],
 
@@ -115,6 +118,8 @@ const relatedPapersData = {
 
   // 21: High Performance Liquid Chromatograph (HPLC)
   21: [
+    "10.1038/s41598-024-57631-9",
+    "10.1016/j.biombioe.2023.107005",
     // "10.xxxx/yyyy"
   ],
 
@@ -136,7 +141,8 @@ const relatedPapersData = {
 
   // 25: LC-MS Triple TOF (High Resolution)
   25: [
-    "10.3390/cosmetics13030107"
+    "10.3390/cosmetics13030107",
+    "10.3390/ijms27177782"
     // "10.xxxx/yyyy"
   ],
 
@@ -153,6 +159,8 @@ const relatedPapersData = {
   // 28: Direct Analysis in Real Time Mass Spectrometer (DART-MS)
   28: [
     "10.1002/ajoc.202400808",
+    "10.1002/asia.202400176",
+    "10.1055/a-2259-5395",
     // "10.xxxx/yyyy"
   ],
 
@@ -175,6 +183,7 @@ const relatedPapersData = {
   32: [
     "10.1016/j.afres.2025.101353",
     "10.1038/s41598-024-66650-5",
+    "10.1021/acsomega.3c08653",
     // "10.xxxx/yyyy"
   ],
 
@@ -238,6 +247,7 @@ const relatedPapersData = {
     "10.1016/j.heliyon.2024.e39048",
     "10.1101/2024.06.15.599175",
     "10.1016/j.micres.2024.127749",
+    "10.1016/j.isci.2024.109790",
     // "10.xxxx/yyyy"
   ],
 
@@ -249,6 +259,8 @@ const relatedPapersData = {
   // 45: Atomic Force Microscope (AFM)
   45: [
     "10.1016/j.apsusc.2024.161591",
+    "10.1016/j.surfin.2026.110788",
+    "10.1016/j.isci.2024.109306",
     // "10.xxxx/yyyy"
   ],
 
@@ -263,6 +275,8 @@ const relatedPapersData = {
     "10.21203/rs.3.rs-5505585/v1",
     "10.1039/d4ra04284k",
     "10.1016/j.chemosphere.2024.142536",
+    "10.1016/j.fuproc.2026.108578",
+    "10.1016/j.jtice.2023.105301",
     // "10.xxxx/yyyy"
   ],
 
@@ -273,6 +287,7 @@ const relatedPapersData = {
     "10.64898/2026.01.17.700097",
     "10.1038/s41598-025-34661-5",
     "10.21203/rs.3.rs-7778530/v1",
+    "10.1111/bjh.19454",
     // "10.xxxx/yyyy"
   ],
 
@@ -290,6 +305,10 @@ const relatedPapersData = {
     "10.1039/d4ra04284k",
     "10.3390/antibiotics13070579",
     "10.1016/j.cej.2024.150825",
+    "10.1186/s13028-024-00728-y",
+    "10.1021/acsami.3c14760",
+    "10.3390/polym16020232",
+    "10.1016/j.biombioe.2023.107005",
     // "10.xxxx/yyyy"
   ],
 
@@ -311,6 +330,13 @@ const relatedPapersData = {
     "10.1016/j.eti.2024.103681",
     "10.1038/s41598-024-66650-5",
     "10.1016/j.jtice.2023.105324",
+    "10.1016/j.carbpol.2024.122132",
+    "10.1039/d6ra05856f",
+    "10.1021/acsaem.3c03236",
+    "10.1016/j.isci.2024.109306",
+    "10.1021/acsomega.3c08653",
+    "10.3390/antibiotics13020138",
+    "10.1016/j.biombioe.2023.107005",
     // "10.xxxx/yyyy"
   ],
 
@@ -401,6 +427,9 @@ const relatedPapersData = {
     "10.1038/s41598-024-66938-6",
     "10.1021/acsapm.4c00931",
     "10.1021/acsomega.4c01353",
+    "10.1016/j.surfin.2026.110788",
+    "10.1021/acsaem.3c03236",
+    "10.1016/j.heliyon.2024.e27574",
     // "10.xxxx/yyyy"
   ],
 
@@ -428,6 +457,9 @@ const relatedPapersData = {
     "10.1016/j.jddst.2024.106437",
     "10.1016/j.clema.2024.100280",
     "10.1016/j.susmat.2024.e00973",
+    "10.1021/acsami.3c14760",
+    "10.3390/polym16020232",
+    "10.1016/j.biombioe.2023.107005",
     // "10.xxxx/yyyy"
   ],
 
@@ -456,6 +488,8 @@ const relatedPapersData = {
     "10.1080/03650340.2025.2518266",
     "10.1016/j.fochx.2024.102119",
     "10.1016/j.jafr.2024.101272",
+    "10.1080/15226514.2024.2317878",
+    "10.1016/j.scitotenv.2024.170791",
     // "10.xxxx/yyyy"
   ],
 
@@ -478,6 +512,8 @@ const relatedPapersData = {
     "10.1039/d4tc02062f",
     "10.1016/j.chemosphere.2024.142997",
     "10.1038/s41598-024-66650-5",
+    "10.3390/foods13050669",
+    "10.1021/acsomega.3c08653",
     // "10.xxxx/yyyy"
   ],
 
@@ -485,6 +521,7 @@ const relatedPapersData = {
   72: [
     "10.1016/j.envres.2026.124396",
     "10.1002/solr.202400910",
+    "10.1016/j.xcrp.2024.101899",
     // "10.xxxx/yyyy"
   ],
 
@@ -495,12 +532,15 @@ const relatedPapersData = {
     "10.1016/j.psep.2025.01.006",
     "10.1016/j.carbon.2024.119705",
     "10.1038/s41598-024-66650-5",
+    "10.1039/d6ra05856f",
+    "10.1021/acsomega.3c08653",
     // "10.xxxx/yyyy"
   ],
 
   // 74: Microparticle Size Analyzer (Laser Diffraction)
   74: [
     "10.1016/j.wasman.2024.08.033",
+    "10.1021/acsomega.3c03674",
     // "10.xxxx/yyyy"
   ],
 
@@ -511,6 +551,8 @@ const relatedPapersData = {
 
   // 76: Optical Contact Angle Analyzer (OCA)
   76: [
+    "10.1016/j.xcrp.2024.101899",
+
     // "10.xxxx/yyyy"
   ],
 
@@ -530,6 +572,7 @@ const relatedPapersData = {
     "10.1016/j.susmat.2024.e00973",
     "10.1016/j.jtice.2023.105324",
     "10.3390/polym16131767",
+    "10.1016/j.ces.2024.119729",
     // "10.xxxx/yyyy"
   ],
 
@@ -541,6 +584,7 @@ const relatedPapersData = {
     "10.1038/s41598-024-70276-y",
     "10.1016/j.susmat.2024.e00973",
     "10.3390/polym16131767",
+    "10.1016/j.biombioe.2023.107005",
     // "10.xxxx/yyyy"
   ],
 
@@ -605,6 +649,15 @@ const relatedPapersData = {
     "10.1016/j.susmat.2024.e00973",
     "10.1016/j.jtice.2023.105324",
     "10.1016/j.cej.2024.150825",
+    "10.1016/j.ces.2024.119729",
+    "10.1016/j.surfin.2026.110788",
+    "10.1038/s41598-024-57631-9",
+    "10.1016/j.heliyon.2024.e27574",
+    "10.1016/j.isci.2024.109306",
+    "10.1021/acsomega.4c00685",
+    "10.1016/j.jtice.2023.105301",
+    "10.1088/1742-6596/2696/1/012001",
+    "10.1016/j.biombioe.2023.107005",
     // "10.xxxx/yyyy"
   ],
 
@@ -616,6 +669,7 @@ const relatedPapersData = {
 
   // 85: Wavelength Dispersive X-ray Fluorescence (WDXRF)
   85: [
+    "10.1016/j.scitotenv.2024.170791",
     // "10.xxxx/yyyy"
   ],
 
@@ -627,6 +681,8 @@ const relatedPapersData = {
     "10.1016/j.wasman.2024.08.033",
     "10.1016/j.jtice.2023.105324",
     "10.1021/acsapm.4c00931",
+    "10.1016/j.isci.2024.109306",
+    "10.1016/j.scitotenv.2024.170791",
     // "10.xxxx/yyyy"
   ],
 
