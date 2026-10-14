@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 
 <head>
@@ -559,6 +559,15 @@
       // 1. Quartile — Doughnut
       const qLabels = Object.keys(d.quartile);
       const qData = qLabels.map(k => d.quartile[k]);
+      // เพิ่มส่วน N/A (งานที่ไม่มี Quartile) เพื่อให้ยอดรวมเท่ากับ Unique Publications
+      // และ % Q1 ตรงกับการ์ด KPI
+      const qRanked = qData.reduce((a, b) => a + b, 0);
+      const naCount = (d.kpi && d.kpi.papers) ? d.kpi.papers - qRanked : 0;
+      if (naCount > 0) {
+        const naIdx = qLabels.indexOf('N/A');
+        if (naIdx >= 0) qData[naIdx] += naCount;
+        else { qLabels.push('N/A'); qData.push(naCount); }
+      }
       const qTotal = qData.reduce((a, b) => a + b, 0);
       const qColors = qLabels.map(k => QUARTILE_COLORS[k] || '#94a3b8');
       new Chart(document.getElementById('quartileChart'), {
