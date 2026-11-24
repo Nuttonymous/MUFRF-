@@ -54,7 +54,7 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
+      z-index: 1000;
       padding: 0 2rem;
       backdrop-filter: blur(20px) saturate(180%);
       background: rgba(255, 255, 255, 0.95);
@@ -115,6 +115,37 @@
     .nav-links a.active {
       color: var(--text-primary);
       background: var(--glass-hover);
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-toggle svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 998;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
+    .nav-overlay.open {
+      display: block;
     }
 
     .stats-header {
@@ -375,7 +406,7 @@
       }
 
       .mobile-toggle {
-        display: block;
+        display: flex;
       }
 
       .nav-links.open {
@@ -404,6 +435,10 @@
     }
 
     @media (max-width: 768px) {
+      .navbar {
+        padding: 0 1rem;
+      }
+
       .kpi-row {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -796,10 +831,14 @@
         }
       });
 
-      // 6. Co-usage — Custom Table
-      const maxPair = d.topCoPairs[0] ? d.topCoPairs[0][1] : 1;
-      document.getElementById('coUsageContainer').innerHTML = d.topCoPairs.length
-        ? `<table class="co-usage-table">${d.topCoPairs.map(([pair, count]) => `
+      // 6. Co-usage — Custom Table (กรอง SEM และ FE-SEM ออกชั่วคราว)
+      const coPairsList = (d.topCoPairs || []).filter(([pair]) => {
+        const pLower = pair.toLowerCase();
+        return !pLower.includes('sem') && !pLower.includes('fe-sem') && !pLower.includes('fesem');
+      });
+      const maxPair = coPairsList[0] ? coPairsList[0][1] : 1;
+      document.getElementById('coUsageContainer').innerHTML = coPairsList.length
+        ? `<table class="co-usage-table">${coPairsList.map(([pair, count]) => `
             <tr>
               <td>
                 <div>${pair}</div>
