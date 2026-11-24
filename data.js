@@ -731,7 +731,7 @@ const servicesImages = {
   92: "images/bioprinter.png", // 3D Bioprinter
   93: "images/hematoanalyzer.png", // Hematology analyzer
   94: "images/bloodanalyze.png", // Blood chemistry analyzer
-  95: "images/bloodgasanalyze.jpng", // Blood Gas and Chemistry Analyzer i-STAT 1
+  95: "images/bloodgasanalyze.png", // Blood Gas and Chemistry Analyzer i-STAT 1
   96: "images/fluorescencemicroscope.png", // Fluorescence Microscope
   97: "images/stereomicroscope.png", // Stereo microscope
   98: "images/cryostat.2.png", // Cryostat
