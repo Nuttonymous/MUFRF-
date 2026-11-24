@@ -724,20 +724,20 @@ const servicesImages = {
   86: "images/microxrf.png", // X-ray Fluorescence Microscope (Micro-XRF)
   87: "images/hpc.png", // High Performance Computing (HPC) Facility
   // ── MUSC (ใส่ path รูปในเครื่องหมาย "" เช่น "images/ivis.png" — ถ้าเว้นว่างไว้จะแสดงกรอบว่างแทน) ──
-  88: "images/ivis.jpg", // Advanced Preclinical Optical Imaging (IVIS Spectrum)
-  89: "images/multiphoton.jpg", // Multiphoton microscope
-  90: "images/vector.jpg", // VECTor6 CT All-In-One PET/SPECT/CT Imaging System
-  91: "images/vo2max.jpg", // VO2 MAX (Rodent/Mouse Metabolic Treadmill)
-  92: "images/bioprinter.jpg", // 3D Bioprinter
-  93: "images/hematoanalyzer.jpg", // Hematology analyzer
-  94: "images/bloodanalyze.jpg", // Blood chemistry analyzer
-  95: "images/bloodgasanalyze.jpeg", // Blood Gas and Chemistry Analyzer i-STAT 1
-  96: "images/fluorescencemicroscope.jpg", // Fluorescence Microscope
-  97: "images/stereomicroscope.jpg", // Stereo microscope
-  98: "images/cryostat.jpg", // Cryostat
-  99: "images/tissuehomogenizer.jpg", // Tissue homogenizer
-  100: "images/geldoc.jpg", // Gel documentation system
-  101: "images/micromanipulate.jpg", // Micromanipulation and Microinjection System
+  88: "images/ivis.png", // Advanced Preclinical Optical Imaging (IVIS Spectrum)
+  89: "images/multiphoton.png", // Multiphoton microscope
+  90: "images/vector.png", // VECTor6 CT All-In-One PET/SPECT/CT Imaging System
+  91: "images/vo2max.png", // VO2 MAX (Rodent/Mouse Metabolic Treadmill)
+  92: "images/bioprinter.png", // 3D Bioprinter
+  93: "images/hematoanalyzer.png", // Hematology analyzer
+  94: "images/bloodanalyze.png", // Blood chemistry analyzer
+  95: "images/bloodgasanalyze.jpng", // Blood Gas and Chemistry Analyzer i-STAT 1
+  96: "images/fluorescencemicroscope.png", // Fluorescence Microscope
+  97: "images/stereomicroscope.png", // Stereo microscope
+  98: "images/cryostat.2.png", // Cryostat
+  99: "images/tissuehomogenizer.png", // Tissue homogenizer
+  100: "images/geldoc.png", // Gel documentation system
+  101: "images/micromanipulate.png", // Micromanipulation and Microinjection System
 };
 
 
